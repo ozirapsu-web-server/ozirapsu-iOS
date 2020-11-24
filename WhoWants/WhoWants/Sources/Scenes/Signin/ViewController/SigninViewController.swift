@@ -1,19 +1,18 @@
 //
-//  ViewController.swift
+//  SigninViewController.swift
 //  WhoWants
 //
-//  Created by 윤동민 on 2020/11/13.
+//  Created by 윤동민 on 2020/11/25.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class SigninViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
 
-
 }
-
