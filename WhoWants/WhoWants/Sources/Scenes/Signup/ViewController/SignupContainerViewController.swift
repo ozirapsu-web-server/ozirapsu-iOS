@@ -29,6 +29,15 @@ enum SignupInputType: Int {
         default: return ""
         }
     }
+    
+    func calProgress() -> Float {
+        switch self {
+        case .email: return 0
+        case .pw: return 0.25
+        case .nickname: return 0.5
+        case .gender: return 0.75
+        }
+    }
 }
 
 protocol SignupInputable {
@@ -40,7 +49,7 @@ class SignupContainerViewController: UIViewController {
     // MARK: - UI
     var progressView: UIProgressView = {
         var progressView = UIProgressView(progressViewStyle: .default)
-        progressView.progress = 0.25
+        progressView.progress = 0
         progressView.progressTintColor = .mainblack
         progressView.translatesAutoresizingMaskIntoConstraints = false
         return progressView
@@ -82,8 +91,9 @@ class SignupContainerViewController: UIViewController {
     func onChange(_ notification: NSNotification) {
         guard let curRaw = childInputVC?.type.rawValue else { return }
         if curRaw == 3 { print("Last") }
-        progressView.setProgress(0.5, animated: true)
-        addChildView(type: SignupInputType(rawValue: curRaw+1)!)
+        let curInput = SignupInputType(rawValue: curRaw+1)!
+        progressView.setProgress(curInput.calProgress(), animated: true)
+        addChildView(type: curInput)
     }
     
     // MARK: - Init
