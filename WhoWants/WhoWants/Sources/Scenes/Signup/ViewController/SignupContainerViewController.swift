@@ -11,6 +11,21 @@ enum SignupText: String {
     case signup = "회원가입"
 }
 
+enum SignupInputType: Int {
+    case email = 0, pw, nickname, gender
+    
+    func instantiateVC() -> SignupInputable {
+        switch self {
+        case .email: return EmailInputViewController()
+        default: return EmailInputViewController()
+        }
+    }
+}
+
+protocol SignupInputable {
+    var type: SignupInputType { get }
+}
+
 class SignupContainerViewController: UIViewController {
     // MARK: - UI
     var progressView: UIProgressView = {
@@ -21,9 +36,18 @@ class SignupContainerViewController: UIViewController {
         return progressView
     }()
     
+    var containerView: UIView = {
+        var uiView = UIView()
+        uiView.translatesAutoresizingMaskIntoConstraints = false
+        return uiView
+    }()
+    
+    var childInputVC: SignupInputable?
+    
     // MARK: - Init
     private func initView() {
         view.addSubview(progressView)
+        view.addSubview(containerView)
     }
     
     private func setNav() {
@@ -31,6 +55,15 @@ class SignupContainerViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .mainblack
         navigationItem.title = SignupText.signup.rawValue
         navigationController?.navigationBar.topItem?.title = ""
+    }
+    
+    private func addChildView(type: SignupInputType) {
+        self.childInputVC = type.instantiateVC()
+        guard let castingVC = self.childInputVC as? UIViewController else { return }
+        self.addChild(castingVC)
+        castingVC.view.frame = containerView.bounds
+        containerView.addSubview(castingVC.view)
+        castingVC.didMove(toParent: self)
     }
 
     // MARK: - Life Cycle
@@ -41,6 +74,8 @@ class SignupContainerViewController: UIViewController {
         
         initView()
         configureLayout()
+        
+        addChildView(type: .email)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,7 +88,11 @@ class SignupContainerViewController: UIViewController {
         NSLayoutConstraint.activate([
             progressView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             progressView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            progressView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            progressView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            containerView.topAnchor.constraint(equalTo: progressView.bottomAnchor),
+            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
     
