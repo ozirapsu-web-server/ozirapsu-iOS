@@ -21,6 +21,11 @@ class SignupContainerViewController: UIViewController {
     private func initView() {
         view.addSubview(progressView)
     }
+    
+    private func setNav() {
+        navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.tintColor = UIColor(red: <#T##CGFloat#>, green: <#T##CGFloat#>, blue: <#T##CGFloat#>, alpha: <#T##CGFloat#>)
+    }
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -30,6 +35,10 @@ class SignupContainerViewController: UIViewController {
         
         initView()
         configureLayout()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     // MARK: - Layout
