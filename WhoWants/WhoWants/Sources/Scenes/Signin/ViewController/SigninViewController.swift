@@ -111,7 +111,7 @@ class SigninViewController: UIViewController {
     
     var loginButton: UIButton = {
         var btn = UIButton(type: .system)
-        btn.backgroundColor = UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1.0)
+        btn.backgroundColor = .mainblack
         btn.clipsToBounds = true
         btn.translatesAutoresizingMaskIntoConstraints = false
         let attributeText = NSAttributedString(string: SigninText.signinBtn.rawValue,
