@@ -15,6 +15,7 @@
 		9D6B05A4255D8F9E00FE63C9 /* WhoWantsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6B05A3255D8F9E00FE63C9 /* WhoWantsUITests.swift */; };
 		9D8EAB1B256D8EFD0066B3C7 /* Signin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D8EAB1A256D8EFD0066B3C7 /* Signin.storyboard */; };
 		9D8EAB23256D8F250066B3C7 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8EAB22256D8F250066B3C7 /* SigninViewController.swift */; };
+		9D8EAB45256E1FB30066B3C7 /* SignupContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8EAB44256E1FB30066B3C7 /* SignupContainerViewController.swift */; };
 		A7FC0E6A37F8587083D22AF1 /* Pods_WhoWantsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 732D0F645AAEF922E84C0C17 /* Pods_WhoWantsTests.framework */; };
 		EE53E115DCACF772221C4F9D /* Pods_WhoWants_WhoWantsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1D49E0DDE4CCF9DC4A8B4E0 /* Pods_WhoWants_WhoWantsUITests.framework */; };
 /* End PBXBuildFile section */
@@ -57,6 +58,7 @@
 		9D6B05CD255D9AA300FE63C9 /* WhoWants.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WhoWants.entitlements; sourceTree = "<group>"; };
 		9D8EAB1A256D8EFD0066B3C7 /* Signin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signin.storyboard; sourceTree = "<group>"; };
 		9D8EAB22256D8F250066B3C7 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
+		9D8EAB44256E1FB30066B3C7 /* SignupContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupContainerViewController.swift; sourceTree = "<group>"; };
 		C119D225169FF71CD95B5269 /* Pods-WhoWantsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoWantsTests.debug.xcconfig"; path = "Target Support Files/Pods-WhoWantsTests/Pods-WhoWantsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C1D49E0DDE4CCF9DC4A8B4E0 /* Pods_WhoWants_WhoWantsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhoWants_WhoWantsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1FC104123CD00AA7BC8A782 /* Pods-WhoWants.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoWants.debug.xcconfig"; path = "Target Support Files/Pods-WhoWants/Pods-WhoWants.debug.xcconfig"; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			children = (
 				9D8EAB2E256D8F7D0066B3C7 /* Splash */,
 				9D8EAB0C256D8E100066B3C7 /* Signin */,
+				9D8EAB32256E1F2F0066B3C7 /* Signup */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -219,6 +222,22 @@
 				9D6B058C255D8F9D00FE63C9 /* LaunchScreen.storyboard */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		9D8EAB32256E1F2F0066B3C7 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				9D8EAB38256E1F590066B3C7 /* ViewController */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		9D8EAB38256E1F590066B3C7 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9D8EAB44256E1FB30066B3C7 /* SignupContainerViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		C0AB206BA6B0151A0A2EBACB /* Frameworks */ = {
@@ -471,6 +490,7 @@
 			files = (
 				9D8EAB23256D8F250066B3C7 /* SigninViewController.swift in Sources */,
 				9D6B0582255D8F9600FE63C9 /* AppDelegate.swift in Sources */,
+				9D8EAB45256E1FB30066B3C7 /* SignupContainerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -110,7 +110,7 @@ class SigninViewController: UIViewController {
     }()
     
     var loginButton: UIButton = {
-        var btn = UIButton()
+        var btn = UIButton(type: .system)
         btn.backgroundColor = UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1.0)
         btn.clipsToBounds = true
         btn.translatesAutoresizingMaskIntoConstraints = false
@@ -123,7 +123,7 @@ class SigninViewController: UIViewController {
     }()
     
     var signupButton: UIButton = {
-        var btn = UIButton()
+        var btn = UIButton(type: .system)
         btn.backgroundColor = .white
         btn.clipsToBounds = true
         btn.translatesAutoresizingMaskIntoConstraints = false
@@ -151,6 +151,21 @@ class SigninViewController: UIViewController {
         pwMarginView.addSubview(pwLineView)
     }
     
+    private func setNav() {
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    private func setButtonAction() {
+        signupButton.addTarget(self, action: #selector(presentSignupView(_:)), for: .touchUpInside)
+    }
+    
+    // MARK: - Action
+    @objc
+    func presentSignupView(_ sender: UIButton) {
+        let signupContainerVC = SignupContainerViewController()
+        navigationController?.pushViewController(signupContainerVC, animated: true)
+    }
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -160,6 +175,12 @@ class SigninViewController: UIViewController {
         
         initView()
         configureLayout()
+        setButtonAction()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setNav()
     }
     
     override func viewDidLayoutSubviews() {
