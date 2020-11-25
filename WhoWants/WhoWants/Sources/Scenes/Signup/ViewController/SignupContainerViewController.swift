@@ -7,12 +7,16 @@
 
 import UIKit
 
+enum SignupText: String {
+    case signup = "회원가입"
+}
+
 class SignupContainerViewController: UIViewController {
     // MARK: - UI
     var progressView: UIProgressView = {
         var progressView = UIProgressView(progressViewStyle: .default)
         progressView.progress = 0
-        progressView.progressTintColor = UIColor(red: 0.13, green: 0.13, blue: 0.13, alpha: 1.0)
+        progressView.progressTintColor = .mainblack
         progressView.translatesAutoresizingMaskIntoConstraints = false
         return progressView
     }()
@@ -24,7 +28,9 @@ class SignupContainerViewController: UIViewController {
     
     private func setNav() {
         navigationController?.navigationBar.isHidden = false
-        navigationController?.navigationBar.tintColor = UIColor(red: <#T##CGFloat#>, green: <#T##CGFloat#>, blue: <#T##CGFloat#>, alpha: <#T##CGFloat#>)
+        navigationController?.navigationBar.tintColor = .mainblack
+        navigationItem.title = SignupText.signup.rawValue
+        navigationController?.navigationBar.topItem?.title = ""
     }
 
     // MARK: - Life Cycle
@@ -39,6 +45,7 @@ class SignupContainerViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setNav()
     }
     
     // MARK: - Layout
