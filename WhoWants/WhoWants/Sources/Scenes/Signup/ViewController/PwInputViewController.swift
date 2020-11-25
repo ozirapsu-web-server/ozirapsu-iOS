@@ -17,6 +17,20 @@ class PwInputViewController: UIViewController {
         // Do any additional setup after loading the view.
         view.backgroundColor = .blue
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.view.transform = CGAffineTransform(translationX: 100, y: 0)
+        self.view.alpha = 0
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.transform = .identity
+            self.view.alpha = 1
+        })
+    }
+    
+    deinit {
+        print("Pw Input Deinit")
+    }
 }
 
 extension PwInputViewController: SignupInputable {

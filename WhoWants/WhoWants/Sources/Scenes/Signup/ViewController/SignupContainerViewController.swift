@@ -80,7 +80,10 @@ class SignupContainerViewController: UIViewController {
     
     @objc
     func onChange(_ notification: NSNotification) {
-        print("")
+        guard let curRaw = childInputVC?.type.rawValue else { return }
+        if curRaw == 3 { print("Last") }
+        progressView.setProgress(0.5, animated: true)
+        addChildView(type: SignupInputType(rawValue: curRaw+1)!)
     }
     
     // MARK: - Init
