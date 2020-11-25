@@ -17,20 +17,30 @@ enum SignupInputType: Int {
     func instantiateVC() -> SignupInputable {
         switch self {
         case .email: return EmailInputViewController()
+        case .pw: return PwInputViewController()
         default: return EmailInputViewController()
+        }
+    }
+    
+    func getKey() -> String {
+        switch self {
+        case .email: return "email"
+        case .pw: return "pw"
+        default: return ""
         }
     }
 }
 
 protocol SignupInputable {
     var type: SignupInputType { get }
+    var transfer: ((String) -> Void)? { get set }
 }
 
 class SignupContainerViewController: UIViewController {
     // MARK: - UI
     var progressView: UIProgressView = {
         var progressView = UIProgressView(progressViewStyle: .default)
-        progressView.progress = 0
+        progressView.progress = 0.25
         progressView.progressTintColor = .mainblack
         progressView.translatesAutoresizingMaskIntoConstraints = false
         return progressView
@@ -43,6 +53,9 @@ class SignupContainerViewController: UIViewController {
     }()
     
     var childInputVC: SignupInputable?
+    
+    // MARK: - Data
+    var userInform: [String: String] = [:]
     
     // MARK: - Init
     private func initView() {
@@ -64,6 +77,17 @@ class SignupContainerViewController: UIViewController {
         castingVC.view.frame = containerView.bounds
         containerView.addSubview(castingVC.view)
         castingVC.didMove(toParent: self)
+        
+        childInputVC?.transfer = { [weak self] inform in
+            self?.userInform[type.getKey()] = inform
+        }
+    }
+    
+    private func removeChildView() {
+        guard let castingVC = self.childInputVC as? UIViewController else { return }
+        castingVC.willMove(toParent: nil)
+        castingVC.view.removeFromSuperview()
+        castingVC.removeFromParent()
     }
 
     // MARK: - Life Cycle
