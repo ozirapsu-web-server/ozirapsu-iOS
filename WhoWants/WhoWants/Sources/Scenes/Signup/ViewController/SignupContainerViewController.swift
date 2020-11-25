@@ -57,19 +57,7 @@ class SignupContainerViewController: UIViewController {
     // MARK: - Data
     var userInform: [String: String] = [:]
     
-    // MARK: - Init
-    private func initView() {
-        view.addSubview(progressView)
-        view.addSubview(containerView)
-    }
-    
-    private func setNav() {
-        navigationController?.navigationBar.isHidden = false
-        navigationController?.navigationBar.tintColor = .mainblack
-        navigationItem.title = SignupText.signup.rawValue
-        navigationController?.navigationBar.topItem?.title = ""
-    }
-    
+    // MARK: - Action
     private func addChildView(type: SignupInputType) {
         self.childInputVC = type.instantiateVC()
         guard let castingVC = self.childInputVC as? UIViewController else { return }
@@ -89,6 +77,28 @@ class SignupContainerViewController: UIViewController {
         castingVC.view.removeFromSuperview()
         castingVC.removeFromParent()
     }
+    
+    @objc
+    func onChange(_ notification: NSNotification) {
+        print("")
+    }
+    
+    // MARK: - Init
+    private func initView() {
+        view.addSubview(progressView)
+        view.addSubview(containerView)
+    }
+    
+    private func setNav() {
+        navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.tintColor = .mainblack
+        navigationItem.title = SignupText.signup.rawValue
+        navigationController?.navigationBar.topItem?.title = ""
+    }
+    
+    private func addObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(onChange(_:)), name: .completeTransfer, object: nil)
+    }
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -100,6 +110,7 @@ class SignupContainerViewController: UIViewController {
         configureLayout()
         
         addChildView(type: .email)
+        addObserver()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -119,5 +130,4 @@ class SignupContainerViewController: UIViewController {
             containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-    
 }

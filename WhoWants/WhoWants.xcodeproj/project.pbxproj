@@ -19,6 +19,9 @@
 		9D8EAB4A256E33070066B3C7 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8EAB49256E33070066B3C7 /* UIColor+Extension.swift */; };
 		9D8EAB4F256E35C30066B3C7 /* EmailInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8EAB4E256E35C30066B3C7 /* EmailInputViewController.swift */; };
 		9D8EAB5C256E3D610066B3C7 /* PwInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8EAB5B256E3D610066B3C7 /* PwInputViewController.swift */; };
+		9D8EAB61256E87410066B3C7 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8EAB60256E87410066B3C7 /* String+Extension.swift */; };
+		9D8EAB66256E8AF10066B3C7 /* ImageName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8EAB65256E8AF10066B3C7 /* ImageName.swift */; };
+		9D8EAB6E256EAA8F0066B3C7 /* NSNotification.Name+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8EAB6D256EAA8F0066B3C7 /* NSNotification.Name+Extension.swift */; };
 		A7FC0E6A37F8587083D22AF1 /* Pods_WhoWantsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 732D0F645AAEF922E84C0C17 /* Pods_WhoWantsTests.framework */; };
 		EE53E115DCACF772221C4F9D /* Pods_WhoWants_WhoWantsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1D49E0DDE4CCF9DC4A8B4E0 /* Pods_WhoWants_WhoWantsUITests.framework */; };
 /* End PBXBuildFile section */
@@ -65,6 +68,9 @@
 		9D8EAB49256E33070066B3C7 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		9D8EAB4E256E35C30066B3C7 /* EmailInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailInputViewController.swift; sourceTree = "<group>"; };
 		9D8EAB5B256E3D610066B3C7 /* PwInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PwInputViewController.swift; sourceTree = "<group>"; };
+		9D8EAB60256E87410066B3C7 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		9D8EAB65256E8AF10066B3C7 /* ImageName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageName.swift; sourceTree = "<group>"; };
+		9D8EAB6D256EAA8F0066B3C7 /* NSNotification.Name+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification.Name+Extension.swift"; sourceTree = "<group>"; };
 		C119D225169FF71CD95B5269 /* Pods-WhoWantsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoWantsTests.debug.xcconfig"; path = "Target Support Files/Pods-WhoWantsTests/Pods-WhoWantsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C1D49E0DDE4CCF9DC4A8B4E0 /* Pods_WhoWants_WhoWantsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhoWants_WhoWantsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1FC104123CD00AA7BC8A782 /* Pods-WhoWants.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoWants.debug.xcconfig"; path = "Target Support Files/Pods-WhoWants/Pods-WhoWants.debug.xcconfig"; sourceTree = "<group>"; };
@@ -184,6 +190,8 @@
 			isa = PBXGroup;
 			children = (
 				9D8EAB49256E33070066B3C7 /* UIColor+Extension.swift */,
+				9D8EAB60256E87410066B3C7 /* String+Extension.swift */,
+				9D8EAB6D256EAA8F0066B3C7 /* NSNotification.Name+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -191,6 +199,7 @@
 		9D8EAB0B256D8DBE0066B3C7 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				9D8EAB65256E8AF10066B3C7 /* ImageName.swift */,
 				9D8EAB2E256D8F7D0066B3C7 /* Splash */,
 				9D8EAB0C256D8E100066B3C7 /* Signin */,
 				9D8EAB32256E1F2F0066B3C7 /* Signup */,
@@ -498,10 +507,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D8EAB23256D8F250066B3C7 /* SigninViewController.swift in Sources */,
+				9D8EAB61256E87410066B3C7 /* String+Extension.swift in Sources */,
 				9D8EAB4F256E35C30066B3C7 /* EmailInputViewController.swift in Sources */,
+				9D8EAB6E256EAA8F0066B3C7 /* NSNotification.Name+Extension.swift in Sources */,
 				9D8EAB5C256E3D610066B3C7 /* PwInputViewController.swift in Sources */,
 				9D6B0582255D8F9600FE63C9 /* AppDelegate.swift in Sources */,
 				9D8EAB45256E1FB30066B3C7 /* SignupContainerViewController.swift in Sources */,
+				9D8EAB66256E8AF10066B3C7 /* ImageName.swift in Sources */,
 				9D8EAB4A256E33070066B3C7 /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

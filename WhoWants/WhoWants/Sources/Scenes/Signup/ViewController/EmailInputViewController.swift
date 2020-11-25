@@ -11,6 +11,7 @@ enum EmailInputText: String {
     case title = "로그인에 사용할\n이메일을 입력해주세요"
     case next = "다음"
     case textFieldPlaceholder = "이메일 주소를 입력해주세요"
+    case invalid = "유효하지 않은 이메일입니다."
 }
 
 class EmailInputViewController: UIViewController {
@@ -20,6 +21,8 @@ class EmailInputViewController: UIViewController {
         btn.backgroundColor = UIColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1.0)
         btn.clipsToBounds = true
         btn.setTitleColor(.white, for: .normal)
+        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        btn.isUserInteractionEnabled = false
         btn.setTitle(EmailInputText.next.rawValue, for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
@@ -52,6 +55,15 @@ class EmailInputViewController: UIViewController {
         return textField
     }()
     
+    var cancelButton: UIButton = {
+        var btn = UIButton(type: .custom)
+        btn.setImage(UIImage(named: ImageName.cancelBtn), for: .normal)
+        btn.tintColor = .mainblack
+        btn.isHidden = true
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
     var lineView: UIView = {
         var uiView = UIView()
         uiView.backgroundColor = .lightGray
@@ -59,12 +71,33 @@ class EmailInputViewController: UIViewController {
         return uiView
     }()
     
+    var invalidLabel: UILabel = {
+        var label = UILabel()
+        label.textColor = .red
+        label.isHidden = true
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.text = EmailInputText.invalid.rawValue
+        return label
+    }()
+    
     // MARK: - Action
     var completion: ((String) -> Void)?
     
     @objc
     func complete(_ sender: UIButton) {
-        completion?("Hi")
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.transform = CGAffineTransform(translationX: -50, y: 0)
+            self.view.alpha = 0
+        }, completion: { isCompletion in
+            self.completion?(self.emailTextField.text!)
+            NotificationCenter.default.post(name: .completeTransfer, object: nil)
+        })
+    }
+    
+    @objc
+    func deleteText(_ sender: UIButton) {
+        emailTextField.text?.removeAll()
     }
     
     // MARK: - Init
@@ -73,12 +106,18 @@ class EmailInputViewController: UIViewController {
         view.addSubview(textMarginView)
         textMarginView.addSubview(emailTextField)
         textMarginView.addSubview(lineView)
+        view.addSubview(cancelButton)
+        view.addSubview(invalidLabel)
         view.addSubview(completeButton)
     }
     
-    @objc
+    private func setDelegate() {
+        emailTextField.delegate = self
+    }
+    
     func setButtonAction() {
         completeButton.addTarget(self, action: #selector(complete(_:)), for: .touchUpInside)
+        cancelButton.addTarget(self, action: #selector(deleteText(_:)), for: .touchUpInside)
     }
 
     // MARK: - Life Cycle
@@ -88,9 +127,11 @@ class EmailInputViewController: UIViewController {
         view.backgroundColor = .white
         
         initView()
+        setDelegate()
+        setButtonAction()
+        
         configureLayout()
         configureCornerRadius()
-        setButtonAction()
     }
     
     override func viewDidLayoutSubviews() {
@@ -119,6 +160,8 @@ class EmailInputViewController: UIViewController {
                                                 constant: 40),
             textMarginView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             textMarginViewTrailing,
+            cancelButton.centerYAnchor.constraint(equalTo: textMarginView.centerYAnchor),
+            cancelButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -6),
             emailTextField.topAnchor.constraint(equalTo: textMarginView.topAnchor),
             emailTextField.leadingAnchor.constraint(equalTo: textMarginView.leadingAnchor),
             emailTextField.trailingAnchor.constraint(equalTo: textMarginView.trailingAnchor),
@@ -132,7 +175,9 @@ class EmailInputViewController: UIViewController {
             completeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             completeBtnTrailing,
             completeButton.heightAnchor.constraint(equalTo: completeButton.widthAnchor,
-                                                   multiplier: 0.14)
+                                                   multiplier: 0.14),
+            invalidLabel.topAnchor.constraint(equalTo: textMarginView.bottomAnchor, constant: 8),
+            invalidLabel.leadingAnchor.constraint(equalTo: textMarginView.leadingAnchor)
         ])
     }
     
@@ -153,6 +198,31 @@ extension EmailInputViewController: SignupInputable {
         }
         set {
             completion = newValue
+        }
+    }
+}
+
+extension EmailInputViewController: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let text = textField.text else { return }
+        if text == "" { cancelButton.isHidden = true }
+        else { cancelButton.isHidden = false }
+        if !text.isEmailFormat() {
+            if text == "" {
+                completeButton.isUserInteractionEnabled = false
+                completeButton.backgroundColor = UIColor(red: 170/255,
+                                                         green: 170/255,
+                                                         blue: 170/255,
+                                                         alpha: 1.0)
+            } else {
+                lineView.backgroundColor = .red
+                invalidLabel.isHidden = false
+            }
+        } else {
+            lineView.backgroundColor = .mainblack
+            invalidLabel.isHidden = true
+            completeButton.isUserInteractionEnabled = true
+            completeButton.backgroundColor = .mainblack
         }
     }
 }
