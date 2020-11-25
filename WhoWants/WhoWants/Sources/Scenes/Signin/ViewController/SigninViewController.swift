@@ -110,8 +110,8 @@ class SigninViewController: UIViewController {
     }()
     
     var loginButton: UIButton = {
-        var btn = UIButton()
-        btn.backgroundColor = UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1.0)
+        var btn = UIButton(type: .system)
+        btn.backgroundColor = .mainblack
         btn.clipsToBounds = true
         btn.translatesAutoresizingMaskIntoConstraints = false
         let attributeText = NSAttributedString(string: SigninText.signinBtn.rawValue,
@@ -123,14 +123,14 @@ class SigninViewController: UIViewController {
     }()
     
     var signupButton: UIButton = {
-        var btn = UIButton()
-        btn.backgroundColor = .white
+        var btn = UIButton(type: .system)
+        btn.backgroundColor = .clear
         btn.clipsToBounds = true
         btn.translatesAutoresizingMaskIntoConstraints = false
         let attributeText = NSAttributedString(string: SigninText.signupBtn.rawValue,
                                                attributes: [.kern: -0.64,
                                                             .font: UIFont.systemFont(ofSize: 16),
-                                                            .foregroundColor: UIColor.black])
+                                                            .foregroundColor: UIColor.white])
         btn.setAttributedTitle(attributeText, for: .normal)
         return btn
     }()
@@ -151,6 +151,21 @@ class SigninViewController: UIViewController {
         pwMarginView.addSubview(pwLineView)
     }
     
+    private func setNav() {
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    private func setButtonAction() {
+        signupButton.addTarget(self, action: #selector(presentSignupView(_:)), for: .touchUpInside)
+    }
+    
+    // MARK: - Action
+    @objc
+    func presentSignupView(_ sender: UIButton) {
+        let signupContainerVC = SignupContainerViewController()
+        navigationController?.pushViewController(signupContainerVC, animated: true)
+    }
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -160,6 +175,12 @@ class SigninViewController: UIViewController {
         
         initView()
         configureLayout()
+        setButtonAction()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setNav()
     }
     
     override func viewDidLayoutSubviews() {
@@ -172,20 +193,13 @@ class SigninViewController: UIViewController {
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
-                                            constant: 131),
+                                            constant: 36),
             subLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            subLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 17),
-            buttonStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
-                                                    constant: -58),
-            buttonStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            buttonStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            signupButton.heightAnchor.constraint(equalTo: signupButton.widthAnchor,
-                                                 multiplier: 0.14),
+            subLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
             textFieldStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             textFieldStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                          constant: -20),
-            textFieldStackView.bottomAnchor.constraint(equalTo: buttonStackView.topAnchor,
-                                                       constant: -78),
+            textFieldStackView.topAnchor.constraint(equalTo: subLabel.bottomAnchor, constant: 61),
             emailTextField.topAnchor.constraint(equalTo: emailMarginView.topAnchor),
             emailTextField.leadingAnchor.constraint(equalTo: emailMarginView.leadingAnchor),
             emailTextField.trailingAnchor.constraint(equalTo: emailMarginView.trailingAnchor),
@@ -201,7 +215,13 @@ class SigninViewController: UIViewController {
             pwLineView.bottomAnchor.constraint(equalTo: pwMarginView.bottomAnchor),
             pwLineView.leadingAnchor.constraint(equalTo: pwMarginView.leadingAnchor),
             pwLineView.trailingAnchor.constraint(equalTo: pwMarginView.trailingAnchor),
-            pwLineView.heightAnchor.constraint(equalToConstant: 1)
+            pwLineView.heightAnchor.constraint(equalToConstant: 1),
+            buttonStackView.topAnchor.constraint(equalTo: textFieldStackView.bottomAnchor,
+                                                    constant: 68),
+            buttonStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            buttonStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            signupButton.heightAnchor.constraint(equalTo: signupButton.widthAnchor,
+                                                 multiplier: 0.14)
         ])
     }
     
