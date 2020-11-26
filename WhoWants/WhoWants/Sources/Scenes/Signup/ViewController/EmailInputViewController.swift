@@ -91,13 +91,21 @@ class EmailInputViewController: UIViewController {
             self.view.alpha = 0
         }, completion: { isCompletion in
             self.completion?(self.emailTextField.text!)
-            NotificationCenter.default.post(name: .completeTransfer, object: nil)
         })
     }
     
     @objc
     func deleteText(_ sender: UIButton) {
         emailTextField.text?.removeAll()
+    }
+    
+    private func appearAnimate() {
+        self.view.alpha = 0
+        self.view.transform = CGAffineTransform(translationX: 50, y: 0)
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.alpha = 1
+            self.view.transform = .identity
+        })
     }
     
     // MARK: - Init
@@ -131,11 +139,16 @@ class EmailInputViewController: UIViewController {
         setButtonAction()
         
         configureLayout()
-        configureCornerRadius()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        appearAnimate()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        configureCornerRadius()
     }
     
     deinit {

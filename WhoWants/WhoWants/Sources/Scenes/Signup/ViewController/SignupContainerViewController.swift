@@ -76,7 +76,14 @@ class SignupContainerViewController: UIViewController {
         castingVC.didMove(toParent: self)
         
         childInputVC?.transfer = { [weak self] inform in
+            self?.removeChildView()
             self?.userInform[type.getKey()] = inform
+            
+            let curRaw = type.rawValue
+            if curRaw == 3 { print("Last") }
+            let curInput = SignupInputType(rawValue: curRaw+1)!
+            self?.progressView.setProgress(curInput.calProgress(), animated: true)
+            self?.addChildView(type: curInput)
         }
     }
     
@@ -85,15 +92,6 @@ class SignupContainerViewController: UIViewController {
         castingVC.willMove(toParent: nil)
         castingVC.view.removeFromSuperview()
         castingVC.removeFromParent()
-    }
-    
-    @objc
-    func onChange(_ notification: NSNotification) {
-        guard let curRaw = childInputVC?.type.rawValue else { return }
-        if curRaw == 3 { print("Last") }
-        let curInput = SignupInputType(rawValue: curRaw+1)!
-        progressView.setProgress(curInput.calProgress(), animated: true)
-        addChildView(type: curInput)
     }
     
     // MARK: - Init
@@ -108,10 +106,6 @@ class SignupContainerViewController: UIViewController {
         navigationItem.title = SignupText.signup.rawValue
         navigationController?.navigationBar.topItem?.title = ""
     }
-    
-    private func addObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(onChange(_:)), name: .completeTransfer, object: nil)
-    }
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -123,7 +117,6 @@ class SignupContainerViewController: UIViewController {
         configureLayout()
         
         addChildView(type: .email)
-        addObserver()
     }
     
     override func viewWillAppear(_ animated: Bool) {
