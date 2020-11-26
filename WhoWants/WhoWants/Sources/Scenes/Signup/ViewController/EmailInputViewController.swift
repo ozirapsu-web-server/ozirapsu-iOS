@@ -123,7 +123,7 @@ class EmailInputViewController: UIViewController {
         emailTextField.delegate = self
     }
     
-    func setButtonAction() {
+    private func setButtonAction() {
         completeButton.addTarget(self, action: #selector(complete(_:)), for: .touchUpInside)
         cancelButton.addTarget(self, action: #selector(deleteText(_:)), for: .touchUpInside)
     }
@@ -221,12 +221,14 @@ extension EmailInputViewController: UITextFieldDelegate {
         if text == "" { cancelButton.isHidden = true }
         else { cancelButton.isHidden = false }
         if !text.isEmailFormat() {
+            completeButton.isUserInteractionEnabled = false
+            completeButton.backgroundColor = UIColor(red: 170/255,
+                                                     green: 170/255,
+                                                     blue: 170/255,
+                                                     alpha: 1.0)
             if text == "" {
-                completeButton.isUserInteractionEnabled = false
-                completeButton.backgroundColor = UIColor(red: 170/255,
-                                                         green: 170/255,
-                                                         blue: 170/255,
-                                                         alpha: 1.0)
+                lineView.backgroundColor = .mainblack
+                invalidLabel.isHidden = true
             } else {
                 lineView.backgroundColor = .red
                 invalidLabel.isHidden = false

@@ -11,6 +11,7 @@ enum PwInputText: String {
     case title = "비밀번호를\n입력해주세요"
     case pwPlaceholder = "비밀번호 입력"
     case confirmPlaceholder = "비밀번호 확인"
+    case invalid = "비밀번호를 잘못 입력했어요."
 }
 
 class PwInputViewController: UIViewController {
@@ -83,6 +84,16 @@ class PwInputViewController: UIViewController {
         return uiView
     }()
     
+    var invalidLabel: UILabel = {
+        var label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = .red
+        label.isHidden = true
+        label.text = PwInputText.invalid.rawValue
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     var completeButton: UIButton = {
         var btn = UIButton(type: .system)
         btn.backgroundColor = UIColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1.0)
@@ -125,6 +136,25 @@ class PwInputViewController: UIViewController {
         })
     }
     
+    @objc
+    func complete(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.transform = CGAffineTransform(translationX: -50, y: 0)
+            self.view.alpha = 0
+        }, completion: { isCompletion in
+            self.completion?(self.pwTextField.text!)
+        })
+    }
+    
+    @objc
+    func deleteText(_ sender: UIButton) {
+        if sender == pwCancelButton {
+            pwTextField.text?.removeAll()
+        } else {
+            confirmTextField.text?.removeAll()
+        }
+    }
+    
     // MARK: - Init
     private func initView() {
         view.addSubview(titleLabel)
@@ -138,6 +168,18 @@ class PwInputViewController: UIViewController {
         view.addSubview(completeButton)
         view.addSubview(pwCancelButton)
         view.addSubview(confirmCancelButton)
+        view.addSubview(invalidLabel)
+    }
+    
+    private func setDelegate() {
+        pwTextField.delegate = self
+        confirmTextField.delegate = self
+    }
+    
+    private func setButtonAction() {
+        pwCancelButton.addTarget(self, action: #selector(deleteText(_:)), for: .touchUpInside)
+        confirmCancelButton.addTarget(self, action: #selector(deleteText(_:)), for: .touchUpInside)
+        completeButton.addTarget(self, action: #selector(complete(_:)), for: .touchUpInside)
     }
 
     // MARK: - Life Cycle
@@ -147,6 +189,9 @@ class PwInputViewController: UIViewController {
         view.backgroundColor = .white
         
         initView()
+        setDelegate()
+        setButtonAction()
+        
         configureLayout()
     }
     
@@ -194,7 +239,9 @@ class PwInputViewController: UIViewController {
             pwCancelButton.centerYAnchor.constraint(equalTo: pwMarginView.centerYAnchor),
             pwCancelButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -6),
             confirmCancelButton.centerYAnchor.constraint(equalTo: confirmMarginView.centerYAnchor),
-            confirmCancelButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -6)
+            confirmCancelButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -6),
+            invalidLabel.leadingAnchor.constraint(equalTo: textFieldStackView.leadingAnchor),
+            invalidLabel.topAnchor.constraint(equalTo: textFieldStackView.bottomAnchor, constant: 8)
         ])
     }
     
@@ -219,6 +266,77 @@ extension PwInputViewController: SignupInputable {
     }
 }
 
-extension PwInputViewController: UITextViewDelegate {
+extension PwInputViewController: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        if textField == pwTextField {
+            setPwTextfield(textField)
+        } else {
+            setConfirmTextfield(textField)
+        }
+    }
     
+    private func setPwTextfield(_ textField: UITextField) {
+        if textField.text == "" {
+            pwCancelButton.isHidden = true
+            pwLineView.backgroundColor = .lightGray
+            completeButton.isUserInteractionEnabled = false
+            completeButton.backgroundColor = UIColor(red: 170/255,
+                                                     green: 170/255,
+                                                     blue: 170/255,
+                                                     alpha: 1.0)
+            
+            if confirmTextField.text != "" {
+                invalidLabel.isHidden = false
+                confirmLineView.backgroundColor = .red
+            }
+        } else {
+            if textField.text == confirmTextField.text && textField.text != "" {
+                invalidLabel.isHidden = true
+                confirmLineView.backgroundColor = .mainblack
+                completeButton.isUserInteractionEnabled = true
+                completeButton.backgroundColor = .mainblack
+            } else {
+                if confirmTextField.text != "" {
+                    invalidLabel.isHidden = false
+                    confirmLineView.backgroundColor = .red
+                    completeButton.isUserInteractionEnabled = false
+                    completeButton.backgroundColor = UIColor(red: 170/255,
+                                                             green: 170/255,
+                                                             blue: 170/255,
+                                                             alpha: 1.0)
+                }
+            }
+            pwCancelButton.isHidden = false
+            pwLineView.backgroundColor = .mainblack
+        }
+    }
+    
+    private func setConfirmTextfield(_ textField: UITextField) {
+        if textField.text == "" {
+            confirmCancelButton.isHidden = true
+            confirmLineView.backgroundColor = .lightGray
+            invalidLabel.isHidden = true
+            completeButton.isUserInteractionEnabled = false
+            completeButton.backgroundColor = UIColor(red: 170/255,
+                                                     green: 170/255,
+                                                     blue: 170/255,
+                                                     alpha: 1.0)
+        } else {
+            confirmCancelButton.isHidden = false
+            if textField.text != pwTextField.text {
+                confirmLineView.backgroundColor = .red
+                invalidLabel.isHidden = false
+                completeButton.isUserInteractionEnabled = false
+                completeButton.backgroundColor = UIColor(red: 170/255,
+                                                         green: 170/255,
+                                                         blue: 170/255,
+                                                         alpha: 1.0)
+            } else {
+                invalidLabel.isHidden = true
+                confirmLineView.backgroundColor = .mainblack
+                completeButton.isUserInteractionEnabled = true
+                completeButton.backgroundColor = .mainblack
+            }
+        }
+    }
 }
