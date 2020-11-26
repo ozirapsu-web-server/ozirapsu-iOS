@@ -29,6 +29,15 @@ enum SignupInputType: Int {
         default: return ""
         }
     }
+    
+    func calProgress() -> Float {
+        switch self {
+        case .email: return 0
+        case .pw: return 0.25
+        case .nickname: return 0.5
+        case .gender: return 0.75
+        }
+    }
 }
 
 protocol SignupInputable {
@@ -40,7 +49,7 @@ class SignupContainerViewController: UIViewController {
     // MARK: - UI
     var progressView: UIProgressView = {
         var progressView = UIProgressView(progressViewStyle: .default)
-        progressView.progress = 0.25
+        progressView.progress = 0
         progressView.progressTintColor = .mainblack
         progressView.translatesAutoresizingMaskIntoConstraints = false
         return progressView
@@ -57,6 +66,34 @@ class SignupContainerViewController: UIViewController {
     // MARK: - Data
     var userInform: [String: String] = [:]
     
+    // MARK: - Action
+    private func addChildView(type: SignupInputType) {
+        self.childInputVC = type.instantiateVC()
+        guard let castingVC = self.childInputVC as? UIViewController else { return }
+        self.addChild(castingVC)
+        castingVC.view.frame = containerView.bounds
+        containerView.addSubview(castingVC.view)
+        castingVC.didMove(toParent: self)
+        
+        childInputVC?.transfer = { [weak self] inform in
+            self?.removeChildView()
+            self?.userInform[type.getKey()] = inform
+            
+            let curRaw = type.rawValue
+            if curRaw == 3 { print("Last") }
+            let curInput = SignupInputType(rawValue: curRaw+1)!
+            self?.progressView.setProgress(curInput.calProgress(), animated: true)
+            self?.addChildView(type: curInput)
+        }
+    }
+    
+    private func removeChildView() {
+        guard let castingVC = self.childInputVC as? UIViewController else { return }
+        castingVC.willMove(toParent: nil)
+        castingVC.view.removeFromSuperview()
+        castingVC.removeFromParent()
+    }
+    
     // MARK: - Init
     private func initView() {
         view.addSubview(progressView)
@@ -68,26 +105,6 @@ class SignupContainerViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .mainblack
         navigationItem.title = SignupText.signup.rawValue
         navigationController?.navigationBar.topItem?.title = ""
-    }
-    
-    private func addChildView(type: SignupInputType) {
-        self.childInputVC = type.instantiateVC()
-        guard let castingVC = self.childInputVC as? UIViewController else { return }
-        self.addChild(castingVC)
-        castingVC.view.frame = containerView.bounds
-        containerView.addSubview(castingVC.view)
-        castingVC.didMove(toParent: self)
-        
-        childInputVC?.transfer = { [weak self] inform in
-            self?.userInform[type.getKey()] = inform
-        }
-    }
-    
-    private func removeChildView() {
-        guard let castingVC = self.childInputVC as? UIViewController else { return }
-        castingVC.willMove(toParent: nil)
-        castingVC.view.removeFromSuperview()
-        castingVC.removeFromParent()
     }
 
     // MARK: - Life Cycle
@@ -119,5 +136,4 @@ class SignupContainerViewController: UIViewController {
             containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-    
 }
