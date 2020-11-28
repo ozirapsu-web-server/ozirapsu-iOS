@@ -12,7 +12,7 @@ enum SignupText: String {
 }
 
 enum SignupInputType: Int {
-    case email = 0, pw, nickname, gender
+    case email = 0, pw, phone, nickname
     
     func instantiateVC() -> SignupInputable {
         switch self {
@@ -34,8 +34,8 @@ enum SignupInputType: Int {
         switch self {
         case .email: return 0
         case .pw: return 0.25
-        case .nickname: return 0.5
-        case .gender: return 0.75
+        case .phone: return 0.5
+        case .nickname: return 0.75
         }
     }
 }
