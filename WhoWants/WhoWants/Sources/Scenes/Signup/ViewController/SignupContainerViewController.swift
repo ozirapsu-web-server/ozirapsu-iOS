@@ -19,7 +19,7 @@ enum SignupInputType: Int {
         case .email: return EmailInputViewController()
         case .pw: return PwInputViewController()
         case .phone: return PhoneInputViewController()
-        default: return EmailInputViewController()
+        case .nickname: return NickInputViewController()
         }
     }
     
@@ -28,7 +28,7 @@ enum SignupInputType: Int {
         case .email: return "email"
         case .pw: return "pw"
         case .phone: return "phone"
-        default: return ""
+        case .nickname: return "nickname"
         }
     }
     
