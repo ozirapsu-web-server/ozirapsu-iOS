@@ -82,7 +82,14 @@ class SignupContainerViewController: UIViewController {
             self?.userInform[type.getKey()] = inform
             
             let curRaw = type.rawValue
-            if curRaw == 3 { print("Last") }
+            if curRaw == 3 {
+                self?.progressView.setProgress(1, animated: true)
+                DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+                    let mainVC = MainViewController()
+                    UIApplication.shared.windows.filter { $0.isKeyWindow }.first?.rootViewController = mainVC
+                }
+                return
+            }
             let curInput = SignupInputType(rawValue: curRaw+1)!
             self?.progressView.setProgress(curInput.calProgress(), animated: true)
             self?.addChildView(type: curInput)
