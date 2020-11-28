@@ -222,10 +222,7 @@ extension EmailInputViewController: UITextFieldDelegate {
         else { cancelButton.isHidden = false }
         if !text.isEmailFormat() {
             completeButton.isUserInteractionEnabled = false
-            completeButton.backgroundColor = UIColor(red: 170/255,
-                                                     green: 170/255,
-                                                     blue: 170/255,
-                                                     alpha: 1.0)
+            completeButton.backgroundColor = .graytext
             if text == "" {
                 lineView.backgroundColor = .mainblack
                 invalidLabel.isHidden = true

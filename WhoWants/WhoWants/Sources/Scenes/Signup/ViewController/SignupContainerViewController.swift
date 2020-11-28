@@ -18,6 +18,7 @@ enum SignupInputType: Int {
         switch self {
         case .email: return EmailInputViewController()
         case .pw: return PwInputViewController()
+        case .phone: return PhoneInputViewController()
         default: return EmailInputViewController()
         }
     }
@@ -26,6 +27,7 @@ enum SignupInputType: Int {
         switch self {
         case .email: return "email"
         case .pw: return "pw"
+        case .phone: return "phone"
         default: return ""
         }
     }
