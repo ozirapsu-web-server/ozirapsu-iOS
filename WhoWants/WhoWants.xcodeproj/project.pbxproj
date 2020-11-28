@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0E80AF7989FABA97445D0570 /* Pods_WhoWants.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040B0C19E78EF28F8A6BE1DD /* Pods_WhoWants.framework */; };
+		9D2503212572897C005C20A9 /* PhoneInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2503202572897C005C20A9 /* PhoneInputViewController.swift */; };
+		9D250326257294C5005C20A9 /* NickInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D250325257294C5005C20A9 /* NickInputViewController.swift */; };
+		9D25032C2572A3EC005C20A9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D25032B2572A3EC005C20A9 /* MainViewController.swift */; };
 		9D6B0582255D8F9600FE63C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6B0581255D8F9600FE63C9 /* AppDelegate.swift */; };
 		9D6B058B255D8F9D00FE63C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D6B058A255D8F9D00FE63C9 /* Assets.xcassets */; };
 		9D6B058E255D8F9D00FE63C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D6B058C255D8F9D00FE63C9 /* LaunchScreen.storyboard */; };
@@ -50,6 +53,9 @@
 		43907C7AABAE6452DB0A8057 /* Pods-WhoWants.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoWants.release.xcconfig"; path = "Target Support Files/Pods-WhoWants/Pods-WhoWants.release.xcconfig"; sourceTree = "<group>"; };
 		58AF16D27B1BC848D1273063 /* Pods-WhoWants-WhoWantsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoWants-WhoWantsUITests.release.xcconfig"; path = "Target Support Files/Pods-WhoWants-WhoWantsUITests/Pods-WhoWants-WhoWantsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		732D0F645AAEF922E84C0C17 /* Pods_WhoWantsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhoWantsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D2503202572897C005C20A9 /* PhoneInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneInputViewController.swift; sourceTree = "<group>"; };
+		9D250325257294C5005C20A9 /* NickInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickInputViewController.swift; sourceTree = "<group>"; };
+		9D25032B2572A3EC005C20A9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9D6B057E255D8F9600FE63C9 /* WhoWants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhoWants.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D6B0581255D8F9600FE63C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D6B058A255D8F9D00FE63C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -115,6 +121,22 @@
 				29D898735C9D925E73796FCF /* Pods-WhoWantsTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		9D25032A2572A3D7005C20A9 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				9D2503332572A3F0005C20A9 /* ViewController */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		9D2503332572A3F0005C20A9 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9D25032B2572A3EC005C20A9 /* MainViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		9D6B0575255D8F9600FE63C9 = {
@@ -203,6 +225,7 @@
 				9D8EAB2E256D8F7D0066B3C7 /* Splash */,
 				9D8EAB0C256D8E100066B3C7 /* Signin */,
 				9D8EAB32256E1F2F0066B3C7 /* Signup */,
+				9D25032A2572A3D7005C20A9 /* Main */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -254,6 +277,8 @@
 				9D8EAB44256E1FB30066B3C7 /* SignupContainerViewController.swift */,
 				9D8EAB4E256E35C30066B3C7 /* EmailInputViewController.swift */,
 				9D8EAB5B256E3D610066B3C7 /* PwInputViewController.swift */,
+				9D2503202572897C005C20A9 /* PhoneInputViewController.swift */,
+				9D250325257294C5005C20A9 /* NickInputViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -508,7 +533,10 @@
 			files = (
 				9D8EAB23256D8F250066B3C7 /* SigninViewController.swift in Sources */,
 				9D8EAB61256E87410066B3C7 /* String+Extension.swift in Sources */,
+				9D2503212572897C005C20A9 /* PhoneInputViewController.swift in Sources */,
+				9D25032C2572A3EC005C20A9 /* MainViewController.swift in Sources */,
 				9D8EAB4F256E35C30066B3C7 /* EmailInputViewController.swift in Sources */,
+				9D250326257294C5005C20A9 /* NickInputViewController.swift in Sources */,
 				9D8EAB6E256EAA8F0066B3C7 /* NSNotification.Name+Extension.swift in Sources */,
 				9D8EAB5C256E3D610066B3C7 /* PwInputViewController.swift in Sources */,
 				9D6B0582255D8F9600FE63C9 /* AppDelegate.swift in Sources */,

@@ -49,6 +49,8 @@ class PwInputViewController: UIViewController {
         let attributeText = NSAttributedString(string: PwInputText.pwPlaceholder.rawValue,
                                                attributes: [.font: UIFont.systemFont(ofSize: 14)])
         textField.attributedPlaceholder = attributeText
+        textField.returnKeyType = .done
+        textField.isSecureTextEntry = true
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -73,6 +75,8 @@ class PwInputViewController: UIViewController {
         let attributeText = NSAttributedString(string: PwInputText.confirmPlaceholder.rawValue,
                                                attributes: [.font: UIFont.systemFont(ofSize: 14)])
         textField.attributedPlaceholder = attributeText
+        textField.returnKeyType = .done
+        textField.isSecureTextEntry = true
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -96,7 +100,7 @@ class PwInputViewController: UIViewController {
     
     var completeButton: UIButton = {
         var btn = UIButton(type: .system)
-        btn.backgroundColor = UIColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1.0)
+        btn.backgroundColor = .graytext
         btn.clipsToBounds = true
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
@@ -153,6 +157,10 @@ class PwInputViewController: UIViewController {
         } else {
             confirmTextField.text?.removeAll()
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     // MARK: - Init

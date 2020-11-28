@@ -9,4 +9,5 @@ import Foundation
 
 struct ImageName {
     static let cancelBtn = "btn_cancel"
+    static let backBtn = "btn_back"
 }

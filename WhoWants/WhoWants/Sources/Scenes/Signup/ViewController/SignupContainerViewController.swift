@@ -12,13 +12,14 @@ enum SignupText: String {
 }
 
 enum SignupInputType: Int {
-    case email = 0, pw, nickname, gender
+    case email = 0, pw, phone, nickname
     
     func instantiateVC() -> SignupInputable {
         switch self {
         case .email: return EmailInputViewController()
         case .pw: return PwInputViewController()
-        default: return EmailInputViewController()
+        case .phone: return PhoneInputViewController()
+        case .nickname: return NickInputViewController()
         }
     }
     
@@ -26,7 +27,8 @@ enum SignupInputType: Int {
         switch self {
         case .email: return "email"
         case .pw: return "pw"
-        default: return ""
+        case .phone: return "phone"
+        case .nickname: return "nickname"
         }
     }
     
@@ -34,8 +36,8 @@ enum SignupInputType: Int {
         switch self {
         case .email: return 0
         case .pw: return 0.25
-        case .nickname: return 0.5
-        case .gender: return 0.75
+        case .phone: return 0.5
+        case .nickname: return 0.75
         }
     }
 }
@@ -80,11 +82,23 @@ class SignupContainerViewController: UIViewController {
             self?.userInform[type.getKey()] = inform
             
             let curRaw = type.rawValue
-            if curRaw == 3 { print("Last") }
+            if curRaw == 3 {
+                self?.progressView.setProgress(1, animated: true)
+                DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+                    let mainVC = MainViewController()
+                    UIApplication.shared.windows.filter { $0.isKeyWindow }.first?.rootViewController = mainVC
+                }
+                return
+            }
             let curInput = SignupInputType(rawValue: curRaw+1)!
             self?.progressView.setProgress(curInput.calProgress(), animated: true)
             self?.addChildView(type: curInput)
         }
+    }
+    
+    @objc
+    func back(_ sender: Any) {
+        print("Hi")
     }
     
     private func removeChildView() {
