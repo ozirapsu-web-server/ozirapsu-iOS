@@ -74,6 +74,30 @@ class NickInputViewController: UIViewController {
     // MARK: - Action
     var completion: ((String) -> Void)?
     
+    private func appearAnimate() {
+        self.view.alpha = 0
+        self.view.transform = CGAffineTransform(translationX: 50, y: 0)
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.alpha = 1
+            self.view.transform = .identity
+        })
+    }
+    
+    @objc
+    func deleteText(_ sender: UIButton) {
+        nickTextfield.text?.removeAll()
+    }
+    
+    @objc
+    func complete(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.transform = CGAffineTransform(translationX: -50, y: 0)
+            self.view.alpha = 0
+        }, completion: { isCompletion in
+            self.completion?(self.nickTextfield.text!)
+        })
+    }
+    
     // MARK: - Init
     private func initView() {
         view.addSubview(titleLabel)
@@ -85,6 +109,12 @@ class NickInputViewController: UIViewController {
     }
     
     private func setDelegate() {
+        nickTextfield.delegate = self
+    }
+    
+    private func setButtonAction() {
+        cancelButton.addTarget(self, action: #selector(deleteText(_:)), for: .touchUpInside)
+        completeButton.addTarget(self, action: #selector(complete(_:)), for: .touchUpInside)
     }
     
     // MARK: - Life Cycle
@@ -92,7 +122,16 @@ class NickInputViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         initView()
+        setDelegate()
+        setButtonAction()
+        
         configureLayout()
+        configureCornerRadius()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        appearAnimate()
     }
     
     // MARK: - Layout
@@ -119,6 +158,11 @@ class NickInputViewController: UIViewController {
             cancelButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -6)
         ])
     }
+    
+    private func configureCornerRadius() {
+        let corner: CGFloat = (UIScreen.main.bounds.width - 20*2) / 83.75
+        completeButton.layer.cornerRadius = corner
+    }
 }
 
 extension NickInputViewController: SignupInputable {
@@ -132,6 +176,26 @@ extension NickInputViewController: SignupInputable {
         }
         set {
             completion = newValue
+        }
+    }
+}
+
+extension NickInputViewController: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let text = textField.text else { return }
+        if text.count >= 7 {
+            completeButton.isUserInteractionEnabled = false
+            completeButton.backgroundColor = .graytext
+        } else {
+            if text.isEmpty {
+                lineView.backgroundColor = .graytext
+                cancelButton.isHidden = true
+            } else {
+                lineView.backgroundColor = .mainblack
+                cancelButton.isHidden = false
+            }
+            completeButton.isUserInteractionEnabled = true
+            completeButton.backgroundColor = .mainblack
         }
     }
 }
