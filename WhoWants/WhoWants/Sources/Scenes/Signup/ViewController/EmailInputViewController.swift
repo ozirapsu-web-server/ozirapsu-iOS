@@ -18,7 +18,7 @@ class EmailInputViewController: UIViewController {
     // MARK: - UI
     var completeButton: UIButton = {
         var btn = UIButton(type: .system)
-        btn.backgroundColor = UIColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1.0)
+        btn.backgroundColor = .graytext
         btn.clipsToBounds = true
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
@@ -86,26 +86,12 @@ class EmailInputViewController: UIViewController {
     
     @objc
     func complete(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.5, animations: {
-            self.view.transform = CGAffineTransform(translationX: -50, y: 0)
-            self.view.alpha = 0
-        }, completion: { isCompletion in
-            self.completion?(self.emailTextField.text!)
-        })
+        completion?(emailTextField.text!)
     }
     
     @objc
     func deleteText(_ sender: UIButton) {
         emailTextField.text?.removeAll()
-    }
-    
-    private func appearAnimate() {
-        self.view.alpha = 0
-        self.view.transform = CGAffineTransform(translationX: 50, y: 0)
-        UIView.animate(withDuration: 0.5, animations: {
-            self.view.alpha = 1
-            self.view.transform = .identity
-        })
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -145,18 +131,13 @@ class EmailInputViewController: UIViewController {
         configureLayout()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        appearAnimate()
-    }
-    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         configureCornerRadius()
     }
     
     deinit {
-        print("DeInitialize")
+        print("Email DeInitialize")
     }
     
     // MARK: - Layout
