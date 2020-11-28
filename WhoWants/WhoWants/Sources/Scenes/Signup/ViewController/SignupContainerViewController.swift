@@ -68,20 +68,39 @@ class SignupContainerViewController: UIViewController {
     // MARK: - Data
     var userInform: [String: String] = [:]
     
+    enum AnimationType {
+        case show, dismiss
+    }
+    
     // MARK: - Action
-    private func addChildView(type: SignupInputType) {
+    private func addChildView(type: SignupInputType, animateType: AnimationType) {
         self.childInputVC = type.instantiateVC()
         guard let castingVC = self.childInputVC as? UIViewController else { return }
         self.addChild(castingVC)
         castingVC.view.frame = containerView.bounds
+        
+        switch animateType {
+        case .show:
+            castingVC.view.transform = CGAffineTransform(translationX: 50, y: 0)
+            castingVC.view.alpha = 0
+        case .dismiss:
+            castingVC.view.transform = CGAffineTransform(translationX: -50, y: 0)
+            castingVC.view.alpha = 0
+        }
+        
         containerView.addSubview(castingVC.view)
         castingVC.didMove(toParent: self)
+        UIView.animate(withDuration: 0.5, animations: {
+            castingVC.view.transform = .identity
+            castingVC.view.alpha = 1
+        })
         
         childInputVC?.transfer = { [weak self] inform in
-            self?.removeChildView()
-            self?.userInform[type.getKey()] = inform
+            self?.removeChildView(animateType: .show)
             
+            self?.userInform[type.getKey()] = inform
             let curRaw = type.rawValue
+            
             if curRaw == 3 {
                 self?.progressView.setProgress(1, animated: true)
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
@@ -92,20 +111,48 @@ class SignupContainerViewController: UIViewController {
             }
             let curInput = SignupInputType(rawValue: curRaw+1)!
             self?.progressView.setProgress(curInput.calProgress(), animated: true)
-            self?.addChildView(type: curInput)
+            self?.addChildView(type: curInput, animateType: .show)
         }
     }
     
     @objc
     func back(_ sender: Any) {
-        print("Hi")
+        guard let curType = childInputVC?.type else { return }
+        if curType.rawValue == 0 {
+            self.navigationController?.popViewController(animated: true)
+        } else {
+            removeChildView(animateType: .dismiss)
+            
+            let preInput = SignupInputType(rawValue: curType.rawValue-1)!
+            
+            self.progressView.setProgress(preInput.calProgress(), animated: true)
+            self.addChildView(type: preInput, animateType: .dismiss)
+        }
     }
     
-    private func removeChildView() {
+    private func removeChildView(animateType: AnimationType) {
         guard let castingVC = self.childInputVC as? UIViewController else { return }
-        castingVC.willMove(toParent: nil)
-        castingVC.view.removeFromSuperview()
-        castingVC.removeFromParent()
+        
+        switch animateType {
+        case .show:
+            UIView.animate(withDuration: 0.5, animations: {
+                castingVC.view.transform = CGAffineTransform(translationX: -50, y: 0)
+                castingVC.view.alpha = 0
+            }, completion: { isCompletion in
+                castingVC.willMove(toParent: nil)
+                castingVC.view.removeFromSuperview()
+                castingVC.removeFromParent()
+            })
+        case .dismiss:
+            UIView.animate(withDuration: 0.5, animations: {
+                castingVC.view.transform = CGAffineTransform(translationX: 50, y: 0)
+                castingVC.view.alpha = 0
+            }, completion: { isCompletion in
+                castingVC.willMove(toParent: nil)
+                castingVC.view.removeFromSuperview()
+                castingVC.removeFromParent()
+            })
+        }
     }
     
     // MARK: - Init
@@ -118,7 +165,12 @@ class SignupContainerViewController: UIViewController {
         navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.tintColor = .mainblack
         navigationItem.title = SignupText.signup.rawValue
-        navigationController?.navigationBar.topItem?.title = ""
+        let backbtn = UIBarButtonItem(image: UIImage(named: ImageName.backBtn),
+                                      style: .plain,
+                                      target: self,
+                                      action: #selector(back(_:)))
+        backbtn.imageInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
+        navigationItem.leftBarButtonItem = backbtn
     }
 
     // MARK: - Life Cycle
@@ -130,7 +182,7 @@ class SignupContainerViewController: UIViewController {
         initView()
         configureLayout()
         
-        addChildView(type: .email)
+        addChildView(type: .email, animateType: .show)
     }
     
     override func viewWillAppear(_ animated: Bool) {

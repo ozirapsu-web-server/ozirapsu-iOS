@@ -131,23 +131,9 @@ class PwInputViewController: UIViewController {
     // MARK: - Action
     var completion: ((String) -> Void)?
     
-    private func appearAnimate() {
-        self.view.alpha = 0
-        self.view.transform = CGAffineTransform(translationX: 50, y: 0)
-        UIView.animate(withDuration: 0.5, animations: {
-            self.view.alpha = 1
-            self.view.transform = .identity
-        })
-    }
-    
     @objc
     func complete(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.5, animations: {
-            self.view.transform = CGAffineTransform(translationX: -50, y: 0)
-            self.view.alpha = 0
-        }, completion: { isCompletion in
-            self.completion?(self.pwTextField.text!)
-        })
+        completion?(pwTextField.text!)
     }
     
     @objc
@@ -201,11 +187,6 @@ class PwInputViewController: UIViewController {
         setButtonAction()
         
         configureLayout()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        appearAnimate()
     }
     
     override func viewDidLayoutSubviews() {

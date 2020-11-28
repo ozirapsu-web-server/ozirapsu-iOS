@@ -75,26 +75,12 @@ class PhoneInputViewController: UIViewController {
     
     @objc
     func complete(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.5, animations: {
-            self.view.transform = CGAffineTransform(translationX: -50, y: 0)
-            self.view.alpha = 0
-        }, completion: { isCompletion in
-            self.completion?(self.phoneTextfield.text!)
-        })
+        completion?(phoneTextfield.text!)
     }
     
     @objc
     func deleteText(_ sender: UIButton) {
         phoneTextfield.text?.removeAll()
-    }
-    
-    private func appearAnimate() {
-        self.view.alpha = 0
-        self.view.transform = CGAffineTransform(translationX: 50, y: 0)
-        UIView.animate(withDuration: 0.5, animations: {
-            self.view.alpha = 1
-            self.view.transform = .identity
-        })
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -130,12 +116,7 @@ class PhoneInputViewController: UIViewController {
         
         configureLayout()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        appearAnimate()
-    }
-    
+  
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         configureCornerRadius()

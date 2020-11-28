@@ -90,12 +90,7 @@ class NickInputViewController: UIViewController {
     
     @objc
     func complete(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.5, animations: {
-            self.view.transform = CGAffineTransform(translationX: -50, y: 0)
-            self.view.alpha = 0
-        }, completion: { isCompletion in
-            self.completion?(self.nickTextfield.text!)
-        })
+        completion?(nickTextfield.text!)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -133,9 +128,8 @@ class NickInputViewController: UIViewController {
         configureCornerRadius()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        appearAnimate()
+    deinit {
+        print("Nick Deinit")
     }
     
     // MARK: - Layout
