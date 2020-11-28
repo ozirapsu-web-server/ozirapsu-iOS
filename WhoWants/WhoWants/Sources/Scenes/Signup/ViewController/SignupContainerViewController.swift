@@ -96,6 +96,11 @@ class SignupContainerViewController: UIViewController {
         }
     }
     
+    @objc
+    func back(_ sender: Any) {
+        print("Hi")
+    }
+    
     private func removeChildView() {
         guard let castingVC = self.childInputVC as? UIViewController else { return }
         castingVC.willMove(toParent: nil)
