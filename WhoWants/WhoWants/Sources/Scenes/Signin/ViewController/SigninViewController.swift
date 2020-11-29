@@ -10,7 +10,7 @@ import UIKit
 enum SigninText: String {
     case title = "모금함 개설하기\n후원츠와 함께 시작해보세요"
     case subTitle = "후원츠와 함께 더 나은 세상을 만들어보세요"
-    case signinBtn = "로그인 하기"
+    case signinBtn = "로그인"
     case signupBtn = "아직 회원이 아니신가요?"
     case emailPlaceholder = "이메일 주소를 입력해주세요"
     case pwPlaceholder = "비밀번호를 입력해주세요"
@@ -111,12 +111,12 @@ class SigninViewController: UIViewController {
     
     var loginButton: UIButton = {
         var btn = UIButton(type: .system)
-        btn.backgroundColor = .mainblack
+        btn.backgroundColor = .whowantsblue
         btn.clipsToBounds = true
         btn.translatesAutoresizingMaskIntoConstraints = false
         let attributeText = NSAttributedString(string: SigninText.signinBtn.rawValue,
                                                attributes: [.kern: -0.64,
-                                                            .font: UIFont.systemFont(ofSize: 16),
+                                                            .font: UIFont.boldSystemFont(ofSize: 16),
                                                             .foregroundColor: UIColor.white])
         btn.setAttributedTitle(attributeText, for: .normal)
         return btn
@@ -129,7 +129,7 @@ class SigninViewController: UIViewController {
         btn.translatesAutoresizingMaskIntoConstraints = false
         let attributeText = NSAttributedString(string: SigninText.signupBtn.rawValue,
                                                attributes: [.kern: -0.64,
-                                                            .font: UIFont.systemFont(ofSize: 16),
+                                                            .font: UIFont.boldSystemFont(ofSize: 16),
                                                             .foregroundColor: UIColor.white])
         btn.setAttributedTitle(attributeText, for: .normal)
         return btn
