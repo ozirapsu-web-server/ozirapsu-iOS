@@ -27,8 +27,8 @@ class CompleteViewController: UIViewController {
         var stackView = UIStackView()
         stackView.spacing = 9
         stackView.axis = .vertical
-        stackView.alignment = .fill
-        stackView.distribution = .fillEqually
+        stackView.alignment = .center
+        stackView.distribution = .fill
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -37,6 +37,7 @@ class CompleteViewController: UIViewController {
         var label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 20)
         label.text = CompleteText.title.rawValue
+        label.textAlignment = .center
         label.textColor = .mainblack
         label.numberOfLines = 0
         return label
@@ -82,6 +83,12 @@ class CompleteViewController: UIViewController {
         return btn
     }()
     
+    // MARK: - Action
+    @objc
+    func back(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
     // MARK: - Init
     private func initView() {
         view.addSubview(completeImageView)
@@ -92,14 +99,31 @@ class CompleteViewController: UIViewController {
         buttonStackView.addArrangedSubview(makeButton)
         buttonStackView.addArrangedSubview(afterButton)
     }
+    
+    private func setNav() {
+        navigationController?.navigationBar.tintColor = .mainblack
+        navigationItem.title = SignupText.signup.rawValue
+        let backbtn = UIBarButtonItem(image: UIImage(named: ImageName.backBtn),
+                                      style: .plain,
+                                      target: self,
+                                      action: #selector(back(_:)))
+        backbtn.imageInsets = UIEdgeInsets(top: 0, left: -12, bottom: 0, right: 0)
+        navigationItem.leftBarButtonItem = backbtn
+    }
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        view.backgroundColor = .white
         
         initView()
         configureLayout()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setNav()
     }
     
     override func viewDidLayoutSubviews() {

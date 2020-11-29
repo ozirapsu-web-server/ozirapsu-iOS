@@ -102,10 +102,11 @@ class SignupContainerViewController: UIViewController {
             let curRaw = type.rawValue
             
             if curRaw == 3 {
+                // FIXME: 여기에 API 회원가입 추가
                 self?.progressView.setProgress(1, animated: true)
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
-                    let mainVC = MainViewController()
-                    UIApplication.shared.windows.filter { $0.isKeyWindow }.first?.rootViewController = mainVC
+                    self?.navigationController?.pushViewController(CompleteViewController(),
+                                                                   animated: true)
                 }
                 return
             }
@@ -169,7 +170,7 @@ class SignupContainerViewController: UIViewController {
                                       style: .plain,
                                       target: self,
                                       action: #selector(back(_:)))
-        backbtn.imageInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
+        backbtn.imageInsets = UIEdgeInsets(top: 0, left: -12, bottom: 0, right: 0)
         navigationItem.leftBarButtonItem = backbtn
     }
 
