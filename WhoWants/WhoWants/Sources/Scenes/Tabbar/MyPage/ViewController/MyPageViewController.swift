@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  MyPageViewController.swift
 //  WhoWants
 //
 //  Created by 윤동민 on 2020/11/29.
@@ -7,13 +7,13 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MyPageViewController: UIViewController {
+    static let identifier = "MyPageVC"
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = .white
     }
     
 
