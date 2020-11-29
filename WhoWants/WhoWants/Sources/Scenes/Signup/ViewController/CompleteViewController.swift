@@ -89,6 +89,14 @@ class CompleteViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    @objc
+    func start(_ sender: UIButton) {
+        let tabbarVC = UIStoryboard(name: "Tabbar", bundle: nil)
+                .instantiateViewController(withIdentifier: MainTabbarViewController.identifier)
+        UIApplication.shared.windows.filter { $0.isKeyWindow }
+            .first?.rootViewController = tabbarVC
+    }
+    
     // MARK: - Init
     private func initView() {
         view.addSubview(completeImageView)
@@ -110,6 +118,10 @@ class CompleteViewController: UIViewController {
         backbtn.imageInsets = UIEdgeInsets(top: 0, left: -12, bottom: 0, right: 0)
         navigationItem.leftBarButtonItem = backbtn
     }
+    
+    private func setButtonAction() {
+        afterButton.addTarget(self, action: #selector(start(_:)), for: .touchUpInside)
+    }
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -118,6 +130,7 @@ class CompleteViewController: UIViewController {
         view.backgroundColor = .white
         
         initView()
+        setButtonAction()
         configureLayout()
     }
     

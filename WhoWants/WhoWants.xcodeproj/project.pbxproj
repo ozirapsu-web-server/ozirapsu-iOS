@@ -12,7 +12,11 @@
 		9D250326257294C5005C20A9 /* NickInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D250325257294C5005C20A9 /* NickInputViewController.swift */; };
 		9D25032C2572A3EC005C20A9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D25032B2572A3EC005C20A9 /* HomeViewController.swift */; };
 		9D25035825738AC6005C20A9 /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D25035725738AC6005C20A9 /* CompleteViewController.swift */; };
-		9D25036025739396005C20A9 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D25035F25739396005C20A9 /* TabbarController.swift */; };
+		9D25036E257394CC005C20A9 /* Tabbar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D25036D257394CC005C20A9 /* Tabbar.storyboard */; };
+		9D2503792573993F005C20A9 /* MainTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2503782573993F005C20A9 /* MainTabbarViewController.swift */; };
+		9D25038325739F2F005C20A9 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D25038225739F2F005C20A9 /* Home.storyboard */; };
+		9D25038C25739F87005C20A9 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D25038B25739F87005C20A9 /* MyPage.storyboard */; };
+		9D25039125739FA3005C20A9 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D25039025739FA3005C20A9 /* MyPageViewController.swift */; };
 		9D6B0582255D8F9600FE63C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6B0581255D8F9600FE63C9 /* AppDelegate.swift */; };
 		9D6B058B255D8F9D00FE63C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D6B058A255D8F9D00FE63C9 /* Assets.xcassets */; };
 		9D6B058E255D8F9D00FE63C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D6B058C255D8F9D00FE63C9 /* LaunchScreen.storyboard */; };
@@ -59,7 +63,11 @@
 		9D250325257294C5005C20A9 /* NickInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickInputViewController.swift; sourceTree = "<group>"; };
 		9D25032B2572A3EC005C20A9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9D25035725738AC6005C20A9 /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
-		9D25035F25739396005C20A9 /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
+		9D25036D257394CC005C20A9 /* Tabbar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tabbar.storyboard; sourceTree = "<group>"; };
+		9D2503782573993F005C20A9 /* MainTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarViewController.swift; sourceTree = "<group>"; };
+		9D25038225739F2F005C20A9 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		9D25038B25739F87005C20A9 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
+		9D25039025739FA3005C20A9 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		9D6B057E255D8F9600FE63C9 /* WhoWants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhoWants.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D6B0581255D8F9600FE63C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D6B058A255D8F9D00FE63C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -130,8 +138,9 @@
 		9D25032A2572A3D7005C20A9 /* Tabbar */ = {
 			isa = PBXGroup;
 			children = (
-				9D25035F25739396005C20A9 /* TabbarController.swift */,
+				9D250372257394D8005C20A9 /* Tab */,
 				9D2503332572A3F0005C20A9 /* Home */,
+				9D25038825739F69005C20A9 /* MyPage */,
 			);
 			path = Tabbar;
 			sourceTree = "<group>";
@@ -139,9 +148,76 @@
 		9D2503332572A3F0005C20A9 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				9D25032B2572A3EC005C20A9 /* HomeViewController.swift */,
+				9D25037D25739F16005C20A9 /* Storyboard */,
+				9D25037E25739F1C005C20A9 /* ViewController */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		9D250372257394D8005C20A9 /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				9D250373257394DE005C20A9 /* Storyboard */,
+				9D250374257394E8005C20A9 /* ViewController */,
+			);
+			path = Tab;
+			sourceTree = "<group>";
+		};
+		9D250373257394DE005C20A9 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				9D25036D257394CC005C20A9 /* Tabbar.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		9D250374257394E8005C20A9 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9D2503782573993F005C20A9 /* MainTabbarViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9D25037D25739F16005C20A9 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				9D25038225739F2F005C20A9 /* Home.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		9D25037E25739F1C005C20A9 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9D25032B2572A3EC005C20A9 /* HomeViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9D25038825739F69005C20A9 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				9D25038925739F75005C20A9 /* Storyboard */,
+				9D25038A25739F7A005C20A9 /* ViewController */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		9D25038925739F75005C20A9 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				9D25038B25739F87005C20A9 /* MyPage.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		9D25038A25739F7A005C20A9 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9D25039025739FA3005C20A9 /* MyPageViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		9D6B0575255D8F9600FE63C9 = {
@@ -407,6 +483,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D25036E257394CC005C20A9 /* Tabbar.storyboard in Resources */,
+				9D25038C25739F87005C20A9 /* MyPage.storyboard in Resources */,
+				9D25038325739F2F005C20A9 /* Home.storyboard in Resources */,
 				9D8EAB1B256D8EFD0066B3C7 /* Signin.storyboard in Resources */,
 				9D6B058E255D8F9D00FE63C9 /* LaunchScreen.storyboard in Resources */,
 				9D6B058B255D8F9D00FE63C9 /* Assets.xcassets in Resources */,
@@ -540,17 +619,18 @@
 				9D8EAB23256D8F250066B3C7 /* SigninViewController.swift in Sources */,
 				9D8EAB61256E87410066B3C7 /* String+Extension.swift in Sources */,
 				9D2503212572897C005C20A9 /* PhoneInputViewController.swift in Sources */,
+				9D2503792573993F005C20A9 /* MainTabbarViewController.swift in Sources */,
 				9D25032C2572A3EC005C20A9 /* HomeViewController.swift in Sources */,
 				9D8EAB4F256E35C30066B3C7 /* EmailInputViewController.swift in Sources */,
 				9D250326257294C5005C20A9 /* NickInputViewController.swift in Sources */,
 				9D8EAB6E256EAA8F0066B3C7 /* NSNotification.Name+Extension.swift in Sources */,
 				9D8EAB5C256E3D610066B3C7 /* PwInputViewController.swift in Sources */,
 				9D6B0582255D8F9600FE63C9 /* AppDelegate.swift in Sources */,
+				9D25039125739FA3005C20A9 /* MyPageViewController.swift in Sources */,
 				9D8EAB45256E1FB30066B3C7 /* SignupContainerViewController.swift in Sources */,
 				9D8EAB66256E8AF10066B3C7 /* ImageName.swift in Sources */,
 				9D8EAB4A256E33070066B3C7 /* UIColor+Extension.swift in Sources */,
 				9D25035825738AC6005C20A9 /* CompleteViewController.swift in Sources */,
-				9D25036025739396005C20A9 /* TabbarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
