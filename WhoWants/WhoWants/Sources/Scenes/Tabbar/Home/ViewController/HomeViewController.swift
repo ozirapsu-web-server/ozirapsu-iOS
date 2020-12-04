@@ -18,6 +18,8 @@ class HomeViewController: UIViewController {
     lazy var homeCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         
         let collectionView = UICollectionView(frame: .zero,
                                               collectionViewLayout: layout)
@@ -74,6 +76,10 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
         return 0
@@ -87,11 +93,14 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         viewForSupplementaryElementOfKind kind: String,
                         at indexPath: IndexPath) -> UICollectionReusableView {
-        if kind != UICollectionView.elementKindSectionHeader { return UICollectionReusableView() }
+        if kind != UICollectionView.elementKindSectionHeader &&
+            indexPath.section != 0 { return UICollectionReusableView() }
         let reusableView = collectionView
             .dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
                                                         withReuseIdentifier: FundraisingHeaderView.identifier,
                                                         for: indexPath) as! FundraisingHeaderView
+        reusableView.setHeader(HeaderDataDTO(name: "이성민", message: "Hi 안녕하세요"))
+        
         return reusableView
     }
 }
@@ -100,6 +109,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if section != 0 { return .zero }
         let headerView = self.collectionView(collectionView,
                                              viewForSupplementaryElementOfKind: UICollectionView.elementKindSectionHeader,
                                              at: IndexPath(row: 0, section: section))

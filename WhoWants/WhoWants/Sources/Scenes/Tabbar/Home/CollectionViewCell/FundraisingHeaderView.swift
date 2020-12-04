@@ -7,6 +7,11 @@
 
 import UIKit
 
+struct HeaderDataDTO {
+    let name: String
+    let message: String?
+}
+
 class FundraisingHeaderView: UICollectionReusableView {
     static let identifier = "FundraisingHeader"
     
@@ -30,15 +35,15 @@ class FundraisingHeaderView: UICollectionReusableView {
     
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "이성민 님"
+        label.textColor = .mainblack
         label.font = UIFont.boldSystemFont(ofSize: 18)
         return label
     }()
     
     let informLabel: UILabel = {
         let label = UILabel()
+        label.textColor = .mainblack
         label.font = UIFont.systemFont(ofSize: 14)
-        label.text = "ㅇㅁㅈ엄쟝"
         return label
     }()
     
@@ -56,6 +61,12 @@ class FundraisingHeaderView: UICollectionReusableView {
         labelStackView.addArrangedSubview(nameLabel)
         labelStackView.addArrangedSubview(informLabel)
         self.addSubview(lineView)
+    }
+    
+    // MARK: - Action
+    func setHeader(_ dto: HeaderDataDTO) {
+        nameLabel.text = dto.name
+        informLabel.text = dto.message
     }
     
     // MARK: - Life Cycle
