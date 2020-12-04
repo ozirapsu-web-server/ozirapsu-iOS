@@ -45,11 +45,11 @@ class HomeViewController: UIViewController {
     }
     
     private func setNav() {
-        navigationController?.navigationBar.topItem?.title = HomeText.title.rawValue
-        navigationController?.navigationBar.titleTextAttributes = [
-            .font: UIFont.boldSystemFont(ofSize: 18),
-            .foregroundColor: UIColor.whowantsblue
-        ]
+        let logoImage = UIImageView(image: UIImage(named: ImageName.logo))
+        logoImage.contentMode = .scaleAspectFit
+        navigationItem.titleView = logoImage
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     // MARK: - Action
