@@ -11,4 +11,5 @@ struct ImageName {
     static let cancelBtn = "btn_cancel"
     static let backBtn = "btn_back"
     static let complete = "img_complete"
+    static let profile = "profile"
 }

@@ -17,6 +17,8 @@
 		9D25038325739F2F005C20A9 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D25038225739F2F005C20A9 /* Home.storyboard */; };
 		9D25038C25739F87005C20A9 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D25038B25739F87005C20A9 /* MyPage.storyboard */; };
 		9D25039125739FA3005C20A9 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D25039025739FA3005C20A9 /* MyPageViewController.swift */; };
+		9D54C7CC257A7E91005066D0 /* FundraisingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D54C7CB257A7E91005066D0 /* FundraisingCell.swift */; };
+		9D54C7D4257A7FD2005066D0 /* FundraisingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D54C7D3257A7FD2005066D0 /* FundraisingHeaderView.swift */; };
 		9D6B0582255D8F9600FE63C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6B0581255D8F9600FE63C9 /* AppDelegate.swift */; };
 		9D6B058B255D8F9D00FE63C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D6B058A255D8F9D00FE63C9 /* Assets.xcassets */; };
 		9D6B058E255D8F9D00FE63C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D6B058C255D8F9D00FE63C9 /* LaunchScreen.storyboard */; };
@@ -77,6 +79,8 @@
 		9D25038225739F2F005C20A9 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		9D25038B25739F87005C20A9 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		9D25039025739FA3005C20A9 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		9D54C7CB257A7E91005066D0 /* FundraisingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundraisingCell.swift; sourceTree = "<group>"; };
+		9D54C7D3257A7FD2005066D0 /* FundraisingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundraisingHeaderView.swift; sourceTree = "<group>"; };
 		9D6B057E255D8F9600FE63C9 /* WhoWants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhoWants.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D6B0581255D8F9600FE63C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D6B058A255D8F9D00FE63C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -168,6 +172,7 @@
 			children = (
 				9D25037D25739F16005C20A9 /* Storyboard */,
 				9D25037E25739F1C005C20A9 /* ViewController */,
+				9D54C7CA257A7E58005066D0 /* CollectionViewCell */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -236,6 +241,15 @@
 				9D25039025739FA3005C20A9 /* MyPageViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9D54C7CA257A7E58005066D0 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				9D54C7D3257A7FD2005066D0 /* FundraisingHeaderView.swift */,
+				9D54C7CB257A7E91005066D0 /* FundraisingCell.swift */,
+			);
+			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
 		9D6B0575255D8F9600FE63C9 = {
@@ -679,6 +693,7 @@
 				F46E0724257CB26B00764B02 /* UIView+Extension.swift in Sources */,
 				9D8EAB23256D8F250066B3C7 /* SigninViewController.swift in Sources */,
 				9D8EAB61256E87410066B3C7 /* String+Extension.swift in Sources */,
+				9D54C7D4257A7FD2005066D0 /* FundraisingHeaderView.swift in Sources */,
 				9D2503212572897C005C20A9 /* PhoneInputViewController.swift in Sources */,
 				F46E06CB257A0FEA00764B02 /* InputContentVC.swift in Sources */,
 				9D2503792573993F005C20A9 /* MainTabbarViewController.swift in Sources */,
@@ -692,6 +707,7 @@
 				F46E06D0257A100900764B02 /* InputImageVC.swift in Sources */,
 				9D6B0582255D8F9600FE63C9 /* AppDelegate.swift in Sources */,
 				F46E0729257CB9D000764B02 /* addImageCVC.swift in Sources */,
+				9D54C7CC257A7E91005066D0 /* FundraisingCell.swift in Sources */,
 				9D25039125739FA3005C20A9 /* MyPageViewController.swift in Sources */,
 				9D8EAB45256E1FB30066B3C7 /* SignupContainerViewController.swift in Sources */,
 				9D8EAB66256E8AF10066B3C7 /* ImageName.swift in Sources */,
@@ -1016,7 +1032,7 @@
 		};
 		9D6B05AB255D8F9E00FE63C9 /* Build configuration list for PBXNativeTarget "WhoWantsTests" */ = {
 			isa = XCConfigurationList;
-			buildConfigurations = (
+          buildConfigurations = (
 				9D6B05AC255D8F9E00FE63C9 /* Debug */,
 				9D6B05AD255D8F9E00FE63C9 /* Release */,
 			);
