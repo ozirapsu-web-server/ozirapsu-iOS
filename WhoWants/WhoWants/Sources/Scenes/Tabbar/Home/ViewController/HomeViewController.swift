@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol FundraiseCellAble {
+    
+}
+
 enum HomeText: String {
     case title = "whowants"
 }
@@ -18,8 +22,8 @@ class HomeViewController: UIViewController {
     lazy var homeCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        layout.estimatedItemSize = CGSize(width: UIScreen.main.bounds.width - 20*2, height: 200)
         
         let collectionView = UICollectionView(frame: .zero,
                                               collectionViewLayout: layout)
@@ -77,17 +81,24 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        // FIXME: 셀 들어갈 모델 결정되면 Cell Model 데이터 추상화하기
+        guard let fundraseCell = collectionView
+                .dequeueReusableCell(withReuseIdentifier: FundraisingCell.identifier,
+                                     for: indexPath) as? FundraisingCell else {
+            return UICollectionViewCell()
+        }
+        
+        return fundraseCell
     }
     
     func collectionView(_ collectionView: UICollectionView,

@@ -17,7 +17,9 @@ class FundraisingCell: UICollectionViewCell {
     // MARK: - UI
     let thumbnailImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.image = UIImage(named: ImageName.profile)
         imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -50,12 +52,12 @@ class FundraisingCell: UICollectionViewCell {
     
     let shareButton: UIButton = {
         let btn = UIButton(type: .system)
-        btn.setTitleColor(.white, for: .normal)
         btn.backgroundColor = .whowantsblue
-        btn.setAttributedTitle(NSAttributedString(string: FundraisingText.shareBtn.rawValue,
-                                                  attributes: [.font: UIFont.boldSystemFont(ofSize: 18),
-                                                               .foregroundColor: UIColor.white]),
-                               for: .normal)
+        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        btn.setTitleColor(.white, for: .normal)
+        btn.setTitle(FundraisingText.shareBtn.rawValue, for: .normal)
+        btn.clipsToBounds = true
+        btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
     
@@ -63,6 +65,7 @@ class FundraisingCell: UICollectionViewCell {
         let progressView = UIProgressView(progressViewStyle: .default)
         progressView.setProgress(0.5, animated: false)
         progressView.progressTintColor = .whowantsblue
+        progressView.translatesAutoresizingMaskIntoConstraints = false
         return progressView
     }()
     
@@ -74,7 +77,9 @@ class FundraisingCell: UICollectionViewCell {
     
     let surporterImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
         imageView.image = UIImage(named: ImageName.profile)
+        imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -101,8 +106,8 @@ class FundraisingCell: UICollectionViewCell {
     
     // MARK: - Init
     private func initView() {
-        self.contentView.addSubview(thumbnailImageView)
-        self.contentView.addSubview(contentStackView)
+        self.addSubview(thumbnailImageView)
+        self.addSubview(contentStackView)
         contentStackView.addArrangedSubview(topContainerView)
         topContainerView.addSubview(titleLabel)
         topContainerView.addSubview(shareButton)
@@ -117,7 +122,6 @@ class FundraisingCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         initView()
-        
         configureLayout()
     }
     
@@ -131,35 +135,58 @@ class FundraisingCell: UICollectionViewCell {
     
     // MARK: - Layout
     private func configureLayout() {
+        shareButton.layer.cornerRadius = bounds.width * 0.5 / 10
+        let sharBtnTop = shareButton.topAnchor.constraint(greaterThanOrEqualTo: topContainerView.topAnchor,
+                                                          constant: 4)
+        let shareBtnBottom = shareButton.bottomAnchor.constraint(greaterThanOrEqualTo: topContainerView.bottomAnchor, constant: -4)
+        sharBtnTop.priority = UILayoutPriority(1000)
+        shareBtnBottom.priority = UILayoutPriority(1000)
+        
+        let titleLabelTop = titleLabel.topAnchor.constraint(equalTo: topContainerView.topAnchor,
+                                                            constant: 4)
+        let titleLabelBottom = titleLabel.bottomAnchor.constraint(equalTo: topContainerView.bottomAnchor,
+                                                                  constant: -4)
+        titleLabelTop.priority = UILayoutPriority(750)
+        titleLabelBottom.priority = UILayoutPriority(750)
+        
         NSLayoutConstraint.activate([
-            thumbnailImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            thumbnailImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            thumbnailImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            thumbnailImageView.heightAnchor.constraint(equalTo: thumbnailImageView.widthAnchor,
-                                                       multiplier: 0.58),
+            thumbnailImageView.widthAnchor.constraint(equalToConstant: bounds.width),
+            thumbnailImageView.heightAnchor.constraint(equalToConstant: bounds.width*0.6),
+            thumbnailImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            thumbnailImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            thumbnailImageView.topAnchor.constraint(equalTo: topAnchor),
             contentStackView.topAnchor.constraint(equalTo: thumbnailImageView.bottomAnchor,
                                                   constant: 10),
-            contentStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            contentStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            contentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            shareButton.trailingAnchor.constraint(equalTo: topContainerView.trailingAnchor),
-            shareButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
-            shareButton.widthAnchor.constraint(equalTo: topContainerView.widthAnchor,
-                                               multiplier: 0.21),
-            shareButton.heightAnchor.constraint(equalTo: shareButton.widthAnchor, multiplier: 0.3),
+            contentStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            contentStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            contentStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: topContainerView.leadingAnchor),
-            titleLabel.topAnchor.constraint(equalTo: topContainerView.topAnchor),
+            titleLabelTop,
             titleLabel.trailingAnchor.constraint(equalTo: shareButton.leadingAnchor, constant: -20),
-            titleLabel.bottomAnchor.constraint(equalTo: topContainerView.bottomAnchor),
-            surporterImageView.leadingAnchor.constraint(equalTo: bottomContainerView.leadingAnchor),
-            surporterImageView.topAnchor.constraint(equalTo: surportingCountLabel.topAnchor),
-            surporterImageView.bottomAnchor.constraint(equalTo: surportingCountLabel.bottomAnchor),
+            titleLabelBottom,
+            sharBtnTop,
+            shareBtnBottom,
+            progressView.heightAnchor.constraint(equalToConstant: 7),
+            shareButton.trailingAnchor.constraint(equalTo: topContainerView.trailingAnchor),
+            shareButton.centerYAnchor.constraint(equalTo: topContainerView.centerYAnchor),
+            shareButton.widthAnchor.constraint(equalTo: topContainerView.widthAnchor, multiplier: 0.29),
+            shareButton.heightAnchor.constraint(equalTo: shareButton.widthAnchor, multiplier: 0.38),
+            percentLabel.trailingAnchor.constraint(equalTo: bottomContainerView.trailingAnchor),
+            percentLabel.bottomAnchor.constraint(equalTo: bottomContainerView.bottomAnchor),
+            bottomContainerView.heightAnchor.constraint(equalTo: percentLabel.heightAnchor),
+            percentLabel.topAnchor.constraint(equalTo: bottomContainerView.topAnchor),
             surportingCountLabel.leadingAnchor.constraint(equalTo: surporterImageView.trailingAnchor,
                                                           constant: 2),
             surportingCountLabel.centerYAnchor.constraint(equalTo: bottomContainerView.centerYAnchor),
-            percentLabel.trailingAnchor.constraint(equalTo: bottomContainerView.trailingAnchor),
-            percentLabel.bottomAnchor.constraint(equalTo: bottomContainerView.bottomAnchor),
-            percentLabel.topAnchor.constraint(equalTo: bottomContainerView.topAnchor)
+            surporterImageView.leadingAnchor.constraint(equalTo: bottomContainerView.leadingAnchor),
+            surporterImageView.centerYAnchor.constraint(equalTo: bottomContainerView.centerYAnchor),
+            surporterImageView.widthAnchor.constraint(equalToConstant:
+                                                        percentLabel.intrinsicContentSize.height),
+            surporterImageView.heightAnchor.constraint(equalTo: surporterImageView.widthAnchor)
         ])
     }
+}
+
+extension FundraisingCell: FundraiseCellAble {
+    
 }
