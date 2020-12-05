@@ -19,6 +19,7 @@
 		9D25039125739FA3005C20A9 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D25039025739FA3005C20A9 /* MyPageViewController.swift */; };
 		9D54C7CC257A7E91005066D0 /* FundraisingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D54C7CB257A7E91005066D0 /* FundraisingCell.swift */; };
 		9D54C7D4257A7FD2005066D0 /* FundraisingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D54C7D3257A7FD2005066D0 /* FundraisingHeaderView.swift */; };
+		9D54C7EC257B7E6D005066D0 /* FundraisingCurHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D54C7EB257B7E6D005066D0 /* FundraisingCurHeaderView.swift */; };
 		9D6B0582255D8F9600FE63C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6B0581255D8F9600FE63C9 /* AppDelegate.swift */; };
 		9D6B058B255D8F9D00FE63C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D6B058A255D8F9D00FE63C9 /* Assets.xcassets */; };
 		9D6B058E255D8F9D00FE63C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D6B058C255D8F9D00FE63C9 /* LaunchScreen.storyboard */; };
@@ -81,6 +82,7 @@
 		9D25039025739FA3005C20A9 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		9D54C7CB257A7E91005066D0 /* FundraisingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundraisingCell.swift; sourceTree = "<group>"; };
 		9D54C7D3257A7FD2005066D0 /* FundraisingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundraisingHeaderView.swift; sourceTree = "<group>"; };
+		9D54C7EB257B7E6D005066D0 /* FundraisingCurHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundraisingCurHeaderView.swift; sourceTree = "<group>"; };
 		9D6B057E255D8F9600FE63C9 /* WhoWants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhoWants.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D6B0581255D8F9600FE63C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D6B058A255D8F9D00FE63C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 		9D54C7CA257A7E58005066D0 /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				9D54C7EB257B7E6D005066D0 /* FundraisingCurHeaderView.swift */,
 				9D54C7D3257A7FD2005066D0 /* FundraisingHeaderView.swift */,
 				9D54C7CB257A7E91005066D0 /* FundraisingCell.swift */,
 			);
@@ -703,6 +706,7 @@
 				9D250326257294C5005C20A9 /* NickInputViewController.swift in Sources */,
 				F46E06AB2577D5C800764B02 /* OpenFundraisingVC.swift in Sources */,
 				9D8EAB6E256EAA8F0066B3C7 /* NSNotification.Name+Extension.swift in Sources */,
+				9D54C7EC257B7E6D005066D0 /* FundraisingCurHeaderView.swift in Sources */,
 				9D8EAB5C256E3D610066B3C7 /* PwInputViewController.swift in Sources */,
 				F46E06D0257A100900764B02 /* InputImageVC.swift in Sources */,
 				9D6B0582255D8F9600FE63C9 /* AppDelegate.swift in Sources */,

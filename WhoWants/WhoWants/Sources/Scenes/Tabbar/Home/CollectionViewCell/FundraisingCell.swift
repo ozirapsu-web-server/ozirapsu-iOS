@@ -17,7 +17,7 @@ class FundraisingCell: UICollectionViewCell {
     // MARK: - UI
     let thumbnailImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: ImageName.profile)
+        imageView.image = UIImage(named: "sample")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -29,7 +29,7 @@ class FundraisingCell: UICollectionViewCell {
         stackView.axis = .vertical
         stackView.distribution = .fill
         stackView.alignment = .fill
-        stackView.spacing = 7
+        stackView.spacing = 9
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -135,7 +135,8 @@ class FundraisingCell: UICollectionViewCell {
     
     // MARK: - Layout
     private func configureLayout() {
-        shareButton.layer.cornerRadius = bounds.width * 0.5 / 10
+        shareButton.layer.cornerRadius = (bounds.width*0.5) / 10
+        thumbnailImageView.layer.cornerRadius = (bounds.width*0.6) / 20
         let sharBtnTop = shareButton.topAnchor.constraint(greaterThanOrEqualTo: topContainerView.topAnchor,
                                                           constant: 4)
         let shareBtnBottom = shareButton.bottomAnchor.constraint(greaterThanOrEqualTo: topContainerView.bottomAnchor, constant: -4)
