@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 enum SigninText: String {
     case title = "모금함 개설하기\n후원츠와 함께 시작해보세요"
@@ -18,6 +19,8 @@ enum SigninText: String {
 
 class SigninViewController: UIViewController {
     // MARK: - UI
+    var playerLayer = AVPlayerLayer()
+    
     var titleLabel: UILabel = {
         var label = UILabel()
         label.numberOfLines = 0
@@ -159,6 +162,15 @@ class SigninViewController: UIViewController {
         signupButton.addTarget(self, action: #selector(presentSignupView(_:)), for: .touchUpInside)
     }
     
+    private func setupPlayerLayer() {
+        self.view.layer.addSublayer(playerLayer)
+        playerLayer.frame = self.view.bounds
+        playerLayer.videoGravity = .resizeAspectFill
+        guard let url = Bundle.main.url(forResource: "login", withExtension: "mp4") else { return }
+        let player = AVPlayer(url: url)
+        playerLayer.player = player
+    }
+    
     // MARK: - Action
     @objc
     func presentSignupView(_ sender: UIButton) {
@@ -172,7 +184,7 @@ class SigninViewController: UIViewController {
         // Do any additional setup after loading the view.
         // FIXME: 여기 뒤에 배경 동영상 넣어야함
         view.backgroundColor = .darkGray
-        
+        setupPlayerLayer()
         initView()
         configureLayout()
         setButtonAction()
@@ -181,11 +193,21 @@ class SigninViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setNav()
+        playerLayer.player?.play()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         configureCornerRadius()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        playerLayer.player?.pause()
+    }
+    
+    deinit {
+        playerLayer.removeFromSuperlayer()
     }
     
     // MARK: - Layout
