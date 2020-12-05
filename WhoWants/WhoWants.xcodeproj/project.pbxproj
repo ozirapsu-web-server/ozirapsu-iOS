@@ -21,6 +21,7 @@
 		9D54C7D4257A7FD2005066D0 /* FundraisingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D54C7D3257A7FD2005066D0 /* FundraisingHeaderView.swift */; };
 		9D54C7EC257B7E6D005066D0 /* FundraisingCurHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D54C7EB257B7E6D005066D0 /* FundraisingCurHeaderView.swift */; };
 		9D54C807257B9EC2005066D0 /* login.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 9D54C806257B9EBD005066D0 /* login.mp4 */; };
+		9D54C80C257BA182005066D0 /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D54C80B257BA182005066D0 /* splash.json */; };
 		9D6B0582255D8F9600FE63C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6B0581255D8F9600FE63C9 /* AppDelegate.swift */; };
 		9D6B058B255D8F9D00FE63C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D6B058A255D8F9D00FE63C9 /* Assets.xcassets */; };
 		9D6B058E255D8F9D00FE63C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D6B058C255D8F9D00FE63C9 /* LaunchScreen.storyboard */; };
@@ -85,6 +86,7 @@
 		9D54C7D3257A7FD2005066D0 /* FundraisingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundraisingHeaderView.swift; sourceTree = "<group>"; };
 		9D54C7EB257B7E6D005066D0 /* FundraisingCurHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundraisingCurHeaderView.swift; sourceTree = "<group>"; };
 		9D54C806257B9EBD005066D0 /* login.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = login.mp4; sourceTree = "<group>"; };
+		9D54C80B257BA182005066D0 /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = splash.json; path = ../../../../../splash.json; sourceTree = "<group>"; };
 		9D6B057E255D8F9600FE63C9 /* WhoWants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhoWants.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D6B0581255D8F9600FE63C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D6B058A255D8F9D00FE63C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 		9D54C7FA257B9D51005066D0 /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
+				9D54C80B257BA182005066D0 /* splash.json */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -584,6 +587,7 @@
 				9D25038325739F2F005C20A9 /* Home.storyboard in Resources */,
 				9D8EAB1B256D8EFD0066B3C7 /* Signin.storyboard in Resources */,
 				9D6B058E255D8F9D00FE63C9 /* LaunchScreen.storyboard in Resources */,
+				9D54C80C257BA182005066D0 /* splash.json in Resources */,
 				9D6B058B255D8F9D00FE63C9 /* Assets.xcassets in Resources */,
 				F46E06B82577D5EA00764B02 /* OpenFundraising.storyboard in Resources */,
 			);
