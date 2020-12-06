@@ -11,21 +11,27 @@ import BSImagePicker
 
 class InputImageVC: UIViewController {
     
+    // MARK: - Init
+    
+    /**TEST*/
+    var fundraising = Fundraising(title: "", targetAmount: 0, contents: "", tagList: [], images: [])
+    
+    // 버튼
+    @IBOutlet weak var nextButton: UIButton!
+    
+    // progress view
+    @IBOutlet weak var progressView: UIProgressView! {
+        didSet{
+            self.progressView.translatesAutoresizingMaskIntoConstraints = false
+        }
+    }
+    
+    // image 괸련
+    @IBOutlet weak var imageCollectionView: UICollectionView!
     var SelectedAssets = [PHAsset]()
     var photoArray = [UIImage]()
     
-    @IBOutlet weak var imageCollectionView: UICollectionView!
-    
-    override func viewDidLoad() {
-        
-        super.viewDidLoad()
-        
-        imageCollectionView.isHidden = true
-        
-        setNav()
-        
-    }
-    
+    // navigation bar
     private func setNav(){
         
         navigationController?.navigationBar.isTranslucent = false
@@ -39,6 +45,34 @@ class InputImageVC: UIViewController {
         navigationItem.leftBarButtonItem = backbtn
     }
     
+    private func configureLayout() {
+        NSLayoutConstraint.activate([
+            progressView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            progressView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            progressView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
+    }
+    
+    // MARK: - LifeCycle
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        
+        imageCollectionView.isHidden = true
+        
+        setNav()
+        
+        self.progressView.setProgress(0.75, animated: true)
+        configureLayout()
+        
+        
+        self.nextButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        /**TEST*/
+        print(fundraising)
+    }
+    
+    // MARK: - Action
     @objc
     func back(_ sender: Any) {
         navigationController?.popViewController(animated: true)
@@ -46,9 +80,35 @@ class InputImageVC: UIViewController {
     
     @IBAction func next(_ sender: Any) {
         
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "FundraisingCompleteVC")
+        /* 통신 세팅
+        RequestService.shared.requestProduct() { data in
+            switch data {
+                
+            case .success :
+                print("모금함 개설 성공")
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "InputContentVC")
+                navigationController?.pushViewController(vc!, animated: true)
+                
+            case .requestErr(let msg):
+                print("getCurrentTakingList")
+                print(msg)
+            case .pathErr:
+                print("getCurrentTakingList path err")
+            case .serverErr:
+                print("getCurrentTakingList server err")
+            case .networkFail:
+                print("getCurrentTakingList network err")
+            case .dbErr:
+                print("getCurrentTakingList db err")
+            }
+        }
+        */
         
-        navigationController?.pushViewController(vc!, animated: true)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "FundraisingCompleteVC") as! FundraisingCompleteVC
+        
+        vc.fundraising = self.fundraising
+        
+        navigationController?.pushViewController(vc, animated: true)
         
     }
     
@@ -70,6 +130,8 @@ class InputImageVC: UIViewController {
     }
 }
 
+// MARK: - Extension
+
 extension InputImageVC : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -89,11 +151,15 @@ extension InputImageVC : UICollectionViewDataSource {
             
             buttonCell.addImage.addTarget(self, action: #selector(selectImage(_:)), for: .touchUpInside)
             
+            buttonCell.makeRounded(cornerRadius: 4)
+            
             return buttonCell
         
         } else {
             
             imageCell.thumImg.image = photoArray[indexPath.row - 1]
+            
+            imageCell.makeRounded(cornerRadius: 4)
             
             if indexPath.row != 1 {
                 imageCell.blurView.isHidden = true
@@ -133,7 +199,18 @@ extension InputImageVC {
             
             if photoArray.count == 0 {
                 imageCollectionView.isHidden = true
+                
+                nextButton.backgroundColor = .graytext
+                nextButton.isUserInteractionEnabled = false
+
             } else {
+                
+                nextButton.backgroundColor = .mainblack
+                nextButton.isUserInteractionEnabled = true
+                
+                var photos = self.photoArray
+                self.fundraising.images = photos
+                
                 imageCollectionView.isHidden = false
                 imageCollectionView.dataSource = self
                 imageCollectionView.reloadData()

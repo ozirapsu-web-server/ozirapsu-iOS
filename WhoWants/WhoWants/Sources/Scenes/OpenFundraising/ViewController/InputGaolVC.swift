@@ -6,20 +6,56 @@
 //
 
 import UIKit
+import Foundation
+
+/**TEST: 모금 개설 정보 저장 임시 struct*/
+struct Fundraising {
+    var title : String
+    var targetAmount : Int
+    var contents : String
+    var tagList : [String]
+    var images : [UIImage]
+    
+    init(title: String, targetAmount: Int, contents: String, tagList: [String], images: [UIImage]) {
+        self.title = title
+        self.targetAmount = targetAmount
+        self.contents = contents
+        self.tagList = tagList
+        self.images = images
+    }
+}
 
 class InputGaolVC: UIViewController {
 
+    // MARK: - Init
+    
+    // 목표금액
     @IBOutlet weak var amountTextField: UITextField!
-    @IBOutlet weak var titleTextField: UITextField!
-    
-    @IBOutlet weak var fixConstraint: NSLayoutConstraint!
-    
-    
     @IBOutlet weak var amountLabel: UILabel!
-    @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var amountUnderline: UIView!
+    
+    // 제목
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var titleUnderline: UIView!
     
+    // 키보드 constraint
+    @IBOutlet weak var fixConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var testConstraint: NSLayoutConstraint!
+    
+    /**TEST: 모금 개설 정보 저장 배열*/
+    var fundraising = Fundraising(title: "", targetAmount: 0, contents: "", tagList: [], images: [])
+    
+    // 버튼
+    @IBOutlet weak var nextButton: UIButton! {
+        didSet {
+            nextButton.backgroundColor = .graytext
+        }
+    }
+    
+    // MARK: - Layout
+    // progress view
     var progressView: UIProgressView = {
         var progressView = UIProgressView(progressViewStyle: .default)
         progressView.progressTintColor = .whowantsblue
@@ -27,6 +63,19 @@ class InputGaolVC: UIViewController {
         return progressView
     }()
     
+    private func initView() {
+        view.addSubview(progressView)
+    }
+    
+    private func configureLayout() {
+        NSLayoutConstraint.activate([
+            progressView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            progressView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            progressView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
+    }
+    
+    // navigation bar
     private func setNav(){
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.tintColor = .mainblack
@@ -38,7 +87,18 @@ class InputGaolVC: UIViewController {
         navigationItem.leftBarButtonItem = backbtn
     }
     
+    // textfield
+    private func edittedAmount() {
+        self.amountLabel.textColor = .mainblack
+        self.amountUnderline.backgroundColor = .mainblack
+    }
     
+    private func edittedTitle() {
+        self.countLabel.textColor = .mainblack
+        self.titleUnderline.backgroundColor = .mainblack
+    }
+    
+    // MARK: - Action
     @IBAction func back(_ sender: Any) {
         
         navigationController?.popViewController(animated: true)
@@ -47,13 +107,22 @@ class InputGaolVC: UIViewController {
     
     @IBAction func next(_ sender: Any) {
         
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "InputContentVC")
-
-        navigationController?.pushViewController(vc!, animated: true)
+        guard let amount = self.amountTextField.text else { return }
+        
+        guard let title = self.titleTextField.text else { return }
+        
+        self.fundraising.targetAmount = Int(amount) ?? 0
+        self.fundraising.title = title
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "InputContentVC") as! InputContentVC
+        
+        vc.fundraising = self.fundraising
+        
+        navigationController?.pushViewController(vc, animated: true)
         
     }
     
-    
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,46 +132,60 @@ class InputGaolVC: UIViewController {
         initGestureRecognizer()
         
         self.progressView.setProgress(0.25, animated: true)
-        
+        initView()
         configureLayout()
+        
+        nextButton.isUserInteractionEnabled = false
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setNav()
-        registerForKeyboardNotifications()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         unregisterForKeyboardNotifications()
     }
     
-    private func configureLayout() {
-        NSLayoutConstraint.activate([
-            progressView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            progressView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            progressView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ])
-    }
-    
 }
 
+// MARK: - Extension
 extension InputGaolVC : UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == titleTextField {
+            registerForKeyboardNotifications()
+        }
+    }
+
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-          if(textField == titleTextField){
-             let strLength = textField.text?.count ?? 0
-             let lngthToAdd = string.count
-             let lengthCount = strLength + lngthToAdd
-            self.countLabel.textColor = .mainblack
-            self.titleUnderline.backgroundColor = .mainblack
-            if lngthToAdd == 0 {
-                self.countLabel.text = "0"
-            } else {
-                self.countLabel.text = "\(lengthCount)"
+        
+        if textField == titleTextField {
+            
+            let strLength = textField.text?.count ?? 0
+            let lngthToAdd = string.count
+            let lengthCount = strLength + lngthToAdd
+            
+            self.countLabel.text = "\(lengthCount)"
+            edittedTitle()
+            
+            // 50자 넘어가는 경우 Case 처리
+            if lengthCount >= 50 {
+                return false
             }
+            
           } else {
-            self.amountLabel.textColor = .mainblack
-            self.amountUnderline.backgroundColor = .mainblack
+            edittedAmount()
           }
+        
+        //
+        if titleTextField.text != "" && amountTextField.text != "" {
+            nextButton.backgroundColor = .mainblack
+            nextButton.isUserInteractionEnabled = true
+        } else {
+            nextButton.backgroundColor = .graytext
+            nextButton.isUserInteractionEnabled = false
+        }
         
           return true
     }
@@ -118,12 +201,10 @@ extension InputGaolVC: UIGestureRecognizerDelegate {
         view.addGestureRecognizer(textFieldTap)
     }
     
-    // 다른 위치 탭했을 때 키보드 없어지는 코드
     @objc func handleTapTextField(_ sender: UITapGestureRecognizer) {
         self.amountTextField.resignFirstResponder()
         self.titleTextField.resignFirstResponder()
     }
-    
     
     func gestureRecognizer(_ gestrueRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         if (touch.view?.isDescendant(of: amountTextField))! || (touch.view?.isDescendant(of: titleTextField))! {
@@ -152,8 +233,8 @@ extension InputGaolVC: UIGestureRecognizerDelegate {
         UIView.animate(withDuration: duration, delay: 0.0, options: .init(rawValue: curve), animations: {
             
             // +로 갈수록 y값이 내려가고 -로 갈수록 y값이 올라간다.
-            
-            self.fixConstraint.constant = -keyboardHeight/60
+            self.testConstraint.constant = -36
+            // self.fixConstraint.constant = -keyboardHeight/200
         })
         
         self.view.layoutIfNeeded()
@@ -167,7 +248,9 @@ extension InputGaolVC: UIGestureRecognizerDelegate {
             
             // 원래대로 돌아가도록
             // self.viewYcenter.constant = 125
-            self.fixConstraint.constant = 147
+            
+            self.testConstraint.constant = 36
+            // self.fixConstraint.constant = 147
         })
         
         self.view.layoutIfNeeded()

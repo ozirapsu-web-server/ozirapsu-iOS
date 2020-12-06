@@ -9,32 +9,37 @@ import UIKit
 
 class InputContentVC: UIViewController {
     
+    // MARK: - Init
+    // 내용 입력
     @IBOutlet weak var contentTextView: UITextView!
-    
     @IBOutlet weak var countLabel: UILabel!
-    
     @IBOutlet weak var contentView: UIView!
+    
+    // 태크 입력
     @IBOutlet weak var tagTextField: UITextField!
     @IBOutlet weak var tagUnderline: UIView!
     
+    // 버튼
+    @IBOutlet weak var nextButton: UIButton!
     
-    private func setContentView() {
-        self.contentView.setBorder(borderColor: .graytext, borderWidth: 1)
-        self.contentView.makeRounded(cornerRadius: 6)
+    // progress view
+    @IBOutlet weak var progressView: UIProgressView! {
+        didSet {
+        self.progressView.translatesAutoresizingMaskIntoConstraints = false
+        }
     }
     
-    @objc
-    func back(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
-    }
+    // constraint
+    @IBOutlet weak var keyboardConstraint: NSLayoutConstraint!
     
     
-    @IBAction func next(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "InputImageVC")
-
-        navigationController?.pushViewController(vc!, animated: true)
-    }
+    /** TEST*/
+    var fundraising = Fundraising(title: "", targetAmount: 0, contents: "", tagList: [], images: [])
     
+    
+    // MARK: - Layout
+    
+    // navigation bar
     private func setNav(){
         
         navigationController?.navigationBar.isTranslucent = false
@@ -48,29 +53,97 @@ class InputContentVC: UIViewController {
         navigationItem.leftBarButtonItem = backbtn
     }
     
+    // progress view
+    private func setProgressView() {
+        self.progressView.setProgress(0.5, animated: true)
+        configureLayout()
+    }
+    
+    private func configureLayout() {
+        NSLayoutConstraint.activate([
+            progressView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            progressView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            progressView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
+    }
+    // 내용 입력 뷰
+    private func setContentView() {
+        self.contentView.setBorder(borderColor: .graytext, borderWidth: 1)
+        self.contentView.makeRounded(cornerRadius: 6)
+    }
+    
+    // 태크 입력 textField
+    private func setTag() {
+        self.tagUnderline.backgroundColor = .mainblack
+    }
+    
+    // MARK: - Action
+    
+    @objc
+    func back(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func next(_ sender: Any) {
+        
+        guard let content = self.contentTextView.text else { return }
+        
+        guard let tags = self.tagTextField.text?.components(separatedBy: ",") else { return }
+        
+        self.fundraising.contents = content
+        self.fundraising.tagList = tags
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "InputImageVC") as! InputImageVC
+        
+        vc.fundraising = self.fundraising
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.contentTextView.delegate = self
+        self.tagTextField.delegate = self
         /**ERROR: 동적으로 textView height 조절하기*/
         //contentTextView.adjustUITextViewHeight()
         //content view UI setting
-        setContentView()
-        textViewSetup()
         
         initGestureRecognizer()
+        setContentView()
+        setTextView()
+        setProgressView()
+        
+        
+        /**TEST*/
+        print(fundraising)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setNav()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        unregisterForKeyboardNotifications()
+    }
 
 }
 
+// MARK: - Extension
+
+// textField Delegate
+extension InputContentVC: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        registerForKeyboardNotifications()
+    }
+}
+
+// textView Delegate
 extension InputContentVC: UITextViewDelegate {
     
     //start editing on contentTextView
-    func textViewSetup() {
+    func setTextView() {
         if contentTextView.text == "어떤 모금 프로젝트를 진행하시나요?" {
             contentTextView.text = ""
             contentTextView.textColor = .mainblack
@@ -84,13 +157,13 @@ extension InputContentVC: UITextViewDelegate {
     
     //start editing on contentTextView
     func textViewDidBeginEditing(_ textView: UITextView) {
-        textViewSetup()
+        setTextView()
     }
     
     //end editing on contentTextView
     func textViewDidEndEditing(_ textView: UITextView) {
         if contentTextView.text == "" {
-            textViewSetup()
+            setTextView()
         }
     }
     
@@ -109,7 +182,12 @@ extension InputContentVC: UITextViewDelegate {
             self.countLabel.text = "\(lengthCount)" + "/800"
         }
         
-//
+        if !text.isEmpty {            nextButton.backgroundColor = .mainblack
+            nextButton.isUserInteractionEnabled = true
+        } else {
+            nextButton.backgroundColor = .graytext
+            nextButton.isUserInteractionEnabled = false
+        }
         return true
     }
 }
@@ -121,7 +199,6 @@ extension UITextView {
         self.isScrollEnabled = false
     }
 }
-
 
 extension InputContentVC: UIGestureRecognizerDelegate {
     
@@ -165,6 +242,7 @@ extension InputContentVC: UIGestureRecognizerDelegate {
         UIView.animate(withDuration: duration, delay: 0.0, options: .init(rawValue: curve), animations: {
             
             // +로 갈수록 y값이 내려가고 -로 갈수록 y값이 올라간다.
+            self.keyboardConstraint.constant = -100
             
         })
         
@@ -177,8 +255,7 @@ extension InputContentVC: UIGestureRecognizerDelegate {
         guard let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt else {return}
         UIView.animate(withDuration: duration, delay: 0.0, options: .init(rawValue: curve), animations: {
             
-            // 원래대로 돌아가도록
-            // self.viewYcenter.constant = 125
+            self.keyboardConstraint.constant = 36
             
         })
         

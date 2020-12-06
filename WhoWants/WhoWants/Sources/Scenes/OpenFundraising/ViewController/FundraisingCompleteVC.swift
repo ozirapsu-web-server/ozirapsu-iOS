@@ -7,47 +7,36 @@
 
 import UIKit
 
-
+// MARK: - Protocol
 protocol CustomActivityDelegate : NSObjectProtocol {
 
     func performActionCompletion(actvity: CustomActivity)
 
 }
-
 class CustomActivity: UIActivity {
     
     weak var delegate: CustomActivityDelegate?
     
     override class var activityCategory: UIActivity.Category {
-
         return .action
-
     }
     
     override var activityType: UIActivity.ActivityType? {
-
         guard let bundleId = Bundle.main.bundleIdentifier else {return nil}
 
         return UIActivity.ActivityType(rawValue: bundleId + "\(self.classForCoder)")
-
     }
 
     override var activityTitle: String? {
-
         return "Open in Safari"
-
     }
 
     override var activityImage: UIImage? {
-
         return UIImage(named : "icons8-safari-50")
-
     }
 
     override func canPerform(withActivityItems activityItems: [Any]) -> Bool {
-
         return true
-
     }
 
     override func prepare(withActivityItems activityItems: [Any]) {
@@ -55,29 +44,67 @@ class CustomActivity: UIActivity {
     }
 
     override func perform() {
-
         self.delegate?.performActionCompletion(actvity: self)
-
         activityDidFinish(true)
-
     }
 }
 
 let strURL = "https://www.notion.so/1-Value-Proposition-5e646c3b8e344db4b1b0481f8b12e6bf"
 
 class FundraisingCompleteVC: UIViewController {
+    // MARK: - Init
     
+    /**TEST*/
+    var fundraising = Fundraising(title: "", targetAmount: 0, contents: "", tagList: [], images: [])
+    
+    @IBOutlet weak var progressView: UIProgressView! {
+        didSet {
+            self.progressView.translatesAutoresizingMaskIntoConstraints = false
+        }
+    }
+    
+    
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setNav()
         
+        self.progressView.setProgress(1, animated: true)
+        configureLayout()
+        
+        /**TEST*/
+        print(fundraising)
         
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         
     }
-
+    
+    // MARK: - Layout
+    private func setNav(){
+        
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.tintColor = .mainblack
+        navigationItem.title = "모금 개설하기"
+        let backbtn = UIBarButtonItem(image: UIImage(named: ""),
+                                      style: .plain,
+                                      target: self,
+                                      action: nil)
+        navigationItem.leftBarButtonItem = backbtn
+        
+    }
+    
+    private func configureLayout() {
+        NSLayoutConstraint.activate([
+            progressView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            progressView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            progressView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
+    }
+    
+    // MARK: - Action
     @IBAction func share(_ sender: Any) {
         
         let customActivity = CustomActivity()
