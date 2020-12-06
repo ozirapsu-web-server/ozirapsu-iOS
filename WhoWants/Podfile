@@ -10,7 +10,7 @@ target 'WhoWants' do
   pod 'lottie-ios'
   pod 'Firebase/Analytics'
   pod 'Firebase/Messaging'
-
+  pod 'BSImagePicker', '~> 2.8'
   # Pods for WhoWants
 
 
