@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol FundraiseHeaderAble {
+    var isInit: Bool { get set }
+}
+
 protocol FundraiseCellAble {
     
 }
@@ -23,7 +27,7 @@ class HomeViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 36
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
         layout.estimatedItemSize = CGSize(width: UIScreen.main.bounds.width - 20*2, height: 200)
         
         let collectionView = UICollectionView(frame: .zero,
@@ -92,7 +96,7 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
         if section == 0 { return 0 }
-        else { return 2 }
+        else { return 5 }
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -126,6 +130,42 @@ extension HomeViewController: UICollectionViewDataSource {
             return reusableCurView
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        willDisplay cell: UICollectionViewCell,
+                        forItemAt indexPath: IndexPath) {
+        guard let fundraisingCell = cell as? FundraisingCell else { return }
+        
+        if fundraisingCell.isInit {
+            fundraisingCell.transform = CGAffineTransform(translationX: 0, y: view.bounds.height)
+            fundraisingCell.alpha = 0
+            UIView.animate(withDuration: 0.5, animations: {
+                fundraisingCell.transform = .identity
+                fundraisingCell.alpha = 1
+            }, completion: { isCompletion in
+                fundraisingCell.isInit = false
+            })
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        willDisplaySupplementaryView view: UICollectionReusableView,
+                        forElementKind elementKind: String,
+                        at indexPath: IndexPath) {
+        if elementKind != UICollectionView.elementKindSectionHeader { return }
+        guard var headerView = view as? FundraiseHeaderAble else { return }
+        if !headerView.isInit { return }
+        
+        view.alpha = 0
+        view.transform = CGAffineTransform(translationX: 0, y: view.bounds.height)
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            view.alpha = 1
+            view.transform = .identity
+        }, completion: { isCompletion in
+            headerView.isInit = false
+        })
+    }
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
@@ -140,8 +180,4 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
                                                   withHorizontalFittingPriority: .required,
                                                   verticalFittingPriority: .fittingSizeLevel)
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        return UIEdgeInsets(top: 6, left: 0, bottom: 6, right: 0)
-//    }
 }

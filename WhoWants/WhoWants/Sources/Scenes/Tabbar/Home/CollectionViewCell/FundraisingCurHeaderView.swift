@@ -12,7 +12,7 @@ enum CurHeaderText: String {
     case inform = "🍯TIP 개설한 모금함을 공유하시면 200%나 더 빨리 목표에 달성할 수 있습니다."
 }
 
-class FundraisingCurHeaderView: UICollectionReusableView {
+class FundraisingCurHeaderView: UICollectionReusableView, FundraiseHeaderAble {
     static let identifier = "FundraisingCurHeaderView"
     
     // MARK: - UI
@@ -42,6 +42,9 @@ class FundraisingCurHeaderView: UICollectionReusableView {
         label.textColor = .mainblack
         return label
     }()
+    
+    // MARK: - Data
+    var isInit: Bool = true
     
     // MARK: - Init
     private func initView() {

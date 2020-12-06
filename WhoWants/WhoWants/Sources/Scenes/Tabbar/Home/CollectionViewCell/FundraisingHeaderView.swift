@@ -12,7 +12,7 @@ struct HeaderDataDTO {
     let message: String?
 }
 
-class FundraisingHeaderView: UICollectionReusableView {
+class FundraisingHeaderView: UICollectionReusableView, FundraiseHeaderAble {
     static let identifier = "FundraisingHeader"
     
     // MARK: - UI
@@ -53,6 +53,9 @@ class FundraisingHeaderView: UICollectionReusableView {
         uiView.translatesAutoresizingMaskIntoConstraints = false
         return uiView
     }()
+    
+    // MARK: - Data
+    var isInit: Bool = true
     
     // MARK: - Init
     private func initView() {

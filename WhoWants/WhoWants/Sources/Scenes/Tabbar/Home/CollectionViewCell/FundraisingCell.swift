@@ -104,6 +104,9 @@ class FundraisingCell: UICollectionViewCell {
         return label
     }()
     
+    // MARK: - Data
+    var isInit: Bool = true 
+    
     // MARK: - Init
     private func initView() {
         self.addSubview(thumbnailImageView)
@@ -121,6 +124,14 @@ class FundraisingCell: UICollectionViewCell {
     // MARK: Life Cycle
     override init(frame: CGRect) {
         super.init(frame: frame)
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            contentView.topAnchor.constraint(equalTo: topAnchor)
+        ])
+        
         initView()
         configureLayout()
     }
@@ -151,16 +162,16 @@ class FundraisingCell: UICollectionViewCell {
         titleLabelBottom.priority = UILayoutPriority(750)
         
         NSLayoutConstraint.activate([
+            thumbnailImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             thumbnailImageView.widthAnchor.constraint(equalToConstant: bounds.width),
             thumbnailImageView.heightAnchor.constraint(equalToConstant: bounds.width*0.6),
-            thumbnailImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            thumbnailImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            thumbnailImageView.topAnchor.constraint(equalTo: topAnchor),
+            thumbnailImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            thumbnailImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             contentStackView.topAnchor.constraint(equalTo: thumbnailImageView.bottomAnchor,
                                                   constant: 10),
-            contentStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            contentStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            contentStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            contentStackView.leadingAnchor.constraint(equalTo: thumbnailImageView.leadingAnchor),
+            contentStackView.trailingAnchor.constraint(equalTo: thumbnailImageView.trailingAnchor),
+            contentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: topContainerView.leadingAnchor),
             titleLabelTop,
             titleLabel.trailingAnchor.constraint(equalTo: shareButton.leadingAnchor, constant: -20),
