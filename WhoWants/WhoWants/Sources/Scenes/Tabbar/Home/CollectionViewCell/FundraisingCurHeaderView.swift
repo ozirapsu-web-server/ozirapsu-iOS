@@ -16,7 +16,7 @@ class FundraisingCurHeaderView: UICollectionReusableView, FundraiseHeaderAble {
     static let identifier = "FundraisingCurHeaderView"
     
     // MARK: - UI
-    var stateLabel: UILabel = {
+    let stateLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textColor = .black
@@ -25,7 +25,7 @@ class FundraisingCurHeaderView: UICollectionReusableView, FundraiseHeaderAble {
         return label
     }()
     
-    var countLabel: UILabel = {
+    let countLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textColor = .whowantsblue
@@ -35,7 +35,7 @@ class FundraisingCurHeaderView: UICollectionReusableView, FundraiseHeaderAble {
         return label
     }()
     
-    var containerView: UIView = {
+    let containerView: UIView = {
         let uiView = UIView()
         uiView.backgroundColor = UIColor(red: 248/255, green: 248/255, blue: 248/255, alpha: 1.0)
         uiView.clipsToBounds = true
@@ -43,7 +43,7 @@ class FundraisingCurHeaderView: UICollectionReusableView, FundraiseHeaderAble {
         return uiView
     }()
     
-    var informLabel: UILabel = {
+    let informLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.numberOfLines = 0

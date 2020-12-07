@@ -19,12 +19,13 @@ class MainTabbarViewController: UITabBarController {
 
 extension MainTabbarViewController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        if viewController is HomeViewController {
-            return true
-        } else if viewController is MyPageViewController {
-            return true
-        } else {
-            return false
-        }
+//        if viewController is HomeViewController {
+//            return true
+//        } else if viewController is MyPageViewController {
+//            return true
+//        } else {
+//            return false
+//        }
+        return true
     }
 }

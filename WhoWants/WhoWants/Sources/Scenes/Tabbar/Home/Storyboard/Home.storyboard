@@ -30,8 +30,9 @@
         <scene sceneID="cVx-kv-z4c">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kE4-dc-pre" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="0sJ-7g-pxU"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="gc6-nZ-OKh"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6n0-Zn-cHD">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
