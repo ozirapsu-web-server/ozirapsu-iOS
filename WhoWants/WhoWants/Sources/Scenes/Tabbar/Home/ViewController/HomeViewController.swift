@@ -29,10 +29,13 @@ class HomeViewController: UIViewController {
         layout.minimumLineSpacing = 36
         layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
         layout.estimatedItemSize = CGSize(width: UIScreen.main.bounds.width - 20*2, height: 200)
-        
+    
         let collectionView = UICollectionView(frame: .zero,
                                               collectionViewLayout: layout)
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
+        collectionView.contentInset = UIEdgeInsets(top: view.safeAreaInsets.top,
+                                                   left: 0,
+                                                   bottom: 50,
+                                                   right: 0)
         collectionView.register(FundraisingCell.self,
                                 forCellWithReuseIdentifier: FundraisingCell.identifier)
         collectionView.register(FundraisingCurHeaderView.self,
@@ -57,11 +60,36 @@ class HomeViewController: UIViewController {
         let logoImage = UIImageView(image: UIImage(named: ImageName.logo))
         logoImage.contentMode = .scaleAspectFit
         navigationItem.titleView = logoImage
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.barTintColor = .white
         navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     // MARK: - Action
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView,
+                                   withVelocity velocity: CGPoint,
+                                   targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let statusBarHeight = UIApplication.shared.statusBarFrame.height
+        let offset = targetContentOffset.pointee.y + view.safeAreaInsets.top
+        
+        if offset > 0 {
+            if offset < view.safeAreaInsets.top - statusBarHeight {
+                scrollView.setContentOffset(CGPoint(x: 0, y: -statusBarHeight), animated: true)
+            }
+            
+            UIView.animate(withDuration: 0.2) {
+                self.navigationItem.titleView?.alpha = 0
+                self.navigationController?.navigationBar.transform = CGAffineTransform(translationX: 0,
+                                                                                       y: -self.view.safeAreaInsets.top+statusBarHeight)
+            }
+        }
+        
+        if velocity.y < 0 {
+            UIView.animate(withDuration: 0.2) {
+                self.navigationItem.titleView?.alpha = 1.0
+                self.navigationController?.navigationBar.transform = .identity
+            }
+        }
+    }
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -82,7 +110,7 @@ class HomeViewController: UIViewController {
         NSLayoutConstraint.activate([
             homeCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             homeCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            homeCollectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            homeCollectionView.topAnchor.constraint(equalTo: self.view.topAnchor),
             homeCollectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
