@@ -132,7 +132,7 @@ class InputImageVC: UIViewController {
 
 // MARK: - Extension
 
-extension InputImageVC : UICollectionViewDataSource {
+extension InputImageVC : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -149,7 +149,7 @@ extension InputImageVC : UICollectionViewDataSource {
         
         if indexPath.row == 0 {
             
-            buttonCell.addImage.addTarget(self, action: #selector(selectImage(_:)), for: .touchUpInside)
+            // buttonCell.addImage.addTarget(self, action: #selector(selectImage(_:)), for: .touchUpInside)
             
             buttonCell.makeRounded(cornerRadius: 4)
             
@@ -161,6 +161,10 @@ extension InputImageVC : UICollectionViewDataSource {
             
             imageCell.makeRounded(cornerRadius: 4)
             
+            imageCell.deleteButton.tag = indexPath.row - 1
+            
+            imageCell.deleteButton.addTarget(self, action: #selector(cancelButtonAction(sender:)), for: .touchUpInside)
+            
             if indexPath.row != 1 {
                 imageCell.blurView.isHidden = true
             }
@@ -171,6 +175,13 @@ extension InputImageVC : UICollectionViewDataSource {
 
 
 extension InputImageVC {
+    
+    @objc func cancelButtonAction(sender: UIButton) {
+        imageCollectionView.deleteItems(at: [IndexPath.init(row: sender.tag, section: 0)])
+        photoArray.remove(at: sender.tag)
+
+        self.fundraising.images = photoArray
+    }
     
     func convertAssetToImages() -> Void {
 

@@ -56,6 +56,7 @@ class InputGaolVC: UIViewController {
     
     // MARK: - Layout
     // progress view
+    /* NAVTEST
     var progressView: UIProgressView = {
         var progressView = UIProgressView(progressViewStyle: .default)
         progressView.progressTintColor = .whowantsblue
@@ -74,8 +75,10 @@ class InputGaolVC: UIViewController {
             progressView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
+    */
     
     // navigation bar
+    /*NAVTEST
     private func setNav(){
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.tintColor = .mainblack
@@ -86,6 +89,7 @@ class InputGaolVC: UIViewController {
         backbtn.imageInsets = UIEdgeInsets(top: 0, left: -12, bottom: 0, right: 0)
         navigationItem.leftBarButtonItem = backbtn
     }
+     */
     
     // textfield
     private func edittedAmount() {
@@ -105,7 +109,11 @@ class InputGaolVC: UIViewController {
     
     }
     
+    var completion: ((String) -> Void)?
+    
+    @objc
     @IBAction func next(_ sender: Any) {
+        completion?(titleTextField.text!)
         
         guard let amount = self.amountTextField.text else { return }
         
@@ -131,16 +139,18 @@ class InputGaolVC: UIViewController {
         
         initGestureRecognizer()
         
-        self.progressView.setProgress(0.25, animated: true)
-        initView()
-        configureLayout()
+        // NAVTEST
+        //self.progressView.setProgress(0.25, animated: true)
+        //initView()
+        //configureLayout()
         
         nextButton.isUserInteractionEnabled = false
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        setNav()
+        // NAVTEST
+        // setNav()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -164,7 +174,8 @@ extension InputGaolVC : UITextFieldDelegate {
             
             let strLength = textField.text?.count ?? 0
             let lngthToAdd = string.count
-            let lengthCount = strLength + lngthToAdd
+            let lengthToReplace = range.length
+            let lengthCount = strLength + lngthToAdd - lengthToReplace
             
             self.countLabel.text = "\(lengthCount)"
             edittedTitle()
@@ -267,5 +278,20 @@ extension InputGaolVC: UIGestureRecognizerDelegate {
     func unregisterForKeyboardNotifications() {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+}
+
+extension InputGaolVC: FundraisingInputTable {
+    var type: FundraisingInputType {
+        return .goal
+    }
+    
+    var transfer: ((String) -> Void)? {
+        get {
+            return completion
+        }
+        set {
+            completion = newValue
+        }
     }
 }

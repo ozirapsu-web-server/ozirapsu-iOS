@@ -15,6 +15,9 @@ class uploadImageCVC: UICollectionViewCell {
     
     @IBOutlet weak var titleView: UIView!
     
+    @IBOutlet weak var deleteButton: UIButton!
+    
+    
     override func awakeFromNib() {
         
         super.awakeFromNib()

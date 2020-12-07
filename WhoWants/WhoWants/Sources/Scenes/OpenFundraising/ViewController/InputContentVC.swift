@@ -20,7 +20,11 @@ class InputContentVC: UIViewController {
     @IBOutlet weak var tagUnderline: UIView!
     
     // 버튼
-    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton! {
+        didSet {
+            self.nextButton.backgroundColor = .graytext
+        }
+    }
     
     // progress view
     @IBOutlet weak var progressView: UIProgressView! {
@@ -77,7 +81,26 @@ class InputContentVC: UIViewController {
         self.tagUnderline.backgroundColor = .mainblack
     }
     
+    private func edittedContent() {
+        self.countLabel.textColor = .mainblack
+        self.contentView.setBorder(borderColor: .mainblack, borderWidth: 1)
+    }
+    
+    private func edittedTag() {
+        self.tagUnderline.backgroundColor = .mainblack
+    }
+    
     // MARK: - Action
+    
+    func activateNextButton() {
+        if contentTextView.text != "" && tagTextField.text != "" {
+            self.nextButton.backgroundColor = .mainblack
+            self.nextButton.isUserInteractionEnabled = true
+        } else {
+            self.nextButton.backgroundColor = .graytext
+            self.nextButton.isUserInteractionEnabled = false
+        }
+    }
     
     @objc
     func back(_ sender: Any) {
@@ -106,6 +129,7 @@ class InputContentVC: UIViewController {
         
         self.contentTextView.delegate = self
         self.tagTextField.delegate = self
+        
         /**ERROR: 동적으로 textView height 조절하기*/
         //contentTextView.adjustUITextViewHeight()
         //content view UI setting
@@ -113,15 +137,14 @@ class InputContentVC: UIViewController {
         initGestureRecognizer()
         setContentView()
         setTextView()
-        setProgressView()
-        
+        // setProgressView()
         
         /**TEST*/
         print(fundraising)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        setNav()
+        // setNav()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -132,16 +155,23 @@ class InputContentVC: UIViewController {
 
 // MARK: - Extension
 
-// textField Delegate
-extension InputContentVC: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        registerForKeyboardNotifications()
-    }
-}
 
 // textView Delegate
-extension InputContentVC: UITextViewDelegate {
+extension InputContentVC: UITextViewDelegate, UITextFieldDelegate {
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        registerForKeyboardNotifications()
+        edittedTag()
+    }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if string != "" {
+            edittedTag()
+        } else {
+            tagUnderline.backgroundColor = .graytext
+        }
+        return true
+    }
     //start editing on contentTextView
     func setTextView() {
         if contentTextView.text == "어떤 모금 프로젝트를 진행하시나요?" {
@@ -169,17 +199,20 @@ extension InputContentVC: UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         
-        /** ERROR: 지우기 할 때 숫자 제대로 출력되지 않음 */
         if(textView == contentTextView){
             let strLength = textView.text?.count ?? 0
             let lngthToAdd = text.count
-            let lengthCount = strLength + lngthToAdd
+            let lengthToReplace = range.length
+            let lengthCount = strLength + lngthToAdd - lengthToReplace
             
-            self.countLabel.textColor = .mainblack
-            
-            self.contentView.setBorder(borderColor: .mainblack, borderWidth: 1)
+            edittedContent()
             
             self.countLabel.text = "\(lengthCount)" + "/800"
+            
+            if lengthCount >= 800 {
+                return false
+            }
+            
         }
         
         if !text.isEmpty {            nextButton.backgroundColor = .mainblack
@@ -188,6 +221,7 @@ extension InputContentVC: UITextViewDelegate {
             nextButton.backgroundColor = .graytext
             nextButton.isUserInteractionEnabled = false
         }
+        
         return true
     }
 }
@@ -268,7 +302,6 @@ extension InputContentVC: UIGestureRecognizerDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-    
     
     func unregisterForKeyboardNotifications() {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)

@@ -195,7 +195,7 @@
         <!--InputContentVC-->
         <scene sceneID="aXl-hI-cvt">
             <objects>
-                <viewController storyboardIdentifier="InputContentVC" title="InputContentVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="Qm3-yS-Hmw" customClass="InputContentVC" customModule="WhoWants" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InputContentVC" title="InputContentVC" modalPresentationStyle="fullScreen" id="Qm3-yS-Hmw" customClass="InputContentVC" customModule="WhoWants" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="azN-rU-s4d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -278,7 +278,7 @@
                                                 </constraints>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                             </textField>
                                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" progress="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="CwC-xH-RWq">
                                                 <rect key="frame" x="0.0" y="44" width="375" height="4"/>
@@ -411,7 +411,7 @@
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="20" minY="6" maxX="20" maxY="6"/>
+                                    <inset key="sectionInset" minX="20" minY="6" maxX="20" maxY="12"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="addImageCVC" id="eAv-dO-EVL" customClass="addImageCVC" customModule="WhoWants" customModuleProvider="target">
@@ -515,6 +515,7 @@
                                         <size key="customSize" width="107" height="107"/>
                                         <connections>
                                             <outlet property="blurView" destination="2NX-Ea-k1n" id="PCX-DY-7NW"/>
+                                            <outlet property="deleteButton" destination="7vT-6o-Ili" id="aXb-XR-ijI"/>
                                             <outlet property="thumImg" destination="7gS-rY-DbP" id="hEs-cB-225"/>
                                             <outlet property="titleView" destination="Dvp-ID-vyt" id="Ldw-jM-8rr"/>
                                         </connections>
@@ -696,7 +697,8 @@
         <!--Navigation Controller-->
         <scene sceneID="oFa-yA-Skn">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jW4-HR-Mgn" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CJy-ZF-Xr0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController storyboardIdentifier="OpenFundraising" automaticallyAdjustsScrollViewInsets="NO" id="jW4-HR-Mgn" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qCv-eZ-JRm">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -707,7 +709,6 @@
                         <segue destination="cqf-bz-Hss" kind="relationship" relationship="rootViewController" id="zIC-Fp-pWP"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CJy-ZF-Xr0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-151.19999999999999" y="67.980295566502463"/>
         </scene>
