@@ -120,7 +120,7 @@ class InputContentVC: UIViewController {
         
         vc.fundraising = self.fundraising
         
-        navigationController?.pushViewController(vc, animated: true)
+        // navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK: - LifeCycle
@@ -137,14 +137,14 @@ class InputContentVC: UIViewController {
         initGestureRecognizer()
         setContentView()
         setTextView()
-        // setProgressView()
+        setProgressView()
         
         /**TEST*/
         print(fundraising)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        // setNav()
+        setNav()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

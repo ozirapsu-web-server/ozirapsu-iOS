@@ -56,7 +56,7 @@ class InputGaolVC: UIViewController {
     
     // MARK: - Layout
     // progress view
-    /* NAVTEST
+    
     var progressView: UIProgressView = {
         var progressView = UIProgressView(progressViewStyle: .default)
         progressView.progressTintColor = .whowantsblue
@@ -75,10 +75,9 @@ class InputGaolVC: UIViewController {
             progressView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
-    */
     
     // navigation bar
-    /*NAVTEST
+
     private func setNav(){
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.tintColor = .mainblack
@@ -89,7 +88,6 @@ class InputGaolVC: UIViewController {
         backbtn.imageInsets = UIEdgeInsets(top: 0, left: -12, bottom: 0, right: 0)
         navigationItem.leftBarButtonItem = backbtn
     }
-     */
     
     // textfield
     private func edittedAmount() {
@@ -100,6 +98,11 @@ class InputGaolVC: UIViewController {
     private func edittedTitle() {
         self.countLabel.textColor = .mainblack
         self.titleUnderline.backgroundColor = .mainblack
+    }
+    
+    private func setTextFieldDelegate() {
+        amountTextField.delegate = self
+        titleTextField.delegate = self
     }
     
     // MARK: - Action
@@ -126,7 +129,7 @@ class InputGaolVC: UIViewController {
         
         vc.fundraising = self.fundraising
         
-        navigationController?.pushViewController(vc, animated: true)
+        //navigationController?.pushViewController(vc, animated: true)
         
     }
     
@@ -134,15 +137,13 @@ class InputGaolVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        amountTextField.delegate = self
-        titleTextField.delegate = self
+        setTextFieldDelegate()
         
         initGestureRecognizer()
         
-        // NAVTEST
-        //self.progressView.setProgress(0.25, animated: true)
-        //initView()
-        //configureLayout()
+        self.progressView.setProgress(0.25, animated: true)
+        initView()
+        configureLayout()
         
         nextButton.isUserInteractionEnabled = false
         
@@ -150,7 +151,7 @@ class InputGaolVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         // NAVTEST
-        // setNav()
+        setNav()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

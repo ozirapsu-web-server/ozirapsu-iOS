@@ -16,7 +16,7 @@ enum FundraisingInputType: Int {
     
     func instantiateVC() -> FundraisingInputTable {
         switch self {
-        case .goal: return InputGaolVC() as! FundraisingInputTable
+        case .goal: return InputGaolVC()
         case .content: return InputContentVC() as! FundraisingInputTable
         case .image: return InputImageVC() as! FundraisingInputTable
         case .complete: return FundraisingCompleteVC() as! FundraisingInputTable

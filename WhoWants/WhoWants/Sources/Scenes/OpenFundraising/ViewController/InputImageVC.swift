@@ -128,6 +128,20 @@ class InputImageVC: UIViewController {
         self.convertAssetToImages() }, completion: nil)
         
     }
+    
+    @objc func addImage(_ sender: Any) {
+        let vc = BSImagePickerViewController()
+        self.bs_presentImagePickerController(vc, animated: true,
+        select: { (assest: PHAsset) -> Void in },
+        deselect: { (assest: PHAsset) -> Void in },
+        cancel: { (assest: [PHAsset]) -> Void in },
+        finish: { (assest: [PHAsset]) -> Void in
+            for i in 0..<assest.count {
+                self.SelectedAssets.append(assest[i])
+            }
+        self.convertAssetToImages() }, completion: nil)
+    }
+    
 }
 
 // MARK: - Extension
@@ -149,7 +163,7 @@ extension InputImageVC : UICollectionViewDataSource, UICollectionViewDelegate, U
         
         if indexPath.row == 0 {
             
-            // buttonCell.addImage.addTarget(self, action: #selector(selectImage(_:)), for: .touchUpInside)
+            buttonCell.addImage.addTarget(self, action: #selector(addImage(_:)), for: .touchUpInside)
             
             buttonCell.makeRounded(cornerRadius: 4)
             
@@ -168,6 +182,9 @@ extension InputImageVC : UICollectionViewDataSource, UICollectionViewDelegate, U
             if indexPath.row != 1 {
                 imageCell.blurView.isHidden = true
             }
+            
+            
+            
             return imageCell
         }
     }
@@ -219,7 +236,7 @@ extension InputImageVC {
                 nextButton.backgroundColor = .mainblack
                 nextButton.isUserInteractionEnabled = true
                 
-                var photos = self.photoArray
+                let photos = self.photoArray
                 self.fundraising.images = photos
                 
                 imageCollectionView.isHidden = false
