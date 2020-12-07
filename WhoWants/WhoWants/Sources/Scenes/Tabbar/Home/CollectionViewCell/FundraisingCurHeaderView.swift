@@ -25,6 +25,16 @@ class FundraisingCurHeaderView: UICollectionReusableView, FundraiseHeaderAble {
         return label
     }()
     
+    var countLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.textColor = .whowantsblue
+        // FIXME: 데이터에 따라 변화하게 변경
+        label.text = "2"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     var containerView: UIView = {
         let uiView = UIView()
         uiView.backgroundColor = UIColor(red: 248/255, green: 248/255, blue: 248/255, alpha: 1.0)
@@ -49,6 +59,7 @@ class FundraisingCurHeaderView: UICollectionReusableView, FundraiseHeaderAble {
     // MARK: - Init
     private func initView() {
         self.addSubview(stateLabel)
+        self.addSubview(countLabel)
         self.addSubview(containerView)
         containerView.addSubview(informLabel)
     }
@@ -71,6 +82,7 @@ class FundraisingCurHeaderView: UICollectionReusableView, FundraiseHeaderAble {
         NSLayoutConstraint.activate([
             stateLabel.topAnchor.constraint(equalTo: topAnchor),
             stateLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            countLabel.leadingAnchor.constraint(equalTo: stateLabel.trailingAnchor, constant: 4),
             containerView.topAnchor.constraint(equalTo: stateLabel.bottomAnchor, constant: 14),
             containerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             containerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
