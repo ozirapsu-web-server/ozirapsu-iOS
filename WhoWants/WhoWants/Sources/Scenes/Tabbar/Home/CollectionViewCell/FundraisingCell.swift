@@ -78,7 +78,7 @@ class FundraisingCell: UICollectionViewCell {
     let surporterImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.image = UIImage(named: ImageName.profile)
+        imageView.image = UIImage(named: ImageName.surporter)
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -188,13 +188,10 @@ class FundraisingCell: UICollectionViewCell {
             bottomContainerView.heightAnchor.constraint(equalTo: percentLabel.heightAnchor),
             percentLabel.topAnchor.constraint(equalTo: bottomContainerView.topAnchor),
             surportingCountLabel.leadingAnchor.constraint(equalTo: surporterImageView.trailingAnchor,
-                                                          constant: 2),
+                                                          constant: 4),
             surportingCountLabel.centerYAnchor.constraint(equalTo: bottomContainerView.centerYAnchor),
             surporterImageView.leadingAnchor.constraint(equalTo: bottomContainerView.leadingAnchor),
-            surporterImageView.centerYAnchor.constraint(equalTo: bottomContainerView.centerYAnchor),
-            surporterImageView.widthAnchor.constraint(equalToConstant:
-                                                        percentLabel.intrinsicContentSize.height),
-            surporterImageView.heightAnchor.constraint(equalTo: surporterImageView.widthAnchor)
+            surporterImageView.centerYAnchor.constraint(equalTo: bottomContainerView.centerYAnchor)
         ])
     }
 }
