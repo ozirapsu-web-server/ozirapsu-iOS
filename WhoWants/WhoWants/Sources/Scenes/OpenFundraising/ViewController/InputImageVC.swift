@@ -127,6 +127,10 @@ class InputImageVC: UIViewController {
             }
         self.convertAssetToImages() }, completion: nil)
         
+        print("selectImage: ")
+        print(photoArray)
+        print("============")
+        
     }
     
     @objc func addImage(_ sender: Any) {
@@ -140,6 +144,12 @@ class InputImageVC: UIViewController {
                 self.SelectedAssets.append(assest[i])
             }
         self.convertAssetToImages() }, completion: nil)
+        
+        
+        print("addImages: ")
+        print(photoArray)
+        print("============")
+        
     }
     
 }
@@ -196,7 +206,11 @@ extension InputImageVC {
     @objc func cancelButtonAction(sender: UIButton) {
         imageCollectionView.deleteItems(at: [IndexPath.init(row: sender.tag, section: 0)])
         photoArray.remove(at: sender.tag)
-
+        
+        print("after cancel Image: ")
+        print(photoArray)
+        print("====================")
+        
         if photoArray.count == 0 {
             imageCollectionView.isHidden = true
             nextButton.backgroundColor = .graytext
@@ -204,6 +218,7 @@ extension InputImageVC {
         }
         
         self.fundraising.images = photoArray
+        
     }
     
     func convertAssetToImages() -> Void {
@@ -226,7 +241,11 @@ extension InputImageVC {
                 let data = thumbnail.jpegData(compressionQuality: 0.7)
                 let newImage = UIImage(data: data!)
                 self.photoArray.append(newImage! as UIImage)
-
+                
+                print("Selected Asset: ")
+                print(photoArray)
+                print("================")
+                
             }
             
             print("등록한 사진 개수: " + String(photoArray.count))
