@@ -14,4 +14,6 @@ struct ImageName {
     static let profile = "profile"
     static let logo = "logo"
     static let surporter = "ic_supporter"
+    static let btn_profile = "btn_profileimage"
+    static let btn_revise = "revise"
 }
