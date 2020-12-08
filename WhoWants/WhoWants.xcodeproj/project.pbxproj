@@ -33,6 +33,15 @@
 		9D8EAB6E256EAA8F0066B3C7 /* NSNotification.Name+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8EAB6D256EAA8F0066B3C7 /* NSNotification.Name+Extension.swift */; };
 		A7FC0E6A37F8587083D22AF1 /* Pods_WhoWantsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 732D0F645AAEF922E84C0C17 /* Pods_WhoWantsTests.framework */; };
 		EE53E115DCACF772221C4F9D /* Pods_WhoWants_WhoWantsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1D49E0DDE4CCF9DC4A8B4E0 /* Pods_WhoWants_WhoWantsUITests.framework */; };
+		F46E06AB2577D5C800764B02 /* OpenFundraisingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46E06AA2577D5C800764B02 /* OpenFundraisingVC.swift */; };
+		F46E06B82577D5EA00764B02 /* OpenFundraising.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F46E06B72577D5EA00764B02 /* OpenFundraising.storyboard */; };
+		F46E06C6257A0FD600764B02 /* InputGaolVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46E06C5257A0FD600764B02 /* InputGaolVC.swift */; };
+		F46E06CB257A0FEA00764B02 /* InputContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46E06CA257A0FEA00764B02 /* InputContentVC.swift */; };
+		F46E06D0257A100900764B02 /* InputImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46E06CF257A100900764B02 /* InputImageVC.swift */; };
+		F46E06D5257A101C00764B02 /* FundraisingCompleteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46E06D4257A101C00764B02 /* FundraisingCompleteVC.swift */; };
+		F46E071F257CB1B600764B02 /* uploadImageCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46E071E257CB1B600764B02 /* uploadImageCVC.swift */; };
+		F46E0724257CB26B00764B02 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46E0723257CB26B00764B02 /* UIView+Extension.swift */; };
+		F46E0729257CB9D000764B02 /* addImageCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46E0728257CB9D000764B02 /* addImageCVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +101,15 @@
 		C119D225169FF71CD95B5269 /* Pods-WhoWantsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoWantsTests.debug.xcconfig"; path = "Target Support Files/Pods-WhoWantsTests/Pods-WhoWantsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C1D49E0DDE4CCF9DC4A8B4E0 /* Pods_WhoWants_WhoWantsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhoWants_WhoWantsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1FC104123CD00AA7BC8A782 /* Pods-WhoWants.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoWants.debug.xcconfig"; path = "Target Support Files/Pods-WhoWants/Pods-WhoWants.debug.xcconfig"; sourceTree = "<group>"; };
+		F46E06AA2577D5C800764B02 /* OpenFundraisingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenFundraisingVC.swift; sourceTree = "<group>"; };
+		F46E06B72577D5EA00764B02 /* OpenFundraising.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OpenFundraising.storyboard; sourceTree = "<group>"; };
+		F46E06C5257A0FD600764B02 /* InputGaolVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGaolVC.swift; sourceTree = "<group>"; };
+		F46E06CA257A0FEA00764B02 /* InputContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputContentVC.swift; sourceTree = "<group>"; };
+		F46E06CF257A100900764B02 /* InputImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputImageVC.swift; sourceTree = "<group>"; };
+		F46E06D4257A101C00764B02 /* FundraisingCompleteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundraisingCompleteVC.swift; sourceTree = "<group>"; };
+		F46E071E257CB1B600764B02 /* uploadImageCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uploadImageCVC.swift; sourceTree = "<group>"; };
+		F46E0723257CB26B00764B02 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		F46E0728257CB9D000764B02 /* addImageCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addImageCVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,6 +313,7 @@
 				9D8EAB49256E33070066B3C7 /* UIColor+Extension.swift */,
 				9D8EAB60256E87410066B3C7 /* String+Extension.swift */,
 				9D8EAB6D256EAA8F0066B3C7 /* NSNotification.Name+Extension.swift */,
+				F46E0723257CB26B00764B02 /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -302,6 +321,7 @@
 		9D8EAB0B256D8DBE0066B3C7 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				F46E06A42577D56600764B02 /* OpenFundraising */,
 				9D8EAB65256E8AF10066B3C7 /* ImageName.swift */,
 				9D8EAB2E256D8F7D0066B3C7 /* Splash */,
 				9D8EAB0C256D8E100066B3C7 /* Signin */,
@@ -375,6 +395,45 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F46E06A42577D56600764B02 /* OpenFundraising */ = {
+			isa = PBXGroup;
+			children = (
+				F46E071A257CB17F00764B02 /* Cell */,
+				F46E06A52577D58900764B02 /* Storyboard */,
+				F46E06A62577D58F00764B02 /* ViewController */,
+			);
+			path = OpenFundraising;
+			sourceTree = "<group>";
+		};
+		F46E06A52577D58900764B02 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				F46E06B72577D5EA00764B02 /* OpenFundraising.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		F46E06A62577D58F00764B02 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F46E06AA2577D5C800764B02 /* OpenFundraisingVC.swift */,
+				F46E06C5257A0FD600764B02 /* InputGaolVC.swift */,
+				F46E06CA257A0FEA00764B02 /* InputContentVC.swift */,
+				F46E06CF257A100900764B02 /* InputImageVC.swift */,
+				F46E06D4257A101C00764B02 /* FundraisingCompleteVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		F46E071A257CB17F00764B02 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F46E071E257CB1B600764B02 /* uploadImageCVC.swift */,
+				F46E0728257CB9D000764B02 /* addImageCVC.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -386,7 +445,7 @@
 				9D6B057A255D8F9600FE63C9 /* Sources */,
 				9D6B057B255D8F9600FE63C9 /* Frameworks */,
 				9D6B057C255D8F9600FE63C9 /* Resources */,
-				82CF2045F05F8E946C9D6D98 /* [CP] Embed Pods Frameworks */,
+				D7295EB5FDACF118361CDD53 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -424,7 +483,7 @@
 				9D6B059B255D8F9E00FE63C9 /* Sources */,
 				9D6B059C255D8F9E00FE63C9 /* Frameworks */,
 				9D6B059D255D8F9E00FE63C9 /* Resources */,
-				D388636468CAD99E48769CD2 /* [CP] Embed Pods Frameworks */,
+				6943A8D6127395666173A750 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -489,6 +548,7 @@
 				9D8EAB1B256D8EFD0066B3C7 /* Signin.storyboard in Resources */,
 				9D6B058E255D8F9D00FE63C9 /* LaunchScreen.storyboard in Resources */,
 				9D6B058B255D8F9D00FE63C9 /* Assets.xcassets in Resources */,
+				F46E06B82577D5EA00764B02 /* OpenFundraising.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,21 +613,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		82CF2045F05F8E946C9D6D98 /* [CP] Embed Pods Frameworks */ = {
+		6943A8D6127395666173A750 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WhoWants/Pods-WhoWants-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WhoWants-WhoWantsUITests/Pods-WhoWants-WhoWantsUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WhoWants/Pods-WhoWants-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WhoWants-WhoWantsUITests/Pods-WhoWants-WhoWantsUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WhoWants/Pods-WhoWants-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WhoWants-WhoWantsUITests/Pods-WhoWants-WhoWantsUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A11394675E317B0D09AE0B26 /* [CP] Check Pods Manifest.lock */ = {
@@ -592,21 +652,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D388636468CAD99E48769CD2 /* [CP] Embed Pods Frameworks */ = {
+		D7295EB5FDACF118361CDD53 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WhoWants-WhoWantsUITests/Pods-WhoWants-WhoWantsUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WhoWants/Pods-WhoWants-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WhoWants-WhoWantsUITests/Pods-WhoWants-WhoWantsUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WhoWants/Pods-WhoWants-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WhoWants-WhoWantsUITests/Pods-WhoWants-WhoWantsUITests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WhoWants/Pods-WhoWants-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -616,20 +676,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F46E0724257CB26B00764B02 /* UIView+Extension.swift in Sources */,
 				9D8EAB23256D8F250066B3C7 /* SigninViewController.swift in Sources */,
 				9D8EAB61256E87410066B3C7 /* String+Extension.swift in Sources */,
 				9D2503212572897C005C20A9 /* PhoneInputViewController.swift in Sources */,
+				F46E06CB257A0FEA00764B02 /* InputContentVC.swift in Sources */,
 				9D2503792573993F005C20A9 /* MainTabbarViewController.swift in Sources */,
 				9D25032C2572A3EC005C20A9 /* HomeViewController.swift in Sources */,
+				F46E06D5257A101C00764B02 /* FundraisingCompleteVC.swift in Sources */,
 				9D8EAB4F256E35C30066B3C7 /* EmailInputViewController.swift in Sources */,
 				9D250326257294C5005C20A9 /* NickInputViewController.swift in Sources */,
+				F46E06AB2577D5C800764B02 /* OpenFundraisingVC.swift in Sources */,
 				9D8EAB6E256EAA8F0066B3C7 /* NSNotification.Name+Extension.swift in Sources */,
 				9D8EAB5C256E3D610066B3C7 /* PwInputViewController.swift in Sources */,
+				F46E06D0257A100900764B02 /* InputImageVC.swift in Sources */,
 				9D6B0582255D8F9600FE63C9 /* AppDelegate.swift in Sources */,
+				F46E0729257CB9D000764B02 /* addImageCVC.swift in Sources */,
 				9D25039125739FA3005C20A9 /* MyPageViewController.swift in Sources */,
 				9D8EAB45256E1FB30066B3C7 /* SignupContainerViewController.swift in Sources */,
 				9D8EAB66256E8AF10066B3C7 /* ImageName.swift in Sources */,
 				9D8EAB4A256E33070066B3C7 /* UIColor+Extension.swift in Sources */,
+				F46E071F257CB1B600764B02 /* uploadImageCVC.swift in Sources */,
+				F46E06C6257A0FD600764B02 /* InputGaolVC.swift in Sources */,
 				9D25035825738AC6005C20A9 /* CompleteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
