@@ -160,12 +160,17 @@ class MyPageViewController: UIViewController {
         introduceContainerView.addSubview(introduceTextfield)
         introduceContainerView.addSubview(introduceLineView)
     }
+    
+    private func setDelegate() {
+        introduceTextfield.delegate = self
+    }
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         initView()
+        setDelegate()
         configureLayout()
     }
     
@@ -227,5 +232,18 @@ class MyPageViewController: UIViewController {
             introduceLineView.bottomAnchor.constraint(equalTo: introduceContainerView.bottomAnchor),
             introduceLineView.heightAnchor.constraint(equalToConstant: 1)
         ])
+    }
+}
+
+extension MyPageViewController: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        if textField.text == "" {
+            introduceLineView.backgroundColor = UIColor(red: 224/255,
+                                                        green: 224/255,
+                                                        blue: 224/255,
+                                                        alpha: 1.0)
+        } else {
+            introduceLineView.backgroundColor = .mainblack
+        }
     }
 }
