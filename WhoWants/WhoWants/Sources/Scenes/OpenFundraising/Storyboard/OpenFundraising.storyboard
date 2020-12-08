@@ -29,7 +29,7 @@
         <!--모금 개설하기-->
         <scene sceneID="DVg-QK-bqB">
             <objects>
-                <viewController id="cqf-bz-Hss" customClass="InputGaolVC" customModule="WhoWants" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InputGaolVC" id="cqf-bz-Hss" customClass="InputGaolVC" customModule="WhoWants" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kbv-oA-Rdn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -671,7 +671,6 @@
         <!--Navigation Controller-->
         <scene sceneID="oFa-yA-Skn">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CJy-ZF-Xr0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="OpenFundraising" automaticallyAdjustsScrollViewInsets="NO" id="jW4-HR-Mgn" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qCv-eZ-JRm">
@@ -683,6 +682,7 @@
                         <segue destination="cqf-bz-Hss" kind="relationship" relationship="rootViewController" id="zIC-Fp-pWP"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CJy-ZF-Xr0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-151.19999999999999" y="67.980295566502463"/>
         </scene>
