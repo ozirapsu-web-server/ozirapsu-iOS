@@ -96,7 +96,6 @@
                                 </state>
                                 <connections>
                                     <action selector="next:" destination="cqf-bz-Hss" eventType="touchUpInside" id="04O-gM-DVv"/>
-                                    <segue destination="Qm3-yS-Hmw" kind="show" id="uy5-gF-tse"/>
                                 </connections>
                             </button>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="FDU-Lg-tdX">
@@ -202,10 +201,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2yJ-22-FyF">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DgC-xt-Phh">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="690"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="734"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="프로젝트 내용" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oI9-As-7DB">
                                                 <rect key="frame" x="20" y="84" width="99" height="22"/>
@@ -327,7 +326,6 @@
                                 </state>
                                 <connections>
                                     <action selector="next:" destination="Qm3-yS-Hmw" eventType="touchUpInside" id="6GK-Kc-6aA"/>
-                                    <segue destination="hV9-d2-4kf" kind="show" id="6JN-3S-1hQ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -562,32 +560,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1oB-TI-GJa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2444" y="67.980295566502463"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="uLN-Ep-eAe">
-            <objects>
-                <viewController modalTransitionStyle="crossDissolve" id="6s0-6q-0ym" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="v8d-yz-j8i">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Be-9t-kZx">
-                                <rect key="frame" x="0.0" y="712" width="375" height="66"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" name="greytext_BDBDBD"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="20"/>
-                                <state key="normal" title="다음">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="gLg-RH-hwM"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Rll-gt-uAe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2444" y="802"/>
         </scene>
         <!--FundraisingCompleteVC-->
         <scene sceneID="bS9-E4-I3L">

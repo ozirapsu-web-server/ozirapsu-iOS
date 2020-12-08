@@ -129,7 +129,7 @@ class InputGaolVC: UIViewController {
         
         vc.fundraising = self.fundraising
         
-        //navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
         
     }
     

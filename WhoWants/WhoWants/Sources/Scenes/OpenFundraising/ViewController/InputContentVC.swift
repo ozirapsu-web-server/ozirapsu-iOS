@@ -92,16 +92,6 @@ class InputContentVC: UIViewController {
     
     // MARK: - Action
     
-    func activateNextButton() {
-        if contentTextView.text != "" && tagTextField.text != "" {
-            self.nextButton.backgroundColor = .mainblack
-            self.nextButton.isUserInteractionEnabled = true
-        } else {
-            self.nextButton.backgroundColor = .graytext
-            self.nextButton.isUserInteractionEnabled = false
-        }
-    }
-    
     @objc
     func back(_ sender: Any) {
         navigationController?.popViewController(animated: true)
@@ -120,7 +110,7 @@ class InputContentVC: UIViewController {
         
         vc.fundraising = self.fundraising
         
-        // navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK: - LifeCycle
@@ -129,6 +119,8 @@ class InputContentVC: UIViewController {
         
         self.contentTextView.delegate = self
         self.tagTextField.delegate = self
+        
+        nextButton.isUserInteractionEnabled = false
         
         /**ERROR: 동적으로 textView height 조절하기*/
         //contentTextView.adjustUITextViewHeight()
@@ -167,8 +159,14 @@ extension InputContentVC: UITextViewDelegate, UITextFieldDelegate {
         
         if string != "" {
             edittedTag()
+            
+            self.nextButton.backgroundColor = .mainblack
+            self.nextButton.isUserInteractionEnabled = true
         } else {
             tagUnderline.backgroundColor = .graytext
+            
+            self.nextButton.backgroundColor = .graytext
+            self.nextButton.isUserInteractionEnabled = false
         }
         return true
     }
@@ -213,13 +211,6 @@ extension InputContentVC: UITextViewDelegate, UITextFieldDelegate {
                 return false
             }
             
-        }
-        
-        if !text.isEmpty {            nextButton.backgroundColor = .mainblack
-            nextButton.isUserInteractionEnabled = true
-        } else {
-            nextButton.backgroundColor = .graytext
-            nextButton.isUserInteractionEnabled = false
         }
         
         return true

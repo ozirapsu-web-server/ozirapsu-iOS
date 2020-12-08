@@ -179,8 +179,8 @@ extension InputImageVC : UICollectionViewDataSource, UICollectionViewDelegate, U
             
             imageCell.deleteButton.addTarget(self, action: #selector(cancelButtonAction(sender:)), for: .touchUpInside)
             
-            if indexPath.row != 1 {
-                imageCell.blurView.isHidden = true
+            if indexPath.row == 1 {
+                imageCell.blurView.isHidden = false
             }
             
             
@@ -197,6 +197,12 @@ extension InputImageVC {
         imageCollectionView.deleteItems(at: [IndexPath.init(row: sender.tag, section: 0)])
         photoArray.remove(at: sender.tag)
 
+        if photoArray.count == 0 {
+            imageCollectionView.isHidden = true
+            nextButton.backgroundColor = .graytext
+            nextButton.isUserInteractionEnabled = false
+        }
+        
         self.fundraising.images = photoArray
     }
     
@@ -240,9 +246,9 @@ extension InputImageVC {
                 self.fundraising.images = photos
                 
                 imageCollectionView.isHidden = false
-                imageCollectionView.dataSource = self
-                imageCollectionView.reloadData()
             }
+            
+            imageCollectionView.reloadData()
             
         }
 
