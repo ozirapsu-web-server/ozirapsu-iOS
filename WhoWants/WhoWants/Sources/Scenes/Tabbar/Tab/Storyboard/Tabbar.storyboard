@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="K6G-1B-Qo0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="K6G-1B-Qo0">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,31 +17,25 @@
             </objects>
             <point key="canvasLocation" x="-789" y="655"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="9AL-mp-LG6">
-            <objects>
-                <viewController id="Bux-ct-9Ad" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dc4-dg-awN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="D2N-2V-6xp"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="nka-mh-Nmv"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8A4-OK-tfq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-152" y="1056"/>
-        </scene>
         <!--MyPage-->
         <scene sceneID="Or7-fU-3To">
             <objects>
                 <viewControllerPlaceholder storyboardName="MyPage" id="eN4-kk-U6a" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="XAR-V8-iCR"/>
+                    <tabBarItem key="tabBarItem" title="개설하기" id="XAR-V8-iCR"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xVT-D0-uC4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="457" y="610"/>
+        </scene>
+        <!--OpenFundraising-->
+        <scene sceneID="GvC-qf-73E">
+            <objects>
+                <viewControllerPlaceholder storyboardName="OpenFundraising" id="4kD-MY-Jdj" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="eNy-SG-sHf"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rt4-4e-UiL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-152" y="655"/>
         </scene>
         <!--Main Tabbar View Controller-->
         <scene sceneID="BwK-UG-1c0">
@@ -58,7 +50,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="G1r-MF-jgn" kind="relationship" relationship="viewControllers" id="5fn-bN-dU8"/>
-                        <segue destination="Bux-ct-9Ad" kind="relationship" relationship="viewControllers" id="7VP-44-hCs"/>
+                        <segue destination="4kD-MY-Jdj" kind="relationship" relationship="viewControllers" id="OWP-n7-WlA"/>
                         <segue destination="eN4-kk-U6a" kind="relationship" relationship="viewControllers" id="QQh-yW-9UN"/>
                     </connections>
                 </tabBarController>
@@ -67,9 +59,4 @@
             <point key="canvasLocation" x="-152.17391304347828" y="193.52678571428569"/>
         </scene>
     </scenes>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

@@ -281,18 +281,3 @@ extension InputGaolVC: UIGestureRecognizerDelegate {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 }
-
-extension InputGaolVC: FundraisingInputTable {
-    var type: FundraisingInputType {
-        return .goal
-    }
-    
-    var transfer: ((String) -> Void)? {
-        get {
-            return completion
-        }
-        set {
-            completion = newValue
-        }
-    }
-}
