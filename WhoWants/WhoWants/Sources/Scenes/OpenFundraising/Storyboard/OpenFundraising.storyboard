@@ -29,7 +29,7 @@
         <!--모금 개설하기-->
         <scene sceneID="DVg-QK-bqB">
             <objects>
-                <viewController storyboardIdentifier="InputGaolVC" id="cqf-bz-Hss" customClass="InputGaolVC" customModule="WhoWants" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InputGaolVC" modalPresentationStyle="fullScreen" hidesBottomBarWhenPushed="YES" id="cqf-bz-Hss" customClass="InputGaolVC" customModule="WhoWants" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kbv-oA-Rdn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -564,7 +564,7 @@
         <!--FundraisingCompleteVC-->
         <scene sceneID="bS9-E4-I3L">
             <objects>
-                <viewController storyboardIdentifier="FundraisingCompleteVC" title="FundraisingCompleteVC" modalTransitionStyle="crossDissolve" id="ieU-Ep-N5Q" customClass="FundraisingCompleteVC" customModule="WhoWants" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FundraisingCompleteVC" title="FundraisingCompleteVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="ieU-Ep-N5Q" customClass="FundraisingCompleteVC" customModule="WhoWants" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZhN-t2-Hmz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -660,6 +660,7 @@
                             <constraint firstItem="Lhx-l3-ht6" firstAttribute="top" secondItem="dfZ-bK-YH3" secondAttribute="bottom" id="w1m-eY-6Co"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="0kX-os-75o"/>
                     <connections>
                         <outlet property="progressView" destination="bKs-5z-Uc1" id="wzQ-az-ZZR"/>
                     </connections>
@@ -671,7 +672,7 @@
         <!--Navigation Controller-->
         <scene sceneID="oFa-yA-Skn">
             <objects>
-                <navigationController storyboardIdentifier="OpenFundraising" automaticallyAdjustsScrollViewInsets="NO" id="jW4-HR-Mgn" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="OpenFundraising" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" hidesBottomBarWhenPushed="YES" id="jW4-HR-Mgn" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qCv-eZ-JRm">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>

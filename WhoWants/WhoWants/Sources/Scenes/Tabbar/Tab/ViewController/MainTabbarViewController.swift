@@ -11,7 +11,9 @@ class MainTabbarViewController: UITabBarController {
     static let identifier = "MainTabbarVC"
     
 
-    var ActionViewController = UIStoryboard.init(name: "OpenFundraising", bundle: nil).instantiateViewController(withIdentifier: "InputGaolVC")
+    var detailSB = UIStoryboard.init(name: "OpenFundraising", bundle: nil)
+    
+    var ActionViewController : InputGaolVC!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +27,10 @@ class MainTabbarViewController: UITabBarController {
         
         self.tabBarController?.tabBar.items![2].image = UIImage(named: "ic_profile")
         
+        ActionViewController = InputGaolVC()
         
     }
+    
 }
 
 extension MainTabbarViewController: UITabBarControllerDelegate {
@@ -39,8 +43,8 @@ extension MainTabbarViewController: UITabBarControllerDelegate {
         //            return false
         //        }
         
-        
-        if viewController.isKind(of: ActionViewController) {
+        /*
+        if viewController.isKind(of: InputGaolVC.self) {
             
             let sb = UIStoryboard.init(name: "OpenFundraising", bundle: nil)
             
@@ -48,27 +52,9 @@ extension MainTabbarViewController: UITabBarControllerDelegate {
              vc.modalPresentationStyle = .overFullScreen
              self.present(vc, animated: true, completion: nil)
              return false
-          }
+          }*/
         
         return true
     }
-    
-    /*
-    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        
-        if tabBarController?.selectedIndex == 1 {
-            
-            print("탭바 눌림")
-            
-            let sb = UIStoryboard.init(name: "OpenFundraising", bundle: nil)
-            
-            let vc = sb.instantiateViewController(withIdentifier: "InputGaolVC")
-            
-            vc.hidesBottomBarWhenPushed = true
-            
-            navigationController?.pushViewController(vc, animated: true)
-        }
-        
-    }*/
     
 }

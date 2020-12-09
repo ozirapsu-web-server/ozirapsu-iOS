@@ -91,7 +91,12 @@ class InputGaolVC: UIViewController {
     // MARK: - Action
     @IBAction func back(_ sender: Any) {
         
-        navigationController?.popViewController(animated: true)
+        /*
+        let sb = UIStoryboard.init(name: "Home", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "HomeVC")
+        
+        navigationController?.pushViewController(vc, animated: true)
+ */
     
     }
     
@@ -117,6 +122,12 @@ class InputGaolVC: UIViewController {
     }
     
     // MARK: - LifeCycle
+    
+    /*
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        self.hidesBottomBarWhenPushed = true
+    }*/
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -134,7 +145,7 @@ class InputGaolVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        self.hidesBottomBarWhenPushed = true
         print("====== 탭바 ======")
     }
     
