@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 // MARK: - Protocol
 protocol CustomActivityDelegate : NSObjectProtocol {
@@ -57,6 +58,25 @@ class FundraisingCompleteVC: UIViewController {
     /**TEST*/
     var fundraising = Fundraising(title: "", targetAmount: 0, contents: "", tagList: [], images: [])
     
+    
+    
+    @IBOutlet weak var settingView: UIView!
+    
+    func setAnimation() {
+        let animationView = AnimationView(name: "complete")
+        
+        settingView.addSubview(animationView)
+        
+        animationView.contentMode = .scaleAspectFill
+        animationView.center = self.view.center
+        
+        animationView.frame = settingView.bounds
+        
+        animationView.play(fromProgress: 0, toProgress: 0.8, loopMode: .none, completion: nil)
+        // animationView.play()
+
+    }
+    
     @IBOutlet weak var progressView: UIProgressView! {
         didSet {
             self.progressView.translatesAutoresizingMaskIntoConstraints = false
@@ -69,7 +89,7 @@ class FundraisingCompleteVC: UIViewController {
         super.viewDidLoad()
         
         setNav()
-        
+        setAnimation()
         self.progressView.setProgress(1, animated: true)
         
         UIView.animate(withDuration: 1) { () -> Void in

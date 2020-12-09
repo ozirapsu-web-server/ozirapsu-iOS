@@ -58,6 +58,7 @@
 		F4A893CF25809F9B001CA7FE /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4A893C925809F9B001CA7FE /* NotoSansKR-Medium.otf */; };
 		F4A893D025809F9B001CA7FE /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4A893CA25809F9B001CA7FE /* NotoSansKR-Bold.otf */; };
 		F4A893D125809F9B001CA7FE /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4A893CB25809F9B001CA7FE /* NotoSansKR-Light.otf */; };
+		F4A893DC2580A880001CA7FE /* complete.json in Resources */ = {isa = PBXBuildFile; fileRef = F4A893DB2580A880001CA7FE /* complete.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,7 @@
 		F4A893C925809F9B001CA7FE /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Medium.otf"; path = "../../../../../Downloads/Noto_Sans_KR 2/NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		F4A893CA25809F9B001CA7FE /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Bold.otf"; path = "../../../../../Downloads/Noto_Sans_KR 2/NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
 		F4A893CB25809F9B001CA7FE /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Light.otf"; path = "../../../../../Downloads/Noto_Sans_KR 2/NotoSansKR-Light.otf"; sourceTree = "<group>"; };
+		F4A893DB2580A880001CA7FE /* complete.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = complete.json; path = ../../../../../Downloads/complete.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -495,6 +497,7 @@
 			isa = PBXGroup;
 			children = (
 				F4A89346257F8E7D001CA7FE /* splash.json */,
+				F4A893DB2580A880001CA7FE /* complete.json */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -660,6 +663,7 @@
 				F4A89347257F8E7D001CA7FE /* splash.json in Resources */,
 				9D6B058B255D8F9D00FE63C9 /* Assets.xcassets in Resources */,
 				F4A893CD25809F9B001CA7FE /* NotoSansKR-Thin.otf in Resources */,
+				F4A893DC2580A880001CA7FE /* complete.json in Resources */,
 				F46E06B82577D5EA00764B02 /* OpenFundraising.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
