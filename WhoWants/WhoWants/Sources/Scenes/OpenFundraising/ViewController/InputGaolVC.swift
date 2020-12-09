@@ -64,6 +64,10 @@ class InputGaolVC: UIViewController {
     private func setNav(){
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.tintColor = .mainblack
+        
+        let attributes = [NSAttributedString.Key.font: UIFont(name: "NotoSansKR-Bold", size: 18)!]
+        UINavigationBar.appearance().titleTextAttributes = attributes
+        
         let backbtn = UIBarButtonItem(image: UIImage(named: ImageName.backBtn),
                                       style: .plain,
                                       target: self,

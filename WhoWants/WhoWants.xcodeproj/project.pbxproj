@@ -52,6 +52,12 @@
 		F4A8938D257FA7BD001CA7FE /* Fundraising.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A8938C257FA7BD001CA7FE /* Fundraising.swift */; };
 		F4A89392257FA7FC001CA7FE /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A89391257FA7FC001CA7FE /* NetworkResult.swift */; };
 		F4A89398257FA840001CA7FE /* OpenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A89397257FA840001CA7FE /* OpenService.swift */; };
+		F4A893CC25809F9B001CA7FE /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4A893C625809F9B001CA7FE /* NotoSansKR-Regular.otf */; };
+		F4A893CD25809F9B001CA7FE /* NotoSansKR-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4A893C725809F9B001CA7FE /* NotoSansKR-Thin.otf */; };
+		F4A893CE25809F9B001CA7FE /* NotoSansKR-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4A893C825809F9B001CA7FE /* NotoSansKR-Black.otf */; };
+		F4A893CF25809F9B001CA7FE /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4A893C925809F9B001CA7FE /* NotoSansKR-Medium.otf */; };
+		F4A893D025809F9B001CA7FE /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4A893CA25809F9B001CA7FE /* NotoSansKR-Bold.otf */; };
+		F4A893D125809F9B001CA7FE /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4A893CB25809F9B001CA7FE /* NotoSansKR-Light.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +136,12 @@
 		F4A8938C257FA7BD001CA7FE /* Fundraising.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Fundraising.swift; path = WhoWants/Sources/Scenes/OpenFundraising/ViewController/Fundraising.swift; sourceTree = SOURCE_ROOT; };
 		F4A89391257FA7FC001CA7FE /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkResult.swift; path = WhoWants/Sources/Scenes/OpenFundraising/ViewController/NetworkResult.swift; sourceTree = SOURCE_ROOT; };
 		F4A89397257FA840001CA7FE /* OpenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OpenService.swift; path = WhoWants/Sources/Scenes/OpenFundraising/ViewController/OpenService.swift; sourceTree = SOURCE_ROOT; };
+		F4A893C625809F9B001CA7FE /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Regular.otf"; path = "../../../../../Downloads/Noto_Sans_KR 2/NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
+		F4A893C725809F9B001CA7FE /* NotoSansKR-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Thin.otf"; path = "../../../../../Downloads/Noto_Sans_KR 2/NotoSansKR-Thin.otf"; sourceTree = "<group>"; };
+		F4A893C825809F9B001CA7FE /* NotoSansKR-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Black.otf"; path = "../../../../../Downloads/Noto_Sans_KR 2/NotoSansKR-Black.otf"; sourceTree = "<group>"; };
+		F4A893C925809F9B001CA7FE /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Medium.otf"; path = "../../../../../Downloads/Noto_Sans_KR 2/NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
+		F4A893CA25809F9B001CA7FE /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Bold.otf"; path = "../../../../../Downloads/Noto_Sans_KR 2/NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
+		F4A893CB25809F9B001CA7FE /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Light.otf"; path = "../../../../../Downloads/Noto_Sans_KR 2/NotoSansKR-Light.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -331,6 +343,7 @@
 		9D8EAAFF256D89960066B3C7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F4A893B825809EFA001CA7FE /* Font */,
 				F4A89345257F8D37001CA7FE /* Lottie */,
 				9D54C7F9257B9D3F005066D0 /* Video */,
 				9D6B05CD255D9AA300FE63C9 /* WhoWants.entitlements */,
@@ -512,6 +525,19 @@
 			path = OpenFundraising;
 			sourceTree = "<group>";
 		};
+		F4A893B825809EFA001CA7FE /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				F4A893C825809F9B001CA7FE /* NotoSansKR-Black.otf */,
+				F4A893CA25809F9B001CA7FE /* NotoSansKR-Bold.otf */,
+				F4A893CB25809F9B001CA7FE /* NotoSansKR-Light.otf */,
+				F4A893C925809F9B001CA7FE /* NotoSansKR-Medium.otf */,
+				F4A893C625809F9B001CA7FE /* NotoSansKR-Regular.otf */,
+				F4A893C725809F9B001CA7FE /* NotoSansKR-Thin.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -622,12 +648,18 @@
 			files = (
 				9D54C807257B9EC2005066D0 /* login.mp4 in Resources */,
 				9D25036E257394CC005C20A9 /* Tabbar.storyboard in Resources */,
+				F4A893CF25809F9B001CA7FE /* NotoSansKR-Medium.otf in Resources */,
 				9D25038C25739F87005C20A9 /* MyPage.storyboard in Resources */,
+				F4A893CE25809F9B001CA7FE /* NotoSansKR-Black.otf in Resources */,
 				9D25038325739F2F005C20A9 /* Home.storyboard in Resources */,
+				F4A893D125809F9B001CA7FE /* NotoSansKR-Light.otf in Resources */,
+				F4A893CC25809F9B001CA7FE /* NotoSansKR-Regular.otf in Resources */,
 				9D8EAB1B256D8EFD0066B3C7 /* Signin.storyboard in Resources */,
+				F4A893D025809F9B001CA7FE /* NotoSansKR-Bold.otf in Resources */,
 				9D6B058E255D8F9D00FE63C9 /* LaunchScreen.storyboard in Resources */,
 				F4A89347257F8E7D001CA7FE /* splash.json in Resources */,
 				9D6B058B255D8F9D00FE63C9 /* Assets.xcassets in Resources */,
+				F4A893CD25809F9B001CA7FE /* NotoSansKR-Thin.otf in Resources */,
 				F46E06B82577D5EA00764B02 /* OpenFundraising.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

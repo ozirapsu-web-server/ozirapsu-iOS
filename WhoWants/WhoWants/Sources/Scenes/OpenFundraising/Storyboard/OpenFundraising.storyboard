@@ -10,6 +10,20 @@
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="NotoSansKR-Bold.otf">
+            <string>NotoSansKR-Bold</string>
+        </array>
+        <array key="NotoSansKR-Light.otf">
+            <string>NotoSansKR-Light</string>
+        </array>
+        <array key="NotoSansKR-Medium.otf">
+            <string>NotoSansKR-Medium</string>
+        </array>
+        <array key="NotoSansKR-Regular.otf">
+            <string>NotoSansKR-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="R3i-u5-Vbi">
@@ -35,52 +49,52 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="프로젝트 제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t58-vf-G0H">
-                                <rect key="frame" x="20" y="407.33333333333331" width="99" height="22"/>
+                                <rect key="frame" x="20.000000000000007" y="412" width="104.66666666666669" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="fnK-AQ-2sp"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="NotoSansKR-Bold" family="Noto Sans KR" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목은 짧고 개설의도가 잘 담길 수 있도록 작성해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPg-Lj-m58">
-                                <rect key="frame" x="20" y="429.33333333333331" width="264" height="15"/>
+                                <rect key="frame" x="20" y="434" width="281" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="mzU-HZ-BjH"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="NotoSansKR-Light" family="Noto Sans KR" pointSize="12"/>
                                 <color key="textColor" name="greytext_BDBDBD"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="19p-53-6Th">
-                                <rect key="frame" x="20" y="259.33333333333331" width="335" height="1"/>
+                                <rect key="frame" x="20" y="264" width="335" height="1"/>
                                 <color key="backgroundColor" name="greytext_BDBDBD"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="b0A-RC-CEX"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qjY-bi-lFf">
-                                <rect key="frame" x="335" y="231.33333333333334" width="20" height="24"/>
+                                <rect key="frame" x="335" y="231" width="20" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="RY6-2k-4kO"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="20"/>
                                 <color key="textColor" name="greytext_BDBDBD"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fuZ-dD-tyS">
-                                <rect key="frame" x="20" y="503.33333333333331" width="335" height="1"/>
+                                <rect key="frame" x="20" y="512" width="335" height="1"/>
                                 <color key="backgroundColor" name="greytext_BDBDBD"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="EWS-fN-DHZ"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ka8-I9-Jpr">
-                                <rect key="frame" x="331" y="475.33333333333331" width="24" height="24"/>
+                                <rect key="frame" x="331" y="479" width="24" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="24" id="h2F-rO-RKY"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="20"/>
                                 <color key="textColor" name="greytext_BDBDBD"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -90,7 +104,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="R14-7D-HZY" secondAttribute="height" multiplier="125:22" id="3qi-6e-DFh"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="20"/>
                                 <state key="normal" title="다음">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -104,33 +118,33 @@
                                 <color key="trackTintColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </progressView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="목표 금액" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIV-kh-MmT">
-                                <rect key="frame" x="20" y="156" width="68" height="22"/>
+                                <rect key="frame" x="20" y="156" width="71.333333333333329" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="uAz-BS-vy3"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="NotoSansKR-Bold" family="Noto Sans KR" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="목표 금액은 언제든 수정 가능해요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jYZ-pG-SDc">
-                                <rect key="frame" x="20" y="178" width="162" height="15"/>
+                                <rect key="frame" x="20" y="178" width="172" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="lFe-5O-MfG"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="12"/>
                                 <color key="textColor" name="greytext_BDBDBD"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vGa-dR-6Dn">
-                                <rect key="frame" x="20" y="232" width="295" height="23.333333333333343"/>
+                                <rect key="frame" x="20" y="232" width="295" height="28"/>
                                 <color key="textColor" name="mainblack_202020"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cxc-2S-j11">
-                                <rect key="frame" x="20" y="478.33333333333331" width="291" height="21"/>
+                                <rect key="frame" x="20" y="483" width="291" height="25"/>
                                 <color key="textColor" name="mainblack_202020"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
@@ -207,16 +221,16 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="734"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="프로젝트 내용" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oI9-As-7DB">
-                                                <rect key="frame" x="20" y="84" width="99" height="22"/>
-                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="18"/>
+                                                <rect key="frame" x="20.000000000000007" y="84" width="104.66666666666669" height="22"/>
+                                                <fontDescription key="fontDescription" name="NotoSansKR-Bold" family="Noto Sans KR" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uia-bQ-dma">
-                                                <rect key="frame" x="20" y="106" width="278.66666666666669" height="29"/>
+                                                <rect key="frame" x="20" y="106" width="292.33333333333331" height="29"/>
                                                 <string key="text">서포터분들의 공감을 이끌기 위해 자세하게 작성해주실 수록
 모금 성공 확률도 올라갑니다!</string>
-                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
+                                                <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="12"/>
                                                 <color key="textColor" name="greytext_BDBDBD"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -224,7 +238,7 @@
                                                 <rect key="frame" x="20" y="147" width="335" height="231"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXb-dV-QQ2">
-                                                        <rect key="frame" x="322" y="207" width="0.0" height="12"/>
+                                                        <rect key="frame" x="322" y="206.99999999999997" width="0.0" height="12"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="12" id="fPp-W3-tW6"/>
                                                         </constraints>
@@ -236,7 +250,7 @@
                                                         <rect key="frame" x="12" y="12" width="311" height="193"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <color key="textColor" name="mainblack_202020"/>
-                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     </textView>
                                                 </subviews>
@@ -260,24 +274,24 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="프로젝트 태그" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXu-jU-CNJ">
-                                                <rect key="frame" x="20" y="428" width="99" height="22"/>
-                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="18"/>
+                                                <rect key="frame" x="20.000000000000007" y="428" width="104.66666666666669" height="22"/>
+                                                <fontDescription key="fontDescription" name="NotoSansKR-Bold" family="Noto Sans KR" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="프로젝트를 잘 표현해주는 키워드를 설정해보세요. (최대 3개)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NqP-Ii-Q9Y">
-                                                <rect key="frame" x="20" y="450" width="285" height="15"/>
-                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
+                                                <rect key="frame" x="20" y="450" width="302" height="15"/>
+                                                <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="12"/>
                                                 <color key="textColor" name="greytext_BDBDBD"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="키워드는 쉼표(,)로 구분해주세요!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eje-KG-Ywc">
-                                                <rect key="frame" x="20" y="477" width="180.66666666666666" height="20"/>
+                                                <rect key="frame" x="20" y="477" width="193.33333333333334" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="IUc-SU-5zF"/>
                                                 </constraints>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                             </textField>
                                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" progress="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="CwC-xH-RWq">
@@ -320,7 +334,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Wf7-yI-VLe" secondAttribute="height" multiplier="125:22" id="gc7-KC-zua"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="20"/>
                                 <state key="normal" title="다음">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -371,7 +385,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="3nZ-VJ-FKM" secondAttribute="height" multiplier="125:22" id="YK3-ZB-tnY"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="20"/>
                                 <state key="normal" title="다음">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -380,16 +394,16 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" ambiguous="YES" text="이미지 첨부" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0f-VC-6gd">
-                                <rect key="frame" x="20" y="128" width="83" height="22"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="18"/>
+                                <rect key="frame" x="20" y="128" width="88" height="22"/>
+                                <fontDescription key="fontDescription" name="NotoSansKR-Bold" family="Noto Sans KR" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2X-A7-YTs">
-                                <rect key="frame" x="20" y="150" width="180.33333333333334" height="29"/>
-                                <string key="text">서포터분들의 더 쉬운 이해를 위해
-이미지를 최대 10장까지 첨부해주세요!</string>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
+                                <rect key="frame" x="20" y="150" width="293.33333333333331" height="29"/>
+                                <string key="text">서포터분들의 더 쉬운 이해를 위해 대표 이미지 1장을 포함해
+최대 10장까지 첨부해주세요!</string>
+                                <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="12"/>
                                 <color key="textColor" name="greytext_BDBDBD"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -465,7 +479,7 @@
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="대표" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DJh-Jo-gY8">
                                                                     <rect key="frame" x="7" y="1" width="17" height="12"/>
-                                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="9"/>
+                                                                    <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="9"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -575,12 +589,12 @@
                                 <color key="progressTintColor" name="whowantsblue_2069F6"/>
                                 <color key="trackTintColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </progressView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개설이 완료되었습니다!🎉" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfZ-bK-YH3">
-                                <rect key="frame" x="84" y="398.66666666666669" width="207" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개설이 완료되었습니다!🎉" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfZ-bK-YH3">
+                                <rect key="frame" x="73" y="398.66666666666669" width="229" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="dfZ-bK-YH3" secondAttribute="height" multiplier="69:8" id="hB2-Pj-rDA"/>
+                                    <constraint firstAttribute="width" secondItem="dfZ-bK-YH3" secondAttribute="height" multiplier="229:24" id="829-hc-quq"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="NotoSansKR-Bold" family="Noto Sans KR" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -589,7 +603,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Lhx-l3-ht6" secondAttribute="height" multiplier="161:8" id="2H2-v8-lXa"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="12"/>
                                 <color key="textColor" name="mainblack_202020"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -599,7 +613,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="2qd-wk-y19" secondAttribute="height" multiplier="335:48" id="FcY-fR-YwB"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="16"/>
                                 <state key="normal" title="모금함 공유하기">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -612,7 +626,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="0jt-SV-MSS" secondAttribute="height" multiplier="335:48" id="llG-YO-OAg"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="16"/>
                                 <state key="normal" title="완료하기">
                                     <color key="titleColor" name="whowantsblue_2069F6"/>
                                 </state>
@@ -631,7 +645,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="b48-8P-DVD" secondAttribute="height" multiplier="161:8" id="UtZ-dn-bzh"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="12"/>
                                 <color key="textColor" name="greytext_BDBDBD"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -639,25 +653,24 @@
                         <viewLayoutGuide key="safeArea" id="vAB-5r-JyG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="dfZ-bK-YH3" firstAttribute="leading" secondItem="vAB-5r-JyG" secondAttribute="leading" constant="84" id="0qb-VI-eJy"/>
                             <constraint firstItem="vAB-5r-JyG" firstAttribute="trailing" secondItem="IfZ-qo-6jE" secondAttribute="trailing" constant="125" id="7zw-qs-hcz"/>
                             <constraint firstItem="vAB-5r-JyG" firstAttribute="trailing" secondItem="b48-8P-DVD" secondAttribute="trailing" constant="27" id="Bc2-GA-kv5"/>
                             <constraint firstItem="IfZ-qo-6jE" firstAttribute="leading" secondItem="vAB-5r-JyG" secondAttribute="leading" constant="125" id="Hot-H7-z8Q"/>
                             <constraint firstItem="vAB-5r-JyG" firstAttribute="trailing" secondItem="2qd-wk-y19" secondAttribute="trailing" constant="20" id="J7H-yw-LGT"/>
                             <constraint firstItem="0jt-SV-MSS" firstAttribute="leading" secondItem="vAB-5r-JyG" secondAttribute="leading" constant="20" id="Pin-N6-LUf"/>
+                            <constraint firstItem="dfZ-bK-YH3" firstAttribute="top" secondItem="IfZ-qo-6jE" secondAttribute="bottom" constant="49" id="Rlq-96-JGG"/>
                             <constraint firstItem="Lhx-l3-ht6" firstAttribute="leading" secondItem="vAB-5r-JyG" secondAttribute="leading" constant="26" id="UMj-zw-h5P"/>
                             <constraint firstItem="b48-8P-DVD" firstAttribute="top" secondItem="Lhx-l3-ht6" secondAttribute="bottom" constant="100" id="Y99-EB-qcn"/>
-                            <constraint firstItem="vAB-5r-JyG" firstAttribute="trailing" secondItem="dfZ-bK-YH3" secondAttribute="trailing" constant="84" id="YIv-7t-Mxk"/>
                             <constraint firstItem="2qd-wk-y19" firstAttribute="top" secondItem="b48-8P-DVD" secondAttribute="bottom" constant="8.3300000000000001" id="YX5-cU-cnk"/>
                             <constraint firstItem="vAB-5r-JyG" firstAttribute="trailing" secondItem="0jt-SV-MSS" secondAttribute="trailing" constant="20" id="cHu-rs-uyC"/>
-                            <constraint firstItem="Lhx-l3-ht6" firstAttribute="top" secondItem="dfZ-bK-YH3" secondAttribute="bottom" id="iDZ-5L-bLW"/>
                             <constraint firstItem="vAB-5r-JyG" firstAttribute="bottom" secondItem="0jt-SV-MSS" secondAttribute="bottom" constant="111" id="jzj-aO-iaF"/>
+                            <constraint firstItem="vAB-5r-JyG" firstAttribute="trailing" secondItem="dfZ-bK-YH3" secondAttribute="trailing" constant="73" id="lFP-P4-EH0"/>
                             <constraint firstItem="b48-8P-DVD" firstAttribute="leading" secondItem="vAB-5r-JyG" secondAttribute="leading" constant="26" id="lha-eS-w2P"/>
+                            <constraint firstItem="Lhx-l3-ht6" firstAttribute="top" secondItem="dfZ-bK-YH3" secondAttribute="bottom" id="lpY-zg-SDd"/>
+                            <constraint firstItem="dfZ-bK-YH3" firstAttribute="leading" secondItem="vAB-5r-JyG" secondAttribute="leading" constant="73" id="nbg-B3-vSD"/>
                             <constraint firstItem="0jt-SV-MSS" firstAttribute="top" secondItem="2qd-wk-y19" secondAttribute="bottom" constant="8" symbolic="YES" id="oKe-9M-gS0"/>
                             <constraint firstItem="2qd-wk-y19" firstAttribute="leading" secondItem="vAB-5r-JyG" secondAttribute="leading" constant="20" id="pQ4-Ik-CIR"/>
-                            <constraint firstItem="dfZ-bK-YH3" firstAttribute="top" secondItem="IfZ-qo-6jE" secondAttribute="bottom" constant="49" id="qbR-kD-Ukv"/>
                             <constraint firstItem="vAB-5r-JyG" firstAttribute="trailing" secondItem="Lhx-l3-ht6" secondAttribute="trailing" constant="27" id="qdH-ER-ogd"/>
-                            <constraint firstItem="Lhx-l3-ht6" firstAttribute="top" secondItem="dfZ-bK-YH3" secondAttribute="bottom" id="w1m-eY-6Co"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0kX-os-75o"/>
