@@ -48,6 +48,10 @@
 		F46E0729257CB9D000764B02 /* addImageCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46E0728257CB9D000764B02 /* addImageCVC.swift */; };
 		F4A89316257F7BCC001CA7FE /* FundraisingNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A89315257F7BCC001CA7FE /* FundraisingNavigationController.swift */; };
 		F4A89347257F8E7D001CA7FE /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = F4A89346257F8E7D001CA7FE /* splash.json */; };
+		F4A89384257FA5EF001CA7FE /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A89383257FA5EF001CA7FE /* APIConstants.swift */; };
+		F4A8938D257FA7BD001CA7FE /* Fundraising.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A8938C257FA7BD001CA7FE /* Fundraising.swift */; };
+		F4A89392257FA7FC001CA7FE /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A89391257FA7FC001CA7FE /* NetworkResult.swift */; };
+		F4A89398257FA840001CA7FE /* OpenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A89397257FA840001CA7FE /* OpenService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +126,10 @@
 		F46E0728257CB9D000764B02 /* addImageCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addImageCVC.swift; sourceTree = "<group>"; };
 		F4A89315257F7BCC001CA7FE /* FundraisingNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundraisingNavigationController.swift; sourceTree = "<group>"; };
 		F4A89346257F8E7D001CA7FE /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = splash.json; path = ../../../../../Downloads/splash.json; sourceTree = "<group>"; };
+		F4A89383257FA5EF001CA7FE /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = APIConstants.swift; path = WhoWants/Sources/Scenes/OpenFundraising/ViewController/APIConstants.swift; sourceTree = SOURCE_ROOT; };
+		F4A8938C257FA7BD001CA7FE /* Fundraising.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Fundraising.swift; path = WhoWants/Sources/Scenes/OpenFundraising/ViewController/Fundraising.swift; sourceTree = SOURCE_ROOT; };
+		F4A89391257FA7FC001CA7FE /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkResult.swift; path = WhoWants/Sources/Scenes/OpenFundraising/ViewController/NetworkResult.swift; sourceTree = SOURCE_ROOT; };
+		F4A89397257FA840001CA7FE /* OpenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OpenService.swift; path = WhoWants/Sources/Scenes/OpenFundraising/ViewController/OpenService.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -334,6 +342,8 @@
 		9D8EAB00256D899D0066B3C7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				F4A8938B257FA7A9001CA7FE /* Model */,
+				F4A89382257FA5B4001CA7FE /* APIServices */,
 				9D6B0581255D8F9600FE63C9 /* AppDelegate.swift */,
 				9D8EAB0A256D8DB20066B3C7 /* Extension */,
 				9D8EAB0B256D8DBE0066B3C7 /* Scenes */,
@@ -474,6 +484,32 @@
 				F4A89346257F8E7D001CA7FE /* splash.json */,
 			);
 			path = Lottie;
+			sourceTree = "<group>";
+		};
+		F4A89382257FA5B4001CA7FE /* APIServices */ = {
+			isa = PBXGroup;
+			children = (
+				F4A89396257FA820001CA7FE /* OpenFundraising */,
+				F4A89383257FA5EF001CA7FE /* APIConstants.swift */,
+				F4A89391257FA7FC001CA7FE /* NetworkResult.swift */,
+			);
+			path = APIServices;
+			sourceTree = "<group>";
+		};
+		F4A8938B257FA7A9001CA7FE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F4A8938C257FA7BD001CA7FE /* Fundraising.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F4A89396257FA820001CA7FE /* OpenFundraising */ = {
+			isa = PBXGroup;
+			children = (
+				F4A89397257FA840001CA7FE /* OpenService.swift */,
+			);
+			path = OpenFundraising;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -728,23 +764,27 @@
 				9D2503212572897C005C20A9 /* PhoneInputViewController.swift in Sources */,
 				F46E06CB257A0FEA00764B02 /* InputContentVC.swift in Sources */,
 				9D2503792573993F005C20A9 /* MainTabbarViewController.swift in Sources */,
+				F4A89384257FA5EF001CA7FE /* APIConstants.swift in Sources */,
 				9D25032C2572A3EC005C20A9 /* HomeViewController.swift in Sources */,
 				F46E06D5257A101C00764B02 /* FundraisingCompleteVC.swift in Sources */,
 				9D8EAB4F256E35C30066B3C7 /* EmailInputViewController.swift in Sources */,
 				9D250326257294C5005C20A9 /* NickInputViewController.swift in Sources */,
 				9D8EAB6E256EAA8F0066B3C7 /* NSNotification.Name+Extension.swift in Sources */,
 				9D54C7EC257B7E6D005066D0 /* FundraisingCurHeaderView.swift in Sources */,
+				F4A89398257FA840001CA7FE /* OpenService.swift in Sources */,
 				9D8EAB5C256E3D610066B3C7 /* PwInputViewController.swift in Sources */,
 				F46E06D0257A100900764B02 /* InputImageVC.swift in Sources */,
 				F4A89316257F7BCC001CA7FE /* FundraisingNavigationController.swift in Sources */,
 				9D6B0582255D8F9600FE63C9 /* AppDelegate.swift in Sources */,
 				F46E0729257CB9D000764B02 /* addImageCVC.swift in Sources */,
 				9D54C7CC257A7E91005066D0 /* FundraisingCell.swift in Sources */,
+				F4A89392257FA7FC001CA7FE /* NetworkResult.swift in Sources */,
 				9D25039125739FA3005C20A9 /* MyPageViewController.swift in Sources */,
 				9D8EAB45256E1FB30066B3C7 /* SignupContainerViewController.swift in Sources */,
 				9D8EAB66256E8AF10066B3C7 /* ImageName.swift in Sources */,
 				9D8EAB4A256E33070066B3C7 /* UIColor+Extension.swift in Sources */,
 				F46E071F257CB1B600764B02 /* uploadImageCVC.swift in Sources */,
+				F4A8938D257FA7BD001CA7FE /* Fundraising.swift in Sources */,
 				F46E06C6257A0FD600764B02 /* InputGaolVC.swift in Sources */,
 				9D25035825738AC6005C20A9 /* CompleteViewController.swift in Sources */,
 			);
@@ -917,7 +957,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = WhoWants/WhoWants.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AKW8XUH283;
+				DEVELOPMENT_TEAM = 25UTG6U2R6;
 				INFOPLIST_FILE = WhoWants/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -939,7 +979,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = WhoWants/WhoWants.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AKW8XUH283;
+				DEVELOPMENT_TEAM = 25UTG6U2R6;
 				INFOPLIST_FILE = WhoWants/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
