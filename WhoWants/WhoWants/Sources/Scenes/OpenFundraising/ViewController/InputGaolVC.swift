@@ -8,23 +8,6 @@
 import UIKit
 import Foundation
 
-/**TEST: 모금 개설 정보 저장 임시 struct*/
-struct Fundraising {
-    var title : String
-    var targetAmount : Int
-    var contents : String
-    var tagList : [String]
-    var images : [UIImage]
-    
-    init(title: String, targetAmount: Int, contents: String, tagList: [String], images: [UIImage]) {
-        self.title = title
-        self.targetAmount = targetAmount
-        self.contents = contents
-        self.tagList = tagList
-        self.images = images
-    }
-}
-
 class InputGaolVC: UIViewController {
 
     // MARK: - Init
@@ -149,9 +132,16 @@ class InputGaolVC: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        print("====== 탭바 ======")
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         // NAVTEST
         setNav()
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {

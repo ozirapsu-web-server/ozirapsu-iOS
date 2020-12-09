@@ -80,3 +80,10 @@ class customBorderButton: UIButton {
         
     }
 }
+
+extension UIImage {
+    func toString() -> String? {
+        let data: Data? = self.pngData()
+        return data?.base64EncodedString(options: .endLineWithLineFeed)
+    }
+}
