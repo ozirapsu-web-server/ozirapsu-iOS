@@ -64,6 +64,10 @@ class InputGaolVC: UIViewController {
     private func setNav(){
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.tintColor = .mainblack
+        
+        let attributes = [NSAttributedString.Key.font: UIFont(name: "NotoSansKR-Bold", size: 18)!]
+        UINavigationBar.appearance().titleTextAttributes = attributes
+        
         let backbtn = UIBarButtonItem(image: UIImage(named: ImageName.backBtn),
                                       style: .plain,
                                       target: self,
@@ -91,8 +95,8 @@ class InputGaolVC: UIViewController {
     // MARK: - Action
     @IBAction func back(_ sender: Any) {
         
-        navigationController?.popViewController(animated: true)
-    
+        tabBarController?.selectedIndex = 0
+        
     }
     
     var completion: ((String) -> Void)?
@@ -117,6 +121,12 @@ class InputGaolVC: UIViewController {
     }
     
     // MARK: - LifeCycle
+    
+    /*
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        self.hidesBottomBarWhenPushed = true
+    }*/
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -134,8 +144,8 @@ class InputGaolVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.hidesBottomBarWhenPushed = true
         
-        print("====== 탭바 ======")
     }
     
     override func viewWillAppear(_ animated: Bool) {

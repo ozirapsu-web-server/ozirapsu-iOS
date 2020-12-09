@@ -71,6 +71,11 @@ class FundraisingCompleteVC: UIViewController {
         setNav()
         
         self.progressView.setProgress(1, animated: true)
+        
+        UIView.animate(withDuration: 1) { () -> Void in
+            self.progressView.alpha = 0.0
+        }
+        
         configureLayout()
         
         /**TEST*/
