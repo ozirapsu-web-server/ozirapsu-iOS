@@ -4,8 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,7 +11,7 @@
         <scene sceneID="paZ-gO-Cah">
             <objects>
                 <viewControllerPlaceholder storyboardName="Home" id="G1r-MF-jgn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" selectedImage="ic_home" id="aMx-DY-ndf"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="ic_home" selectedImage="ic_home" id="aMx-DY-ndf"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L66-5w-gfy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -29,36 +27,6 @@
             </objects>
             <point key="canvasLocation" x="457" y="610"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="o51-ap-8Uj">
-            <objects>
-                <viewController modalPresentationStyle="fullScreen" hidesBottomBarWhenPushed="YES" interfaceStyle="light" id="MjV-oY-pLR" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4Ws-11-wgO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZRe-e9-yq4">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <connections>
-                                    <segue destination="4kD-MY-Jdj" kind="embed" id="QLY-TW-fch"/>
-                                </connections>
-                            </containerView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="kTX-ya-nQo"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="ZRe-e9-yq4" firstAttribute="leading" secondItem="kTX-ya-nQo" secondAttribute="leading" id="5w6-Of-slh"/>
-                            <constraint firstItem="ZRe-e9-yq4" firstAttribute="trailing" secondItem="kTX-ya-nQo" secondAttribute="trailing" id="I52-JB-AHN"/>
-                            <constraint firstAttribute="bottom" secondItem="ZRe-e9-yq4" secondAttribute="bottom" id="Nmi-0o-IO8"/>
-                            <constraint firstItem="ZRe-e9-yq4" firstAttribute="top" secondItem="4Ws-11-wgO" secondAttribute="top" id="o4I-li-sYb"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="" image="ic_upload" id="GDf-dt-J6D"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LAP-Wk-Pp5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-152.17391304347828" y="981.69642857142856"/>
-        </scene>
         <!--OpenFundraising-->
         <scene sceneID="GvC-qf-73E">
             <objects>
@@ -67,7 +35,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rt4-4e-UiL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="496" y="982"/>
+            <point key="canvasLocation" x="-152" y="655"/>
         </scene>
         <!--Main Tabbar View Controller-->
         <scene sceneID="BwK-UG-1c0">
@@ -82,7 +50,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="G1r-MF-jgn" kind="relationship" relationship="viewControllers" id="5fn-bN-dU8"/>
-                        <segue destination="MjV-oY-pLR" kind="relationship" relationship="viewControllers" id="eZU-C8-GRo"/>
+                        <segue destination="4kD-MY-Jdj" kind="relationship" relationship="viewControllers" id="K6h-kv-UBY"/>
                         <segue destination="eN4-kk-U6a" kind="relationship" relationship="viewControllers" id="QQh-yW-9UN"/>
                     </connections>
                 </tabBarController>
@@ -94,9 +62,5 @@
     <resources>
         <image name="ic_home" width="77" height="49"/>
         <image name="ic_profile" width="77" height="49"/>
-        <image name="ic_upload" width="77" height="49"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

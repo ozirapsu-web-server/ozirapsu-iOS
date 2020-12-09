@@ -85,7 +85,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R14-7D-HZY">
-                                <rect key="frame" x="0.0" y="712" width="375" height="66"/>
+                                <rect key="frame" x="0.0" y="663" width="375" height="66"/>
                                 <color key="backgroundColor" name="greytext_BDBDBD"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="R14-7D-HZY" secondAttribute="height" multiplier="125:22" id="3qi-6e-DFh"/>
@@ -673,7 +673,11 @@
         <scene sceneID="oFa-yA-Skn">
             <objects>
                 <navigationController storyboardIdentifier="OpenFundraising" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" hidesBottomBarWhenPushed="YES" id="jW4-HR-Mgn" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="ic_upload" id="yKD-Ip-Vh4">
+                        <color key="badgeColor" name="whowantsblue_2069F6"/>
+                    </tabBarItem>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qCv-eZ-JRm">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -692,6 +696,7 @@
         <image name="btn_back" width="48" height="48"/>
         <image name="btn_delete" width="11.333333015441895" height="11.333333015441895"/>
         <image name="ic_addphoto" width="23" height="22.666666030883789"/>
+        <image name="ic_upload" width="77" height="49"/>
         <image name="img_complete_blue" width="153" height="151"/>
         <image name="img_upload" width="91" height="63"/>
         <namedColor name="back_F8F8F8">

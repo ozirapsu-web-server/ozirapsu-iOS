@@ -91,13 +91,8 @@ class InputGaolVC: UIViewController {
     // MARK: - Action
     @IBAction func back(_ sender: Any) {
         
-        /*
-        let sb = UIStoryboard.init(name: "Home", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "HomeVC")
+        tabBarController?.selectedIndex = 0
         
-        navigationController?.pushViewController(vc, animated: true)
- */
-    
     }
     
     var completion: ((String) -> Void)?
@@ -146,7 +141,7 @@ class InputGaolVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.hidesBottomBarWhenPushed = true
-        print("====== 탭바 ======")
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
