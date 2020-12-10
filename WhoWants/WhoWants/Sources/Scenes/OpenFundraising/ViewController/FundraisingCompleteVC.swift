@@ -58,19 +58,18 @@ class FundraisingCompleteVC: UIViewController {
     /**TEST*/
     var fundraising = Fundraising(title: "", targetAmount: 0, contents: "", tagList: [], images: [])
     
-    
-    
     @IBOutlet weak var settingView: UIView!
     
     func setAnimation() {
-        let animationView = AnimationView(name: "complete")
+        let animationView = AnimationView(name: "200")
         
         settingView.addSubview(animationView)
         
         animationView.contentMode = .scaleAspectFill
-        animationView.center = self.view.center
         
         animationView.frame = settingView.bounds
+        
+        // animationView.frame = CGRect(x: 0, y: 0, width: 250, height: 246)
         
         animationView.play(fromProgress: 0, toProgress: 0.8, loopMode: .none, completion: nil)
         // animationView.play()
@@ -100,6 +99,7 @@ class FundraisingCompleteVC: UIViewController {
         
         /**TEST*/
         print(fundraising)
+        
         
     }
     
