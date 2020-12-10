@@ -80,6 +80,30 @@ class InputImageVC: UIViewController {
     
     @IBAction func next(_ sender: Any) {
         
+        
+        OpenService.shared.requestOpen(title: fundraising.title, targetAmount: fundraising.targetAmount, contents: fundraising.contents, tagList: fundraising.tagList, images: fundraising.images[0].jpegData(compressionQuality: 0.6)!) { data in
+            switch data {
+            case .success:
+                print("모금함 개설 성공")
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "FundraisingCompleteVC") as! FundraisingCompleteVC
+                
+                // vc.fundraising = self.fundraising
+                
+                self.navigationController?.pushViewController(vc, animated: true)
+                
+            case .requestErr(let msg):
+                print("모금함 생성")
+                print(msg)
+            case .pathErr:
+                print("모금함 생성 path err")
+            case .serverErr:
+                print("모금함 생성 server err")
+            case .networkFail:
+                print("모금함 생성 network err")
+            case .dbErr:
+                print("모금함 생성 db err")
+            }
+        }
         /* 통신 세팅
         RequestService.shared.requestProduct() { data in
             switch data {
@@ -104,12 +128,13 @@ class InputImageVC: UIViewController {
         }
         */
         
+        /*
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "FundraisingCompleteVC") as! FundraisingCompleteVC
         
         vc.fundraising = self.fundraising
         
         navigationController?.pushViewController(vc, animated: true)
-        
+        */
     }
     
     
