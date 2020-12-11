@@ -11,6 +11,13 @@ enum FundraisingText: String {
     case shareBtn = "공유하기"
 }
 
+struct FundraisingCellDTO {
+    let image: UIImage
+    let title: String
+    let count: Int
+    let percent: Int
+}
+
 class FundraisingCell: UICollectionViewCell {
     static let identifier = "FundaisingCell"
     
@@ -29,7 +36,7 @@ class FundraisingCell: UICollectionViewCell {
         stackView.axis = .vertical
         stackView.distribution = .fill
         stackView.alignment = .fill
-        stackView.spacing = 9
+        stackView.spacing = 7
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -42,20 +49,22 @@ class FundraisingCell: UICollectionViewCell {
     
     let titleLabel: UILabel = {
         let label = UILabel()
+        label.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         label.numberOfLines = 2
-        label.textColor = .mainblack
-        label.text = "후원츠를 도와주세요!"
-        label.font = UIFont.boldSystemFont(ofSize: 18)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let shareButton: UIButton = {
         let btn = UIButton(type: .system)
+        let attributeText = NSAttributedString(string: FundraisingText.shareBtn.rawValue,
+                                               attributes: [.font: UIFont(name: FontName.notosans_bold,
+                                                                          size: 12)!,
+                                                            .kern: -0.48,
+                                                            .foregroundColor: UIColor.white])
         btn.backgroundColor = .whowantsblue
-        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        btn.setTitleColor(.white, for: .normal)
-        btn.setTitle(FundraisingText.shareBtn.rawValue, for: .normal)
+        btn.setAttributedTitle(attributeText, for: .normal)
+        btn.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         btn.clipsToBounds = true
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
@@ -86,9 +95,6 @@ class FundraisingCell: UICollectionViewCell {
     
     let surportingCountLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = .mainblack
-        label.text = "2000명이 서포팅 중"
         label.setContentHuggingPriority(.defaultLow, for: .horizontal)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -96,16 +102,40 @@ class FundraisingCell: UICollectionViewCell {
     
     let percentLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .whowantsblue
-        label.font = UIFont.boldSystemFont(ofSize: 18)
         label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-        label.text = "80%"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     // MARK: - Data
-    var isInit: Bool = true 
+    var isInit: Bool = true
+    
+    // MARK: - Action
+    func setFundraisingCell(_ dto: FundraisingCellDTO) {
+        let titleAttributeText = NSAttributedString(string: dto.title,
+                                                    attributes: [.font: UIFont(name: FontName.notosans_medium,
+                                                                               size: 16)!,
+                                                                 .kern: -0.64,
+                                                                 .foregroundColor: UIColor.mainblack])
+        titleLabel.attributedText = titleAttributeText
+        
+        let countText = dto.count.convertUnitKR() + "명이 서포팅 중"
+        let countAttributeText = NSMutableAttributedString(string: countText,
+                                                           attributes: [.font: UIFont(name: FontName.notosans_bold,
+                                                                                      size: 12)!,
+                                                                        .kern: -0.48,
+                                                                        .foregroundColor: UIColor.mainblack])
+        countAttributeText.addAttribute(.font, value: UIFont(name: FontName.notosans_regular, size: 12)!,
+                                        range: (countText as NSString).range(of: "이 서포팅 중"))
+        surportingCountLabel.attributedText = countAttributeText
+        
+        let percentAttributeText = NSAttributedString(string: "\(dto.percent)%",
+                                                      attributes: [.font: UIFont(name: FontName.notosans_bold,
+                                                                                 size: 14)!,
+                                                                   .kern: -0.56,
+                                                                   .foregroundColor: UIColor.whowantsblue])
+        percentLabel.attributedText = percentAttributeText
+    }
     
     // MARK: - Init
     private func initView() {
@@ -146,20 +176,17 @@ class FundraisingCell: UICollectionViewCell {
     
     // MARK: - Layout
     private func configureLayout() {
-        shareButton.layer.cornerRadius = (bounds.width*0.5) / 10
-        thumbnailImageView.layer.cornerRadius = (bounds.width*0.6) / 20
-        let sharBtnTop = shareButton.topAnchor.constraint(greaterThanOrEqualTo: topContainerView.topAnchor,
-                                                          constant: 4)
-        let shareBtnBottom = shareButton.bottomAnchor.constraint(greaterThanOrEqualTo: topContainerView.bottomAnchor, constant: -4)
-        sharBtnTop.priority = UILayoutPriority(1000)
-        shareBtnBottom.priority = UILayoutPriority(1000)
+        shareButton.layer.cornerRadius = (bounds.width*0.21)/4.5
+        thumbnailImageView.layer.cornerRadius = (bounds.width-20*2)/55.8
+        let sharBtnTop = shareButton.topAnchor.constraint(greaterThanOrEqualTo: topContainerView.topAnchor)
+        let shareBtnBottom = shareButton.bottomAnchor.constraint(greaterThanOrEqualTo: topContainerView.bottomAnchor)
+        sharBtnTop.priority = UILayoutPriority(500)
+        shareBtnBottom.priority = UILayoutPriority(500)
         
-        let titleLabelTop = titleLabel.topAnchor.constraint(equalTo: topContainerView.topAnchor,
-                                                            constant: 4)
-        let titleLabelBottom = titleLabel.bottomAnchor.constraint(equalTo: topContainerView.bottomAnchor,
-                                                                  constant: -4)
-        titleLabelTop.priority = UILayoutPriority(750)
-        titleLabelBottom.priority = UILayoutPriority(750)
+        let titleLabelTop = titleLabel.topAnchor.constraint(equalTo: topContainerView.topAnchor)
+        let titleLabelBottom = titleLabel.bottomAnchor.constraint(equalTo: topContainerView.bottomAnchor)
+        titleLabelTop.priority = UILayoutPriority(500)
+        titleLabelBottom.priority = UILayoutPriority(500)
         
         NSLayoutConstraint.activate([
             thumbnailImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
@@ -168,7 +195,7 @@ class FundraisingCell: UICollectionViewCell {
             thumbnailImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             thumbnailImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             contentStackView.topAnchor.constraint(equalTo: thumbnailImageView.bottomAnchor,
-                                                  constant: 10),
+                                                  constant: 9),
             contentStackView.leadingAnchor.constraint(equalTo: thumbnailImageView.leadingAnchor),
             contentStackView.trailingAnchor.constraint(equalTo: thumbnailImageView.trailingAnchor),
             contentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
@@ -178,11 +205,11 @@ class FundraisingCell: UICollectionViewCell {
             titleLabelBottom,
             sharBtnTop,
             shareBtnBottom,
-            progressView.heightAnchor.constraint(equalToConstant: 7),
+            progressView.heightAnchor.constraint(equalToConstant: 6),
             shareButton.trailingAnchor.constraint(equalTo: topContainerView.trailingAnchor),
             shareButton.centerYAnchor.constraint(equalTo: topContainerView.centerYAnchor),
-            shareButton.widthAnchor.constraint(equalTo: topContainerView.widthAnchor, multiplier: 0.29),
-            shareButton.heightAnchor.constraint(equalTo: shareButton.widthAnchor, multiplier: 0.38),
+            shareButton.widthAnchor.constraint(equalTo: topContainerView.widthAnchor, multiplier: 0.21),
+            shareButton.heightAnchor.constraint(equalTo: shareButton.widthAnchor, multiplier: 0.41),
             percentLabel.trailingAnchor.constraint(equalTo: bottomContainerView.trailingAnchor),
             percentLabel.bottomAnchor.constraint(equalTo: bottomContainerView.bottomAnchor),
             bottomContainerView.heightAnchor.constraint(equalTo: percentLabel.heightAnchor),

@@ -118,6 +118,11 @@ extension HomeViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
+        fundraseCell.setFundraisingCell(FundraisingCellDTO(image: UIImage(named: "sample")!,
+                                                           title: "후원츠를 도와주세요!",
+                                                           count: 2000,
+                                                           percent: 80))
+        
         return fundraseCell
     }
     

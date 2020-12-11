@@ -46,6 +46,7 @@
 		9DC1FEA4258397780075CF7E /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE8C258391BA0075CF7E /* NotoSansKR-Medium.otf */; };
 		9DC1FEA52583977A0075CF7E /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE89258391BA0075CF7E /* NotoSansKR-Regular.otf */; };
 		9DC1FEA92583977D0075CF7E /* NotoSansKR-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE8B258391BA0075CF7E /* NotoSansKR-Thin.otf */; };
+		9DC391242583C1C6007D52FE /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC391232583C1C6007D52FE /* Int+Extension.swift */; };
 		9DC4C2E6257F54BA0015F5B6 /* FundrasingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC4C2E5257F54BA0015F5B6 /* FundrasingDetailViewController.swift */; };
 		A7FC0E6A37F8587083D22AF1 /* Pods_WhoWantsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 732D0F645AAEF922E84C0C17 /* Pods_WhoWantsTests.framework */; };
 		EE53E115DCACF772221C4F9D /* Pods_WhoWants_WhoWantsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1D49E0DDE4CCF9DC4A8B4E0 /* Pods_WhoWants_WhoWantsUITests.framework */; };
@@ -134,6 +135,7 @@
 		9DC1FE8B258391BA0075CF7E /* NotoSansKR-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Thin.otf"; sourceTree = "<group>"; };
 		9DC1FE8C258391BA0075CF7E /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		9DC1FE93258395220075CF7E /* FontName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontName.swift; sourceTree = "<group>"; };
+		9DC391232583C1C6007D52FE /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		9DC4C2E5257F54BA0015F5B6 /* FundrasingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundrasingDetailViewController.swift; sourceTree = "<group>"; };
 		C119D225169FF71CD95B5269 /* Pods-WhoWantsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoWantsTests.debug.xcconfig"; path = "Target Support Files/Pods-WhoWantsTests/Pods-WhoWantsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C1D49E0DDE4CCF9DC4A8B4E0 /* Pods_WhoWants_WhoWantsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhoWants_WhoWantsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -383,6 +385,7 @@
 				9D8EAB60256E87410066B3C7 /* String+Extension.swift */,
 				9D8EAB6D256EAA8F0066B3C7 /* NSNotification.Name+Extension.swift */,
 				F46E0723257CB26B00764B02 /* UIView+Extension.swift */,
+				9DC391232583C1C6007D52FE /* Int+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -809,6 +812,7 @@
 				9DC1FE94258395220075CF7E /* FontName.swift in Sources */,
 				F46E0724257CB26B00764B02 /* UIView+Extension.swift in Sources */,
 				9D8EAB23256D8F250066B3C7 /* SigninViewController.swift in Sources */,
+				9DC391242583C1C6007D52FE /* Int+Extension.swift in Sources */,
 				9D8EAB61256E87410066B3C7 /* String+Extension.swift in Sources */,
 				9DC4C2E6257F54BA0015F5B6 /* FundrasingDetailViewController.swift in Sources */,
 				9D54C7D4257A7FD2005066D0 /* FundraisingHeaderView.swift in Sources */,
