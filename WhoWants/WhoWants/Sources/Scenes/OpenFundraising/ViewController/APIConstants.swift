@@ -15,4 +15,5 @@ struct APIConstants {
     
     /* 호스트 */
     static let signup = BaseURL + "/host/signup"
+    static let signin = BaseURL + "/host/signin"
 }

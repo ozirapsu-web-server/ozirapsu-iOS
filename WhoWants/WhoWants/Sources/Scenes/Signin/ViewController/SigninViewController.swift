@@ -81,6 +81,8 @@ class SigninViewController: UIViewController {
                                                             .foregroundColor: color])
         textField.attributedPlaceholder = attributeText
         textField.attributedText = attributeText
+        textField.text = ""
+        textField.textColor = color
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -110,6 +112,8 @@ class SigninViewController: UIViewController {
                                                             .foregroundColor: color])
         textField.attributedPlaceholder = attributeText
         textField.attributedText = attributeText
+        textField.text = ""
+        textField.textColor = color
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -181,6 +185,7 @@ class SigninViewController: UIViewController {
     
     private func setButtonAction() {
         signupButton.addTarget(self, action: #selector(presentSignupView(_:)), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(login(_:)), for: .touchUpInside)
     }
     
     private func setupPlayerLayer() {
@@ -197,6 +202,29 @@ class SigninViewController: UIViewController {
     func presentSignupView(_ sender: UIButton) {
         let signupContainerVC = SignupContainerViewController()
         navigationController?.pushViewController(signupContainerVC, animated: true)
+    }
+    
+    @objc
+    func login(_ sender: UIButton) {
+        let signinDTO = SigninParameterDTO(email: emailTextField.text!,
+                                           pw: pwTextField.text!)
+        SigninService.shared.reqeustSignin(signinDTO) { result in
+            switch result {
+            case .success:
+                let tabbarVC = UIStoryboard(name: "Tabbar", bundle: nil)
+                        .instantiateViewController(withIdentifier: MainTabbarViewController.identifier)
+                UIApplication.shared.windows.filter { $0.isKeyWindow }
+                    .first?.rootViewController = tabbarVC
+            case .requestErr:
+                print("request Err")
+            case .serverErr:
+                print("Server Err")
+            case .networkFail:
+                print("network Fail")
+            default:
+                return
+            }
+        }
     }
     
     // MARK: - Life Cycle

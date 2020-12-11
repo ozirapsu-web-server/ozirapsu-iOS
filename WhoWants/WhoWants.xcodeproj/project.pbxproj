@@ -19,6 +19,7 @@
 		9D25039125739FA3005C20A9 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D25039025739FA3005C20A9 /* MyPageViewController.swift */; };
 		9D2F73B22583DD3D00DB48AE /* SignupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2F73B12583DD3D00DB48AE /* SignupService.swift */; };
 		9D2F73BD2583E3CE00DB48AE /* HTTPHeaderCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2F73BC2583E3CE00DB48AE /* HTTPHeaderCategory.swift */; };
+		9D2F73C92583F1A300DB48AE /* SigninService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2F73C82583F1A300DB48AE /* SigninService.swift */; };
 		9D54C7CC257A7E91005066D0 /* FundraisingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D54C7CB257A7E91005066D0 /* FundraisingCell.swift */; };
 		9D54C7D4257A7FD2005066D0 /* FundraisingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D54C7D3257A7FD2005066D0 /* FundraisingHeaderView.swift */; };
 		9D54C7EC257B7E6D005066D0 /* FundraisingCurHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D54C7EB257B7E6D005066D0 /* FundraisingCurHeaderView.swift */; };
@@ -37,6 +38,7 @@
 		9D8EAB61256E87410066B3C7 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8EAB60256E87410066B3C7 /* String+Extension.swift */; };
 		9D8EAB66256E8AF10066B3C7 /* ImageName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8EAB65256E8AF10066B3C7 /* ImageName.swift */; };
 		9D8EAB6E256EAA8F0066B3C7 /* NSNotification.Name+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8EAB6D256EAA8F0066B3C7 /* NSNotification.Name+Extension.swift */; };
+		9D8EE7502583FD92005D0B51 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8EE74F2583FD92005D0B51 /* UserDefaultsKey.swift */; };
 		9DC1FE7D258391770075CF7E /* 200.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE79258391770075CF7E /* 200.json */; };
 		9DC1FE7E258391770075CF7E /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE7A258391770075CF7E /* splash.json */; };
 		9DC1FE7F258391770075CF7E /* complete.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE7B258391770075CF7E /* complete.json */; };
@@ -103,6 +105,7 @@
 		9D25039025739FA3005C20A9 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		9D2F73B12583DD3D00DB48AE /* SignupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupService.swift; sourceTree = "<group>"; };
 		9D2F73BC2583E3CE00DB48AE /* HTTPHeaderCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeaderCategory.swift; sourceTree = "<group>"; };
+		9D2F73C82583F1A300DB48AE /* SigninService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninService.swift; sourceTree = "<group>"; };
 		9D54C7CB257A7E91005066D0 /* FundraisingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundraisingCell.swift; sourceTree = "<group>"; };
 		9D54C7D3257A7FD2005066D0 /* FundraisingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundraisingHeaderView.swift; sourceTree = "<group>"; };
 		9D54C7EB257B7E6D005066D0 /* FundraisingCurHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundraisingCurHeaderView.swift; sourceTree = "<group>"; };
@@ -128,6 +131,7 @@
 		9D8EAB60256E87410066B3C7 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		9D8EAB65256E8AF10066B3C7 /* ImageName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageName.swift; sourceTree = "<group>"; };
 		9D8EAB6D256EAA8F0066B3C7 /* NSNotification.Name+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification.Name+Extension.swift"; sourceTree = "<group>"; };
+		9D8EE74F2583FD92005D0B51 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		9DC1FE79258391770075CF7E /* 200.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 200.json; sourceTree = "<group>"; };
 		9DC1FE7A258391770075CF7E /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
 		9DC1FE7B258391770075CF7E /* complete.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = complete.json; sourceTree = "<group>"; };
@@ -296,6 +300,14 @@
 			path = Signup;
 			sourceTree = "<group>";
 		};
+		9D2F73C72583F19300DB48AE /* Signin */ = {
+			isa = PBXGroup;
+			children = (
+				9D2F73C82583F1A300DB48AE /* SigninService.swift */,
+			);
+			path = Signin;
+			sourceTree = "<group>";
+		};
 		9D54C7CA257A7E58005066D0 /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -379,8 +391,7 @@
 		9D8EAB00256D899D0066B3C7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				9D8EAB65256E8AF10066B3C7 /* ImageName.swift */,
-				9DC1FE93258395220075CF7E /* FontName.swift */,
+				9D8EE7542583FDA9005D0B51 /* Util */,
 				F4A8938B257FA7A9001CA7FE /* Model */,
 				F4A89382257FA5B4001CA7FE /* APIServices */,
 				9D6B0581255D8F9600FE63C9 /* AppDelegate.swift */,
@@ -468,6 +479,16 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		9D8EE7542583FDA9005D0B51 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				9D8EE74F2583FD92005D0B51 /* UserDefaultsKey.swift */,
+				9D8EAB65256E8AF10066B3C7 /* ImageName.swift */,
+				9DC1FE93258395220075CF7E /* FontName.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		C0AB206BA6B0151A0A2EBACB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -531,6 +552,7 @@
 		F4A89382257FA5B4001CA7FE /* APIServices */ = {
 			isa = PBXGroup;
 			children = (
+				9D2F73C72583F19300DB48AE /* Signin */,
 				9D2F73AA2583DD2E00DB48AE /* Signup */,
 				F4A89396257FA820001CA7FE /* OpenFundraising */,
 				F4A89383257FA5EF001CA7FE /* APIConstants.swift */,
@@ -841,6 +863,7 @@
 				9D8EAB6E256EAA8F0066B3C7 /* NSNotification.Name+Extension.swift in Sources */,
 				9D54C7EC257B7E6D005066D0 /* FundraisingCurHeaderView.swift in Sources */,
 				F4A89398257FA840001CA7FE /* OpenService.swift in Sources */,
+				9D8EE7502583FD92005D0B51 /* UserDefaultsKey.swift in Sources */,
 				9D2F73B22583DD3D00DB48AE /* SignupService.swift in Sources */,
 				9D8EAB5C256E3D610066B3C7 /* PwInputViewController.swift in Sources */,
 				F46E06D0257A100900764B02 /* InputImageVC.swift in Sources */,
@@ -853,6 +876,7 @@
 				9D8EAB45256E1FB30066B3C7 /* SignupContainerViewController.swift in Sources */,
 				9D8EAB66256E8AF10066B3C7 /* ImageName.swift in Sources */,
 				9D8EAB4A256E33070066B3C7 /* UIColor+Extension.swift in Sources */,
+				9D2F73C92583F1A300DB48AE /* SigninService.swift in Sources */,
 				9D2F73BD2583E3CE00DB48AE /* HTTPHeaderCategory.swift in Sources */,
 				F46E071F257CB1B600764B02 /* uploadImageCVC.swift in Sources */,
 				F4B3C3072583194A004BB9CC /* ResponseArray.swift in Sources */,

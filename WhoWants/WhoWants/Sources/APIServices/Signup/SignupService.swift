@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-struct SignupInformDTO: ParameterAble {
+struct SignupParameterDTO: ParameterAble {
     let email: String
     let pw: String
     let name: String
@@ -32,7 +32,7 @@ struct SignupService {
     private init() { }
     
     func requestSignup(_ parameter: ParameterAble,
-                       completion: @escaping ((NetworkResult<Any>) -> Void)) {
+                       completion: @escaping (NetworkResult<Any>) -> Void) {
         let headers: HTTPHeaders = [
             HTTPHeaderKey.contenttype.rawValue : HTTPHeaderValue.ContentTypeValue.json.rawValue
         ]
