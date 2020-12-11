@@ -13,20 +13,6 @@ enum FundrasingDetailText: String {
 
 class FundrasingDetailViewController: UIViewController {
     // MARK: - UI
-    let backButton: UIButton = {
-        let btn = UIButton(type: .custom)
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setImage(UIImage(named: ImageName.backBtn), for: .normal)
-        return btn
-    }()
-    
-    let editButton: UIButton = {
-        let btn = UIButton(type: .custom)
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setImage(UIImage(named: ImageName.btn_edit), for: .normal)
-        return btn
-    }()
-    
     let titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -54,10 +40,29 @@ class FundrasingDetailViewController: UIViewController {
     
     // MARK: - Init
     private func setNav() {
+        self.navigationController?.navigationBar.tintColor = .mainblack
         self.navigationItem.setHidesBackButton(true, animated: true)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: editButton)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: ImageName.backBtn),
+                                                                style: .plain,
+                                                                target: self,
+                                                                action: #selector(back(_:)))
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: ImageName.btn_edit),
+                                                                 style: .plain,
+                                                                 target: self,
+                                                                 action: #selector(write(_:)))
         self.navigationItem.titleView = titleLabel
+    }
+    
+    // MARK: - Action
+    @objc
+    func back(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
+    func write(_ sender: Any) {
+        print("write")
     }
     
     // MARK: - Life Cycle
