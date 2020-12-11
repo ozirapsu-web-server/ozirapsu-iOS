@@ -137,6 +137,9 @@ extension HomeViewController: UICollectionViewDataSource {
                 .dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
                                                   withReuseIdentifier: FundraisingCurHeaderView.identifier,
                                                   for: indexPath) as! FundraisingCurHeaderView
+            
+            reusableCurView.setHeader(10)
+            
             return reusableCurView
         }
     }
