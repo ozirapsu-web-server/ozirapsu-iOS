@@ -12,7 +12,6 @@ import BSImagePicker
 class InputImageVC: UIViewController {
     
     // MARK: - Init
-    
     /**TEST*/
     var fundraising = Fundraising(title: "", targetAmount: 0, contents: "", tagList: [], images: [])
     
@@ -80,14 +79,12 @@ class InputImageVC: UIViewController {
     
     @IBAction func next(_ sender: Any) {
         
-        
-        OpenService.shared.requestOpen(title: fundraising.title, targetAmount: fundraising.targetAmount, contents: fundraising.contents, tagList: fundraising.tagList, images: fundraising.images[0].jpegData(compressionQuality: 0.6)!) { data in
+        OpenService.shared.requestOpen(title: fundraising.title, targetAmount: fundraising.targetAmount, contents: fundraising.contents, tagList: fundraising.tagList, images: fundraising.images) { data in
             switch data {
             case .success:
                 print("모금함 개설 성공")
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "FundraisingCompleteVC") as! FundraisingCompleteVC
                 
-                // vc.fundraising = self.fundraising
                 
                 self.navigationController?.pushViewController(vc, animated: true)
                 
@@ -104,37 +101,6 @@ class InputImageVC: UIViewController {
                 print("모금함 생성 db err")
             }
         }
-        /* 통신 세팅
-        RequestService.shared.requestProduct() { data in
-            switch data {
-                
-            case .success :
-                print("모금함 개설 성공")
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "InputContentVC")
-                navigationController?.pushViewController(vc!, animated: true)
-                
-            case .requestErr(let msg):
-                print("getCurrentTakingList")
-                print(msg)
-            case .pathErr:
-                print("getCurrentTakingList path err")
-            case .serverErr:
-                print("getCurrentTakingList server err")
-            case .networkFail:
-                print("getCurrentTakingList network err")
-            case .dbErr:
-                print("getCurrentTakingList db err")
-            }
-        }
-        */
-        
-        /*
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "FundraisingCompleteVC") as! FundraisingCompleteVC
-        
-        vc.fundraising = self.fundraising
-        
-        navigationController?.pushViewController(vc, animated: true)
-        */
     }
     
     

@@ -246,7 +246,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1pv-DO-3Ji">
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1pv-DO-3Ji">
                                                         <rect key="frame" x="12" y="12" width="311" height="193"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <color key="textColor" name="mainblack_202020"/>
@@ -688,8 +688,8 @@
         <scene sceneID="oFa-yA-Skn">
             <objects>
                 <navigationController storyboardIdentifier="OpenFundraising" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" hidesBottomBarWhenPushed="YES" id="jW4-HR-Mgn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="ic_upload" id="yKD-Ip-Vh4">
-                        <color key="badgeColor" name="whowantsblue_2069F6"/>
+                    <tabBarItem key="tabBarItem" title="" image="ic_upload" selectedImage="ic_upload" id="yKD-Ip-Vh4">
+                        <color key="badgeColor" name="mainblack_202020"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
