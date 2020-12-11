@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 enum SigninText: String {
     case title = "모금함 개설하기\n후원츠와 함께 시작해보세요"
@@ -18,21 +19,36 @@ enum SigninText: String {
 
 class SigninViewController: UIViewController {
     // MARK: - UI
+    var playerLayer = AVPlayerLayer()
+    
     var titleLabel: UILabel = {
         var label = UILabel()
         label.numberOfLines = 0
-        label.textColor = .white
-        label.text = SigninText.title.rawValue
-        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.font = UIFont(name: FontName.notosans_bold, size: 20)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 0.9
+        let attributeText = NSAttributedString(string: SigninText.title.rawValue,
+                                               attributes: [.font: UIFont(name: FontName.notosans_bold,
+                                                                          size: 20)!,
+                                                            .foregroundColor: UIColor.white,
+                                                            .kern: -0.8,
+                                                            .paragraphStyle: paragraphStyle])
+        label.attributedText = attributeText
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     var subLabel: UILabel = {
         var label = UILabel()
-        label.text = SigninText.subTitle.rawValue
-        label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 12)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 0.9
+        let attributeText = NSAttributedString(string: SigninText.subTitle.rawValue,
+                                               attributes: [.font: UIFont(name: FontName.notosans_regular,
+                                                                          size: 12)!,
+                                                            .kern: -0.48,
+                                                            .paragraphStyle: paragraphStyle,
+                                                            .foregroundColor: UIColor.white])
+        label.attributedText = attributeText
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -56,12 +72,17 @@ class SigninViewController: UIViewController {
     var emailTextField: UITextField = {
         var textField = UITextField()
         textField.backgroundColor = .clear
-        textField.textColor = UIColor(red: 0.875, green: 0.875, blue: 0.875, alpha: 1.0)
+        let color = UIColor(red: 0.875, green: 0.875, blue: 0.875, alpha: 1.0)
         textField.borderStyle = .none
         let attributeText = NSAttributedString(string: SigninText.emailPlaceholder.rawValue,
-                                               attributes: [.foregroundColor: UIColor.white,
-                                                            .font: UIFont.systemFont(ofSize: 14)])
+                                               attributes: [.font: UIFont(name: FontName.notosans_regular,
+                                                                          size: 14)!,
+                                                            .kern: -0.56,
+                                                            .foregroundColor: color])
         textField.attributedPlaceholder = attributeText
+        textField.attributedText = attributeText
+        textField.text = ""
+        textField.textColor = color
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -82,12 +103,17 @@ class SigninViewController: UIViewController {
     var pwTextField: UITextField = {
         var textField = UITextField()
         textField.backgroundColor = .clear
-        textField.textColor = UIColor(red: 0.875, green: 0.875, blue: 0.875, alpha: 1.0)
+        let color = UIColor(red: 0.875, green: 0.875, blue: 0.875, alpha: 1.0)
         textField.borderStyle = .none
         let attributeText = NSAttributedString(string: SigninText.pwPlaceholder.rawValue,
-                                               attributes: [.foregroundColor: UIColor.white,
-                                                            .font: UIFont.systemFont(ofSize: 14)])
+                                               attributes: [.font: UIFont(name: FontName.notosans_regular,
+                                                                          size: 14)!,
+                                                            .kern: -0.56,
+                                                            .foregroundColor: color])
         textField.attributedPlaceholder = attributeText
+        textField.attributedText = attributeText
+        textField.text = ""
+        textField.textColor = color
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -116,7 +142,8 @@ class SigninViewController: UIViewController {
         btn.translatesAutoresizingMaskIntoConstraints = false
         let attributeText = NSAttributedString(string: SigninText.signinBtn.rawValue,
                                                attributes: [.kern: -0.64,
-                                                            .font: UIFont.boldSystemFont(ofSize: 16),
+                                                            .font: UIFont(name: FontName.notosans_medium,
+                                                                          size: 16)!,
                                                             .foregroundColor: UIColor.white])
         btn.setAttributedTitle(attributeText, for: .normal)
         return btn
@@ -129,7 +156,8 @@ class SigninViewController: UIViewController {
         btn.translatesAutoresizingMaskIntoConstraints = false
         let attributeText = NSAttributedString(string: SigninText.signupBtn.rawValue,
                                                attributes: [.kern: -0.64,
-                                                            .font: UIFont.boldSystemFont(ofSize: 16),
+                                                            .font: UIFont(name: FontName.notosans_medium,
+                                                                          size: 16)!,
                                                             .foregroundColor: UIColor.white])
         btn.setAttributedTitle(attributeText, for: .normal)
         return btn
@@ -157,6 +185,16 @@ class SigninViewController: UIViewController {
     
     private func setButtonAction() {
         signupButton.addTarget(self, action: #selector(presentSignupView(_:)), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(login(_:)), for: .touchUpInside)
+    }
+    
+    private func setupPlayerLayer() {
+        self.view.layer.addSublayer(playerLayer)
+        playerLayer.frame = self.view.bounds
+        playerLayer.videoGravity = .resizeAspectFill
+        guard let url = Bundle.main.url(forResource: "login", withExtension: "mp4") else { return }
+        let player = AVPlayer(url: url)
+        playerLayer.player = player
     }
     
     // MARK: - Action
@@ -166,13 +204,36 @@ class SigninViewController: UIViewController {
         navigationController?.pushViewController(signupContainerVC, animated: true)
     }
     
+    @objc
+    func login(_ sender: UIButton) {
+        let signinDTO = SigninParameterDTO(email: emailTextField.text!,
+                                           pw: pwTextField.text!)
+        SigninService.shared.reqeustSignin(signinDTO) { result in
+            switch result {
+            case .success:
+                let tabbarVC = UIStoryboard(name: "Tabbar", bundle: nil)
+                        .instantiateViewController(withIdentifier: MainTabbarViewController.identifier)
+                UIApplication.shared.windows.filter { $0.isKeyWindow }
+                    .first?.rootViewController = tabbarVC
+            case .requestErr:
+                print("request Err")
+            case .serverErr:
+                print("Server Err")
+            case .networkFail:
+                print("network Fail")
+            default:
+                return
+            }
+        }
+    }
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         // FIXME: 여기 뒤에 배경 동영상 넣어야함
         view.backgroundColor = .darkGray
-        
+        setupPlayerLayer()
         initView()
         configureLayout()
         setButtonAction()
@@ -181,11 +242,21 @@ class SigninViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setNav()
+        playerLayer.player?.play()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         configureCornerRadius()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        playerLayer.player?.pause()
+    }
+    
+    deinit {
+        playerLayer.removeFromSuperlayer()
     }
     
     // MARK: - Layout

@@ -17,6 +17,13 @@
 		9D25038325739F2F005C20A9 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D25038225739F2F005C20A9 /* Home.storyboard */; };
 		9D25038C25739F87005C20A9 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D25038B25739F87005C20A9 /* MyPage.storyboard */; };
 		9D25039125739FA3005C20A9 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D25039025739FA3005C20A9 /* MyPageViewController.swift */; };
+		9D2F73B22583DD3D00DB48AE /* SignupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2F73B12583DD3D00DB48AE /* SignupService.swift */; };
+		9D2F73BD2583E3CE00DB48AE /* HTTPHeaderCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2F73BC2583E3CE00DB48AE /* HTTPHeaderCategory.swift */; };
+		9D2F73C92583F1A300DB48AE /* SigninService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2F73C82583F1A300DB48AE /* SigninService.swift */; };
+		9D54C7CC257A7E91005066D0 /* FundraisingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D54C7CB257A7E91005066D0 /* FundraisingCell.swift */; };
+		9D54C7D4257A7FD2005066D0 /* FundraisingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D54C7D3257A7FD2005066D0 /* FundraisingHeaderView.swift */; };
+		9D54C7EC257B7E6D005066D0 /* FundraisingCurHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D54C7EB257B7E6D005066D0 /* FundraisingCurHeaderView.swift */; };
+		9D54C807257B9EC2005066D0 /* login.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 9D54C806257B9EBD005066D0 /* login.mp4 */; };
 		9D6B0582255D8F9600FE63C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6B0581255D8F9600FE63C9 /* AppDelegate.swift */; };
 		9D6B058B255D8F9D00FE63C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D6B058A255D8F9D00FE63C9 /* Assets.xcassets */; };
 		9D6B058E255D8F9D00FE63C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D6B058C255D8F9D00FE63C9 /* LaunchScreen.storyboard */; };
@@ -31,8 +38,36 @@
 		9D8EAB61256E87410066B3C7 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8EAB60256E87410066B3C7 /* String+Extension.swift */; };
 		9D8EAB66256E8AF10066B3C7 /* ImageName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8EAB65256E8AF10066B3C7 /* ImageName.swift */; };
 		9D8EAB6E256EAA8F0066B3C7 /* NSNotification.Name+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8EAB6D256EAA8F0066B3C7 /* NSNotification.Name+Extension.swift */; };
+		9D8EE7502583FD92005D0B51 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8EE74F2583FD92005D0B51 /* UserDefaultsKey.swift */; };
+		9DC1FE7D258391770075CF7E /* 200.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE79258391770075CF7E /* 200.json */; };
+		9DC1FE7E258391770075CF7E /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE7A258391770075CF7E /* splash.json */; };
+		9DC1FE7F258391770075CF7E /* complete.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE7B258391770075CF7E /* complete.json */; };
+		9DC1FE80258391770075CF7E /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE7C258391770075CF7E /* confetti.json */; };
+		9DC1FE94258395220075CF7E /* FontName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC1FE93258395220075CF7E /* FontName.swift */; };
+		9DC1FE9B258397720075CF7E /* NotoSansKR-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE87258391BA0075CF7E /* NotoSansKR-Black.otf */; };
+		9DC1FE9F258397740075CF7E /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE88258391BA0075CF7E /* NotoSansKR-Bold.otf */; };
+		9DC1FEA0258397760075CF7E /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE8A258391BA0075CF7E /* NotoSansKR-Light.otf */; };
+		9DC1FEA4258397780075CF7E /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE8C258391BA0075CF7E /* NotoSansKR-Medium.otf */; };
+		9DC1FEA52583977A0075CF7E /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE89258391BA0075CF7E /* NotoSansKR-Regular.otf */; };
+		9DC1FEA92583977D0075CF7E /* NotoSansKR-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE8B258391BA0075CF7E /* NotoSansKR-Thin.otf */; };
+		9DC391242583C1C6007D52FE /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC391232583C1C6007D52FE /* Int+Extension.swift */; };
+		9DC4C2E6257F54BA0015F5B6 /* FundrasingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC4C2E5257F54BA0015F5B6 /* FundrasingDetailViewController.swift */; };
 		A7FC0E6A37F8587083D22AF1 /* Pods_WhoWantsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 732D0F645AAEF922E84C0C17 /* Pods_WhoWantsTests.framework */; };
 		EE53E115DCACF772221C4F9D /* Pods_WhoWants_WhoWantsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1D49E0DDE4CCF9DC4A8B4E0 /* Pods_WhoWants_WhoWantsUITests.framework */; };
+		F46E06B82577D5EA00764B02 /* OpenFundraising.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F46E06B72577D5EA00764B02 /* OpenFundraising.storyboard */; };
+		F46E06C6257A0FD600764B02 /* InputGaolVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46E06C5257A0FD600764B02 /* InputGaolVC.swift */; };
+		F46E06CB257A0FEA00764B02 /* InputContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46E06CA257A0FEA00764B02 /* InputContentVC.swift */; };
+		F46E06D0257A100900764B02 /* InputImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46E06CF257A100900764B02 /* InputImageVC.swift */; };
+		F46E06D5257A101C00764B02 /* FundraisingCompleteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46E06D4257A101C00764B02 /* FundraisingCompleteVC.swift */; };
+		F46E071F257CB1B600764B02 /* uploadImageCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46E071E257CB1B600764B02 /* uploadImageCVC.swift */; };
+		F46E0724257CB26B00764B02 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46E0723257CB26B00764B02 /* UIView+Extension.swift */; };
+		F46E0729257CB9D000764B02 /* addImageCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46E0728257CB9D000764B02 /* addImageCVC.swift */; };
+		F4A89316257F7BCC001CA7FE /* FundraisingNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A89315257F7BCC001CA7FE /* FundraisingNavigationController.swift */; };
+		F4A89384257FA5EF001CA7FE /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A89383257FA5EF001CA7FE /* APIConstants.swift */; };
+		F4A8938D257FA7BD001CA7FE /* Fundraising.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A8938C257FA7BD001CA7FE /* Fundraising.swift */; };
+		F4A89392257FA7FC001CA7FE /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A89391257FA7FC001CA7FE /* NetworkResult.swift */; };
+		F4A89398257FA840001CA7FE /* OpenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A89397257FA840001CA7FE /* OpenService.swift */; };
+		F4B3C3072583194A004BB9CC /* ResponseArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B3C3062583194A004BB9CC /* ResponseArray.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +103,13 @@
 		9D25038225739F2F005C20A9 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		9D25038B25739F87005C20A9 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		9D25039025739FA3005C20A9 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		9D2F73B12583DD3D00DB48AE /* SignupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupService.swift; sourceTree = "<group>"; };
+		9D2F73BC2583E3CE00DB48AE /* HTTPHeaderCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeaderCategory.swift; sourceTree = "<group>"; };
+		9D2F73C82583F1A300DB48AE /* SigninService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninService.swift; sourceTree = "<group>"; };
+		9D54C7CB257A7E91005066D0 /* FundraisingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundraisingCell.swift; sourceTree = "<group>"; };
+		9D54C7D3257A7FD2005066D0 /* FundraisingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundraisingHeaderView.swift; sourceTree = "<group>"; };
+		9D54C7EB257B7E6D005066D0 /* FundraisingCurHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundraisingCurHeaderView.swift; sourceTree = "<group>"; };
+		9D54C806257B9EBD005066D0 /* login.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = login.mp4; sourceTree = "<group>"; };
 		9D6B057E255D8F9600FE63C9 /* WhoWants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhoWants.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D6B0581255D8F9600FE63C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D6B058A255D8F9D00FE63C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,9 +131,37 @@
 		9D8EAB60256E87410066B3C7 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		9D8EAB65256E8AF10066B3C7 /* ImageName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageName.swift; sourceTree = "<group>"; };
 		9D8EAB6D256EAA8F0066B3C7 /* NSNotification.Name+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification.Name+Extension.swift"; sourceTree = "<group>"; };
+		9D8EE74F2583FD92005D0B51 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
+		9DC1FE79258391770075CF7E /* 200.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 200.json; sourceTree = "<group>"; };
+		9DC1FE7A258391770075CF7E /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
+		9DC1FE7B258391770075CF7E /* complete.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = complete.json; sourceTree = "<group>"; };
+		9DC1FE7C258391770075CF7E /* confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = confetti.json; sourceTree = "<group>"; };
+		9DC1FE87258391BA0075CF7E /* NotoSansKR-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Black.otf"; sourceTree = "<group>"; };
+		9DC1FE88258391BA0075CF7E /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
+		9DC1FE89258391BA0075CF7E /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
+		9DC1FE8A258391BA0075CF7E /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
+		9DC1FE8B258391BA0075CF7E /* NotoSansKR-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Thin.otf"; sourceTree = "<group>"; };
+		9DC1FE8C258391BA0075CF7E /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
+		9DC1FE93258395220075CF7E /* FontName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontName.swift; sourceTree = "<group>"; };
+		9DC391232583C1C6007D52FE /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		9DC4C2E5257F54BA0015F5B6 /* FundrasingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundrasingDetailViewController.swift; sourceTree = "<group>"; };
 		C119D225169FF71CD95B5269 /* Pods-WhoWantsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoWantsTests.debug.xcconfig"; path = "Target Support Files/Pods-WhoWantsTests/Pods-WhoWantsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C1D49E0DDE4CCF9DC4A8B4E0 /* Pods_WhoWants_WhoWantsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhoWants_WhoWantsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1FC104123CD00AA7BC8A782 /* Pods-WhoWants.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoWants.debug.xcconfig"; path = "Target Support Files/Pods-WhoWants/Pods-WhoWants.debug.xcconfig"; sourceTree = "<group>"; };
+		F46E06B72577D5EA00764B02 /* OpenFundraising.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OpenFundraising.storyboard; sourceTree = "<group>"; };
+		F46E06C5257A0FD600764B02 /* InputGaolVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGaolVC.swift; sourceTree = "<group>"; };
+		F46E06CA257A0FEA00764B02 /* InputContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputContentVC.swift; sourceTree = "<group>"; };
+		F46E06CF257A100900764B02 /* InputImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputImageVC.swift; sourceTree = "<group>"; };
+		F46E06D4257A101C00764B02 /* FundraisingCompleteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundraisingCompleteVC.swift; sourceTree = "<group>"; };
+		F46E071E257CB1B600764B02 /* uploadImageCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uploadImageCVC.swift; sourceTree = "<group>"; };
+		F46E0723257CB26B00764B02 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		F46E0728257CB9D000764B02 /* addImageCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addImageCVC.swift; sourceTree = "<group>"; };
+		F4A89315257F7BCC001CA7FE /* FundraisingNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundraisingNavigationController.swift; sourceTree = "<group>"; };
+		F4A89383257FA5EF001CA7FE /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = APIConstants.swift; path = WhoWants/Sources/Scenes/OpenFundraising/ViewController/APIConstants.swift; sourceTree = SOURCE_ROOT; };
+		F4A8938C257FA7BD001CA7FE /* Fundraising.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Fundraising.swift; path = WhoWants/Sources/Scenes/OpenFundraising/ViewController/Fundraising.swift; sourceTree = SOURCE_ROOT; };
+		F4A89391257FA7FC001CA7FE /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkResult.swift; path = WhoWants/Sources/Scenes/OpenFundraising/ViewController/NetworkResult.swift; sourceTree = SOURCE_ROOT; };
+		F4A89397257FA840001CA7FE /* OpenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OpenService.swift; path = WhoWants/Sources/Scenes/OpenFundraising/ViewController/OpenService.swift; sourceTree = SOURCE_ROOT; };
+		F4B3C3062583194A004BB9CC /* ResponseArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseArray.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +220,7 @@
 			children = (
 				9D25037D25739F16005C20A9 /* Storyboard */,
 				9D25037E25739F1C005C20A9 /* ViewController */,
+				9D54C7CA257A7E58005066D0 /* CollectionViewCell */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -191,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				9D25032B2572A3EC005C20A9 /* HomeViewController.swift */,
+				9DC4C2E5257F54BA0015F5B6 /* FundrasingDetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -218,6 +290,40 @@
 				9D25039025739FA3005C20A9 /* MyPageViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9D2F73AA2583DD2E00DB48AE /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				9D2F73B12583DD3D00DB48AE /* SignupService.swift */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		9D2F73C72583F19300DB48AE /* Signin */ = {
+			isa = PBXGroup;
+			children = (
+				9D2F73C82583F1A300DB48AE /* SigninService.swift */,
+			);
+			path = Signin;
+			sourceTree = "<group>";
+		};
+		9D54C7CA257A7E58005066D0 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				9D54C7EB257B7E6D005066D0 /* FundraisingCurHeaderView.swift */,
+				9D54C7D3257A7FD2005066D0 /* FundraisingHeaderView.swift */,
+				9D54C7CB257A7E91005066D0 /* FundraisingCell.swift */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		9D54C7F9257B9D3F005066D0 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				9D54C806257B9EBD005066D0 /* login.mp4 */,
+			);
+			path = Video;
 			sourceTree = "<group>";
 		};
 		9D6B0575255D8F9600FE63C9 = {
@@ -273,6 +379,9 @@
 		9D8EAAFF256D89960066B3C7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F4A893B825809EFA001CA7FE /* Font */,
+				F4A89345257F8D37001CA7FE /* Lottie */,
+				9D54C7F9257B9D3F005066D0 /* Video */,
 				9D6B05CD255D9AA300FE63C9 /* WhoWants.entitlements */,
 				9D6B058A255D8F9D00FE63C9 /* Assets.xcassets */,
 			);
@@ -282,6 +391,9 @@
 		9D8EAB00256D899D0066B3C7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				9D8EE7542583FDA9005D0B51 /* Util */,
+				F4A8938B257FA7A9001CA7FE /* Model */,
+				F4A89382257FA5B4001CA7FE /* APIServices */,
 				9D6B0581255D8F9600FE63C9 /* AppDelegate.swift */,
 				9D8EAB0A256D8DB20066B3C7 /* Extension */,
 				9D8EAB0B256D8DBE0066B3C7 /* Scenes */,
@@ -295,6 +407,8 @@
 				9D8EAB49256E33070066B3C7 /* UIColor+Extension.swift */,
 				9D8EAB60256E87410066B3C7 /* String+Extension.swift */,
 				9D8EAB6D256EAA8F0066B3C7 /* NSNotification.Name+Extension.swift */,
+				F46E0723257CB26B00764B02 /* UIView+Extension.swift */,
+				9DC391232583C1C6007D52FE /* Int+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -302,7 +416,7 @@
 		9D8EAB0B256D8DBE0066B3C7 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				9D8EAB65256E8AF10066B3C7 /* ImageName.swift */,
+				F46E06A42577D56600764B02 /* OpenFundraising */,
 				9D8EAB2E256D8F7D0066B3C7 /* Splash */,
 				9D8EAB0C256D8E100066B3C7 /* Signin */,
 				9D8EAB32256E1F2F0066B3C7 /* Signup */,
@@ -365,6 +479,16 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		9D8EE7542583FDA9005D0B51 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				9D8EE74F2583FD92005D0B51 /* UserDefaultsKey.swift */,
+				9D8EAB65256E8AF10066B3C7 /* ImageName.swift */,
+				9DC1FE93258395220075CF7E /* FontName.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		C0AB206BA6B0151A0A2EBACB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -373,6 +497,99 @@
 				732D0F645AAEF922E84C0C17 /* Pods_WhoWantsTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F46E06A42577D56600764B02 /* OpenFundraising */ = {
+			isa = PBXGroup;
+			children = (
+				F46E071A257CB17F00764B02 /* Cell */,
+				F46E06A52577D58900764B02 /* Storyboard */,
+				F46E06A62577D58F00764B02 /* ViewController */,
+			);
+			path = OpenFundraising;
+			sourceTree = "<group>";
+		};
+		F46E06A52577D58900764B02 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				F46E06B72577D5EA00764B02 /* OpenFundraising.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		F46E06A62577D58F00764B02 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F46E06C5257A0FD600764B02 /* InputGaolVC.swift */,
+				F46E06CA257A0FEA00764B02 /* InputContentVC.swift */,
+				F46E06CF257A100900764B02 /* InputImageVC.swift */,
+				F46E06D4257A101C00764B02 /* FundraisingCompleteVC.swift */,
+				F4A89315257F7BCC001CA7FE /* FundraisingNavigationController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		F46E071A257CB17F00764B02 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F46E071E257CB1B600764B02 /* uploadImageCVC.swift */,
+				F46E0728257CB9D000764B02 /* addImageCVC.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		F4A89345257F8D37001CA7FE /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				9DC1FE79258391770075CF7E /* 200.json */,
+				9DC1FE7B258391770075CF7E /* complete.json */,
+				9DC1FE7C258391770075CF7E /* confetti.json */,
+				9DC1FE7A258391770075CF7E /* splash.json */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
+		F4A89382257FA5B4001CA7FE /* APIServices */ = {
+			isa = PBXGroup;
+			children = (
+				9D2F73C72583F19300DB48AE /* Signin */,
+				9D2F73AA2583DD2E00DB48AE /* Signup */,
+				F4A89396257FA820001CA7FE /* OpenFundraising */,
+				F4A89383257FA5EF001CA7FE /* APIConstants.swift */,
+				9D2F73BC2583E3CE00DB48AE /* HTTPHeaderCategory.swift */,
+				F4A89391257FA7FC001CA7FE /* NetworkResult.swift */,
+				F4B3C3062583194A004BB9CC /* ResponseArray.swift */,
+			);
+			path = APIServices;
+			sourceTree = "<group>";
+		};
+		F4A8938B257FA7A9001CA7FE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F4A8938C257FA7BD001CA7FE /* Fundraising.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F4A89396257FA820001CA7FE /* OpenFundraising */ = {
+			isa = PBXGroup;
+			children = (
+				F4A89397257FA840001CA7FE /* OpenService.swift */,
+			);
+			path = OpenFundraising;
+			sourceTree = "<group>";
+		};
+		F4A893B825809EFA001CA7FE /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				9DC1FE87258391BA0075CF7E /* NotoSansKR-Black.otf */,
+				9DC1FE88258391BA0075CF7E /* NotoSansKR-Bold.otf */,
+				9DC1FE8A258391BA0075CF7E /* NotoSansKR-Light.otf */,
+				9DC1FE8C258391BA0075CF7E /* NotoSansKR-Medium.otf */,
+				9DC1FE89258391BA0075CF7E /* NotoSansKR-Regular.otf */,
+				9DC1FE8B258391BA0075CF7E /* NotoSansKR-Thin.otf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,7 +603,7 @@
 				9D6B057A255D8F9600FE63C9 /* Sources */,
 				9D6B057B255D8F9600FE63C9 /* Frameworks */,
 				9D6B057C255D8F9600FE63C9 /* Resources */,
-				82CF2045F05F8E946C9D6D98 /* [CP] Embed Pods Frameworks */,
+				EACD6FC71043904B83B5EEBC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -424,7 +641,7 @@
 				9D6B059B255D8F9E00FE63C9 /* Sources */,
 				9D6B059C255D8F9E00FE63C9 /* Frameworks */,
 				9D6B059D255D8F9E00FE63C9 /* Resources */,
-				D388636468CAD99E48769CD2 /* [CP] Embed Pods Frameworks */,
+				10E8D169A6AF99B2D709C7A6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -483,12 +700,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DC1FEA92583977D0075CF7E /* NotoSansKR-Thin.otf in Resources */,
+				9D54C807257B9EC2005066D0 /* login.mp4 in Resources */,
 				9D25036E257394CC005C20A9 /* Tabbar.storyboard in Resources */,
 				9D25038C25739F87005C20A9 /* MyPage.storyboard in Resources */,
+				9DC1FE7F258391770075CF7E /* complete.json in Resources */,
+				9DC1FEA52583977A0075CF7E /* NotoSansKR-Regular.otf in Resources */,
+				9DC1FE7D258391770075CF7E /* 200.json in Resources */,
+				9DC1FE9B258397720075CF7E /* NotoSansKR-Black.otf in Resources */,
+				9DC1FEA0258397760075CF7E /* NotoSansKR-Light.otf in Resources */,
 				9D25038325739F2F005C20A9 /* Home.storyboard in Resources */,
 				9D8EAB1B256D8EFD0066B3C7 /* Signin.storyboard in Resources */,
+				9DC1FE9F258397740075CF7E /* NotoSansKR-Bold.otf in Resources */,
 				9D6B058E255D8F9D00FE63C9 /* LaunchScreen.storyboard in Resources */,
+				9DC1FE7E258391770075CF7E /* splash.json in Resources */,
+				9DC1FEA4258397780075CF7E /* NotoSansKR-Medium.otf in Resources */,
 				9D6B058B255D8F9D00FE63C9 /* Assets.xcassets in Resources */,
+				F46E06B82577D5EA00764B02 /* OpenFundraising.storyboard in Resources */,
+				9DC1FE80258391770075CF7E /* confetti.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +738,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		10E8D169A6AF99B2D709C7A6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WhoWants-WhoWantsUITests/Pods-WhoWants-WhoWantsUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WhoWants-WhoWantsUITests/Pods-WhoWants-WhoWantsUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WhoWants-WhoWantsUITests/Pods-WhoWants-WhoWantsUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		1B35925FAB0EE3A5596338A8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -553,23 +799,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		82CF2045F05F8E946C9D6D98 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WhoWants/Pods-WhoWants-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WhoWants/Pods-WhoWants-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WhoWants/Pods-WhoWants-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		A11394675E317B0D09AE0B26 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -592,21 +821,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D388636468CAD99E48769CD2 /* [CP] Embed Pods Frameworks */ = {
+		EACD6FC71043904B83B5EEBC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WhoWants-WhoWantsUITests/Pods-WhoWants-WhoWantsUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WhoWants/Pods-WhoWants-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WhoWants-WhoWantsUITests/Pods-WhoWants-WhoWantsUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WhoWants/Pods-WhoWants-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WhoWants-WhoWantsUITests/Pods-WhoWants-WhoWantsUITests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WhoWants/Pods-WhoWants-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -616,20 +845,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DC1FE94258395220075CF7E /* FontName.swift in Sources */,
+				F46E0724257CB26B00764B02 /* UIView+Extension.swift in Sources */,
 				9D8EAB23256D8F250066B3C7 /* SigninViewController.swift in Sources */,
+				9DC391242583C1C6007D52FE /* Int+Extension.swift in Sources */,
 				9D8EAB61256E87410066B3C7 /* String+Extension.swift in Sources */,
+				9DC4C2E6257F54BA0015F5B6 /* FundrasingDetailViewController.swift in Sources */,
+				9D54C7D4257A7FD2005066D0 /* FundraisingHeaderView.swift in Sources */,
 				9D2503212572897C005C20A9 /* PhoneInputViewController.swift in Sources */,
+				F46E06CB257A0FEA00764B02 /* InputContentVC.swift in Sources */,
 				9D2503792573993F005C20A9 /* MainTabbarViewController.swift in Sources */,
+				F4A89384257FA5EF001CA7FE /* APIConstants.swift in Sources */,
 				9D25032C2572A3EC005C20A9 /* HomeViewController.swift in Sources */,
+				F46E06D5257A101C00764B02 /* FundraisingCompleteVC.swift in Sources */,
 				9D8EAB4F256E35C30066B3C7 /* EmailInputViewController.swift in Sources */,
 				9D250326257294C5005C20A9 /* NickInputViewController.swift in Sources */,
 				9D8EAB6E256EAA8F0066B3C7 /* NSNotification.Name+Extension.swift in Sources */,
+				9D54C7EC257B7E6D005066D0 /* FundraisingCurHeaderView.swift in Sources */,
+				F4A89398257FA840001CA7FE /* OpenService.swift in Sources */,
+				9D8EE7502583FD92005D0B51 /* UserDefaultsKey.swift in Sources */,
+				9D2F73B22583DD3D00DB48AE /* SignupService.swift in Sources */,
 				9D8EAB5C256E3D610066B3C7 /* PwInputViewController.swift in Sources */,
+				F46E06D0257A100900764B02 /* InputImageVC.swift in Sources */,
+				F4A89316257F7BCC001CA7FE /* FundraisingNavigationController.swift in Sources */,
 				9D6B0582255D8F9600FE63C9 /* AppDelegate.swift in Sources */,
+				F46E0729257CB9D000764B02 /* addImageCVC.swift in Sources */,
+				9D54C7CC257A7E91005066D0 /* FundraisingCell.swift in Sources */,
+				F4A89392257FA7FC001CA7FE /* NetworkResult.swift in Sources */,
 				9D25039125739FA3005C20A9 /* MyPageViewController.swift in Sources */,
 				9D8EAB45256E1FB30066B3C7 /* SignupContainerViewController.swift in Sources */,
 				9D8EAB66256E8AF10066B3C7 /* ImageName.swift in Sources */,
 				9D8EAB4A256E33070066B3C7 /* UIColor+Extension.swift in Sources */,
+				9D2F73C92583F1A300DB48AE /* SigninService.swift in Sources */,
+				9D2F73BD2583E3CE00DB48AE /* HTTPHeaderCategory.swift in Sources */,
+				F46E071F257CB1B600764B02 /* uploadImageCVC.swift in Sources */,
+				F4B3C3072583194A004BB9CC /* ResponseArray.swift in Sources */,
+				F4A8938D257FA7BD001CA7FE /* Fundraising.swift in Sources */,
+				F46E06C6257A0FD600764B02 /* InputGaolVC.swift in Sources */,
 				9D25035825738AC6005C20A9 /* CompleteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -799,7 +1051,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = WhoWants/WhoWants.entitlements;
+				CODE_SIGN_ENTITLEMENTS = WhoWants/Resources/WhoWants.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = WhoWants/Info.plist;
@@ -821,7 +1073,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = WhoWants/WhoWants.entitlements;
+				CODE_SIGN_ENTITLEMENTS = WhoWants/Resources/WhoWants.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = WhoWants/Info.plist;

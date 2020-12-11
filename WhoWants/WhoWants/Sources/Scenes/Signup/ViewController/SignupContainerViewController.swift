@@ -52,7 +52,7 @@ class SignupContainerViewController: UIViewController {
     var progressView: UIProgressView = {
         var progressView = UIProgressView(progressViewStyle: .default)
         progressView.progress = 0
-        progressView.progressTintColor = .mainblack
+        progressView.progressTintColor = .whowantsblue
         progressView.translatesAutoresizingMaskIntoConstraints = false
         return progressView
     }()
@@ -104,10 +104,7 @@ class SignupContainerViewController: UIViewController {
             if curRaw == 3 {
                 // FIXME: 여기에 API 회원가입 추가
                 self?.progressView.setProgress(1, animated: true)
-                DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
-                    self?.navigationController?.pushViewController(CompleteViewController(),
-                                                                   animated: true)
-                }
+                self?.signup()
                 return
             }
             let curInput = SignupInputType(rawValue: curRaw+1)!
@@ -156,6 +153,29 @@ class SignupContainerViewController: UIViewController {
         }
     }
     
+    private func signup() {
+        let signupDTO = SignupParameterDTO(email: userInform[SignupInputType.email.getKey()]!,
+                                        pw: userInform[SignupInputType.pw.getKey()]!,
+                                        name: userInform[SignupInputType.nickname.getKey()]!,
+                                        phoneNumber: userInform[SignupInputType.phone.getKey()]!,
+                                        isAuthorized: "0")
+        SignupService.shared.requestSignup(signupDTO) { result in
+            switch result {
+            case .success:
+                self.navigationController?.pushViewController(CompleteViewController(),
+                                                              animated: true)
+            case .requestErr:
+                print("RequestErr")
+            case .serverErr:
+                print("ServerErr")
+            case .networkFail:
+                print("networkFail")
+            default:
+                return
+            }
+        }
+    }
+    
     // MARK: - Init
     private func initView() {
         view.addSubview(progressView)
@@ -163,9 +183,15 @@ class SignupContainerViewController: UIViewController {
     }
     
     private func setNav() {
+        let label = UILabel()
+        label.attributedText = NSAttributedString(string: SignupText.signup.rawValue,
+                                                  attributes: [.font: UIFont(name: FontName.notosans_bold,
+                                                                             size: 18)!,
+                                                               .foregroundColor: UIColor.mainblack,
+                                                               .kern: -0.72])
+        navigationItem.titleView = label
         navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.tintColor = .mainblack
-        navigationItem.title = SignupText.signup.rawValue
         let backbtn = UIBarButtonItem(image: UIImage(named: ImageName.backBtn),
                                       style: .plain,
                                       target: self,
