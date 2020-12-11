@@ -18,26 +18,27 @@ class FundraisingCurHeaderView: UICollectionReusableView, FundraiseHeaderAble {
     // MARK: - UI
     let stateLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.textColor = .black
-        label.text = CurHeaderText.openFund.rawValue
+        let attributeText = NSAttributedString(string: CurHeaderText.openFund.rawValue,
+                                               attributes: [.font: UIFont(name: FontName.notosans_bold,
+                                                                          size: 18)!,
+                                                            .kern: -0.72,
+                                                            .foregroundColor: UIColor.black])
+        label.attributedText = attributeText
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let countLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.font = UIFont(name: FontName.notosans_bold, size: 18)!
         label.textColor = .whowantsblue
-        // FIXME: 데이터에 따라 변화하게 변경
-        label.text = "2"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let containerView: UIView = {
         let uiView = UIView()
-        uiView.backgroundColor = UIColor(red: 248/255, green: 248/255, blue: 248/255, alpha: 1.0)
+        uiView.backgroundColor = UIColor(red: 0.949, green: 0.949, blue: 0.949, alpha: 1.0)
         uiView.clipsToBounds = true
         uiView.translatesAutoresizingMaskIntoConstraints = false
         return uiView
@@ -45,16 +46,26 @@ class FundraisingCurHeaderView: UICollectionReusableView, FundraiseHeaderAble {
     
     let informLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
         label.numberOfLines = 0
-        label.text = CurHeaderText.inform.rawValue
+        let attributeText = NSMutableAttributedString(string: CurHeaderText.inform.rawValue,
+                                               attributes: [.font: UIFont(name: FontName.notosans_light,
+                                                                          size: 12)!,
+                                                            .kern: -0.48,
+                                                            .foregroundColor: UIColor.mainblack])
+        attributeText.addAttribute(.font, value: UIFont(name: FontName.notosans_medium, size: 12)!,
+                                   range: (CurHeaderText.inform.rawValue as NSString).range(of: "TIP"))
+        label.attributedText = attributeText
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .mainblack
         return label
     }()
     
     // MARK: - Data
     var isInit: Bool = true
+    
+    // MARK: - Action
+    func setHeader(_ count: Int) {
+        countLabel.text = "\(count)"
+    }
     
     // MARK: - Init
     private func initView() {
@@ -78,7 +89,7 @@ class FundraisingCurHeaderView: UICollectionReusableView, FundraiseHeaderAble {
     
     // MARK: - Layout
     private func configureLayout() {
-        containerView.layer.cornerRadius = (bounds.width-20*2) / 25
+        containerView.layer.cornerRadius = (bounds.width-20*2) / 83.74
         NSLayoutConstraint.activate([
             stateLabel.topAnchor.constraint(equalTo: topAnchor),
             stateLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
@@ -87,10 +98,10 @@ class FundraisingCurHeaderView: UICollectionReusableView, FundraiseHeaderAble {
             containerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             containerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             containerView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            informLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 15),
-            informLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 15),
-            informLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -15),
-            informLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -15)
+            informLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 6),
+            informLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 12),
+            informLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -12),
+            informLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -6)
         ])
     }
 }

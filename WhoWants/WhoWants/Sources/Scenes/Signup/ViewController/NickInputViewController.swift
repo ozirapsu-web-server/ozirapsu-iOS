@@ -16,10 +16,15 @@ class NickInputViewController: UIViewController {
     // MARK: - UI
     var titleLabel: UILabel = {
         var label = UILabel()
-        label.text = NickInputText.title.rawValue
-        label.textColor = .mainblack
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 0.97
+        label.attributedText = NSAttributedString(string: NickInputText.title.rawValue,
+                                                  attributes: [.font: UIFont(name: FontName.notosans_bold,
+                                                                             size: 18)!,
+                                                               .kern: -0.72,
+                                                               .paragraphStyle: paragraphStyle,
+                                                               .foregroundColor: UIColor.mainblack])
         label.numberOfLines = 0
-        label.font = UIFont.boldSystemFont(ofSize: 18)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -33,12 +38,17 @@ class NickInputViewController: UIViewController {
     
     var nickTextfield: UITextField = {
         var textField = UITextField()
+        let attributeText = NSAttributedString(string: PhoneInputText.phonePlaceholder.rawValue,
+                                               attributes: [.font: UIFont(name: FontName.notosans_regular,
+                                                                          size: 14)!,
+                                                            .kern: -0.56])
+        textField.textColor = .mainblack
+        textField.attributedPlaceholder = attributeText
+        textField.attributedText = attributeText
+        textField.text = ""
         textField.borderStyle = .none
         textField.keyboardType = .default
         textField.returnKeyType = .done
-        let attributeText = NSAttributedString(string: NickInputText.nickPlaceholder.rawValue,
-                                               attributes: [.font: UIFont.systemFont(ofSize: 14)])
-        textField.attributedPlaceholder = attributeText
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -62,9 +72,12 @@ class NickInputViewController: UIViewController {
     var completeButton: UIButton = {
         var btn = UIButton(type: .system)
         btn.backgroundColor = .graytext
-        btn.setTitle(EmailInputText.next.rawValue, for: .normal)
-        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        btn.setTitleColor(.white, for: .normal)
+        let attributeText = NSAttributedString(string: EmailInputText.next.rawValue,
+                                               attributes: [.font: UIFont(name: FontName.notosans_medium,
+                                                                          size: 16)!,
+                                                            .kern: -0.64,
+                                                            .foregroundColor: UIColor.white])
+        btn.setAttributedTitle(attributeText, for: .normal)
         btn.clipsToBounds = true
         btn.isUserInteractionEnabled = false
         btn.translatesAutoresizingMaskIntoConstraints = false

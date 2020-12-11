@@ -65,30 +65,12 @@ class HomeViewController: UIViewController {
     }
     
     // MARK: - Action
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView,
-                                   withVelocity velocity: CGPoint,
-                                   targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        let statusBarHeight = UIApplication.shared.statusBarFrame.height
-        let offset = targetContentOffset.pointee.y + view.safeAreaInsets.top
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset.y + self.view.safeAreaInsets.top
+        let alpha = 1 - (((offset)*2) / self.view.safeAreaInsets.top)
         
-        if offset > 0 {
-            if offset < view.safeAreaInsets.top - statusBarHeight {
-                scrollView.setContentOffset(CGPoint(x: 0, y: -statusBarHeight), animated: true)
-            }
-            
-            UIView.animate(withDuration: 0.2) {
-                self.navigationItem.titleView?.alpha = 0
-                self.navigationController?.navigationBar.transform = CGAffineTransform(translationX: 0,
-                                                                                       y: -self.view.safeAreaInsets.top+statusBarHeight)
-            }
-        }
-        
-        if velocity.y < 0 {
-            UIView.animate(withDuration: 0.2) {
-                self.navigationItem.titleView?.alpha = 1.0
-                self.navigationController?.navigationBar.transform = .identity
-            }
-        }
+        navigationItem.titleView?.alpha = max(0, alpha)
+        navigationController?.navigationBar.transform = CGAffineTransform(translationX: 0, y: min(0, -offset))
     }
     
     // MARK: - Life Cycle
@@ -136,6 +118,11 @@ extension HomeViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
+        fundraseCell.setFundraisingCell(FundraisingCellDTO(image: UIImage(named: "sample")!,
+                                                           title: "후원츠를 도와주세요!",
+                                                           count: 2000,
+                                                           percent: 80))
+        
         return fundraseCell
     }
     
@@ -155,6 +142,9 @@ extension HomeViewController: UICollectionViewDataSource {
                 .dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
                                                   withReuseIdentifier: FundraisingCurHeaderView.identifier,
                                                   for: indexPath) as! FundraisingCurHeaderView
+            
+            reusableCurView.setHeader(10)
+            
             return reusableCurView
         }
     }

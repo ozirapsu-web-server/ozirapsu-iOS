@@ -39,6 +39,14 @@
 		9DC1FE7E258391770075CF7E /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE7A258391770075CF7E /* splash.json */; };
 		9DC1FE7F258391770075CF7E /* complete.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE7B258391770075CF7E /* complete.json */; };
 		9DC1FE80258391770075CF7E /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE7C258391770075CF7E /* confetti.json */; };
+		9DC1FE94258395220075CF7E /* FontName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC1FE93258395220075CF7E /* FontName.swift */; };
+		9DC1FE9B258397720075CF7E /* NotoSansKR-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE87258391BA0075CF7E /* NotoSansKR-Black.otf */; };
+		9DC1FE9F258397740075CF7E /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE88258391BA0075CF7E /* NotoSansKR-Bold.otf */; };
+		9DC1FEA0258397760075CF7E /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE8A258391BA0075CF7E /* NotoSansKR-Light.otf */; };
+		9DC1FEA4258397780075CF7E /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE8C258391BA0075CF7E /* NotoSansKR-Medium.otf */; };
+		9DC1FEA52583977A0075CF7E /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE89258391BA0075CF7E /* NotoSansKR-Regular.otf */; };
+		9DC1FEA92583977D0075CF7E /* NotoSansKR-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE8B258391BA0075CF7E /* NotoSansKR-Thin.otf */; };
+		9DC391242583C1C6007D52FE /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC391232583C1C6007D52FE /* Int+Extension.swift */; };
 		9DC4C2E6257F54BA0015F5B6 /* FundrasingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC4C2E5257F54BA0015F5B6 /* FundrasingDetailViewController.swift */; };
 		A7FC0E6A37F8587083D22AF1 /* Pods_WhoWantsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 732D0F645AAEF922E84C0C17 /* Pods_WhoWantsTests.framework */; };
 		EE53E115DCACF772221C4F9D /* Pods_WhoWants_WhoWantsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1D49E0DDE4CCF9DC4A8B4E0 /* Pods_WhoWants_WhoWantsUITests.framework */; };
@@ -126,6 +134,8 @@
 		9DC1FE8A258391BA0075CF7E /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
 		9DC1FE8B258391BA0075CF7E /* NotoSansKR-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Thin.otf"; sourceTree = "<group>"; };
 		9DC1FE8C258391BA0075CF7E /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
+		9DC1FE93258395220075CF7E /* FontName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontName.swift; sourceTree = "<group>"; };
+		9DC391232583C1C6007D52FE /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		9DC4C2E5257F54BA0015F5B6 /* FundrasingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundrasingDetailViewController.swift; sourceTree = "<group>"; };
 		C119D225169FF71CD95B5269 /* Pods-WhoWantsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoWantsTests.debug.xcconfig"; path = "Target Support Files/Pods-WhoWantsTests/Pods-WhoWantsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C1D49E0DDE4CCF9DC4A8B4E0 /* Pods_WhoWants_WhoWantsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhoWants_WhoWantsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -357,6 +367,8 @@
 		9D8EAB00256D899D0066B3C7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				9D8EAB65256E8AF10066B3C7 /* ImageName.swift */,
+				9DC1FE93258395220075CF7E /* FontName.swift */,
 				F4A8938B257FA7A9001CA7FE /* Model */,
 				F4A89382257FA5B4001CA7FE /* APIServices */,
 				9D6B0581255D8F9600FE63C9 /* AppDelegate.swift */,
@@ -373,6 +385,7 @@
 				9D8EAB60256E87410066B3C7 /* String+Extension.swift */,
 				9D8EAB6D256EAA8F0066B3C7 /* NSNotification.Name+Extension.swift */,
 				F46E0723257CB26B00764B02 /* UIView+Extension.swift */,
+				9DC391232583C1C6007D52FE /* Int+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -381,7 +394,6 @@
 			isa = PBXGroup;
 			children = (
 				F46E06A42577D56600764B02 /* OpenFundraising */,
-				9D8EAB65256E8AF10066B3C7 /* ImageName.swift */,
 				9D8EAB2E256D8F7D0066B3C7 /* Splash */,
 				9D8EAB0C256D8E100066B3C7 /* Signin */,
 				9D8EAB32256E1F2F0066B3C7 /* Signup */,
@@ -652,15 +664,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DC1FEA92583977D0075CF7E /* NotoSansKR-Thin.otf in Resources */,
 				9D54C807257B9EC2005066D0 /* login.mp4 in Resources */,
 				9D25036E257394CC005C20A9 /* Tabbar.storyboard in Resources */,
 				9D25038C25739F87005C20A9 /* MyPage.storyboard in Resources */,
 				9DC1FE7F258391770075CF7E /* complete.json in Resources */,
+				9DC1FEA52583977A0075CF7E /* NotoSansKR-Regular.otf in Resources */,
 				9DC1FE7D258391770075CF7E /* 200.json in Resources */,
+				9DC1FE9B258397720075CF7E /* NotoSansKR-Black.otf in Resources */,
+				9DC1FEA0258397760075CF7E /* NotoSansKR-Light.otf in Resources */,
 				9D25038325739F2F005C20A9 /* Home.storyboard in Resources */,
 				9D8EAB1B256D8EFD0066B3C7 /* Signin.storyboard in Resources */,
+				9DC1FE9F258397740075CF7E /* NotoSansKR-Bold.otf in Resources */,
 				9D6B058E255D8F9D00FE63C9 /* LaunchScreen.storyboard in Resources */,
 				9DC1FE7E258391770075CF7E /* splash.json in Resources */,
+				9DC1FEA4258397780075CF7E /* NotoSansKR-Medium.otf in Resources */,
 				9D6B058B255D8F9D00FE63C9 /* Assets.xcassets in Resources */,
 				F46E06B82577D5EA00764B02 /* OpenFundraising.storyboard in Resources */,
 				9DC1FE80258391770075CF7E /* confetti.json in Resources */,
@@ -791,8 +809,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DC1FE94258395220075CF7E /* FontName.swift in Sources */,
 				F46E0724257CB26B00764B02 /* UIView+Extension.swift in Sources */,
 				9D8EAB23256D8F250066B3C7 /* SigninViewController.swift in Sources */,
+				9DC391242583C1C6007D52FE /* Int+Extension.swift in Sources */,
 				9D8EAB61256E87410066B3C7 /* String+Extension.swift in Sources */,
 				9DC4C2E6257F54BA0015F5B6 /* FundrasingDetailViewController.swift in Sources */,
 				9D54C7D4257A7FD2005066D0 /* FundraisingHeaderView.swift in Sources */,

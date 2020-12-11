@@ -18,21 +18,29 @@ class EmailInputViewController: UIViewController {
     // MARK: - UI
     var completeButton: UIButton = {
         var btn = UIButton(type: .system)
+        let attributeText = NSAttributedString(string: EmailInputText.next.rawValue,
+                                               attributes: [.font: UIFont(name: FontName.notosans_medium,
+                                                                          size: 16)!,
+                                                            .kern: -0.64,
+                                                            .foregroundColor: UIColor.white])
+        btn.setAttributedTitle(attributeText, for: .normal)
         btn.backgroundColor = .graytext
         btn.clipsToBounds = true
-        btn.setTitleColor(.white, for: .normal)
-        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         btn.isUserInteractionEnabled = false
-        btn.setTitle(EmailInputText.next.rawValue, for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
     
     var titleLabel: UILabel = {
         var label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.textColor = .mainblack
-        label.text = EmailInputText.title.rawValue
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 0.97
+        label.attributedText = NSAttributedString(string: EmailInputText.title.rawValue,
+                                                  attributes: [.font: UIFont(name: FontName.notosans_bold,
+                                                                             size: 18)!,
+                                                               .kern: -0.72,
+                                                               .paragraphStyle: paragraphStyle,
+                                                               .foregroundColor: UIColor.mainblack])
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -49,8 +57,13 @@ class EmailInputViewController: UIViewController {
         var textField = UITextField()
         textField.borderStyle = .none
         let attributeText = NSAttributedString(string: EmailInputText.textFieldPlaceholder.rawValue,
-                                               attributes: [.font: UIFont.systemFont(ofSize: 14)])
+                                               attributes: [.font: UIFont(name: FontName.notosans_regular,
+                                                                          size: 14)!,
+                                                            .kern: -0.56])
+        textField.textColor = .mainblack
         textField.attributedPlaceholder = attributeText
+        textField.attributedText = attributeText
+        textField.text = ""
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -73,11 +86,20 @@ class EmailInputViewController: UIViewController {
     
     var invalidLabel: UILabel = {
         var label = UILabel()
-        label.textColor = .red
+        var paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 0.9
+        let attributeText = NSAttributedString(string: EmailInputText.invalid.rawValue,
+                                               attributes: [.font: UIFont(name: FontName.notosans_regular,
+                                                                          size: 12)!,
+                                                            .kern: -0.48,
+                                                            .paragraphStyle: paragraphStyle,
+                                                            .foregroundColor: UIColor(red: 0.979,
+                                                                                      green: 0.224,
+                                                                                      blue: 0.224,
+                                                                                      alpha: 1.0)])
+        label.attributedText = attributeText
         label.isHidden = true
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.text = EmailInputText.invalid.rawValue
         return label
     }()
     

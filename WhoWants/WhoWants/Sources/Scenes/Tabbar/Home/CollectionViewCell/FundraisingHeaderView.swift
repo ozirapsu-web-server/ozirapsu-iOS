@@ -35,8 +35,6 @@ class FundraisingHeaderView: UICollectionReusableView, FundraiseHeaderAble {
     
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .mainblack
-        label.font = UIFont.boldSystemFont(ofSize: 18)
         return label
     }()
     
@@ -68,8 +66,24 @@ class FundraisingHeaderView: UICollectionReusableView, FundraiseHeaderAble {
     
     // MARK: - Action
     func setHeader(_ dto: HeaderDataDTO) {
-        nameLabel.text = dto.name
-        informLabel.text = dto.message
+        let nameText = dto.name + " 님"
+        let nameAttributeText = NSMutableAttributedString(string: nameText,
+                                                   attributes: [.font: UIFont(name: FontName.notosans_bold,
+                                                                                                 size: 20)!,
+                                                               .foregroundColor: UIColor.mainblack,
+                                                               .kern: -0.72])
+        nameAttributeText.addAttribute(.font, value: UIFont(name: FontName.notosans_regular,
+                                                            size: 20)!, range: (nameText as NSString).range(of: "님"))
+        
+        nameLabel.attributedText = nameAttributeText
+        
+        let message = dto.message
+        let messageAttributeText = NSAttributedString(string: message ?? "",
+                                                      attributes: [.font: UIFont(name: FontName.notosans_regular,
+                                                                                 size: 14)!,
+                                                                   .foregroundColor: UIColor.mainblack,
+                                                                   .kern: -0.56])
+        informLabel.attributedText = messageAttributeText
     }
     
     // MARK: - Life Cycle
@@ -89,15 +103,13 @@ class FundraisingHeaderView: UICollectionReusableView, FundraiseHeaderAble {
         NSLayoutConstraint.activate([
             profileImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             profileImageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.17),
+            profileImageView.heightAnchor.constraint(equalTo: profileImageView.widthAnchor),
             profileImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
-            profileImageView.bottomAnchor.constraint(equalTo: lineView.topAnchor, constant: -20),
             labelStackView.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor,
                                                     constant: 20),
-            labelStackView.topAnchor.constraint(equalTo: profileImageView.topAnchor,
-                                                constant: 3),
-            labelStackView.bottomAnchor.constraint(equalTo: profileImageView.bottomAnchor,
-                                                   constant: -3),
+            labelStackView.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor),
             labelStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            lineView.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 20),
             lineView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             lineView.leadingAnchor.constraint(equalTo: profileImageView.leadingAnchor),
             lineView.trailingAnchor.constraint(equalTo: labelStackView.trailingAnchor),
