@@ -163,9 +163,15 @@ class SignupContainerViewController: UIViewController {
     }
     
     private func setNav() {
+        let label = UILabel()
+        label.attributedText = NSAttributedString(string: SignupText.signup.rawValue,
+                                                  attributes: [.font: UIFont(name: FontName.notosans_bold,
+                                                                             size: 18)!,
+                                                               .foregroundColor: UIColor.mainblack,
+                                                               .kern: -0.72])
+        navigationItem.titleView = label
         navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.tintColor = .mainblack
-        navigationItem.title = SignupText.signup.rawValue
         let backbtn = UIBarButtonItem(image: UIImage(named: ImageName.backBtn),
                                       style: .plain,
                                       target: self,
