@@ -154,7 +154,7 @@ class SignupContainerViewController: UIViewController {
     }
     
     private func signup() {
-        let signupDTO = SignupInformDTO(email: userInform[SignupInputType.email.getKey()]!,
+        let signupDTO = SignupParameterDTO(email: userInform[SignupInputType.email.getKey()]!,
                                         pw: userInform[SignupInputType.pw.getKey()]!,
                                         name: userInform[SignupInputType.nickname.getKey()]!,
                                         phoneNumber: userInform[SignupInputType.phone.getKey()]!,
