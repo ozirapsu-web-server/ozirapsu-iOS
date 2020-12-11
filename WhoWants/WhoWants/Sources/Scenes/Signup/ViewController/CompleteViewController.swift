@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import Lottie
 
 enum CompleteText: String {
-    case title = "회원가입이\n완료되었습니다"
+    case title = "회원가입이\n완료되었습니다!"
     case subtitle = "지금 바로 모금함을 개설해보세요"
     case makeBtn = "모금함 개설하기"
     case afterBtn = "나중에 할게요"
@@ -16,6 +17,14 @@ enum CompleteText: String {
 
 class CompleteViewController: UIViewController {
     // MARK: - UI
+    var animationView: AnimationView = {
+        var animationView = AnimationView(name: "confetti")
+        animationView.contentMode = .scaleAspectFill
+        animationView.loopMode = .repeat(Float.greatestFiniteMagnitude)
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+        return animationView
+    }()
+    
     var completeImageView: UIImageView = {
         var imageView = UIImageView(image: UIImage(named: ImageName.complete))
         imageView.contentMode = .scaleAspectFit
@@ -35,19 +44,28 @@ class CompleteViewController: UIViewController {
     
     var titleLabel: UILabel = {
         var label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 20)
-        label.text = CompleteText.title.rawValue
+        var paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 0.9
+        let attributeText = NSAttributedString(string: CompleteText.title.rawValue,
+                                               attributes: [.font: UIFont(name: FontName.notosans_bold,
+                                                                          size: 20)!,
+                                                            .paragraphStyle: paragraphStyle,
+                                                            .kern: -0.8,
+                                                            .foregroundColor: UIColor.mainblack])
+        label.attributedText = attributeText
         label.textAlignment = .center
-        label.textColor = .mainblack
         label.numberOfLines = 0
         return label
     }()
     
     var subTitleLabel: UILabel = {
         var label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12)
-        label.text = CompleteText.subtitle.rawValue
-        label.textColor = .mainblack
+        let attributeText = NSAttributedString(string: CompleteText.subtitle.rawValue,
+                                               attributes: [.font: UIFont(name: FontName.notosans_regular,
+                                                                          size: 12)!,
+                                                            .kern: -0.48,
+                                                            .foregroundColor: UIColor.mainblack])
+        label.attributedText = attributeText
         return label
     }()
     
@@ -66,7 +84,8 @@ class CompleteViewController: UIViewController {
         btn.clipsToBounds = true
         let attributeText = NSAttributedString(string: CompleteText.makeBtn.rawValue,
                                                attributes: [.kern: -0.64,
-                                                            .font: UIFont.boldSystemFont(ofSize: 16),
+                                                            .font: UIFont(name: FontName.notosans_medium,
+                                                                          size: 16)!,
                                                             .foregroundColor: UIColor.white])
         btn.setAttributedTitle(attributeText, for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
@@ -76,8 +95,12 @@ class CompleteViewController: UIViewController {
     
     var afterButton: UIButton = {
         var btn = UIButton(type: .system)
-        btn.setTitle(CompleteText.afterBtn.rawValue, for: .normal)
-        btn.setTitleColor(.mainblack, for: .normal)
+        let attributeText = NSAttributedString(string: CompleteText.afterBtn.rawValue,
+                                               attributes: [.kern: -0.64,
+                                                            .font: UIFont(name: FontName.notosans_regular,
+                                                                          size: 16)!,
+                                                            .foregroundColor: UIColor.whowantsblue])
+        btn.setAttributedTitle(attributeText, for: .normal)
         btn.backgroundColor = .clear
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
@@ -99,13 +122,15 @@ class CompleteViewController: UIViewController {
     
     // MARK: - Init
     private func initView() {
-        view.addSubview(completeImageView)
+        view.addSubview(animationView)
         view.addSubview(labelStackView)
         labelStackView.addArrangedSubview(titleLabel)
         labelStackView.addArrangedSubview(subTitleLabel)
         view.addSubview(buttonStackView)
         buttonStackView.addArrangedSubview(makeButton)
         buttonStackView.addArrangedSubview(afterButton)
+        
+        animationView.play()
     }
     
     private func setNav() {
@@ -142,11 +167,12 @@ class CompleteViewController: UIViewController {
     // MARK: - Layout
     private func configureLayout() {
         NSLayoutConstraint.activate([
-            completeImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
-                                                   constant: 146),
-            completeImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            labelStackView.topAnchor.constraint(equalTo: completeImageView.bottomAnchor,
-                                                constant: 25),
+            animationView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            animationView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            animationView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            animationView.heightAnchor.constraint(equalTo: animationView.widthAnchor),
+            labelStackView.bottomAnchor.constraint(equalTo: animationView.bottomAnchor,
+                                                constant: -33),
             labelStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             buttonStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
                                                     constant: -93),
