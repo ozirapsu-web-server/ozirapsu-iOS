@@ -16,10 +16,15 @@ class PhoneInputViewController: UIViewController {
     // MARK: - UI
     var titleLabel: UILabel = {
         var label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.textColor = .mainblack
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 0.97
+        label.attributedText = NSAttributedString(string: PhoneInputText.title.rawValue,
+                                                  attributes: [.font: UIFont(name: FontName.notosans_bold,
+                                                                             size: 18)!,
+                                                               .kern: -0.72,
+                                                               .paragraphStyle: paragraphStyle,
+                                                               .foregroundColor: UIColor.mainblack])
         label.numberOfLines = 0
-        label.text = PhoneInputText.title.rawValue
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -33,11 +38,16 @@ class PhoneInputViewController: UIViewController {
     
     var phoneTextfield: UITextField = {
         var textField = UITextField()
+        let attributeText = NSAttributedString(string: PhoneInputText.phonePlaceholder.rawValue,
+                                               attributes: [.font: UIFont(name: FontName.notosans_regular,
+                                                                          size: 14)!,
+                                                            .kern: -0.56])
+        textField.textColor = .mainblack
+        textField.attributedPlaceholder = attributeText
+        textField.attributedText = attributeText
+        textField.text = ""
         textField.borderStyle = .none
         textField.keyboardType = .numberPad
-        let attributeText = NSAttributedString(string: PhoneInputText.phonePlaceholder.rawValue,
-                                               attributes: [.font: UIFont.systemFont(ofSize: 14)])
-        textField.attributedPlaceholder = attributeText
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -61,9 +71,12 @@ class PhoneInputViewController: UIViewController {
     var completeButton: UIButton = {
         var btn = UIButton(type: .system)
         btn.backgroundColor = .graytext
-        btn.setTitle(EmailInputText.next.rawValue, for: .normal)
-        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        btn.setTitleColor(.white, for: .normal)
+        let attributeText = NSAttributedString(string: EmailInputText.next.rawValue,
+                                               attributes: [.font: UIFont(name: FontName.notosans_medium,
+                                                                          size: 16)!,
+                                                            .kern: -0.64,
+                                                            .foregroundColor: UIColor.white])
+        btn.setAttributedTitle(attributeText, for: .normal)
         btn.clipsToBounds = true
         btn.isUserInteractionEnabled = false
         btn.translatesAutoresizingMaskIntoConstraints = false
