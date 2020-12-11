@@ -57,6 +57,7 @@ class FundrasingDetailViewController: UIViewController {
         
         let collectionView = UICollectionView(frame: .zero,
                                               collectionViewLayout: layout)
+        collectionView.backgroundColor = .clear
         collectionView.register(FundraisingImageCell.self,
                                 forCellWithReuseIdentifier: FundraisingImageCell.identifier)
         collectionView.showsHorizontalScrollIndicator = false
@@ -65,6 +66,13 @@ class FundrasingDetailViewController: UIViewController {
         collectionView.delegate = self
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
+    }()
+    
+    let pageControl: UIPageControl = {
+        let pageControl = UIPageControl()
+        pageControl.hidesForSinglePage = true
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        return pageControl
     }()
     
     // MARK: - Init
@@ -89,7 +97,13 @@ class FundrasingDetailViewController: UIViewController {
         scrollView.addSubview(contentStackView)
         contentStackView.addArrangedSubview(topContainerView)
         topContainerView.addSubview(imageCollectionView)
+        topContainerView.addSubview(pageControl)
+        
+        pageControl.numberOfPages = detailData.count
     }
+    
+    // MARK: - Data
+    var detailData: [String] = ["Hi", "Hi", "Hi", "Hi"]
     
     // MARK: - Action
     @objc
@@ -133,14 +147,16 @@ class FundrasingDetailViewController: UIViewController {
             imageCollectionView.leadingAnchor.constraint(equalTo: topContainerView.leadingAnchor),
             imageCollectionView.trailingAnchor.constraint(equalTo: topContainerView.trailingAnchor),
             imageCollectionView.bottomAnchor.constraint(equalTo: topContainerView.bottomAnchor),
-            imageCollectionView.heightAnchor.constraint(equalTo: topContainerView.widthAnchor, multiplier: 0.66)
+            imageCollectionView.heightAnchor.constraint(equalTo: topContainerView.widthAnchor, multiplier: 0.66),
+            pageControl.bottomAnchor.constraint(equalTo: topContainerView.bottomAnchor),
+            pageControl.centerXAnchor.constraint(equalTo: topContainerView.centerXAnchor)
         ])
     }
 }
 
 extension FundrasingDetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return detailData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -153,5 +169,10 @@ extension FundrasingDetailViewController: UICollectionViewDataSource {
 }
 
 extension FundrasingDetailViewController: UICollectionViewDelegate {
-    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView,
+                                   withVelocity velocity: CGPoint,
+                                   targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let page = Int(targetContentOffset.pointee.x/scrollView.bounds.width)
+        pageControl.currentPage = page
+    }
 }
