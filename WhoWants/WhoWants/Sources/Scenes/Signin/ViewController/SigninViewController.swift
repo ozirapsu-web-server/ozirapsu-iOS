@@ -24,19 +24,31 @@ class SigninViewController: UIViewController {
     var titleLabel: UILabel = {
         var label = UILabel()
         label.numberOfLines = 0
-        label.textColor = .white
-        label.text = SigninText.title.rawValue
-        label.font = UIFont(name: "NotoSans", size: <#T##CGFloat#>)
-        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.font = UIFont(name: FontName.notosans_bold, size: 20)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 0.9
+        let attributeText = NSAttributedString(string: SigninText.title.rawValue,
+                                               attributes: [.font: UIFont(name: FontName.notosans_bold,
+                                                                          size: 20)!,
+                                                            .foregroundColor: UIColor.white,
+                                                            .kern: -0.8,
+                                                            .paragraphStyle: paragraphStyle])
+        label.attributedText = attributeText
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     var subLabel: UILabel = {
         var label = UILabel()
-        label.text = SigninText.subTitle.rawValue
-        label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 12)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 0.9
+        let attributeText = NSAttributedString(string: SigninText.subTitle.rawValue,
+                                               attributes: [.font: UIFont(name: FontName.notosans_regular,
+                                                                          size: 12)!,
+                                                            .kern: -0.48,
+                                                            .paragraphStyle: paragraphStyle,
+                                                            .foregroundColor: UIColor.white])
+        label.attributedText = attributeText
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -60,12 +72,15 @@ class SigninViewController: UIViewController {
     var emailTextField: UITextField = {
         var textField = UITextField()
         textField.backgroundColor = .clear
-        textField.textColor = UIColor(red: 0.875, green: 0.875, blue: 0.875, alpha: 1.0)
+        let color = UIColor(red: 0.875, green: 0.875, blue: 0.875, alpha: 1.0)
         textField.borderStyle = .none
         let attributeText = NSAttributedString(string: SigninText.emailPlaceholder.rawValue,
-                                               attributes: [.foregroundColor: UIColor.white,
-                                                            .font: UIFont.systemFont(ofSize: 14)])
+                                               attributes: [.font: UIFont(name: FontName.notosans_regular,
+                                                                          size: 14)!,
+                                                            .kern: -0.56,
+                                                            .foregroundColor: color])
         textField.attributedPlaceholder = attributeText
+        textField.attributedText = attributeText
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -86,12 +101,15 @@ class SigninViewController: UIViewController {
     var pwTextField: UITextField = {
         var textField = UITextField()
         textField.backgroundColor = .clear
-        textField.textColor = UIColor(red: 0.875, green: 0.875, blue: 0.875, alpha: 1.0)
+        let color = UIColor(red: 0.875, green: 0.875, blue: 0.875, alpha: 1.0)
         textField.borderStyle = .none
         let attributeText = NSAttributedString(string: SigninText.pwPlaceholder.rawValue,
-                                               attributes: [.foregroundColor: UIColor.white,
-                                                            .font: UIFont.systemFont(ofSize: 14)])
+                                               attributes: [.font: UIFont(name: FontName.notosans_regular,
+                                                                          size: 14)!,
+                                                            .kern: -0.56,
+                                                            .foregroundColor: color])
         textField.attributedPlaceholder = attributeText
+        textField.attributedText = attributeText
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -120,7 +138,8 @@ class SigninViewController: UIViewController {
         btn.translatesAutoresizingMaskIntoConstraints = false
         let attributeText = NSAttributedString(string: SigninText.signinBtn.rawValue,
                                                attributes: [.kern: -0.64,
-                                                            .font: UIFont.boldSystemFont(ofSize: 16),
+                                                            .font: UIFont(name: FontName.notosans_medium,
+                                                                          size: 16)!,
                                                             .foregroundColor: UIColor.white])
         btn.setAttributedTitle(attributeText, for: .normal)
         return btn
@@ -133,7 +152,8 @@ class SigninViewController: UIViewController {
         btn.translatesAutoresizingMaskIntoConstraints = false
         let attributeText = NSAttributedString(string: SigninText.signupBtn.rawValue,
                                                attributes: [.kern: -0.64,
-                                                            .font: UIFont.boldSystemFont(ofSize: 16),
+                                                            .font: UIFont(name: FontName.notosans_medium,
+                                                                          size: 16)!,
                                                             .foregroundColor: UIColor.white])
         btn.setAttributedTitle(attributeText, for: .normal)
         return btn

@@ -40,6 +40,12 @@
 		9DC1FE7F258391770075CF7E /* complete.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE7B258391770075CF7E /* complete.json */; };
 		9DC1FE80258391770075CF7E /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE7C258391770075CF7E /* confetti.json */; };
 		9DC1FE94258395220075CF7E /* FontName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC1FE93258395220075CF7E /* FontName.swift */; };
+		9DC1FE9B258397720075CF7E /* NotoSansKR-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE87258391BA0075CF7E /* NotoSansKR-Black.otf */; };
+		9DC1FE9F258397740075CF7E /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE88258391BA0075CF7E /* NotoSansKR-Bold.otf */; };
+		9DC1FEA0258397760075CF7E /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE8A258391BA0075CF7E /* NotoSansKR-Light.otf */; };
+		9DC1FEA4258397780075CF7E /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE8C258391BA0075CF7E /* NotoSansKR-Medium.otf */; };
+		9DC1FEA52583977A0075CF7E /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE89258391BA0075CF7E /* NotoSansKR-Regular.otf */; };
+		9DC1FEA92583977D0075CF7E /* NotoSansKR-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE8B258391BA0075CF7E /* NotoSansKR-Thin.otf */; };
 		9DC4C2E6257F54BA0015F5B6 /* FundrasingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC4C2E5257F54BA0015F5B6 /* FundrasingDetailViewController.swift */; };
 		A7FC0E6A37F8587083D22AF1 /* Pods_WhoWantsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 732D0F645AAEF922E84C0C17 /* Pods_WhoWantsTests.framework */; };
 		EE53E115DCACF772221C4F9D /* Pods_WhoWants_WhoWantsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1D49E0DDE4CCF9DC4A8B4E0 /* Pods_WhoWants_WhoWantsUITests.framework */; };
@@ -655,15 +661,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DC1FEA92583977D0075CF7E /* NotoSansKR-Thin.otf in Resources */,
 				9D54C807257B9EC2005066D0 /* login.mp4 in Resources */,
 				9D25036E257394CC005C20A9 /* Tabbar.storyboard in Resources */,
 				9D25038C25739F87005C20A9 /* MyPage.storyboard in Resources */,
 				9DC1FE7F258391770075CF7E /* complete.json in Resources */,
+				9DC1FEA52583977A0075CF7E /* NotoSansKR-Regular.otf in Resources */,
 				9DC1FE7D258391770075CF7E /* 200.json in Resources */,
+				9DC1FE9B258397720075CF7E /* NotoSansKR-Black.otf in Resources */,
+				9DC1FEA0258397760075CF7E /* NotoSansKR-Light.otf in Resources */,
 				9D25038325739F2F005C20A9 /* Home.storyboard in Resources */,
 				9D8EAB1B256D8EFD0066B3C7 /* Signin.storyboard in Resources */,
+				9DC1FE9F258397740075CF7E /* NotoSansKR-Bold.otf in Resources */,
 				9D6B058E255D8F9D00FE63C9 /* LaunchScreen.storyboard in Resources */,
 				9DC1FE7E258391770075CF7E /* splash.json in Resources */,
+				9DC1FEA4258397780075CF7E /* NotoSansKR-Medium.otf in Resources */,
 				9D6B058B255D8F9D00FE63C9 /* Assets.xcassets in Resources */,
 				F46E06B82577D5EA00764B02 /* OpenFundraising.storyboard in Resources */,
 				9DC1FE80258391770075CF7E /* confetti.json in Resources */,
