@@ -26,6 +26,7 @@ class SigninViewController: UIViewController {
         label.numberOfLines = 0
         label.textColor = .white
         label.text = SigninText.title.rawValue
+        label.font = UIFont(name: "NotoSans", size: <#T##CGFloat#>)
         label.font = UIFont.boldSystemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

@@ -52,7 +52,7 @@ class SignupContainerViewController: UIViewController {
     var progressView: UIProgressView = {
         var progressView = UIProgressView(progressViewStyle: .default)
         progressView.progress = 0
-        progressView.progressTintColor = .mainblack
+        progressView.progressTintColor = .whowantsblue
         progressView.translatesAutoresizingMaskIntoConstraints = false
         return progressView
     }()

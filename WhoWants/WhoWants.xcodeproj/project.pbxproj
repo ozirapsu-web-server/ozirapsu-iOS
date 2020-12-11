@@ -39,6 +39,7 @@
 		9DC1FE7E258391770075CF7E /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE7A258391770075CF7E /* splash.json */; };
 		9DC1FE7F258391770075CF7E /* complete.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE7B258391770075CF7E /* complete.json */; };
 		9DC1FE80258391770075CF7E /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE7C258391770075CF7E /* confetti.json */; };
+		9DC1FE94258395220075CF7E /* FontName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC1FE93258395220075CF7E /* FontName.swift */; };
 		9DC4C2E6257F54BA0015F5B6 /* FundrasingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC4C2E5257F54BA0015F5B6 /* FundrasingDetailViewController.swift */; };
 		A7FC0E6A37F8587083D22AF1 /* Pods_WhoWantsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 732D0F645AAEF922E84C0C17 /* Pods_WhoWantsTests.framework */; };
 		EE53E115DCACF772221C4F9D /* Pods_WhoWants_WhoWantsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1D49E0DDE4CCF9DC4A8B4E0 /* Pods_WhoWants_WhoWantsUITests.framework */; };
@@ -126,6 +127,7 @@
 		9DC1FE8A258391BA0075CF7E /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
 		9DC1FE8B258391BA0075CF7E /* NotoSansKR-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Thin.otf"; sourceTree = "<group>"; };
 		9DC1FE8C258391BA0075CF7E /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
+		9DC1FE93258395220075CF7E /* FontName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontName.swift; sourceTree = "<group>"; };
 		9DC4C2E5257F54BA0015F5B6 /* FundrasingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundrasingDetailViewController.swift; sourceTree = "<group>"; };
 		C119D225169FF71CD95B5269 /* Pods-WhoWantsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoWantsTests.debug.xcconfig"; path = "Target Support Files/Pods-WhoWantsTests/Pods-WhoWantsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C1D49E0DDE4CCF9DC4A8B4E0 /* Pods_WhoWants_WhoWantsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhoWants_WhoWantsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -357,6 +359,8 @@
 		9D8EAB00256D899D0066B3C7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				9D8EAB65256E8AF10066B3C7 /* ImageName.swift */,
+				9DC1FE93258395220075CF7E /* FontName.swift */,
 				F4A8938B257FA7A9001CA7FE /* Model */,
 				F4A89382257FA5B4001CA7FE /* APIServices */,
 				9D6B0581255D8F9600FE63C9 /* AppDelegate.swift */,
@@ -381,7 +385,6 @@
 			isa = PBXGroup;
 			children = (
 				F46E06A42577D56600764B02 /* OpenFundraising */,
-				9D8EAB65256E8AF10066B3C7 /* ImageName.swift */,
 				9D8EAB2E256D8F7D0066B3C7 /* Splash */,
 				9D8EAB0C256D8E100066B3C7 /* Signin */,
 				9D8EAB32256E1F2F0066B3C7 /* Signup */,
@@ -791,6 +794,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DC1FE94258395220075CF7E /* FontName.swift in Sources */,
 				F46E0724257CB26B00764B02 /* UIView+Extension.swift in Sources */,
 				9D8EAB23256D8F250066B3C7 /* SigninViewController.swift in Sources */,
 				9D8EAB61256E87410066B3C7 /* String+Extension.swift in Sources */,

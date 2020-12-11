@@ -111,12 +111,7 @@ class CompleteViewController: UIViewController {
     private func setNav() {
         navigationController?.navigationBar.tintColor = .mainblack
         navigationItem.title = SignupText.signup.rawValue
-        let backbtn = UIBarButtonItem(image: UIImage(named: ImageName.backBtn),
-                                      style: .plain,
-                                      target: self,
-                                      action: #selector(back(_:)))
-        backbtn.imageInsets = UIEdgeInsets(top: 0, left: -12, bottom: 0, right: 0)
-        navigationItem.leftBarButtonItem = backbtn
+        navigationItem.hidesBackButton = true
     }
     
     private func setButtonAction() {
