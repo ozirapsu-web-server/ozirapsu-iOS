@@ -58,6 +58,10 @@
 		F4A893CF25809F9B001CA7FE /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4A893C925809F9B001CA7FE /* NotoSansKR-Medium.otf */; };
 		F4A893D025809F9B001CA7FE /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4A893CA25809F9B001CA7FE /* NotoSansKR-Bold.otf */; };
 		F4A893D125809F9B001CA7FE /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4A893CB25809F9B001CA7FE /* NotoSansKR-Light.otf */; };
+		F4A893DC2580A880001CA7FE /* complete.json in Resources */ = {isa = PBXBuildFile; fileRef = F4A893DB2580A880001CA7FE /* complete.json */; };
+		F4A893FD25811C06001CA7FE /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = F4A893FC25811C05001CA7FE /* confetti.json */; };
+		F4A8940525811E66001CA7FE /* 200.json in Resources */ = {isa = PBXBuildFile; fileRef = F4A8940425811E66001CA7FE /* 200.json */; };
+		F4B3C3072583194A004BB9CC /* ResponseArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B3C3062583194A004BB9CC /* ResponseArray.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +146,10 @@
 		F4A893C925809F9B001CA7FE /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Medium.otf"; path = "../../../../../Downloads/Noto_Sans_KR 2/NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		F4A893CA25809F9B001CA7FE /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Bold.otf"; path = "../../../../../Downloads/Noto_Sans_KR 2/NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
 		F4A893CB25809F9B001CA7FE /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Light.otf"; path = "../../../../../Downloads/Noto_Sans_KR 2/NotoSansKR-Light.otf"; sourceTree = "<group>"; };
+		F4A893DB2580A880001CA7FE /* complete.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = complete.json; path = ../../../../../Downloads/complete.json; sourceTree = "<group>"; };
+		F4A893FC25811C05001CA7FE /* confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = confetti.json; path = ../../../../../Downloads/confetti.json; sourceTree = "<group>"; };
+		F4A8940425811E66001CA7FE /* 200.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = 200.json; path = ../../../../../Downloads/200.json; sourceTree = "<group>"; };
+		F4B3C3062583194A004BB9CC /* ResponseArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseArray.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -495,6 +503,9 @@
 			isa = PBXGroup;
 			children = (
 				F4A89346257F8E7D001CA7FE /* splash.json */,
+				F4A893FC25811C05001CA7FE /* confetti.json */,
+				F4A8940425811E66001CA7FE /* 200.json */,
+				F4A893DB2580A880001CA7FE /* complete.json */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -505,6 +516,7 @@
 				F4A89396257FA820001CA7FE /* OpenFundraising */,
 				F4A89383257FA5EF001CA7FE /* APIConstants.swift */,
 				F4A89391257FA7FC001CA7FE /* NetworkResult.swift */,
+				F4B3C3062583194A004BB9CC /* ResponseArray.swift */,
 			);
 			path = APIServices;
 			sourceTree = "<group>";
@@ -646,6 +658,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4A8940525811E66001CA7FE /* 200.json in Resources */,
 				9D54C807257B9EC2005066D0 /* login.mp4 in Resources */,
 				9D25036E257394CC005C20A9 /* Tabbar.storyboard in Resources */,
 				F4A893CF25809F9B001CA7FE /* NotoSansKR-Medium.otf in Resources */,
@@ -659,7 +672,9 @@
 				9D6B058E255D8F9D00FE63C9 /* LaunchScreen.storyboard in Resources */,
 				F4A89347257F8E7D001CA7FE /* splash.json in Resources */,
 				9D6B058B255D8F9D00FE63C9 /* Assets.xcassets in Resources */,
+				F4A893FD25811C06001CA7FE /* confetti.json in Resources */,
 				F4A893CD25809F9B001CA7FE /* NotoSansKR-Thin.otf in Resources */,
+				F4A893DC2580A880001CA7FE /* complete.json in Resources */,
 				F46E06B82577D5EA00764B02 /* OpenFundraising.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -816,6 +831,7 @@
 				9D8EAB66256E8AF10066B3C7 /* ImageName.swift in Sources */,
 				9D8EAB4A256E33070066B3C7 /* UIColor+Extension.swift in Sources */,
 				F46E071F257CB1B600764B02 /* uploadImageCVC.swift in Sources */,
+				F4B3C3072583194A004BB9CC /* ResponseArray.swift in Sources */,
 				F4A8938D257FA7BD001CA7FE /* Fundraising.swift in Sources */,
 				F46E06C6257A0FD600764B02 /* InputGaolVC.swift in Sources */,
 				9D25035825738AC6005C20A9 /* CompleteViewController.swift in Sources */,

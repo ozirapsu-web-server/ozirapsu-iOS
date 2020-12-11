@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 // MARK: - Protocol
 protocol CustomActivityDelegate : NSObjectProtocol {
@@ -49,13 +50,29 @@ class CustomActivity: UIActivity {
     }
 }
 
-let strURL = "https://www.notion.so/1-Value-Proposition-5e646c3b8e344db4b1b0481f8b12e6bf"
-
-class FundraisingCompleteVC: UIViewController {
+class FundraisingCompleteVC: UIViewController, CustomActivityDelegate {
     // MARK: - Init
+    var strURL = "https://www.notion.so/1-Value-Proposition-5e646c3b8e344db4b1b0481f8b12e6bf"
     
-    /**TEST*/
     var fundraising = Fundraising(title: "", targetAmount: 0, contents: "", tagList: [], images: [])
+    
+    @IBOutlet weak var settingView: UIView!
+    
+    func setAnimation() {
+        let animationView = AnimationView(name: "200")
+        
+        settingView.addSubview(animationView)
+        
+        animationView.contentMode = .scaleAspectFill
+        
+        animationView.frame = settingView.bounds
+        
+        // animationView.frame = CGRect(x: 0, y: 0, width: 250, height: 246)
+        
+        animationView.play(fromProgress: 0, toProgress: 0.8, loopMode: .none, completion: nil)
+        // animationView.play()
+
+    }
     
     @IBOutlet weak var progressView: UIProgressView! {
         didSet {
@@ -69,7 +86,7 @@ class FundraisingCompleteVC: UIViewController {
         super.viewDidLoad()
         
         setNav()
-        
+        setAnimation()
         self.progressView.setProgress(1, animated: true)
         
         UIView.animate(withDuration: 1) { () -> Void in
@@ -80,6 +97,7 @@ class FundraisingCompleteVC: UIViewController {
         
         /**TEST*/
         print(fundraising)
+        
         
     }
     
@@ -113,6 +131,8 @@ class FundraisingCompleteVC: UIViewController {
     @IBAction func share(_ sender: Any) {
         
         let customActivity = CustomActivity()
+        
+        customActivity.delegate = self
         
         let objectsToShare = strURL
         

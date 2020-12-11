@@ -12,8 +12,10 @@ import BSImagePicker
 class InputImageVC: UIViewController {
     
     // MARK: - Init
-    
     /**TEST*/
+    
+    var url : String = ""
+    
     var fundraising = Fundraising(title: "", targetAmount: 0, contents: "", tagList: [], images: [])
     
     // 버튼
@@ -80,36 +82,35 @@ class InputImageVC: UIViewController {
     
     @IBAction func next(_ sender: Any) {
         
-        /* 통신 세팅
-        RequestService.shared.requestProduct() { data in
+        OpenService.shared.requestOpen(title: fundraising.title, targetAmount: fundraising.targetAmount, contents: fundraising.contents, tagList: fundraising.tagList, images: fundraising.images) { data in
             switch data {
-                
-            case .success :
+            case .success(let openedURL):
                 print("모금함 개설 성공")
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "InputContentVC")
-                navigationController?.pushViewController(vc!, animated: true)
+                
+                self.url = openedURL as! String
+                
+                print("===== 모금 URL =====")
+                print(self.url)
+                
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "FundraisingCompleteVC") as! FundraisingCompleteVC
+                
+                vc.strURL = self.url
+                
+                self.navigationController?.pushViewController(vc, animated: true)
                 
             case .requestErr(let msg):
-                print("getCurrentTakingList")
+                print("모금함 생성")
                 print(msg)
             case .pathErr:
-                print("getCurrentTakingList path err")
+                print("모금함 생성 path err")
             case .serverErr:
-                print("getCurrentTakingList server err")
+                print("모금함 생성 server err")
             case .networkFail:
-                print("getCurrentTakingList network err")
+                print("모금함 생성 network err")
             case .dbErr:
-                print("getCurrentTakingList db err")
+                print("모금함 생성 db err")
             }
         }
-        */
-        
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "FundraisingCompleteVC") as! FundraisingCompleteVC
-        
-        vc.fundraising = self.fundraising
-        
-        navigationController?.pushViewController(vc, animated: true)
-        
     }
     
     
