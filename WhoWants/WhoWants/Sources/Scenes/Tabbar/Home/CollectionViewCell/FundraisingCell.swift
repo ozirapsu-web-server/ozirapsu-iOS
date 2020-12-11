@@ -42,7 +42,7 @@ class FundraisingCell: UICollectionViewCell {
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 0
+        label.numberOfLines = 2
         label.textColor = .mainblack
         label.text = "후원츠를 도와주세요!"
         label.font = UIFont.boldSystemFont(ofSize: 18)
