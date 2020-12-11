@@ -35,6 +35,10 @@
 		9D8EAB61256E87410066B3C7 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8EAB60256E87410066B3C7 /* String+Extension.swift */; };
 		9D8EAB66256E8AF10066B3C7 /* ImageName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8EAB65256E8AF10066B3C7 /* ImageName.swift */; };
 		9D8EAB6E256EAA8F0066B3C7 /* NSNotification.Name+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8EAB6D256EAA8F0066B3C7 /* NSNotification.Name+Extension.swift */; };
+		9DC1FE7D258391770075CF7E /* 200.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE79258391770075CF7E /* 200.json */; };
+		9DC1FE7E258391770075CF7E /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE7A258391770075CF7E /* splash.json */; };
+		9DC1FE7F258391770075CF7E /* complete.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE7B258391770075CF7E /* complete.json */; };
+		9DC1FE80258391770075CF7E /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE7C258391770075CF7E /* confetti.json */; };
 		9DC4C2E6257F54BA0015F5B6 /* FundrasingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC4C2E5257F54BA0015F5B6 /* FundrasingDetailViewController.swift */; };
 		A7FC0E6A37F8587083D22AF1 /* Pods_WhoWantsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 732D0F645AAEF922E84C0C17 /* Pods_WhoWantsTests.framework */; };
 		EE53E115DCACF772221C4F9D /* Pods_WhoWants_WhoWantsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1D49E0DDE4CCF9DC4A8B4E0 /* Pods_WhoWants_WhoWantsUITests.framework */; };
@@ -47,20 +51,10 @@
 		F46E0724257CB26B00764B02 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46E0723257CB26B00764B02 /* UIView+Extension.swift */; };
 		F46E0729257CB9D000764B02 /* addImageCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46E0728257CB9D000764B02 /* addImageCVC.swift */; };
 		F4A89316257F7BCC001CA7FE /* FundraisingNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A89315257F7BCC001CA7FE /* FundraisingNavigationController.swift */; };
-		F4A89347257F8E7D001CA7FE /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = F4A89346257F8E7D001CA7FE /* splash.json */; };
 		F4A89384257FA5EF001CA7FE /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A89383257FA5EF001CA7FE /* APIConstants.swift */; };
 		F4A8938D257FA7BD001CA7FE /* Fundraising.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A8938C257FA7BD001CA7FE /* Fundraising.swift */; };
 		F4A89392257FA7FC001CA7FE /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A89391257FA7FC001CA7FE /* NetworkResult.swift */; };
 		F4A89398257FA840001CA7FE /* OpenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A89397257FA840001CA7FE /* OpenService.swift */; };
-		F4A893CC25809F9B001CA7FE /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4A893C625809F9B001CA7FE /* NotoSansKR-Regular.otf */; };
-		F4A893CD25809F9B001CA7FE /* NotoSansKR-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4A893C725809F9B001CA7FE /* NotoSansKR-Thin.otf */; };
-		F4A893CE25809F9B001CA7FE /* NotoSansKR-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4A893C825809F9B001CA7FE /* NotoSansKR-Black.otf */; };
-		F4A893CF25809F9B001CA7FE /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4A893C925809F9B001CA7FE /* NotoSansKR-Medium.otf */; };
-		F4A893D025809F9B001CA7FE /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4A893CA25809F9B001CA7FE /* NotoSansKR-Bold.otf */; };
-		F4A893D125809F9B001CA7FE /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4A893CB25809F9B001CA7FE /* NotoSansKR-Light.otf */; };
-		F4A893DC2580A880001CA7FE /* complete.json in Resources */ = {isa = PBXBuildFile; fileRef = F4A893DB2580A880001CA7FE /* complete.json */; };
-		F4A893FD25811C06001CA7FE /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = F4A893FC25811C05001CA7FE /* confetti.json */; };
-		F4A8940525811E66001CA7FE /* 200.json in Resources */ = {isa = PBXBuildFile; fileRef = F4A8940425811E66001CA7FE /* 200.json */; };
 		F4B3C3072583194A004BB9CC /* ResponseArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B3C3062583194A004BB9CC /* ResponseArray.swift */; };
 /* End PBXBuildFile section */
 
@@ -122,6 +116,16 @@
 		9D8EAB60256E87410066B3C7 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		9D8EAB65256E8AF10066B3C7 /* ImageName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageName.swift; sourceTree = "<group>"; };
 		9D8EAB6D256EAA8F0066B3C7 /* NSNotification.Name+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification.Name+Extension.swift"; sourceTree = "<group>"; };
+		9DC1FE79258391770075CF7E /* 200.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 200.json; sourceTree = "<group>"; };
+		9DC1FE7A258391770075CF7E /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
+		9DC1FE7B258391770075CF7E /* complete.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = complete.json; sourceTree = "<group>"; };
+		9DC1FE7C258391770075CF7E /* confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = confetti.json; sourceTree = "<group>"; };
+		9DC1FE87258391BA0075CF7E /* NotoSansKR-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Black.otf"; sourceTree = "<group>"; };
+		9DC1FE88258391BA0075CF7E /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
+		9DC1FE89258391BA0075CF7E /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
+		9DC1FE8A258391BA0075CF7E /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
+		9DC1FE8B258391BA0075CF7E /* NotoSansKR-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Thin.otf"; sourceTree = "<group>"; };
+		9DC1FE8C258391BA0075CF7E /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		9DC4C2E5257F54BA0015F5B6 /* FundrasingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundrasingDetailViewController.swift; sourceTree = "<group>"; };
 		C119D225169FF71CD95B5269 /* Pods-WhoWantsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoWantsTests.debug.xcconfig"; path = "Target Support Files/Pods-WhoWantsTests/Pods-WhoWantsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C1D49E0DDE4CCF9DC4A8B4E0 /* Pods_WhoWants_WhoWantsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhoWants_WhoWantsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,20 +139,10 @@
 		F46E0723257CB26B00764B02 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		F46E0728257CB9D000764B02 /* addImageCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addImageCVC.swift; sourceTree = "<group>"; };
 		F4A89315257F7BCC001CA7FE /* FundraisingNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundraisingNavigationController.swift; sourceTree = "<group>"; };
-		F4A89346257F8E7D001CA7FE /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = splash.json; path = ../../../../../Downloads/splash.json; sourceTree = "<group>"; };
 		F4A89383257FA5EF001CA7FE /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = APIConstants.swift; path = WhoWants/Sources/Scenes/OpenFundraising/ViewController/APIConstants.swift; sourceTree = SOURCE_ROOT; };
 		F4A8938C257FA7BD001CA7FE /* Fundraising.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Fundraising.swift; path = WhoWants/Sources/Scenes/OpenFundraising/ViewController/Fundraising.swift; sourceTree = SOURCE_ROOT; };
 		F4A89391257FA7FC001CA7FE /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkResult.swift; path = WhoWants/Sources/Scenes/OpenFundraising/ViewController/NetworkResult.swift; sourceTree = SOURCE_ROOT; };
 		F4A89397257FA840001CA7FE /* OpenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OpenService.swift; path = WhoWants/Sources/Scenes/OpenFundraising/ViewController/OpenService.swift; sourceTree = SOURCE_ROOT; };
-		F4A893C625809F9B001CA7FE /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Regular.otf"; path = "../../../../../Downloads/Noto_Sans_KR 2/NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
-		F4A893C725809F9B001CA7FE /* NotoSansKR-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Thin.otf"; path = "../../../../../Downloads/Noto_Sans_KR 2/NotoSansKR-Thin.otf"; sourceTree = "<group>"; };
-		F4A893C825809F9B001CA7FE /* NotoSansKR-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Black.otf"; path = "../../../../../Downloads/Noto_Sans_KR 2/NotoSansKR-Black.otf"; sourceTree = "<group>"; };
-		F4A893C925809F9B001CA7FE /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Medium.otf"; path = "../../../../../Downloads/Noto_Sans_KR 2/NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
-		F4A893CA25809F9B001CA7FE /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Bold.otf"; path = "../../../../../Downloads/Noto_Sans_KR 2/NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
-		F4A893CB25809F9B001CA7FE /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Light.otf"; path = "../../../../../Downloads/Noto_Sans_KR 2/NotoSansKR-Light.otf"; sourceTree = "<group>"; };
-		F4A893DB2580A880001CA7FE /* complete.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = complete.json; path = ../../../../../Downloads/complete.json; sourceTree = "<group>"; };
-		F4A893FC25811C05001CA7FE /* confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = confetti.json; path = ../../../../../Downloads/confetti.json; sourceTree = "<group>"; };
-		F4A8940425811E66001CA7FE /* 200.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = 200.json; path = ../../../../../Downloads/200.json; sourceTree = "<group>"; };
 		F4B3C3062583194A004BB9CC /* ResponseArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseArray.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -502,10 +496,10 @@
 		F4A89345257F8D37001CA7FE /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
-				F4A89346257F8E7D001CA7FE /* splash.json */,
-				F4A893FC25811C05001CA7FE /* confetti.json */,
-				F4A8940425811E66001CA7FE /* 200.json */,
-				F4A893DB2580A880001CA7FE /* complete.json */,
+				9DC1FE79258391770075CF7E /* 200.json */,
+				9DC1FE7B258391770075CF7E /* complete.json */,
+				9DC1FE7C258391770075CF7E /* confetti.json */,
+				9DC1FE7A258391770075CF7E /* splash.json */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -540,12 +534,12 @@
 		F4A893B825809EFA001CA7FE /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				F4A893C825809F9B001CA7FE /* NotoSansKR-Black.otf */,
-				F4A893CA25809F9B001CA7FE /* NotoSansKR-Bold.otf */,
-				F4A893CB25809F9B001CA7FE /* NotoSansKR-Light.otf */,
-				F4A893C925809F9B001CA7FE /* NotoSansKR-Medium.otf */,
-				F4A893C625809F9B001CA7FE /* NotoSansKR-Regular.otf */,
-				F4A893C725809F9B001CA7FE /* NotoSansKR-Thin.otf */,
+				9DC1FE87258391BA0075CF7E /* NotoSansKR-Black.otf */,
+				9DC1FE88258391BA0075CF7E /* NotoSansKR-Bold.otf */,
+				9DC1FE8A258391BA0075CF7E /* NotoSansKR-Light.otf */,
+				9DC1FE8C258391BA0075CF7E /* NotoSansKR-Medium.otf */,
+				9DC1FE89258391BA0075CF7E /* NotoSansKR-Regular.otf */,
+				9DC1FE8B258391BA0075CF7E /* NotoSansKR-Thin.otf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -658,24 +652,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4A8940525811E66001CA7FE /* 200.json in Resources */,
 				9D54C807257B9EC2005066D0 /* login.mp4 in Resources */,
 				9D25036E257394CC005C20A9 /* Tabbar.storyboard in Resources */,
-				F4A893CF25809F9B001CA7FE /* NotoSansKR-Medium.otf in Resources */,
 				9D25038C25739F87005C20A9 /* MyPage.storyboard in Resources */,
-				F4A893CE25809F9B001CA7FE /* NotoSansKR-Black.otf in Resources */,
+				9DC1FE7F258391770075CF7E /* complete.json in Resources */,
+				9DC1FE7D258391770075CF7E /* 200.json in Resources */,
 				9D25038325739F2F005C20A9 /* Home.storyboard in Resources */,
-				F4A893D125809F9B001CA7FE /* NotoSansKR-Light.otf in Resources */,
-				F4A893CC25809F9B001CA7FE /* NotoSansKR-Regular.otf in Resources */,
 				9D8EAB1B256D8EFD0066B3C7 /* Signin.storyboard in Resources */,
-				F4A893D025809F9B001CA7FE /* NotoSansKR-Bold.otf in Resources */,
 				9D6B058E255D8F9D00FE63C9 /* LaunchScreen.storyboard in Resources */,
-				F4A89347257F8E7D001CA7FE /* splash.json in Resources */,
+				9DC1FE7E258391770075CF7E /* splash.json in Resources */,
 				9D6B058B255D8F9D00FE63C9 /* Assets.xcassets in Resources */,
-				F4A893FD25811C06001CA7FE /* confetti.json in Resources */,
-				F4A893CD25809F9B001CA7FE /* NotoSansKR-Thin.otf in Resources */,
-				F4A893DC2580A880001CA7FE /* complete.json in Resources */,
 				F46E06B82577D5EA00764B02 /* OpenFundraising.storyboard in Resources */,
+				9DC1FE80258391770075CF7E /* confetti.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
