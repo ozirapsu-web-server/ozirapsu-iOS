@@ -50,11 +50,8 @@ class CustomActivity: UIActivity {
     }
 }
 
-class FundraisingCompleteVC: UIViewController {
+class FundraisingCompleteVC: UIViewController, CustomActivityDelegate {
     // MARK: - Init
-    
-    /**TEST*/
-    
     var strURL = "https://www.notion.so/1-Value-Proposition-5e646c3b8e344db4b1b0481f8b12e6bf"
     
     var fundraising = Fundraising(title: "", targetAmount: 0, contents: "", tagList: [], images: [])
@@ -134,6 +131,8 @@ class FundraisingCompleteVC: UIViewController {
     @IBAction func share(_ sender: Any) {
         
         let customActivity = CustomActivity()
+        
+        customActivity.delegate = self
         
         let objectsToShare = strURL
         
