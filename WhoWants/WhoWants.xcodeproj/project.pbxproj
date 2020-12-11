@@ -29,6 +29,7 @@
 		9D6B058E255D8F9D00FE63C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D6B058C255D8F9D00FE63C9 /* LaunchScreen.storyboard */; };
 		9D6B0599255D8F9E00FE63C9 /* WhoWantsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6B0598255D8F9E00FE63C9 /* WhoWantsTests.swift */; };
 		9D6B05A4255D8F9E00FE63C9 /* WhoWantsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6B05A3255D8F9E00FE63C9 /* WhoWantsUITests.swift */; };
+		9D88C22825840F52007190CF /* FundraisingImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D88C22725840F52007190CF /* FundraisingImageCell.swift */; };
 		9D8EAB1B256D8EFD0066B3C7 /* Signin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D8EAB1A256D8EFD0066B3C7 /* Signin.storyboard */; };
 		9D8EAB23256D8F250066B3C7 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8EAB22256D8F250066B3C7 /* SigninViewController.swift */; };
 		9D8EAB45256E1FB30066B3C7 /* SignupContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8EAB44256E1FB30066B3C7 /* SignupContainerViewController.swift */; };
@@ -122,6 +123,7 @@
 		9D6B05A3255D8F9E00FE63C9 /* WhoWantsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoWantsUITests.swift; sourceTree = "<group>"; };
 		9D6B05A5255D8F9E00FE63C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D6B05CD255D9AA300FE63C9 /* WhoWants.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WhoWants.entitlements; sourceTree = "<group>"; };
+		9D88C22725840F52007190CF /* FundraisingImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundraisingImageCell.swift; sourceTree = "<group>"; };
 		9D8EAB1A256D8EFD0066B3C7 /* Signin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signin.storyboard; sourceTree = "<group>"; };
 		9D8EAB22256D8F250066B3C7 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		9D8EAB44256E1FB30066B3C7 /* SignupContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupContainerViewController.swift; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 				9D54C7EB257B7E6D005066D0 /* FundraisingCurHeaderView.swift */,
 				9D54C7D3257A7FD2005066D0 /* FundraisingHeaderView.swift */,
 				9D54C7CB257A7E91005066D0 /* FundraisingCell.swift */,
+				9D88C22725840F52007190CF /* FundraisingImageCell.swift */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -871,6 +874,7 @@
 				9D6B0582255D8F9600FE63C9 /* AppDelegate.swift in Sources */,
 				F46E0729257CB9D000764B02 /* addImageCVC.swift in Sources */,
 				9D54C7CC257A7E91005066D0 /* FundraisingCell.swift in Sources */,
+				9D88C22825840F52007190CF /* FundraisingImageCell.swift in Sources */,
 				F4A89392257FA7FC001CA7FE /* NetworkResult.swift in Sources */,
 				9D25039125739FA3005C20A9 /* MyPageViewController.swift in Sources */,
 				9D8EAB45256E1FB30066B3C7 /* SignupContainerViewController.swift in Sources */,
