@@ -41,7 +41,7 @@ struct SignupService {
         AF.request(APIConstants.signup, method: .post, parameters: parameter.makeParameter(),
                    encoding: JSONEncoding.default, headers: headers)
             .validate(statusCode: 200...500)
-            .responseDecodable(of: ReponseData<Int>.self) { response in
+            .responseDecodable(of: ResponseData<Int>.self) { response in
                 switch response.result {
                 case .success(let isSuccess):
                     if isSuccess.status == 201 {

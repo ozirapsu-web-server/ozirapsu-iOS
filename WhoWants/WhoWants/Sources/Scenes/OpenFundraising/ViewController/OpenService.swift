@@ -8,6 +8,11 @@
 import Foundation
 import Alamofire
 
+// MARK: - DataClass
+struct DataClass: Codable {
+    let storyURL: String
+}
+
 struct OpenService {
     
     static let shared = OpenService()
@@ -17,13 +22,13 @@ struct OpenService {
         let url = APIConstants.openFundraisingURL
         
         let header: HTTPHeaders = [
-            "Content-Type": "multipart/form-data",
+            HTTPHeaderKey.contenttype.rawValue: HTTPHeaderValue.ContentTypeValue.multipart.rawValue,
             
             // 회원가입, 로그인 후 진짜 토큰
             // "jwt": "\(token.string(forKey: "token")!)",
             
             // TEST token
-            "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjQsImlhdCI6MTYwNzUyODYyNiwiZXhwIjoxNjA4MTMzNDI2LCJpc3MiOiJ3aG93YW50cyJ9.Ix9vBEGpYvs2mFumwMQmRKQaJIYJpZPekFszbKfpadI"
+            HTTPHeaderKey.jwt.rawValue: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjQsImlhdCI6MTYwNzUyODYyNiwiZXhwIjoxNjA4MTMzNDI2LCJpc3MiOiJ3aG93YW50cyJ9.Ix9vBEGpYvs2mFumwMQmRKQaJIYJpZPekFszbKfpadI"
         ]
         
         let parameters : Parameters = [
@@ -103,13 +108,13 @@ struct OpenService {
                     
                     let decoder = JSONDecoder()
                     
-                    guard let decodedData = try? decoder.decode(ResponseObject.self, from: data)
+                    guard let decodedData = try? decoder.decode(ResponseData<DataClass>.self, from: data)
                         else {
                             completion(.pathErr)
                             return
                     }
                     
-                    let datas = decodedData.data.storyURL
+                    let datas = decodedData.data!.storyURL
                     
                     completion(.success(datas))
                     

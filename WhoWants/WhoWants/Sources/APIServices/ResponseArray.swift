@@ -8,23 +8,11 @@
 import Foundation
 import Alamofire
 
-struct ResponseObject: Codable {
-    let status: Int
-    let success: Bool
-    let message: String
-    let data: DataClass
-}
-
-// MARK: - DataClass
-struct DataClass: Codable {
-    let storyURL: String
-}
-
 protocol ParameterAble {
     func makeParameter() -> Parameters
 }
 
-struct ReponseData<T: Codable>: Codable {
+struct ResponseData<T: Codable>: Codable {
     let status: Int
     let success: Bool
     let message: String
