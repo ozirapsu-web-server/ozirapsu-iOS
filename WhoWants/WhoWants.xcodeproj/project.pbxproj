@@ -17,6 +17,8 @@
 		9D25038325739F2F005C20A9 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D25038225739F2F005C20A9 /* Home.storyboard */; };
 		9D25038C25739F87005C20A9 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D25038B25739F87005C20A9 /* MyPage.storyboard */; };
 		9D25039125739FA3005C20A9 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D25039025739FA3005C20A9 /* MyPageViewController.swift */; };
+		9D2F73B22583DD3D00DB48AE /* SignupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2F73B12583DD3D00DB48AE /* SignupService.swift */; };
+		9D2F73BD2583E3CE00DB48AE /* HTTPHeaderCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2F73BC2583E3CE00DB48AE /* HTTPHeaderCategory.swift */; };
 		9D54C7CC257A7E91005066D0 /* FundraisingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D54C7CB257A7E91005066D0 /* FundraisingCell.swift */; };
 		9D54C7D4257A7FD2005066D0 /* FundraisingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D54C7D3257A7FD2005066D0 /* FundraisingHeaderView.swift */; };
 		9D54C7EC257B7E6D005066D0 /* FundraisingCurHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D54C7EB257B7E6D005066D0 /* FundraisingCurHeaderView.swift */; };
@@ -99,6 +101,8 @@
 		9D25038225739F2F005C20A9 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		9D25038B25739F87005C20A9 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		9D25039025739FA3005C20A9 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		9D2F73B12583DD3D00DB48AE /* SignupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupService.swift; sourceTree = "<group>"; };
+		9D2F73BC2583E3CE00DB48AE /* HTTPHeaderCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeaderCategory.swift; sourceTree = "<group>"; };
 		9D54C7CB257A7E91005066D0 /* FundraisingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundraisingCell.swift; sourceTree = "<group>"; };
 		9D54C7D3257A7FD2005066D0 /* FundraisingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundraisingHeaderView.swift; sourceTree = "<group>"; };
 		9D54C7EB257B7E6D005066D0 /* FundraisingCurHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundraisingCurHeaderView.swift; sourceTree = "<group>"; };
@@ -282,6 +286,14 @@
 				9D25039025739FA3005C20A9 /* MyPageViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9D2F73AA2583DD2E00DB48AE /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				9D2F73B12583DD3D00DB48AE /* SignupService.swift */,
+			);
+			path = Signup;
 			sourceTree = "<group>";
 		};
 		9D54C7CA257A7E58005066D0 /* CollectionViewCell */ = {
@@ -519,8 +531,10 @@
 		F4A89382257FA5B4001CA7FE /* APIServices */ = {
 			isa = PBXGroup;
 			children = (
+				9D2F73AA2583DD2E00DB48AE /* Signup */,
 				F4A89396257FA820001CA7FE /* OpenFundraising */,
 				F4A89383257FA5EF001CA7FE /* APIConstants.swift */,
+				9D2F73BC2583E3CE00DB48AE /* HTTPHeaderCategory.swift */,
 				F4A89391257FA7FC001CA7FE /* NetworkResult.swift */,
 				F4B3C3062583194A004BB9CC /* ResponseArray.swift */,
 			);
@@ -827,6 +841,7 @@
 				9D8EAB6E256EAA8F0066B3C7 /* NSNotification.Name+Extension.swift in Sources */,
 				9D54C7EC257B7E6D005066D0 /* FundraisingCurHeaderView.swift in Sources */,
 				F4A89398257FA840001CA7FE /* OpenService.swift in Sources */,
+				9D2F73B22583DD3D00DB48AE /* SignupService.swift in Sources */,
 				9D8EAB5C256E3D610066B3C7 /* PwInputViewController.swift in Sources */,
 				F46E06D0257A100900764B02 /* InputImageVC.swift in Sources */,
 				F4A89316257F7BCC001CA7FE /* FundraisingNavigationController.swift in Sources */,
@@ -838,6 +853,7 @@
 				9D8EAB45256E1FB30066B3C7 /* SignupContainerViewController.swift in Sources */,
 				9D8EAB66256E8AF10066B3C7 /* ImageName.swift in Sources */,
 				9D8EAB4A256E33070066B3C7 /* UIColor+Extension.swift in Sources */,
+				9D2F73BD2583E3CE00DB48AE /* HTTPHeaderCategory.swift in Sources */,
 				F46E071F257CB1B600764B02 /* uploadImageCVC.swift in Sources */,
 				F4B3C3072583194A004BB9CC /* ResponseArray.swift in Sources */,
 				F4A8938D257FA7BD001CA7FE /* Fundraising.swift in Sources */,
