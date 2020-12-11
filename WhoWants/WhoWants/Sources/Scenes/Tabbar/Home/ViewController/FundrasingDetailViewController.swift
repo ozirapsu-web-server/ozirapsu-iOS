@@ -9,6 +9,8 @@ import UIKit
 
 enum FundrasingDetailText: String {
     case title = "후원츠를 도와주세요!"
+    case surporter = "서포터즈"
+    case new = "새 소식"
 }
 
 class FundrasingDetailViewController: UIViewController {
@@ -75,6 +77,127 @@ class FundrasingDetailViewController: UIViewController {
         return pageControl
     }()
     
+    let middleContainerView: UIView = {
+        let uiView = UIView()
+        uiView.backgroundColor = UIColor(red: 0.949, green: 0.949, blue: 0.949, alpha: 1.0)
+        return uiView
+    }()
+    
+    let middleStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 7
+        stackView.distribution = .fill
+        stackView.alignment = .fill
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+    // 새소식 + 서포터즈 뷰 포함하는 StackView
+    let stateStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+        stackView.alignment = .fill
+        stackView.spacing = 7
+        return stackView
+    }()
+    
+    let surporterView: UIView = {
+        let uiView = UIView()
+        uiView.clipsToBounds = true
+        uiView.backgroundColor = .white
+        return uiView
+    }()
+    
+    let surporterStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.distribution = .fill
+        stackView.spacing = 4
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+    let surporterLogoImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: ImageName.surporter)
+        return imageView
+    }()
+    
+    let surporterLabel: UILabel = {
+        let label = UILabel()
+        label.attributedText = NSAttributedString(string: FundrasingDetailText.surporter.rawValue,
+                                                  attributes: [.font: UIFont(name: FontName.notosans_regular,
+                                                                             size: 12)!,
+                                                               .kern: -0.48,
+                                                               .foregroundColor: UIColor.mainblack])
+        return label
+    }()
+    
+    let surporterCountLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.attributedText = NSAttributedString(string: "4명",
+                                                  attributes: [.font: UIFont(name: FontName.notosans_medium,
+                                                                             size: 20)!,
+                                                               .kern: -0.8,
+                                                               .foregroundColor: UIColor.mainblack])
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let newsView: UIView = {
+        let uiView = UIView()
+        uiView.clipsToBounds = true
+        uiView.backgroundColor = .white
+        return uiView
+    }()
+    
+    let newsStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.distribution = .fill
+        stackView.spacing = 4
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+    let newsLogoImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: ImageName.new)
+        return imageView
+    }()
+    
+    let newsLabel: UILabel = {
+        let label = UILabel()
+        label.attributedText = NSAttributedString(string: FundrasingDetailText.new.rawValue,
+                                                  attributes: [.font: UIFont(name: FontName.notosans_regular,
+                                                                             size: 12)!,
+                                                               .kern: -0.48,
+                                                               .foregroundColor: UIColor.mainblack])
+        return label
+    }()
+    
+    let newsCountLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.attributedText = NSAttributedString(string: "0개",
+                                                  attributes: [.font: UIFont(name: FontName.notosans_medium,
+                                                                             size: 20)!,
+                                                               .kern: -0.8,
+                                                               .foregroundColor: UIColor.whowantsblue])
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let stateView: UIView = {
+        let uiView = UIView()
+        return uiView
+    }()
+    
     // MARK: - Init
     private func setNav() {
         self.navigationController?.navigationBar.transform = .identity
@@ -98,6 +221,22 @@ class FundrasingDetailViewController: UIViewController {
         contentStackView.addArrangedSubview(topContainerView)
         topContainerView.addSubview(imageCollectionView)
         topContainerView.addSubview(pageControl)
+        
+        contentStackView.addArrangedSubview(middleContainerView)
+        middleContainerView.addSubview(middleStackView)
+        middleStackView.addArrangedSubview(stateStackView)
+        
+        stateStackView.addArrangedSubview(surporterView)
+        surporterView.addSubview(surporterStackView)
+        surporterStackView.addArrangedSubview(surporterLogoImageView)
+        surporterStackView.addArrangedSubview(surporterLabel)
+        surporterView.addSubview(surporterCountLabel)
+        
+        stateStackView.addArrangedSubview(newsView)
+        newsView.addSubview(newsStackView)
+        newsStackView.addArrangedSubview(newsLogoImageView)
+        newsStackView.addArrangedSubview(newsLabel)
+        newsView.addSubview(newsCountLabel)
         
         pageControl.numberOfPages = detailData.count
     }
@@ -133,6 +272,10 @@ class FundrasingDetailViewController: UIViewController {
     
     // MARK: - Layout
     private func configureLayout() {
+        let stateViewCorner: CGFloat = (self.view.bounds.width - 20*2 - 7)/2/27
+        surporterView.layer.cornerRadius = stateViewCorner
+        newsView.layer.cornerRadius = stateViewCorner
+        
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
@@ -147,7 +290,28 @@ class FundrasingDetailViewController: UIViewController {
             imageCollectionView.leadingAnchor.constraint(equalTo: topContainerView.leadingAnchor),
             imageCollectionView.trailingAnchor.constraint(equalTo: topContainerView.trailingAnchor),
             imageCollectionView.bottomAnchor.constraint(equalTo: topContainerView.bottomAnchor),
-            imageCollectionView.heightAnchor.constraint(equalTo: topContainerView.widthAnchor, multiplier: 0.66),
+            imageCollectionView.heightAnchor.constraint(equalTo: topContainerView.widthAnchor,
+                                                        multiplier: 0.66),
+            middleStackView.topAnchor.constraint(equalTo: middleContainerView.topAnchor,
+                                                 constant: 18),
+            middleStackView.leadingAnchor.constraint(equalTo: middleContainerView.leadingAnchor,
+                                                     constant: 20),
+            middleStackView.trailingAnchor.constraint(equalTo: middleContainerView.trailingAnchor,
+                                                      constant: -20),
+            middleStackView.bottomAnchor.constraint(equalTo: middleContainerView.bottomAnchor,
+                                                    constant: -18),
+            surporterStackView.centerXAnchor.constraint(equalTo: surporterView.centerXAnchor),
+            surporterStackView.topAnchor.constraint(equalTo: surporterView.topAnchor, constant: 16),
+            surporterCountLabel.centerXAnchor.constraint(equalTo: surporterView.centerXAnchor),
+            surporterCountLabel.topAnchor.constraint(equalTo: surporterStackView.bottomAnchor,
+                                                     constant: 2),
+            surporterCountLabel.bottomAnchor.constraint(equalTo: surporterView.bottomAnchor, constant: -14),
+            newsStackView.topAnchor.constraint(equalTo: newsView.topAnchor, constant: 16),
+            newsStackView.centerXAnchor.constraint(equalTo: newsView.centerXAnchor),
+            newsCountLabel.topAnchor.constraint(equalTo: newsStackView.bottomAnchor, constant: 2),
+            newsCountLabel.centerXAnchor.constraint(equalTo: newsView.centerXAnchor),
+            newsCountLabel.bottomAnchor.constraint(equalTo: newsView.bottomAnchor, constant: -14),
+            
             pageControl.bottomAnchor.constraint(equalTo: topContainerView.bottomAnchor),
             pageControl.centerXAnchor.constraint(equalTo: topContainerView.centerXAnchor)
         ])
