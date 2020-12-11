@@ -13,6 +13,9 @@ class InputImageVC: UIViewController {
     
     // MARK: - Init
     /**TEST*/
+    
+    var url : String = ""
+    
     var fundraising = Fundraising(title: "", targetAmount: 0, contents: "", tagList: [], images: [])
     
     // 버튼
@@ -81,10 +84,17 @@ class InputImageVC: UIViewController {
         
         OpenService.shared.requestOpen(title: fundraising.title, targetAmount: fundraising.targetAmount, contents: fundraising.contents, tagList: fundraising.tagList, images: fundraising.images) { data in
             switch data {
-            case .success:
+            case .success(let openedURL):
                 print("모금함 개설 성공")
+                
+                self.url = openedURL as! String
+                
+                print("===== 모금 URL =====")
+                print(self.url)
+                
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "FundraisingCompleteVC") as! FundraisingCompleteVC
                 
+                vc.strURL = self.url
                 
                 self.navigationController?.pushViewController(vc, animated: true)
                 

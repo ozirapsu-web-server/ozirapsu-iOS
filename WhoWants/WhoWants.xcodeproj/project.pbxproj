@@ -61,6 +61,7 @@
 		F4A893DC2580A880001CA7FE /* complete.json in Resources */ = {isa = PBXBuildFile; fileRef = F4A893DB2580A880001CA7FE /* complete.json */; };
 		F4A893FD25811C06001CA7FE /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = F4A893FC25811C05001CA7FE /* confetti.json */; };
 		F4A8940525811E66001CA7FE /* 200.json in Resources */ = {isa = PBXBuildFile; fileRef = F4A8940425811E66001CA7FE /* 200.json */; };
+		F4B3C3072583194A004BB9CC /* ResponseArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B3C3062583194A004BB9CC /* ResponseArray.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +149,7 @@
 		F4A893DB2580A880001CA7FE /* complete.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = complete.json; path = ../../../../../Downloads/complete.json; sourceTree = "<group>"; };
 		F4A893FC25811C05001CA7FE /* confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = confetti.json; path = ../../../../../Downloads/confetti.json; sourceTree = "<group>"; };
 		F4A8940425811E66001CA7FE /* 200.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = 200.json; path = ../../../../../Downloads/200.json; sourceTree = "<group>"; };
+		F4B3C3062583194A004BB9CC /* ResponseArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseArray.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -514,6 +516,7 @@
 				F4A89396257FA820001CA7FE /* OpenFundraising */,
 				F4A89383257FA5EF001CA7FE /* APIConstants.swift */,
 				F4A89391257FA7FC001CA7FE /* NetworkResult.swift */,
+				F4B3C3062583194A004BB9CC /* ResponseArray.swift */,
 			);
 			path = APIServices;
 			sourceTree = "<group>";
@@ -828,6 +831,7 @@
 				9D8EAB66256E8AF10066B3C7 /* ImageName.swift in Sources */,
 				9D8EAB4A256E33070066B3C7 /* UIColor+Extension.swift in Sources */,
 				F46E071F257CB1B600764B02 /* uploadImageCVC.swift in Sources */,
+				F4B3C3072583194A004BB9CC /* ResponseArray.swift in Sources */,
 				F4A8938D257FA7BD001CA7FE /* Fundraising.swift in Sources */,
 				F46E06C6257A0FD600764B02 /* InputGaolVC.swift in Sources */,
 				9D25035825738AC6005C20A9 /* CompleteViewController.swift in Sources */,

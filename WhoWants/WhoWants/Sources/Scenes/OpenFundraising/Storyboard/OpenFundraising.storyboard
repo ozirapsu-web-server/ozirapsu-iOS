@@ -49,7 +49,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="프로젝트 제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t58-vf-G0H">
-                                <rect key="frame" x="20.000000000000007" y="406.66666666666669" width="98.666666666666686" height="22"/>
+                                <rect key="frame" x="20.000000000000007" y="411" width="104.66666666666669" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="fnK-AQ-2sp"/>
                                 </constraints>
@@ -58,7 +58,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목은 짧고 개설의도가 잘 담길 수 있도록 작성해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPg-Lj-m58">
-                                <rect key="frame" x="20" y="428.66666666666669" width="265.66666666666669" height="15"/>
+                                <rect key="frame" x="20" y="433" width="280.66666666666669" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="mzU-HZ-BjH"/>
                                 </constraints>
@@ -67,14 +67,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="19p-53-6Th">
-                                <rect key="frame" x="20" y="258.66666666666669" width="335" height="1"/>
+                                <rect key="frame" x="20" y="263" width="335" height="1"/>
                                 <color key="backgroundColor" name="greytext_BDBDBD"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="b0A-RC-CEX"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qjY-bi-lFf">
-                                <rect key="frame" x="335" y="231.33333333333334" width="20" height="23.333333333333343"/>
+                                <rect key="frame" x="335" y="230" width="20" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="RY6-2k-4kO"/>
                                 </constraints>
@@ -83,14 +83,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fuZ-dD-tyS">
-                                <rect key="frame" x="20" y="502" width="335" height="1"/>
+                                <rect key="frame" x="20" y="510" width="335" height="1"/>
                                 <color key="backgroundColor" name="greytext_BDBDBD"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="EWS-fN-DHZ"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ka8-I9-Jpr">
-                                <rect key="frame" x="331" y="474.66666666666669" width="24" height="23.333333333333314"/>
+                                <rect key="frame" x="331" y="477" width="24" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="24" id="h2F-rO-RKY"/>
                                 </constraints>
@@ -118,7 +118,7 @@
                                 <color key="trackTintColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </progressView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="목표 금액" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIV-kh-MmT">
-                                <rect key="frame" x="20" y="156" width="67.333333333333329" height="22"/>
+                                <rect key="frame" x="20" y="156" width="71.333333333333329" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="uAz-BS-vy3"/>
                                 </constraints>
@@ -127,7 +127,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="목표 금액은 언제든 수정 가능해요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jYZ-pG-SDc">
-                                <rect key="frame" x="20" y="178" width="162" height="15"/>
+                                <rect key="frame" x="20" y="178" width="172" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="lFe-5O-MfG"/>
                                 </constraints>
@@ -136,13 +136,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vGa-dR-6Dn">
-                                <rect key="frame" x="20" y="232" width="295" height="22.666666666666657"/>
+                                <rect key="frame" x="20" y="232" width="295" height="27"/>
                                 <color key="textColor" name="mainblack_202020"/>
                                 <fontDescription key="fontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cxc-2S-j11">
-                                <rect key="frame" x="20" y="477.66666666666669" width="291" height="20.333333333333314"/>
+                                <rect key="frame" x="20" y="482" width="291" height="24"/>
                                 <color key="textColor" name="mainblack_202020"/>
                                 <fontDescription key="fontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -221,13 +221,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="734"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="프로젝트 내용" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oI9-As-7DB">
-                                                <rect key="frame" x="20.000000000000007" y="84" width="98.666666666666686" height="22"/>
+                                                <rect key="frame" x="20.000000000000007" y="84" width="104.66666666666669" height="22"/>
                                                 <fontDescription key="fontDescription" name="NotoSansKR-Bold" family="Noto Sans KR" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uia-bQ-dma">
-                                                <rect key="frame" x="20" y="106" width="279.66666666666669" height="29"/>
+                                                <rect key="frame" x="20" y="106" width="292.33333333333331" height="29"/>
                                                 <string key="text">서포터분들의 공감을 이끌기 위해 자세하게 작성해주실 수록
 모금 성공 확률도 올라갑니다!</string>
                                                 <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="12"/>
@@ -238,7 +238,7 @@
                                                 <rect key="frame" x="20" y="147" width="335" height="231"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXb-dV-QQ2">
-                                                        <rect key="frame" x="322" y="207" width="0.0" height="12"/>
+                                                        <rect key="frame" x="322" y="206.99999999999997" width="0.0" height="12"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="12" id="fPp-W3-tW6"/>
                                                         </constraints>
@@ -274,19 +274,19 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="프로젝트 태그" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXu-jU-CNJ">
-                                                <rect key="frame" x="20.000000000000007" y="428" width="98.666666666666686" height="22"/>
+                                                <rect key="frame" x="20.000000000000007" y="428" width="104.66666666666669" height="22"/>
                                                 <fontDescription key="fontDescription" name="NotoSansKR-Bold" family="Noto Sans KR" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="프로젝트를 잘 표현해주는 키워드를 설정해보세요. (최대 3개)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NqP-Ii-Q9Y">
-                                                <rect key="frame" x="20" y="450" width="285.66666666666669" height="15"/>
+                                                <rect key="frame" x="20" y="450" width="302" height="15"/>
                                                 <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="12"/>
                                                 <color key="textColor" name="greytext_BDBDBD"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="키워드는 쉼표(,)로 구분해주세요!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eje-KG-Ywc">
-                                                <rect key="frame" x="20" y="477" width="180" height="20"/>
+                                                <rect key="frame" x="20" y="477" width="193.33333333333334" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="IUc-SU-5zF"/>
                                                 </constraints>
@@ -394,13 +394,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" ambiguous="YES" text="이미지 첨부" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0f-VC-6gd">
-                                <rect key="frame" x="20" y="128" width="83" height="22"/>
+                                <rect key="frame" x="20" y="128" width="88" height="22"/>
                                 <fontDescription key="fontDescription" name="NotoSansKR-Bold" family="Noto Sans KR" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2X-A7-YTs">
-                                <rect key="frame" x="20" y="150" width="282.66666666666669" height="29"/>
+                                <rect key="frame" x="20" y="150" width="293.33333333333331" height="29"/>
                                 <string key="text">서포터분들의 더 쉬운 이해를 위해 대표 이미지 1장을 포함해
 최대 10장까지 첨부해주세요!</string>
                                 <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="12"/>

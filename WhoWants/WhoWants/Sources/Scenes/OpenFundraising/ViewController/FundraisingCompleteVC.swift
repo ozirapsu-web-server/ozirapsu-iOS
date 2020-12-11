@@ -50,12 +50,13 @@ class CustomActivity: UIActivity {
     }
 }
 
-let strURL = "https://www.notion.so/1-Value-Proposition-5e646c3b8e344db4b1b0481f8b12e6bf"
-
 class FundraisingCompleteVC: UIViewController {
     // MARK: - Init
     
     /**TEST*/
+    
+    var strURL = "https://www.notion.so/1-Value-Proposition-5e646c3b8e344db4b1b0481f8b12e6bf"
+    
     var fundraising = Fundraising(title: "", targetAmount: 0, contents: "", tagList: [], images: [])
     
     @IBOutlet weak var settingView: UIView!

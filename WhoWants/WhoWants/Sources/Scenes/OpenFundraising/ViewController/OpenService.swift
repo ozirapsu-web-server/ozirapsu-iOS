@@ -15,6 +15,7 @@ struct OpenService {
     func requestOpen(title: String, targetAmount: Int, contents: String, tagList: [String], images: [UIImage], completion: @escaping (NetworkResult<Any>) -> Void) {
         
         let url = APIConstants.openFundraisingURL
+        
         let header: HTTPHeaders = [
             "Content-Type": "multipart/form-data",
             
@@ -39,20 +40,15 @@ struct OpenService {
                 
                 if key == "tagList" {
                     
-                    let arrayString = tagList.joined(separator: ",")
+                    let count : Int  = tagList.count
                     
-                    if let arrayData = arrayString.data(using: .utf8) {
-                        MultipartFormData.append(arrayData, withName: key+"[]")
-                        print("======= TAG LIST ========")
-                        print(MultipartFormData.append(arrayData, withName: key+"[]"))
+                    for i in 0  ..< count {
+                        
+                        let valueObj = tagList[i]
+                        let keyObj = key + "[" + String(i) + "]"
+                        
+                        MultipartFormData.append(valueObj.data(using: .utf8)!, withName: keyObj)
                     }
-                    
-                    /*
-                    let arrData =  try! JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
-                    MultipartFormData.append(arrData, withName: key as String)
-                    
-                    print("======= TAG LIST ========")
-                    print(MultipartFormData.append(arrData, withName: key as String))*/
                     
                 } else if key == "images" {
                     
@@ -98,9 +94,25 @@ struct OpenService {
                     return
                 }
                 
+                guard let data = response.value else {
+                    return
+                }
+                
                 switch statusCode {
                 case 200, 201:
-                    completion(.success("Success"))
+                    
+                    let decoder = JSONDecoder()
+                    
+                    guard let decodedData = try? decoder.decode(ResponseObject.self, from: data)
+                        else {
+                            completion(.pathErr)
+                            return
+                    }
+                    
+                    let datas = decodedData.data.storyURL
+                    
+                    completion(.success(datas))
+                    
                 
                 case 400..<500:
                     completion(.requestErr("requestErr"))
