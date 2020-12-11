@@ -104,10 +104,7 @@ class SignupContainerViewController: UIViewController {
             if curRaw == 3 {
                 // FIXME: 여기에 API 회원가입 추가
                 self?.progressView.setProgress(1, animated: true)
-                DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
-                    self?.navigationController?.pushViewController(CompleteViewController(),
-                                                                   animated: true)
-                }
+                self?.signup()
                 return
             }
             let curInput = SignupInputType(rawValue: curRaw+1)!
@@ -153,6 +150,29 @@ class SignupContainerViewController: UIViewController {
                 castingVC.view.removeFromSuperview()
                 castingVC.removeFromParent()
             })
+        }
+    }
+    
+    private func signup() {
+        let signupDTO = SignupInformDTO(email: userInform[SignupInputType.email.getKey()]!,
+                                        pw: userInform[SignupInputType.pw.getKey()]!,
+                                        name: userInform[SignupInputType.nickname.getKey()]!,
+                                        phoneNumber: userInform[SignupInputType.phone.getKey()]!,
+                                        isAuthorized: "0")
+        SignupService.shared.requestSignup(signupDTO) { result in
+            switch result {
+            case .success:
+                self.navigationController?.pushViewController(CompleteViewController(),
+                                                              animated: true)
+            case .requestErr:
+                print("RequestErr")
+            case .serverErr:
+                print("ServerErr")
+            case .networkFail:
+                print("networkFail")
+            default:
+                return
+            }
         }
     }
     

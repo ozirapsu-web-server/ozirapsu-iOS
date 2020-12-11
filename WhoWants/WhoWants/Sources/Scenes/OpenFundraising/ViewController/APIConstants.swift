@@ -13,4 +13,6 @@ struct APIConstants {
     /* 모금함 개설 */
     static let openFundraisingURL = BaseURL + "/story"
     
+    /* 호스트 */
+    static let signup = BaseURL + "/host/signup"
 }
