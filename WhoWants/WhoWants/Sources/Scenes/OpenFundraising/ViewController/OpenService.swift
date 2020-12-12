@@ -20,15 +20,16 @@ struct OpenService {
     func requestOpen(title: String, targetAmount: Int, contents: String, tagList: [String], images: [UIImage], completion: @escaping (NetworkResult<Any>) -> Void) {
         
         let url = APIConstants.openFundraisingURL
+        // guard let token = response.response?.headers[UserDefaultsKey.token.rawValue] { return }
+        
+        // let token = UserDefaultsKey.token.rawValue
+        
+        let token = UserDefaults.standard
         
         let header: HTTPHeaders = [
             HTTPHeaderKey.contenttype.rawValue: HTTPHeaderValue.ContentTypeValue.multipart.rawValue,
             
-            // 회원가입, 로그인 후 진짜 토큰
-            // "jwt": "\(token.string(forKey: "token")!)",
-            
-            // TEST token
-            HTTPHeaderKey.jwt.rawValue: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHgiOjQsImlhdCI6MTYwNzUyODYyNiwiZXhwIjoxNjA4MTMzNDI2LCJpc3MiOiJ3aG93YW50cyJ9.Ix9vBEGpYvs2mFumwMQmRKQaJIYJpZPekFszbKfpadI"
+            HTTPHeaderKey.jwt.rawValue: "\(token.string(forKey: "token")!)"
         ]
         
         let parameters : Parameters = [
