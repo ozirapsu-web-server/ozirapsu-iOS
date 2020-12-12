@@ -12,7 +12,7 @@ enum FundraisingText: String {
 }
 
 struct FundraisingCellDTO {
-    let image: UIImage
+    let image: String
     let title: String
     let count: Int
     let percent: Int
@@ -24,7 +24,6 @@ class FundraisingCell: UICollectionViewCell {
     // MARK: - UI
     let thumbnailImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "sample")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -112,6 +111,8 @@ class FundraisingCell: UICollectionViewCell {
     
     // MARK: - Action
     func setFundraisingCell(_ dto: FundraisingCellDTO) {
+        thumbnailImageView.setImage(with: dto.image)
+        
         let titleAttributeText = NSAttributedString(string: dto.title,
                                                     attributes: [.font: UIFont(name: FontName.notosans_medium,
                                                                                size: 16)!,
@@ -172,6 +173,7 @@ class FundraisingCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        thumbnailImageView.image = nil
     }
     
     // MARK: - Layout

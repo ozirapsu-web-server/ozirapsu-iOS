@@ -51,6 +51,8 @@ class HomeViewController: UIViewController {
         return collectionView
     }()
     
+    
+    
     // MARK: - Init
     private func initView() {
         self.view.addSubview(homeCollectionView)
@@ -65,6 +67,15 @@ class HomeViewController: UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
     }
     
+    // MARK: - Data
+    private var hostStoryDTO: HostStoryDTO = HostStoryDTO(count: 0, stories: []) {
+        didSet {
+            DispatchQueue.main.async {
+                self.homeCollectionView.reloadData()
+            }
+        }
+    }
+    
     // MARK: - Action
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.y + self.view.safeAreaInsets.top
@@ -74,6 +85,23 @@ class HomeViewController: UIViewController {
         navigationController?.navigationBar.transform = CGAffineTransform(translationX: 0, y: min(0, -offset))
     }
     
+    private func requestHostStory() {
+        HostStoryService.shared.requestHostStory { [weak self] result in
+            switch result {
+            case .success(let storyData):
+                print("success")
+                guard let storyData = storyData as? HostStoryDTO else { return }
+                self?.hostStoryDTO = storyData
+            case .serverErr:
+                print("Server Err")
+            case .networkFail:
+                print("Network Err")
+            default:
+                return
+            }
+        }
+    }
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,6 +109,8 @@ class HomeViewController: UIViewController {
         initView()
         
         configureLayout()
+        
+        requestHostStory()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -107,7 +137,7 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
         if section == 0 { return 0 }
-        else { return 5 }
+        else { return hostStoryDTO.count }
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -119,10 +149,12 @@ extension HomeViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        fundraseCell.setFundraisingCell(FundraisingCellDTO(image: UIImage(named: "sample")!,
-                                                           title: "후원츠를 도와주세요!",
-                                                           count: 2000,
-                                                           percent: 80))
+        let storyDTO = hostStoryDTO.stories[indexPath.row]
+        
+        fundraseCell.setFundraisingCell(FundraisingCellDTO(image: storyDTO.image,
+                                                           title: storyDTO.title,
+                                                           count: storyDTO.support_cnt,
+                                                           percent: storyDTO.amount_rate*10))
         
         return fundraseCell
     }
@@ -144,7 +176,7 @@ extension HomeViewController: UICollectionViewDataSource {
                                                   withReuseIdentifier: FundraisingCurHeaderView.identifier,
                                                   for: indexPath) as! FundraisingCurHeaderView
             
-            reusableCurView.setHeader(10)
+            reusableCurView.setHeader(hostStoryDTO.count)
             
             return reusableCurView
         }
