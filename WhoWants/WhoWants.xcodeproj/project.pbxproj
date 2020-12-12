@@ -11,6 +11,7 @@
 		9D0894AB2584E96000686C93 /* ImageCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0894AA2584E96000686C93 /* ImageCollectionViewDelegate.swift */; };
 		9D0894B02584ED0C00686C93 /* CheerCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0894AF2584ED0C00686C93 /* CheerCollectionViewDataSource.swift */; };
 		9D0894B52584EDDD00686C93 /* CheerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0894B42584EDDD00686C93 /* CheerCollectionViewCell.swift */; };
+		9D0894EB2585434A00686C93 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0894EA2585434A00686C93 /* SplashViewController.swift */; };
 		9D2503212572897C005C20A9 /* PhoneInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2503202572897C005C20A9 /* PhoneInputViewController.swift */; };
 		9D250326257294C5005C20A9 /* NickInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D250325257294C5005C20A9 /* NickInputViewController.swift */; };
 		9D25032C2572A3EC005C20A9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D25032B2572A3EC005C20A9 /* HomeViewController.swift */; };
@@ -102,6 +103,7 @@
 		9D0894AA2584E96000686C93 /* ImageCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		9D0894AF2584ED0C00686C93 /* CheerCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheerCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		9D0894B42584EDDD00686C93 /* CheerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheerCollectionViewCell.swift; sourceTree = "<group>"; };
+		9D0894EA2585434A00686C93 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		9D2503202572897C005C20A9 /* PhoneInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneInputViewController.swift; sourceTree = "<group>"; };
 		9D250325257294C5005C20A9 /* NickInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickInputViewController.swift; sourceTree = "<group>"; };
 		9D25032B2572A3EC005C20A9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -414,10 +416,10 @@
 		9D8EAB00256D899D0066B3C7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				9D6B0581255D8F9600FE63C9 /* AppDelegate.swift */,
 				9D8EE7542583FDA9005D0B51 /* Util */,
 				F4A8938B257FA7A9001CA7FE /* Model */,
 				F4A89382257FA5B4001CA7FE /* APIServices */,
-				9D6B0581255D8F9600FE63C9 /* AppDelegate.swift */,
 				9D8EAB0A256D8DB20066B3C7 /* Extension */,
 				9D8EAB0B256D8DBE0066B3C7 /* Scenes */,
 			);
@@ -477,6 +479,7 @@
 			isa = PBXGroup;
 			children = (
 				9D6B058C255D8F9D00FE63C9 /* LaunchScreen.storyboard */,
+				9D0894EA2585434A00686C93 /* SplashViewController.swift */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -911,6 +914,7 @@
 				F4A8938D257FA7BD001CA7FE /* Fundraising.swift in Sources */,
 				F46E06C6257A0FD600764B02 /* InputGaolVC.swift in Sources */,
 				9D25035825738AC6005C20A9 /* CompleteViewController.swift in Sources */,
+				9D0894EB2585434A00686C93 /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
