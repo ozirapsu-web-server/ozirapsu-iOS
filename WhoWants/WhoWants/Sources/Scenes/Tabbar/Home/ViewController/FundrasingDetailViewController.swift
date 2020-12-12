@@ -69,11 +69,14 @@ class FundrasingDetailViewController: UIViewController {
                                 forCellWithReuseIdentifier: FundraisingImageCell.identifier)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
-        collectionView.dataSource = self
-        collectionView.delegate = self
+        collectionView.dataSource = imageCollectionViewDataSource
+        collectionView.delegate = imageCollectionViewDelegate
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
+    
+    var imageCollectionViewDataSource = ImageCollectionViewDataSource(["Hi", "Hi", "Hi", "Hi", "Hi"])
+    var imageCollectionViewDelegate = ImageCollectionViewDelegate(["Hi", "Hi", "Hi", "Hi", "Hi"])
     
     let pageControl: UIPageControl = {
         let pageControl = UIPageControl()
@@ -341,6 +344,13 @@ class FundrasingDetailViewController: UIViewController {
         return label
     }()
     
+    let cheerAdminView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     // MARK: - Init
     private func setNav() {
         self.navigationController?.navigationBar.transform = .identity
@@ -401,8 +411,16 @@ class FundrasingDetailViewController: UIViewController {
         pageControl.numberOfPages = detailData.count
     }
     
+    private func configureDelegate() {
+        imageCollectionViewDelegate.endScroll = { [weak self] page in
+            self?.pageControl.currentPage = page
+        }
+    }
+    
     // MARK: - Data
-    var detailData: [String] = ["Hi", "Hi", "Hi", "Hi"]
+    
+    /* 데이터 나중에 Class 타입으로 바꾸고 설정되었을 때, reload 수행할 수 있게 */
+    var detailData = ["Hi", "Hi", "Hi", "Hi", "Hi"]
     
     // MARK: - Action
     @objc
@@ -424,6 +442,8 @@ class FundrasingDetailViewController: UIViewController {
         setNav()
         initView()
         configureLayout()
+        
+        configureDelegate()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -521,28 +541,5 @@ class FundrasingDetailViewController: UIViewController {
             pageControl.bottomAnchor.constraint(equalTo: topContainerView.bottomAnchor),
             pageControl.centerXAnchor.constraint(equalTo: topContainerView.centerXAnchor)
         ])
-    }
-}
-
-extension FundrasingDetailViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return detailData.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let fundraisingImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: FundraisingImageCell.identifier,
-                                                                            for: indexPath)
-                as? FundraisingImageCell else { return UICollectionViewCell() }
-        fundraisingImageCell.bind()
-        return fundraisingImageCell
-    }
-}
-
-extension FundrasingDetailViewController: UICollectionViewDelegate {
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView,
-                                   withVelocity velocity: CGPoint,
-                                   targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        let page = Int(targetContentOffset.pointee.x/scrollView.bounds.width)
-        pageControl.currentPage = page
     }
 }
