@@ -114,6 +114,7 @@ class SigninViewController: UIViewController {
         textField.attributedText = attributeText
         textField.text = ""
         textField.textColor = color
+        textField.isSecureTextEntry = true
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -227,6 +228,11 @@ class SigninViewController: UIViewController {
         }
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        emailTextField.resignFirstResponder()
+        pwTextField.resignFirstResponder()
+    }
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -248,6 +254,12 @@ class SigninViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         configureCornerRadius()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        emailTextField.resignFirstResponder()
+        pwTextField.resignFirstResponder()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
