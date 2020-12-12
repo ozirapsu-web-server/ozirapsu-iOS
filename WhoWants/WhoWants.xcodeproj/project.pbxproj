@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0E80AF7989FABA97445D0570 /* Pods_WhoWants.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040B0C19E78EF28F8A6BE1DD /* Pods_WhoWants.framework */; };
 		9D0894AB2584E96000686C93 /* ImageCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0894AA2584E96000686C93 /* ImageCollectionViewDelegate.swift */; };
+		9D0894B02584ED0C00686C93 /* CheerCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0894AF2584ED0C00686C93 /* CheerCollectionViewDataSource.swift */; };
+		9D0894B52584EDDD00686C93 /* CheerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0894B42584EDDD00686C93 /* CheerCollectionViewCell.swift */; };
 		9D2503212572897C005C20A9 /* PhoneInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2503202572897C005C20A9 /* PhoneInputViewController.swift */; };
 		9D250326257294C5005C20A9 /* NickInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D250325257294C5005C20A9 /* NickInputViewController.swift */; };
 		9D25032C2572A3EC005C20A9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D25032B2572A3EC005C20A9 /* HomeViewController.swift */; };
@@ -98,6 +100,8 @@
 		58AF16D27B1BC848D1273063 /* Pods-WhoWants-WhoWantsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoWants-WhoWantsUITests.release.xcconfig"; path = "Target Support Files/Pods-WhoWants-WhoWantsUITests/Pods-WhoWants-WhoWantsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		732D0F645AAEF922E84C0C17 /* Pods_WhoWantsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhoWantsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D0894AA2584E96000686C93 /* ImageCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		9D0894AF2584ED0C00686C93 /* CheerCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheerCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		9D0894B42584EDDD00686C93 /* CheerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheerCollectionViewCell.swift; sourceTree = "<group>"; };
 		9D2503202572897C005C20A9 /* PhoneInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneInputViewController.swift; sourceTree = "<group>"; };
 		9D250325257294C5005C20A9 /* NickInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickInputViewController.swift; sourceTree = "<group>"; };
 		9D25032B2572A3EC005C20A9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -320,6 +324,7 @@
 			children = (
 				9D3F1A282584E3D60040D0BF /* ImageCollectionViewDataSource.swift */,
 				9D0894AA2584E96000686C93 /* ImageCollectionViewDelegate.swift */,
+				9D0894AF2584ED0C00686C93 /* CheerCollectionViewDataSource.swift */,
 			);
 			path = CollectionView;
 			sourceTree = "<group>";
@@ -331,6 +336,7 @@
 				9D54C7D3257A7FD2005066D0 /* FundraisingHeaderView.swift */,
 				9D54C7CB257A7E91005066D0 /* FundraisingCell.swift */,
 				9D88C22725840F52007190CF /* FundraisingImageCell.swift */,
+				9D0894B42584EDDD00686C93 /* CheerCollectionViewCell.swift */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -878,6 +884,7 @@
 				F46E06D5257A101C00764B02 /* FundraisingCompleteVC.swift in Sources */,
 				9D8EAB4F256E35C30066B3C7 /* EmailInputViewController.swift in Sources */,
 				9D250326257294C5005C20A9 /* NickInputViewController.swift in Sources */,
+				9D0894B52584EDDD00686C93 /* CheerCollectionViewCell.swift in Sources */,
 				9D8EAB6E256EAA8F0066B3C7 /* NSNotification.Name+Extension.swift in Sources */,
 				9D54C7EC257B7E6D005066D0 /* FundraisingCurHeaderView.swift in Sources */,
 				F4A89398257FA840001CA7FE /* OpenService.swift in Sources */,
@@ -891,6 +898,7 @@
 				F46E0729257CB9D000764B02 /* addImageCVC.swift in Sources */,
 				9D54C7CC257A7E91005066D0 /* FundraisingCell.swift in Sources */,
 				9D88C22825840F52007190CF /* FundraisingImageCell.swift in Sources */,
+				9D0894B02584ED0C00686C93 /* CheerCollectionViewDataSource.swift in Sources */,
 				F4A89392257FA7FC001CA7FE /* NetworkResult.swift in Sources */,
 				9D25039125739FA3005C20A9 /* MyPageViewController.swift in Sources */,
 				9D8EAB45256E1FB30066B3C7 /* SignupContainerViewController.swift in Sources */,

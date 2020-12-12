@@ -351,6 +351,25 @@ class FundrasingDetailViewController: UIViewController {
         return view
     }()
     
+    lazy var cheerCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let cellWidth = UIScreen.main.bounds.width - 20*2
+        let height = cellWidth
+        layout.scrollDirection = .vertical
+        layout.estimatedItemSize = CGSize(width: cellWidth, height: 90)
+        layout.sectionInset = .zero
+        layout.minimumLineSpacing = 8
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(CheerCollectionViewCell.self,
+                                forCellWithReuseIdentifier: CheerCollectionViewCell.identifier)
+        collectionView.dataSource = cheerCollectionViewDataSource
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        return collectionView
+    }()
+    
+    var cheerCollectionViewDataSource = CheerCollectionViewDataSource(["Hi", "Hi", "Hi"])
+    
     // MARK: - Init
     private func setNav() {
         self.navigationController?.navigationBar.transform = .identity
@@ -408,6 +427,9 @@ class FundrasingDetailViewController: UIViewController {
         bottomContainerView.addSubview(tipView)
         tipView.addSubview(tipLabel)
         
+        bottomContainerView.addSubview(cheerAdminView)
+        cheerAdminView.addSubview(cheerCollectionView)
+        
         pageControl.numberOfPages = detailData.count
     }
     
@@ -444,6 +466,9 @@ class FundrasingDetailViewController: UIViewController {
         configureLayout()
         
         configureDelegate()
+        
+        
+        configureContainerViewHeight()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -458,6 +483,7 @@ class FundrasingDetailViewController: UIViewController {
         stateView.layer.cornerRadius = stateViewCorner
         shareButton.layer.cornerRadius = stateViewCorner
         tipView.layer.cornerRadius = stateViewCorner
+        
         
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
@@ -536,10 +562,35 @@ class FundrasingDetailViewController: UIViewController {
             tipLabel.trailingAnchor.constraint(equalTo: tipView.trailingAnchor, constant: -12),
             tipLabel.bottomAnchor.constraint(equalTo: tipView.bottomAnchor, constant: -6),
             
-            tipView.bottomAnchor.constraint(equalTo: bottomContainerView.bottomAnchor, constant: 12),
+            cheerAdminView.topAnchor.constraint(equalTo: tipView.bottomAnchor, constant: 34),
+            cheerAdminView.leadingAnchor.constraint(equalTo: tipView.leadingAnchor),
+            cheerAdminView.trailingAnchor.constraint(equalTo: tipView.trailingAnchor),
+            cheerAdminView.bottomAnchor.constraint(equalTo: bottomContainerView.bottomAnchor),
+            cheerCollectionView.leadingAnchor.constraint(equalTo: cheerAdminView.leadingAnchor),
+            cheerCollectionView.topAnchor.constraint(equalTo: cheerAdminView.topAnchor),
+            cheerCollectionView.trailingAnchor.constraint(equalTo: cheerAdminView.trailingAnchor),
+            cheerCollectionView.bottomAnchor.constraint(equalTo: cheerAdminView.bottomAnchor),
 
             pageControl.bottomAnchor.constraint(equalTo: topContainerView.bottomAnchor),
             pageControl.centerXAnchor.constraint(equalTo: topContainerView.centerXAnchor)
         ])
+    }
+    
+    private func configureContainerViewHeight() {
+        let topSize = topContainerView.systemLayoutSizeFitting(CGSize(width: self.view.bounds.width,
+                                                                      height: 200),
+                                                               withHorizontalFittingPriority: .required,
+                                                               verticalFittingPriority: .fittingSizeLevel)
+        
+        let middleSize = middleContainerView.systemLayoutSizeFitting(CGSize(width: self.view.bounds.width,
+                                                                            height: 200),
+                                                                     withHorizontalFittingPriority: .required,
+                                                                     verticalFittingPriority: .fittingSizeLevel)
+        
+        let collectionViewHeight = cheerCollectionView.contentSize.height
+        
+        print(topSize)
+        print(middleSize)
+        print(collectionViewHeight)
     }
 }
