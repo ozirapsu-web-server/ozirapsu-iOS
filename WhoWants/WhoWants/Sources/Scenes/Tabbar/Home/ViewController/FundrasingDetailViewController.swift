@@ -39,6 +39,12 @@ class FundrasingDetailViewController: UIViewController {
         return scrollView
     }()
     
+    let contentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     let contentStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -51,6 +57,7 @@ class FundrasingDetailViewController: UIViewController {
     let topContainerView: UIView = {
         let uiView = UIView()
         uiView.backgroundColor = .clear
+        uiView.translatesAutoresizingMaskIntoConstraints = false
         return uiView
     }()
     
@@ -88,6 +95,7 @@ class FundrasingDetailViewController: UIViewController {
     let middleContainerView: UIView = {
         let uiView = UIView()
         uiView.backgroundColor = UIColor(red: 0.949, green: 0.949, blue: 0.949, alpha: 1.0)
+        uiView.translatesAutoresizingMaskIntoConstraints = false
         return uiView
     }()
     
@@ -141,6 +149,7 @@ class FundrasingDetailViewController: UIViewController {
                                                                              size: 12)!,
                                                                .kern: -0.48,
                                                                .foregroundColor: UIColor.mainblack])
+        label.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         return label
     }()
     
@@ -152,6 +161,7 @@ class FundrasingDetailViewController: UIViewController {
                                                                              size: 20)!,
                                                                .kern: -0.8,
                                                                .foregroundColor: UIColor.mainblack])
+        label.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -186,6 +196,7 @@ class FundrasingDetailViewController: UIViewController {
                                                                              size: 12)!,
                                                                .kern: -0.48,
                                                                .foregroundColor: UIColor.mainblack])
+        label.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         return label
     }()
     
@@ -197,6 +208,7 @@ class FundrasingDetailViewController: UIViewController {
                                                                              size: 20)!,
                                                                .kern: -0.8,
                                                                .foregroundColor: UIColor.whowantsblue])
+        label.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -215,6 +227,7 @@ class FundrasingDetailViewController: UIViewController {
                                                                              size: 20)!,
                                                                .kern: -0.8,
                                                                .foregroundColor: UIColor.whowantsblue])
+        label.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -262,6 +275,7 @@ class FundrasingDetailViewController: UIViewController {
                                                                .kern: -0.48,
                                                                .foregroundColor: UIColor.mainblack])
         label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        label.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -288,6 +302,7 @@ class FundrasingDetailViewController: UIViewController {
                                                                .kern: -0.48,
                                                                .foregroundColor: UIColor.mainblack])
         label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        label.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -303,6 +318,7 @@ class FundrasingDetailViewController: UIViewController {
     let bottomContainerView: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -340,6 +356,7 @@ class FundrasingDetailViewController: UIViewController {
         attributeText.addAttribute(.font, value: UIFont(name: FontName.notosans_medium, size: 12)!,
                                    range: (FundrasingDetailText.tip.rawValue as NSString).range(of: "250% 상승 효과"))
         label.attributedText = attributeText
+        label.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -351,6 +368,7 @@ class FundrasingDetailViewController: UIViewController {
         return view
     }()
     
+    // FIXME: CollectionView을 따로 빼기
     lazy var cheerCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let cellWidth = UIScreen.main.bounds.width - 20*2
@@ -364,9 +382,12 @@ class FundrasingDetailViewController: UIViewController {
         collectionView.register(CheerCollectionViewCell.self,
                                 forCellWithReuseIdentifier: CheerCollectionViewCell.identifier)
         collectionView.dataSource = cheerCollectionViewDataSource
+        collectionView.backgroundColor = .white
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
+    
+    var cheerCollectionViewHeightConstraint: NSLayoutConstraint!
     
     var cheerCollectionViewDataSource = CheerCollectionViewDataSource(["Hi", "Hi", "Hi"])
     
@@ -385,11 +406,13 @@ class FundrasingDetailViewController: UIViewController {
                                                                  target: self,
                                                                  action: #selector(write(_:)))
         self.navigationItem.titleView = titleLabel
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
     
     private func initView() {
         self.view.addSubview(scrollView)
-        scrollView.addSubview(contentStackView)
+        scrollView.addSubview(contentView)
+        contentView.addSubview(contentStackView)
         contentStackView.addArrangedSubview(topContainerView)
         topContainerView.addSubview(imageCollectionView)
         topContainerView.addSubview(pageControl)
@@ -464,11 +487,7 @@ class FundrasingDetailViewController: UIViewController {
         setNav()
         initView()
         configureLayout()
-        
         configureDelegate()
-        
-        
-        configureContainerViewHeight()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -484,17 +503,27 @@ class FundrasingDetailViewController: UIViewController {
         shareButton.layer.cornerRadius = stateViewCorner
         tipView.layer.cornerRadius = stateViewCorner
         
+        let heightConstraint = contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
+        heightConstraint.priority = UILayoutPriority(rawValue: 750)
+        
+        cheerCollectionViewHeightConstraint = cheerCollectionView.heightAnchor.constraint(equalToConstant: 0)
+        cheerCollectionViewHeightConstraint.priority = UILayoutPriority(rawValue: 500)
         
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            scrollView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            contentStackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            contentStackView.leadingAnchor.constraint(equalTo: contentStackView.leadingAnchor),
-            contentStackView.trailingAnchor.constraint(equalTo: contentStackView.trailingAnchor),
-            contentStackView.bottomAnchor.constraint(equalTo: contentStackView.bottomAnchor),
-            contentStackView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
+            heightConstraint,
+            contentStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            contentStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            contentStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            contentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             imageCollectionView.topAnchor.constraint(equalTo: topContainerView.topAnchor),
             imageCollectionView.leadingAnchor.constraint(equalTo: topContainerView.leadingAnchor),
             imageCollectionView.trailingAnchor.constraint(equalTo: topContainerView.trailingAnchor),
@@ -565,32 +594,22 @@ class FundrasingDetailViewController: UIViewController {
             cheerAdminView.topAnchor.constraint(equalTo: tipView.bottomAnchor, constant: 34),
             cheerAdminView.leadingAnchor.constraint(equalTo: tipView.leadingAnchor),
             cheerAdminView.trailingAnchor.constraint(equalTo: tipView.trailingAnchor),
-            cheerAdminView.bottomAnchor.constraint(equalTo: bottomContainerView.bottomAnchor),
             cheerCollectionView.leadingAnchor.constraint(equalTo: cheerAdminView.leadingAnchor),
             cheerCollectionView.topAnchor.constraint(equalTo: cheerAdminView.topAnchor),
             cheerCollectionView.trailingAnchor.constraint(equalTo: cheerAdminView.trailingAnchor),
             cheerCollectionView.bottomAnchor.constraint(equalTo: cheerAdminView.bottomAnchor),
-
+            cheerAdminView.bottomAnchor.constraint(lessThanOrEqualTo: bottomContainerView.bottomAnchor,
+                                                   constant: -10),
+            cheerCollectionViewHeightConstraint,
+            
             pageControl.bottomAnchor.constraint(equalTo: topContainerView.bottomAnchor),
             pageControl.centerXAnchor.constraint(equalTo: topContainerView.centerXAnchor)
         ])
-    }
-    
-    private func configureContainerViewHeight() {
-        let topSize = topContainerView.systemLayoutSizeFitting(CGSize(width: self.view.bounds.width,
-                                                                      height: 200),
-                                                               withHorizontalFittingPriority: .required,
-                                                               verticalFittingPriority: .fittingSizeLevel)
         
-        let middleSize = middleContainerView.systemLayoutSizeFitting(CGSize(width: self.view.bounds.width,
-                                                                            height: 200),
-                                                                     withHorizontalFittingPriority: .required,
-                                                                     verticalFittingPriority: .fittingSizeLevel)
-        
-        let collectionViewHeight = cheerCollectionView.contentSize.height
-        
-        print(topSize)
-        print(middleSize)
-        print(collectionViewHeight)
+        let middleSize =
+            middleContainerView.systemLayoutSizeFitting(CGSize(width: view.frame.width, height: 200),
+                                                        withHorizontalFittingPriority: .required,
+                                                        verticalFittingPriority: .fittingSizeLevel)
+        middleContainerView.heightAnchor.constraint(equalToConstant: middleSize.height).isActive = true
     }
 }

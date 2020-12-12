@@ -54,6 +54,7 @@ class HomeViewController: UIViewController {
     // MARK: - Init
     private func initView() {
         self.view.addSubview(homeCollectionView)
+        
     }
     
     private func setNav() {
