@@ -11,6 +11,11 @@ enum FundrasingDetailText: String {
     case title = "후원츠를 도와주세요!"
     case surporter = "서포터즈"
     case new = "새 소식"
+    case progress = "진행중"
+    case curMoney = "모인 금액"
+    case totalMoney = "목표 금액"
+    case shareBtn = "모금함 공유하기"
+    case tip = "3명의 친구에게 SNS 공유를 부탁하면 모금 성공 확률이 250% 상승 효과가 있습니다. 사연을 공유해주세요! 💪"
 }
 
 class FundrasingDetailViewController: UIViewController {
@@ -195,7 +200,145 @@ class FundrasingDetailViewController: UIViewController {
     
     let stateView: UIView = {
         let uiView = UIView()
+        uiView.backgroundColor = .white
+        uiView.clipsToBounds = true
         return uiView
+    }()
+    
+    let percentLabel: UILabel = {
+        let label = UILabel()
+        label.attributedText = NSAttributedString(string: "10%",
+                                                  attributes: [.font: UIFont(name: FontName.notosans_bold,
+                                                                             size: 20)!,
+                                                               .kern: -0.8,
+                                                               .foregroundColor: UIColor.whowantsblue])
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let progressLabel: UILabel = {
+        let label = UILabel()
+        label.attributedText = NSAttributedString(string: FundrasingDetailText.progress.rawValue,
+                                                  attributes: [.font: UIFont(name: FontName.notosans_medium,
+                                                                             size: 14)!,
+                                                               .kern: -0.56,
+                                                               .foregroundColor: UIColor.mainblack])
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let progressView: UIProgressView = {
+        let progressView = UIProgressView(progressViewStyle: .default)
+        progressView.progressTintColor = .whowantsblue
+        progressView.setProgress(0.1, animated: true)
+        progressView.translatesAutoresizingMaskIntoConstraints = false
+        return progressView
+    }()
+    
+    let moneyStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.distribution = .fillEqually
+        stackView.spacing = 1
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+    let curMoneyContainerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }()
+    
+    let curMoneyStateLabel: UILabel = {
+        let label = UILabel()
+        label.attributedText = NSAttributedString(string: FundrasingDetailText.curMoney.rawValue,
+                                                  attributes: [.font: UIFont(name: FontName.notosans_regular,
+                                                                             size: 12)!,
+                                                               .kern: -0.48,
+                                                               .foregroundColor: UIColor.mainblack])
+        label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let curMoneyAmountLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .right
+        label.text = 10000.convertUnitKR() + " 원"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let totalMoneyContainerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }()
+    
+    let totalMoneyStateLabel: UILabel = {
+        let label = UILabel()
+        label.attributedText = NSAttributedString(string: FundrasingDetailText.totalMoney.rawValue,
+                                                  attributes: [.font: UIFont(name: FontName.notosans_regular,
+                                                                             size: 12)!,
+                                                               .kern: -0.48,
+                                                               .foregroundColor: UIColor.mainblack])
+        label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let totalMoneyAmountLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .right
+        label.text = 1000.convertUnitKR() + " 원"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let bottomContainerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }()
+    
+    let shareButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.backgroundColor = .whowantsblue
+        let attributeText = NSAttributedString(string: FundrasingDetailText.shareBtn.rawValue,
+                                               attributes: [.font: UIFont(name: FontName.notosans_medium,
+                                                                          size: 16)!,
+                                                            .kern: -0.64,
+                                                            .foregroundColor: UIColor.white])
+        btn.setAttributedTitle(attributeText, for: .normal)
+        btn.clipsToBounds = true
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
+    let tipView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(red: 0.949, green: 0.949, blue: 0.949, alpha: 1.0)
+        view.clipsToBounds = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    let tipLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        let attributeText = NSMutableAttributedString(string: FundrasingDetailText.tip.rawValue,
+                                                      attributes: [.font: UIFont(name: FontName.notosans_light,
+                                                                                 size: 12)!,
+                                                                   .kern: -0.48,
+                                                                   .foregroundColor: UIColor.mainblack])
+        
+        attributeText.addAttribute(.font, value: UIFont(name: FontName.notosans_medium, size: 12)!,
+                                   range: (FundrasingDetailText.tip.rawValue as NSString).range(of: "250% 상승 효과"))
+        label.attributedText = attributeText
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     // MARK: - Init
@@ -238,6 +381,23 @@ class FundrasingDetailViewController: UIViewController {
         newsStackView.addArrangedSubview(newsLabel)
         newsView.addSubview(newsCountLabel)
         
+        middleStackView.addArrangedSubview(stateView)
+        stateView.addSubview(percentLabel)
+        stateView.addSubview(progressLabel)
+        stateView.addSubview(progressView)
+        stateView.addSubview(moneyStackView)
+        moneyStackView.addArrangedSubview(curMoneyContainerView)
+        moneyStackView.addArrangedSubview(totalMoneyContainerView)
+        curMoneyContainerView.addSubview(curMoneyStateLabel)
+        curMoneyContainerView.addSubview(curMoneyAmountLabel)
+        totalMoneyContainerView.addSubview(totalMoneyStateLabel)
+        totalMoneyContainerView.addSubview(totalMoneyAmountLabel)
+        
+        contentStackView.addArrangedSubview(bottomContainerView)
+        bottomContainerView.addSubview(shareButton)
+        bottomContainerView.addSubview(tipView)
+        tipView.addSubview(tipLabel)
+        
         pageControl.numberOfPages = detailData.count
     }
     
@@ -275,6 +435,9 @@ class FundrasingDetailViewController: UIViewController {
         let stateViewCorner: CGFloat = (self.view.bounds.width - 20*2 - 7)/2/27
         surporterView.layer.cornerRadius = stateViewCorner
         newsView.layer.cornerRadius = stateViewCorner
+        stateView.layer.cornerRadius = stateViewCorner
+        shareButton.layer.cornerRadius = stateViewCorner
+        tipView.layer.cornerRadius = stateViewCorner
         
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
@@ -312,6 +475,49 @@ class FundrasingDetailViewController: UIViewController {
             newsCountLabel.centerXAnchor.constraint(equalTo: newsView.centerXAnchor),
             newsCountLabel.bottomAnchor.constraint(equalTo: newsView.bottomAnchor, constant: -14),
             
+            percentLabel.topAnchor.constraint(equalTo: stateView.topAnchor, constant: 10),
+            percentLabel.leadingAnchor.constraint(equalTo: stateView.leadingAnchor, constant: 18),
+            progressLabel.leadingAnchor.constraint(equalTo: percentLabel.trailingAnchor, constant: 7),
+            progressLabel.centerYAnchor.constraint(equalTo: percentLabel.centerYAnchor),
+            progressView.topAnchor.constraint(equalTo: percentLabel.bottomAnchor, constant: 5),
+            progressView.leadingAnchor.constraint(equalTo: stateView.leadingAnchor, constant: 18),
+            progressView.trailingAnchor.constraint(equalTo: stateView.trailingAnchor, constant: -18),
+            progressView.heightAnchor.constraint(equalToConstant: 6),
+            moneyStackView.topAnchor.constraint(equalTo: progressView.bottomAnchor, constant: 8),
+            moneyStackView.leadingAnchor.constraint(equalTo: progressView.leadingAnchor),
+            moneyStackView.trailingAnchor.constraint(equalTo: progressView.trailingAnchor),
+            moneyStackView.bottomAnchor.constraint(equalTo: stateView.bottomAnchor, constant: -12),
+            
+            curMoneyStateLabel.leadingAnchor.constraint(equalTo: curMoneyContainerView.leadingAnchor),
+            curMoneyStateLabel.topAnchor.constraint(equalTo: curMoneyContainerView.topAnchor),
+            curMoneyStateLabel.bottomAnchor.constraint(equalTo: curMoneyContainerView.bottomAnchor),
+            
+            curMoneyAmountLabel.leadingAnchor.constraint(equalTo: curMoneyStateLabel.trailingAnchor,
+                                                         constant: 10),
+            curMoneyAmountLabel.centerYAnchor.constraint(equalTo: curMoneyStateLabel.centerYAnchor),
+            curMoneyAmountLabel.trailingAnchor.constraint(equalTo: curMoneyContainerView.trailingAnchor),
+            
+            totalMoneyStateLabel.leadingAnchor.constraint(equalTo: totalMoneyContainerView.leadingAnchor),
+            totalMoneyStateLabel.topAnchor.constraint(equalTo: totalMoneyContainerView.topAnchor),
+            totalMoneyStateLabel.bottomAnchor.constraint(equalTo: totalMoneyContainerView.bottomAnchor),
+            totalMoneyAmountLabel.leadingAnchor.constraint(equalTo: totalMoneyStateLabel.trailingAnchor, constant: 10),
+            totalMoneyAmountLabel.centerYAnchor.constraint(equalTo: totalMoneyStateLabel.centerYAnchor),
+            totalMoneyAmountLabel.trailingAnchor.constraint(equalTo: totalMoneyContainerView.trailingAnchor),
+            
+            shareButton.topAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: 24),
+            shareButton.leadingAnchor.constraint(equalTo: bottomContainerView.leadingAnchor, constant: 20),
+            shareButton.trailingAnchor.constraint(equalTo: bottomContainerView.trailingAnchor, constant: -20),
+            shareButton.heightAnchor.constraint(equalTo: shareButton.widthAnchor, multiplier: 0.14),
+            tipView.topAnchor.constraint(equalTo: shareButton.bottomAnchor, constant: 12),
+            tipView.leadingAnchor.constraint(equalTo: shareButton.leadingAnchor),
+            tipView.trailingAnchor.constraint(equalTo: shareButton.trailingAnchor),
+            tipLabel.topAnchor.constraint(equalTo: tipView.topAnchor, constant: 6),
+            tipLabel.leadingAnchor.constraint(equalTo: tipView.leadingAnchor, constant: 12),
+            tipLabel.trailingAnchor.constraint(equalTo: tipView.trailingAnchor, constant: -12),
+            tipLabel.bottomAnchor.constraint(equalTo: tipView.bottomAnchor, constant: -6),
+            
+            tipView.bottomAnchor.constraint(equalTo: bottomContainerView.bottomAnchor, constant: 12),
+
             pageControl.bottomAnchor.constraint(equalTo: topContainerView.bottomAnchor),
             pageControl.centerXAnchor.constraint(equalTo: topContainerView.centerXAnchor)
         ])

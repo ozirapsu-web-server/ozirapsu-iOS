@@ -114,6 +114,7 @@ class SigninViewController: UIViewController {
         textField.attributedText = attributeText
         textField.text = ""
         textField.textColor = color
+        textField.isSecureTextEntry = true
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
