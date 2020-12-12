@@ -14,6 +14,16 @@ struct APIConstants {
     static let openFundraisingURL = BaseURL + "/story"
     
     /* 호스트 */
-    static let signup = BaseURL + "/host/signup"
-    static let signin = BaseURL + "/host/signin"
+    static let host = BaseURL + "/host"
+    static var signup: String {
+        return host + "/signup"
+    }
+    
+    static var signin: String {
+        return host + "/signin"
+    }
+    
+    static var hoststory: String {
+        return host + "/story"
+    }
 }

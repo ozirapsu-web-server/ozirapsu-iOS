@@ -19,4 +19,5 @@ struct ImageName {
     static let btn_edit = "btn_edit"
     static let new = "ic_new"
     static let cheer_profile = "cheer_profile"
+    static let empty_fundraising = "img_emptyview"
 }
