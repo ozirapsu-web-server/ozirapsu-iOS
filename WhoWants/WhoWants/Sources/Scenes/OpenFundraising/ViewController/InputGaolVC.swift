@@ -72,7 +72,6 @@ class InputGaolVC: UIViewController {
                                       style: .plain,
                                       target: self,
                                       action: #selector(back(_:)))
-        backbtn.imageInsets = UIEdgeInsets(top: 0, left: -12, bottom: 0, right: 0)
         navigationItem.leftBarButtonItem = backbtn
     }
     

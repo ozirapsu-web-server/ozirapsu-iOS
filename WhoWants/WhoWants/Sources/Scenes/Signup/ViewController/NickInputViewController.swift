@@ -38,7 +38,7 @@ class NickInputViewController: UIViewController {
     
     var nickTextfield: UITextField = {
         var textField = UITextField()
-        let attributeText = NSAttributedString(string: PhoneInputText.phonePlaceholder.rawValue,
+        let attributeText = NSAttributedString(string: NickInputText.nickPlaceholder.rawValue,
                                                attributes: [.font: UIFont(name: FontName.notosans_regular,
                                                                           size: 14)!,
                                                             .kern: -0.56])

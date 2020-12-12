@@ -37,7 +37,6 @@ struct SignupService {
             HTTPHeaderKey.contenttype.rawValue : HTTPHeaderValue.ContentTypeValue.json.rawValue
         ]
         
-        
         AF.request(APIConstants.signup, method: .post, parameters: parameter.makeParameter(),
                    encoding: JSONEncoding.default, headers: headers)
             .validate(statusCode: 200...500)

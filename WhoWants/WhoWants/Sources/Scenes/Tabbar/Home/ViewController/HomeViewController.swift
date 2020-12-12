@@ -54,6 +54,7 @@ class HomeViewController: UIViewController {
     // MARK: - Init
     private func initView() {
         self.view.addSubview(homeCollectionView)
+        
     }
     
     private func setNav() {
@@ -188,7 +189,9 @@ extension HomeViewController: UICollectionViewDataSource {
 
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(FundrasingDetailViewController(), animated: true)
+        let detailVC = FundrasingDetailViewController()
+        detailVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 
