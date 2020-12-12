@@ -12,6 +12,7 @@
 		9D0894B02584ED0C00686C93 /* CheerCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0894AF2584ED0C00686C93 /* CheerCollectionViewDataSource.swift */; };
 		9D0894B52584EDDD00686C93 /* CheerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0894B42584EDDD00686C93 /* CheerCollectionViewCell.swift */; };
 		9D0894EB2585434A00686C93 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0894EA2585434A00686C93 /* SplashViewController.swift */; };
+		9D0894F925854BEA00686C93 /* HostStoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0894F825854BEA00686C93 /* HostStoryService.swift */; };
 		9D2503212572897C005C20A9 /* PhoneInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2503202572897C005C20A9 /* PhoneInputViewController.swift */; };
 		9D250326257294C5005C20A9 /* NickInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D250325257294C5005C20A9 /* NickInputViewController.swift */; };
 		9D25032C2572A3EC005C20A9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D25032B2572A3EC005C20A9 /* HomeViewController.swift */; };
@@ -58,6 +59,7 @@
 		9DC1FEA92583977D0075CF7E /* NotoSansKR-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9DC1FE8B258391BA0075CF7E /* NotoSansKR-Thin.otf */; };
 		9DC391242583C1C6007D52FE /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC391232583C1C6007D52FE /* Int+Extension.swift */; };
 		9DC4C2E6257F54BA0015F5B6 /* FundrasingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC4C2E5257F54BA0015F5B6 /* FundrasingDetailViewController.swift */; };
+		9DF51B42258555C4003818AE /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF51B41258555C4003818AE /* UIImageView+Extension.swift */; };
 		A7FC0E6A37F8587083D22AF1 /* Pods_WhoWantsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 732D0F645AAEF922E84C0C17 /* Pods_WhoWantsTests.framework */; };
 		EE53E115DCACF772221C4F9D /* Pods_WhoWants_WhoWantsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1D49E0DDE4CCF9DC4A8B4E0 /* Pods_WhoWants_WhoWantsUITests.framework */; };
 		F46E06B82577D5EA00764B02 /* OpenFundraising.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F46E06B72577D5EA00764B02 /* OpenFundraising.storyboard */; };
@@ -104,6 +106,7 @@
 		9D0894AF2584ED0C00686C93 /* CheerCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheerCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		9D0894B42584EDDD00686C93 /* CheerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheerCollectionViewCell.swift; sourceTree = "<group>"; };
 		9D0894EA2585434A00686C93 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		9D0894F825854BEA00686C93 /* HostStoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostStoryService.swift; sourceTree = "<group>"; };
 		9D2503202572897C005C20A9 /* PhoneInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneInputViewController.swift; sourceTree = "<group>"; };
 		9D250325257294C5005C20A9 /* NickInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickInputViewController.swift; sourceTree = "<group>"; };
 		9D25032B2572A3EC005C20A9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +160,7 @@
 		9DC1FE93258395220075CF7E /* FontName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontName.swift; sourceTree = "<group>"; };
 		9DC391232583C1C6007D52FE /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		9DC4C2E5257F54BA0015F5B6 /* FundrasingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundrasingDetailViewController.swift; sourceTree = "<group>"; };
+		9DF51B41258555C4003818AE /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		C119D225169FF71CD95B5269 /* Pods-WhoWantsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoWantsTests.debug.xcconfig"; path = "Target Support Files/Pods-WhoWantsTests/Pods-WhoWantsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C1D49E0DDE4CCF9DC4A8B4E0 /* Pods_WhoWants_WhoWantsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhoWants_WhoWantsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1FC104123CD00AA7BC8A782 /* Pods-WhoWants.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhoWants.debug.xcconfig"; path = "Target Support Files/Pods-WhoWants/Pods-WhoWants.debug.xcconfig"; sourceTree = "<group>"; };
@@ -215,6 +219,14 @@
 				29D898735C9D925E73796FCF /* Pods-WhoWantsTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		9D0894FD25854BEF00686C93 /* HostStoryService */ = {
+			isa = PBXGroup;
+			children = (
+				9D0894F825854BEA00686C93 /* HostStoryService.swift */,
+			);
+			path = HostStoryService;
 			sourceTree = "<group>";
 		};
 		9D25032A2572A3D7005C20A9 /* Tabbar */ = {
@@ -434,6 +446,7 @@
 				9D8EAB6D256EAA8F0066B3C7 /* NSNotification.Name+Extension.swift */,
 				F46E0723257CB26B00764B02 /* UIView+Extension.swift */,
 				9DC391232583C1C6007D52FE /* Int+Extension.swift */,
+				9DF51B41258555C4003818AE /* UIImageView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -581,6 +594,7 @@
 				9D2F73C72583F19300DB48AE /* Signin */,
 				9D2F73AA2583DD2E00DB48AE /* Signup */,
 				F4A89396257FA820001CA7FE /* OpenFundraising */,
+				9D0894FD25854BEF00686C93 /* HostStoryService */,
 				F4A89383257FA5EF001CA7FE /* APIConstants.swift */,
 				9D2F73BC2583E3CE00DB48AE /* HTTPHeaderCategory.swift */,
 				F4A89391257FA7FC001CA7FE /* NetworkResult.swift */,
@@ -875,6 +889,7 @@
 				F46E0724257CB26B00764B02 /* UIView+Extension.swift in Sources */,
 				9D8EAB23256D8F250066B3C7 /* SigninViewController.swift in Sources */,
 				9DC391242583C1C6007D52FE /* Int+Extension.swift in Sources */,
+				9DF51B42258555C4003818AE /* UIImageView+Extension.swift in Sources */,
 				9D8EAB61256E87410066B3C7 /* String+Extension.swift in Sources */,
 				9DC4C2E6257F54BA0015F5B6 /* FundrasingDetailViewController.swift in Sources */,
 				9D54C7D4257A7FD2005066D0 /* FundraisingHeaderView.swift in Sources */,
@@ -907,6 +922,7 @@
 				9D8EAB45256E1FB30066B3C7 /* SignupContainerViewController.swift in Sources */,
 				9D8EAB66256E8AF10066B3C7 /* ImageName.swift in Sources */,
 				9D8EAB4A256E33070066B3C7 /* UIColor+Extension.swift in Sources */,
+				9D0894F925854BEA00686C93 /* HostStoryService.swift in Sources */,
 				9D2F73C92583F1A300DB48AE /* SigninService.swift in Sources */,
 				9D2F73BD2583E3CE00DB48AE /* HTTPHeaderCategory.swift in Sources */,
 				F46E071F257CB1B600764B02 /* uploadImageCVC.swift in Sources */,
