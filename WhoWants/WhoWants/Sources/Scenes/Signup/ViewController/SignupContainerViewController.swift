@@ -162,7 +162,9 @@ class SignupContainerViewController: UIViewController {
         SignupService.shared.requestSignup(signupDTO) { result in
             switch result {
             case .success:
-                self.navigationController?.pushViewController(CompleteViewController(),
+                let completeVC = CompleteViewController()
+                completeVC.userInform = self.userInform
+                self.navigationController?.pushViewController(completeVC,
                                                               animated: true)
             case .requestErr:
                 print("RequestErr")

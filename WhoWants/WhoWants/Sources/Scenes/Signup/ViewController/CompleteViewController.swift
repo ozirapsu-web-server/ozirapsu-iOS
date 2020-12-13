@@ -106,6 +106,9 @@ class CompleteViewController: UIViewController {
         return btn
     }()
     
+    // MARK: - Data
+    var userInform: [String: String] = [:]
+    
     // MARK: - Action
     @objc
     func back(_ sender: Any) {
@@ -114,10 +117,34 @@ class CompleteViewController: UIViewController {
     
     @objc
     func start(_ sender: UIButton) {
-        let tabbarVC = UIStoryboard(name: "Tabbar", bundle: nil)
-                .instantiateViewController(withIdentifier: MainTabbarViewController.identifier)
-        UIApplication.shared.windows.filter { $0.isKeyWindow }
-            .first?.rootViewController = tabbarVC
+        signin()
+        
+//        let tabbarVC = UIStoryboard(name: "Tabbar", bundle: nil)
+//                .instantiateViewController(withIdentifier: MainTabbarViewController.identifier)
+//        UIApplication.shared.windows.filter { $0.isKeyWindow }
+//            .first?.rootViewController = tabbarVC
+    }
+    
+    private func signin() {
+        let signinDTO = SigninParameterDTO(email: userInform[SignupInputType.email.getKey()]!,
+                                           pw: userInform[SignupInputType.pw.getKey()]!)
+        SigninService.shared.reqeustSignin(signinDTO) { result in
+            switch result {
+            case .success:
+                let tabbarVC = UIStoryboard(name: "Tabbar", bundle: nil)
+                        .instantiateViewController(withIdentifier: MainTabbarViewController.identifier)
+                UIApplication.shared.windows.filter { $0.isKeyWindow }
+                    .first?.rootViewController = tabbarVC
+            case .requestErr:
+                print("request Err")
+            case .serverErr:
+                print("Server Err")
+            case .networkFail:
+                print("network Fail")
+            default:
+                return
+            }
+        }
     }
     
     // MARK: - Init
